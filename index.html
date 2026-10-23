@@ -885,348 +885,115 @@ body {
 }
 
 /* ========================================================
-   FLOATING ANCHORS MENU & DOCK
-   Quick-jump accessibility across sections and exercises
+   MINIMALIST FLOATING ANCHORS (Ultra-light, fast, clean)
    ======================================================== */
-.floating-dock-container {
+.quick-anchors-wrap {
     position: fixed;
-    bottom: 24px;
-    inset-inline-end: 24px;
+    bottom: 20px;
+    inset-inline-end: 20px;
     z-index: 850;
-    display: inline-flex;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     gap: 8px;
-    padding: 4px;
-    background: rgba(14, 14, 22, 0.88);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 9999px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.04);
-    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.floating-dock-btn {
+.quick-anchors-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: transparent;
-    border: none;
+    background: #111118;
     color: #e4e4e7;
-    padding: 7px 13px;
+    border: 1px solid #272738;
     border-radius: 9999px;
-    font-size: 12.5px;
+    padding: 7px 13px;
+    font-size: 12px;
     font-weight: 600;
     cursor: pointer;
-    letter-spacing: -0.01em;
-    transition: all 0.18s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+    transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
     user-select: none;
 }
-.floating-dock-btn:hover {
-    background: rgba(255, 255, 255, 0.08);
+.quick-anchors-btn:hover {
+    background: #181824;
+    border-color: #6366f1;
     color: #ffffff;
+    transform: translateY(-1px);
 }
-.floating-dock-btn:active {
+.quick-anchors-btn:active {
     transform: scale(0.96);
 }
-
-.btn-dock-top {
-    color: #a1a1aa;
-    padding: 7px 10px;
-}
-.btn-dock-top:hover {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.btn-dock-anchors {
-    background: rgba(99, 102, 241, 0.15);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    color: #e0e7ff;
-}
-.btn-dock-anchors:hover {
-    background: rgba(99, 102, 241, 0.25);
-    border-color: rgba(99, 102, 241, 0.5);
-    color: #ffffff;
-    box-shadow: 0 0 12px rgba(99, 102, 241, 0.3);
-}
-
-.dock-badge {
-    background: #4f46e5;
-    color: #ffffff;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 1px 6px;
-    border-radius: 9999px;
-    min-width: 16px;
-    text-align: center;
-    line-height: 14px;
-}
-
-/* Floating Anchors Drawer / Panel */
-.floating-anchors-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    z-index: 890;
-    display: none;
-}
-
-.floating-anchors-panel {
-    position: fixed;
-    bottom: 76px;
-    inset-inline-end: 24px;
-    width: 370px;
-    max-width: calc(100vw - 32px);
-    max-height: min(520px, calc(100vh - 120px));
-    background: rgba(14, 14, 22, 0.96);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 16px;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(99, 102, 241, 0.25);
-    z-index: 900;
-    display: none;
-    flex-direction: column;
-    overflow: hidden;
-    animation: anchorPanelIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.floating-anchors-panel.active {
-    display: flex;
-}
-
-@keyframes anchorPanelIn {
-    0% { opacity: 0; transform: translateY(12px) scale(0.97); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-.floating-anchors-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 16px 10px 16px;
-    border-bottom: 1px solid #1f1f2e;
-    background: rgba(20, 20, 32, 0.6);
-}
-
-.floating-anchors-header-info {
-    min-width: 0;
-    flex: 1;
-}
-
-.floating-anchors-subtitle {
-    font-size: 10px;
-    font-weight: 700;
-    color: #818cf8;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 2px;
-}
-
-.floating-anchors-title {
-    font-size: 13.5px;
-    font-weight: 700;
-    color: #f4f4f5;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.btn-close-anchors {
-    background: transparent;
-    border: none;
-    color: #71717a;
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.15s ease;
-    margin-inline-start: 8px;
+.quick-anchors-btn svg {
     flex-shrink: 0;
-}
-.btn-close-anchors:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+    color: #818cf8;
 }
 
-/* Search filter */
-.floating-anchors-filter-box {
-    padding: 10px 14px;
-    border-bottom: 1px solid #1a1a28;
-    background: rgba(10, 10, 16, 0.5);
-}
-.anchor-filter-input {
-    width: 100%;
-    background: #09090f;
-    border: 1px solid #27273a;
-    border-radius: 8px;
-    padding: 7px 11px;
-    color: #f4f4f5;
-    font-size: 12px;
-    outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    box-sizing: border-box;
-}
-.anchor-filter-input:focus {
-    border-color: #6366f1;
-    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
-}
-.anchor-filter-input::placeholder {
-    color: #52525b;
-}
-
-/* Quick jump bar */
-.floating-anchors-actions {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 14px;
-    border-bottom: 1px solid #1a1a28;
-    background: rgba(12, 12, 20, 0.4);
-}
-.btn-anchor-quick {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #222232;
-    color: #a1a1aa;
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.15s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-}
-.btn-anchor-quick:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    border-color: #383850;
-}
-
-/* Scrollable Anchor Items List */
-.floating-anchors-list {
-    flex: 1;
+.quick-anchors-popover {
+    display: none;
+    background: #0f0f17;
+    border: 1px solid #272738;
+    border-radius: 12px;
+    padding: 9px;
+    width: 270px;
+    max-width: calc(100vw - 36px);
+    max-height: 240px;
     overflow-y: auto;
-    padding: 8px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
     scrollbar-width: thin;
-    max-height: 340px;
+    animation: popoverFadeIn 0.12s ease-out;
 }
-.floating-anchors-list::-webkit-scrollbar {
-    width: 5px;
-}
-.floating-anchors-list::-webkit-scrollbar-thumb {
-    background: #2a2a3e;
-    border-radius: 4px;
+.quick-anchors-popover.open {
+    display: block;
 }
 
-.floating-anchor-item {
-    width: 100%;
+@keyframes popoverFadeIn {
+    0% { opacity: 0; transform: translateY(6px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.quick-anchors-chips {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 10px;
-    background: transparent;
-    border: 1px solid transparent;
-    border-radius: 9px;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.anchor-chip {
+    background: #161622;
     color: #d4d4d8;
-    font-size: 12.5px;
-    text-align: start;
-    cursor: pointer;
-    transition: all 0.15s ease;
-    box-sizing: border-box;
-    margin-bottom: 3px;
-}
-.floating-anchor-item:hover {
-    background: rgba(99, 102, 241, 0.12);
-    border-color: rgba(99, 102, 241, 0.25);
-    color: #ffffff;
-    transform: translateX(2px);
-}
-.floating-anchor-item:active {
-    transform: scale(0.98);
-}
-
-.anchor-badge-col {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-    flex-shrink: 0;
-    min-width: 50px;
-}
-.anchor-badge {
-    font-size: 11px;
-    font-weight: 700;
-    padding: 2px 7px;
-    border-radius: 5px;
-    white-space: nowrap;
-}
-.anchor-badge.note {
-    background: rgba(99, 102, 241, 0.2);
-    color: #a5b4fc;
-    border: 1px solid rgba(99, 102, 241, 0.35);
-}
-.anchor-badge.practice {
-    background: rgba(245, 158, 11, 0.18);
-    color: #fde68a;
-    border: 1px solid rgba(245, 158, 11, 0.35);
-}
-.anchor-badge.video {
-    background: rgba(239, 68, 68, 0.18);
-    color: #fca5a5;
-    border: 1px solid rgba(239, 68, 68, 0.35);
-}
-
-.anchor-sub-badge {
-    font-size: 9.5px;
+    border: 1px solid #252538;
+    border-radius: 7px;
+    padding: 5px 9px;
+    font-size: 11.5px;
     font-weight: 600;
-    color: #71717a;
-    padding-inline-start: 2px;
-}
-
-.anchor-title-col {
-    flex: 1;
-    min-width: 0;
+    cursor: pointer;
+    transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 12px;
-    color: #a1a1aa;
-}
-.floating-anchor-item:hover .anchor-title-col {
-    color: #e4e4e7;
-}
-
-.anchor-arrow {
-    font-size: 13px;
-    color: #52525b;
-    transition: transform 0.15s ease, color 0.15s ease;
-    flex-shrink: 0;
-}
-.floating-anchor-item:hover .anchor-arrow {
-    color: #818cf8;
-    transform: translateX(3px);
-}
-
-.empty-anchors-notice {
-    padding: 24px 16px;
     text-align: center;
-    color: #71717a;
-    font-size: 12.5px;
+}
+.anchor-chip:hover {
+    background: #232338;
+    border-color: #6366f1;
+    color: #ffffff;
+}
+.anchor-chip:active {
+    transform: scale(0.95);
 }
 
-/* Pulse target card animation when jumped to */
+.anchor-chip-top {
+    background: rgba(99, 102, 241, 0.12);
+    border-color: rgba(99, 102, 241, 0.3);
+    color: #a5b4fc;
+}
+.anchor-chip-top:hover {
+    background: rgba(99, 102, 241, 0.25);
+    border-color: #6366f1;
+    color: #ffffff;
+}
+
 @keyframes pulseTargetCard {
     0% {
         outline: 2px solid #818cf8;
-        box-shadow: 0 0 20px rgba(99, 102, 241, 0.45);
+        box-shadow: 0 0 16px rgba(99, 102, 241, 0.4);
     }
     100% {
         outline: 2px solid transparent;
@@ -1234,35 +1001,20 @@ body {
     }
 }
 .highlight-pulse {
-    animation: pulseTargetCard 1.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    animation: pulseTargetCard 1.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 @media (max-width: 480px) {
-    .floating-dock-container {
-        bottom: 16px;
-        inset-inline-end: 16px;
-        gap: 4px;
-        padding: 3px;
+    .quick-anchors-wrap {
+        bottom: 14px;
+        inset-inline-end: 14px;
     }
-    .floating-dock-btn {
+    .quick-anchors-btn {
         padding: 6px 11px;
-        font-size: 12px;
+        font-size: 11.5px;
     }
-    .dock-btn-label {
-        display: none;
-    }
-    .btn-dock-top {
-        padding: 6px 8px;
-    }
-    .btn-dock-anchors {
-        padding: 6px 10px;
-    }
-    .floating-anchors-panel {
-        bottom: 66px;
-        inset-inline-end: 12px;
-        inset-inline-start: 12px;
-        width: auto;
-        max-width: none;
+    .quick-anchors-popover {
+        width: 250px;
     }
 }
 
@@ -10556,47 +10308,20 @@ passes through the origin $(0, 0, 0)$.</div>
     </div>
 </main>
 
-<!-- Floating Anchors Menu Backdrop & Panel -->
-<div id="floatingAnchorsBackdrop" class="floating-anchors-backdrop" onclick="toggleFloatingAnchorsMenu(false)"></div>
-
-<div id="floatingAnchorsPanel" class="floating-anchors-panel" role="dialog" aria-modal="true" aria-labelledby="floatingAnchorsTitle">
-    <div class="floating-anchors-header">
-        <div class="floating-anchors-header-info">
-            <div id="floatingAnchorsSubtitle" class="floating-anchors-subtitle">Practice Problems</div>
-            <div id="floatingAnchorsTitle" class="floating-anchors-title">11.5 Lines in Space</div>
-        </div>
-        <button class="btn-close-anchors" onclick="toggleFloatingAnchorsMenu(false)" aria-label="Close Anchors Menu">&times;</button>
+<!-- Minimalist Floating Quick Jump Anchors -->
+<div class="quick-anchors-wrap" id="quickAnchorsWrap">
+    <div class="quick-anchors-popover" id="quickAnchorsPopover">
+        <div class="quick-anchors-chips" id="quickAnchorsChips"></div>
     </div>
-    
-    <div class="floating-anchors-filter-box">
-        <input type="text" id="anchorFilterInput" class="anchor-filter-input" placeholder="Quick filter sections or problems..." oninput="filterFloatingAnchors(this.value)" autocomplete="off" />
-    </div>
-
-    <div class="floating-anchors-actions">
-        <button class="btn-anchor-quick" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); toggleFloatingAnchorsMenu(false);">
-            &uarr; Top
-        </button>
-        <button class="btn-anchor-quick" onclick="window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' }); toggleFloatingAnchorsMenu(false);">
-            &darr; Bottom
-        </button>
-    </div>
-
-    <div id="floatingAnchorsList" class="floating-anchors-list"></div>
-</div>
-
-<!-- Floating Action Dock -->
-<div class="floating-dock-container" id="floatingDock">
-    <button class="floating-dock-btn btn-dock-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" title="Back to top" aria-label="Back to top">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
-        <span class="dock-btn-label">Top</span>
-    </button>
-    <button class="floating-dock-btn btn-dock-anchors" id="floatingAnchorsTrigger" onclick="toggleFloatingAnchorsMenu()" title="Open section & problem anchors" aria-label="Open anchors menu" aria-expanded="false">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
-        <span class="dock-btn-label">Anchors</span>
-        <span class="dock-badge" id="floatingAnchorsCount">14</span>
+    <button class="quick-anchors-btn" id="quickAnchorsBtn" onclick="toggleQuickAnchors(event)" title="Jump to section or problem" aria-label="Jump to section or problem">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="12" x2="14" y2="12"></line>
+            <line x1="4" y1="18" x2="18" y2="18"></line>
+        </svg>
+        <span>Jump</span>
     </button>
 </div>
-
 
 <script>
 const SHORT_TITLES = [
@@ -10745,11 +10470,7 @@ function switchTopic(topicId) {
     }
 
     scheduleSaveState();
-    updateFloatingAnchorCount();
-    const floatingPanel = document.getElementById("floatingAnchorsPanel");
-    if (floatingPanel && floatingPanel.classList.contains("active")) {
-        populateFloatingAnchors();
-    }
+    closeQuickAnchors();
 }
 
 function switchTab(tab) {
@@ -10804,11 +10525,7 @@ function switchTab(tab) {
     }
 
     scheduleSaveState();
-    updateFloatingAnchorCount();
-    const floatingPanel = document.getElementById("floatingAnchorsPanel");
-    if (floatingPanel && floatingPanel.classList.contains("active")) {
-        populateFloatingAnchors();
-    }
+    closeQuickAnchors();
 }
 
 function teleportTo(elemId) {
@@ -10828,176 +10545,107 @@ function teleportTo(elemId) {
 }
 
 
-function updateFloatingAnchorCount() {
-    const countEl = document.getElementById("floatingAnchorsCount");
-    if (!countEl) return;
-    let count = 0;
-    if (portalState.activeTab === "notes") {
-        const page = document.getElementById("page-" + portalState.activeTopic);
-        if (page) count = page.querySelectorAll(".section-card").length;
-    } else if (portalState.activeTab === "practice") {
-        const page = document.getElementById("practice-page-" + portalState.activeTopic);
-        if (page) count = page.querySelectorAll(".practice-card").length;
-    } else if (portalState.activeTab === "videos") {
-        count = document.querySelectorAll(".video-card").length;
-    }
-    countEl.innerText = count || "";
-}
-
-function toggleFloatingAnchorsMenu(forceState) {
-    const panel = document.getElementById("floatingAnchorsPanel");
-    const backdrop = document.getElementById("floatingAnchorsBackdrop");
-    const trigger = document.getElementById("floatingAnchorsTrigger");
-    if (!panel) return;
-
-    const isOpening = (typeof forceState === "boolean") ? forceState : !panel.classList.contains("active");
-    if (isOpening) {
-        populateFloatingAnchors();
-        panel.classList.add("active");
-        if (backdrop) backdrop.style.display = "block";
-        if (trigger) trigger.setAttribute("aria-expanded", "true");
-        const filterInput = document.getElementById("anchorFilterInput");
-        if (filterInput) {
-            filterInput.value = "";
-            setTimeout(() => filterInput.focus(), 60);
-        }
+function toggleQuickAnchors(e) {
+    if (e) e.stopPropagation();
+    const popover = document.getElementById("quickAnchorsPopover");
+    if (!popover) return;
+    const isOpen = popover.classList.contains("open");
+    if (isOpen) {
+        popover.classList.remove("open");
     } else {
-        panel.classList.remove("active");
-        if (backdrop) backdrop.style.display = "none";
-        if (trigger) trigger.setAttribute("aria-expanded", "false");
+        populateQuickAnchors();
+        popover.classList.add("open");
     }
 }
 
-function filterFloatingAnchors(query) {
-    const q = (query || "").toLowerCase().trim();
-    const items = document.querySelectorAll(".floating-anchor-item");
-    items.forEach(item => {
-        const txt = item.getAttribute("data-search") || "";
-        if (!q || txt.includes(q)) {
-            item.style.display = "flex";
-        } else {
-            item.style.display = "none";
-        }
-    });
+function closeQuickAnchors() {
+    const popover = document.getElementById("quickAnchorsPopover");
+    if (popover) popover.classList.remove("open");
 }
 
-function populateFloatingAnchors() {
-    const list = document.getElementById("floatingAnchorsList");
-    const titleEl = document.getElementById("floatingAnchorsTitle");
-    const subEl = document.getElementById("floatingAnchorsSubtitle");
-    const countEl = document.getElementById("floatingAnchorsCount");
-    if (!list) return;
+function populateQuickAnchors() {
+    const container = document.getElementById("quickAnchorsChips");
+    if (!container) return;
+    container.innerHTML = "";
 
-    list.innerHTML = "";
+    // Quick Top button
+    const topChip = document.createElement("button");
+    topChip.className = "anchor-chip anchor-chip-top";
+    topChip.innerHTML = "&uarr; Top";
+    topChip.onclick = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        closeQuickAnchors();
+    };
+    container.appendChild(topChip);
 
     const activeTab = portalState.activeTab;
     const activeTopic = portalState.activeTopic;
-    const idx = parseInt(activeTopic.replace("v", ""), 10) - 1;
-    const topicTitle = SHORT_TITLES[idx] || ("Topic " + activeTopic.replace("v", ""));
-
-    let items = [];
 
     if (activeTab === "notes") {
-        if (titleEl) titleEl.innerText = topicTitle;
-        if (subEl) subEl.innerText = "Lecture Sections";
         const page = document.getElementById("page-" + activeTopic);
         if (page) {
-            const cards = page.querySelectorAll(".section-card");
-            cards.forEach(card => {
-                const cid = card.id;
-                if (!cid) return;
-                const titleTag = card.querySelector(".card-title");
-                const pillTag = card.querySelector(".tag-pill");
-                const titleText = titleTag ? titleTag.innerText.trim() : cid;
-                const pillText = pillTag ? pillTag.innerText.trim() : "Section";
-                items.push({
-                    id: cid,
-                    badge: pillText,
-                    title: titleText,
-                    type: "note"
-                });
+            const chips = page.querySelectorAll(".teleport-chip");
+            chips.forEach(c => {
+                const onclickStr = c.getAttribute("onclick") || "";
+                const m = onclickStr.match(/teleportTo\('([^']+)'\)/);
+                if (m) {
+                    const btn = document.createElement("button");
+                    btn.className = "anchor-chip";
+                    btn.innerHTML = c.innerHTML;
+                    btn.onclick = () => {
+                        teleportTo(m[1]);
+                        closeQuickAnchors();
+                    };
+                    container.appendChild(btn);
+                }
             });
         }
     } else if (activeTab === "practice") {
-        if (titleEl) titleEl.innerText = topicTitle;
-        if (subEl) subEl.innerText = "Practice Exercises";
         const page = document.getElementById("practice-page-" + activeTopic);
         if (page) {
-            const cards = page.querySelectorAll(".practice-card");
-            cards.forEach(card => {
-                const cid = card.id;
-                if (!cid) return;
-                const exPill = card.querySelector(".tag-ex-num");
-                const diffPill = card.querySelector(".tag-diff");
-                const qText = card.querySelector(".q-content");
-                const badgeText = exPill ? exPill.innerText.trim() : cid;
-                const diffText = diffPill ? diffPill.innerText.trim() : "";
-                let previewText = "";
-                if (qText) {
-                    previewText = qText.innerText.replace(/\s+/g, " ").trim().slice(0, 75);
-                    if (previewText.length >= 75) previewText += "…";
+            const chips = page.querySelectorAll(".teleport-chip");
+            chips.forEach(c => {
+                const onclickStr = c.getAttribute("onclick") || "";
+                const m = onclickStr.match(/teleportTo\('([^']+)'\)/);
+                if (m) {
+                    const btn = document.createElement("button");
+                    btn.className = "anchor-chip";
+                    btn.innerText = c.innerText.trim();
+                    btn.onclick = () => {
+                        teleportTo(m[1]);
+                        closeQuickAnchors();
+                    };
+                    container.appendChild(btn);
                 }
-                items.push({
-                    id: cid,
-                    badge: badgeText,
-                    sub: diffText,
-                    title: previewText || ("Problem " + badgeText),
-                    type: "practice"
-                });
             });
         }
     } else if (activeTab === "videos") {
-        if (titleEl) titleEl.innerText = "Video Recordings";
-        if (subEl) subEl.innerText = "15 Full Lecture Recordings";
         const cards = document.querySelectorAll(".video-card");
         cards.forEach((card, i) => {
-            const cid = card.id || ("vid-card-" + (i+1));
-            card.id = cid;
-            const titleTag = card.querySelector(".video-title");
-            const metaTag = card.querySelector(".video-meta-tag");
-            items.push({
-                id: cid,
-                badge: metaTag ? metaTag.innerText.trim() : ("Part " + (i+1)),
-                title: titleTag ? titleTag.innerText.trim() : ("Video " + (i+1)),
-                type: "video"
-            });
+            const vidId = card.id || ("vid-card-" + (i + 1));
+            card.id = vidId;
+            const btn = document.createElement("button");
+            btn.className = "anchor-chip";
+            btn.innerText = `Vid ${i + 1}`;
+            btn.onclick = () => {
+                teleportTo(vidId);
+                closeQuickAnchors();
+            };
+            container.appendChild(btn);
         });
     }
-
-    if (countEl) {
-        countEl.innerText = items.length || "";
-    }
-
-    if (items.length === 0) {
-        list.innerHTML = '<div class="empty-anchors-notice">No anchors found in this view.</div>';
-        return;
-    }
-
-    items.forEach(item => {
-        const btn = document.createElement("button");
-        btn.className = "floating-anchor-item";
-        btn.setAttribute("data-search", (item.badge + " " + item.title + " " + (item.sub || "")).toLowerCase());
-        
-        let subHtml = item.sub ? `<span class="anchor-sub-badge">${item.sub}</span>` : "";
-        btn.innerHTML = `
-            <div class="anchor-badge-col">
-                <span class="anchor-badge ${item.type}">${item.badge}</span>
-                ${subHtml}
-            </div>
-            <div class="anchor-title-col">${item.title}</div>
-            <div class="anchor-arrow">&rarr;</div>
-        `;
-        btn.onclick = () => {
-            teleportTo(item.id);
-            toggleFloatingAnchorsMenu(false);
-        };
-        list.appendChild(btn);
-    });
 }
+
+document.addEventListener("click", (e) => {
+    const wrap = document.getElementById("quickAnchorsWrap");
+    if (wrap && !wrap.contains(e.target)) {
+        closeQuickAnchors();
+    }
+});
 
 window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-        toggleFloatingAnchorsMenu(false);
+        closeQuickAnchors();
     }
 });
 
@@ -11095,7 +10743,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 3. Kick off progressive background idle pre-rendering
     queueBackgroundMathPrecache();
-    updateFloatingAnchorCount();
+    
 });
 </script>
 </body>
