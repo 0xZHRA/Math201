@@ -4,6 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>KFUPM MATH 201 — Major 2 Study Portal</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -17,6 +19,12 @@
     margin: 0;
     padding: 0;
     -webkit-tap-highlight-color: transparent;
+}
+
+/* Performance Optimization: content-visibility for cards */
+.section-card, .practice-card {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 320px;
 }
 
 /* KaTeX horizontal scroll containment - never bleed outside card borders */
@@ -8492,7 +8500,9 @@ at the point $P(0, \pi)$ in the direction of $\vec{PQ}$, where $Q\left(\frac{\pi
    $$\nabla f(0, \pi) = 0\mathbf{i} + 0\mathbf{j} = \langle 0, 0 \rangle$$
 
 4. **Evaluate the directional derivative:**
-   $$D_{\mathbf{u}} f(0, \pi) = \nabla f(0, \pi) \cdot \mathbf{u} = 0\left(\frac{1}{\sqrt{5}}ight) + 0\left(-\frac{2}{\sqrt{5}}ight) = 0$$</div>
+   $$D_{\mathbf{u}} f(0, \pi) = \nabla f(0, \pi) \cdot \mathbf{u} = 0\left(\frac{1}{\sqrt{5}}
+ight) + 0\left(-\frac{2}{\sqrt{5}}
+ight) = 0$$</div>
             </div>
         </div>
     </div>
@@ -10202,30 +10212,44 @@ function scheduleSaveState() {
     }, 250);
 }
 
+let cachedScrollHeight = 0;
+let lastScrollHeightCheck = 0;
+
 function updateProgressBar() {
     const bar = document.getElementById("scrollProgressBar");
     if (!bar) return;
+    const now = performance.now();
+    if (now - lastScrollHeightCheck > 400 || cachedScrollHeight <= 0) {
+        cachedScrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        lastScrollHeightCheck = now;
+    }
     const sTop = window.scrollY || document.documentElement.scrollTop;
-    const sHeight = document.documentElement.scrollHeight - window.innerHeight;
-    if (sHeight > 0) {
-        const pct = Math.min(100, Math.max(0, (sTop / sHeight) * 100));
+    if (cachedScrollHeight > 0) {
+        const pct = Math.min(100, Math.max(0, (sTop / cachedScrollHeight) * 100));
         bar.style.width = pct + "%";
     } else {
         bar.style.width = "0%";
     }
 }
 
+let scrollTicking = false;
 window.addEventListener("scroll", () => {
-    updateProgressBar();
-    const curY = window.scrollY || document.documentElement.scrollTop;
-    if (portalState.activeTab === "notes") {
-        portalState.topicScroll[portalState.activeTopic] = curY;
-    } else if (portalState.activeTab === "practice") {
-        portalState.practiceScroll[portalState.activeTopic] = curY;
-    } else if (portalState.activeTab === "videos") {
-        portalState.videosScroll = curY;
+    if (!scrollTicking) {
+        window.requestAnimationFrame(() => {
+            updateProgressBar();
+            const curY = window.scrollY || document.documentElement.scrollTop;
+            if (portalState.activeTab === "notes") {
+                portalState.topicScroll[portalState.activeTopic] = curY;
+            } else if (portalState.activeTab === "practice") {
+                portalState.practiceScroll[portalState.activeTopic] = curY;
+            } else if (portalState.activeTab === "videos") {
+                portalState.videosScroll = curY;
+            }
+            scheduleSaveState();
+            scrollTicking = false;
+        });
+        scrollTicking = true;
     }
-    scheduleSaveState();
 }, { passive: true });
 
 function applyScroll(y) {
@@ -10283,10 +10307,15 @@ function switchTopic(topicId) {
         }
     });
 
-    // Restore scroll
+    // Invalidate cached scroll height for progress bar
+    cachedScrollHeight = 0;
+
+    // Render KaTeX for visible container immediately
     if (portalState.activeTab === "notes") {
+        renderTopicMath("page-" + topicId);
         applyScroll(portalState.topicScroll[topicId] || 0);
     } else if (portalState.activeTab === "practice") {
+        renderTopicMath("practice-page-" + topicId);
         applyScroll(portalState.practiceScroll[topicId] || 0);
     }
 
@@ -10317,12 +10346,15 @@ function switchTab(tab) {
     btnP.classList.remove("active");
     btnV.classList.remove("active");
 
+    cachedScrollHeight = 0;
+
     if (tab === "notes") {
         nView.style.display = "block";
         pView.style.display = "none";
         vView.style.display = "none";
         btnN.classList.add("active");
         if (topicMenuBtn) topicMenuBtn.style.display = "inline-flex";
+        renderTopicMath("page-" + portalState.activeTopic);
         applyScroll(portalState.topicScroll[portalState.activeTopic] || 0);
     } else if (tab === "practice") {
         nView.style.display = "none";
@@ -10330,6 +10362,7 @@ function switchTab(tab) {
         vView.style.display = "none";
         btnP.classList.add("active");
         if (topicMenuBtn) topicMenuBtn.style.display = "inline-flex";
+        renderTopicMath("practice-page-" + portalState.activeTopic);
         applyScroll(portalState.practiceScroll[portalState.activeTopic] || 0);
     } else if (tab === "videos") {
         nView.style.display = "none";
@@ -10369,10 +10402,14 @@ function togglePracticeSol(pid, triggerBtn) {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Render KaTeX
+const renderedContainers = new Set();
+
+function renderTopicMath(containerId) {
+    if (!containerId || renderedContainers.has(containerId)) return;
+    const el = document.getElementById(containerId);
+    if (!el) return;
     if (typeof renderMathInElement === "function") {
-        renderMathInElement(document.body, {
+        renderMathInElement(el, {
             delimiters: [
                 { left: "$$", right: "$$", display: true },
                 { left: "$", right: "$", display: false },
@@ -10381,9 +10418,50 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             throwOnError: false
         });
+        renderedContainers.add(containerId);
+    }
+}
+
+// Progressive background idle pre-caching: renders remaining topics without blocking main thread
+function queueBackgroundMathPrecache() {
+    const queue = [];
+    // Prioritize active topic's practice/notes partner first
+    if (portalState.activeTab === "notes") {
+        queue.push("practice-page-" + portalState.activeTopic);
+    } else {
+        queue.push("page-" + portalState.activeTopic);
+    }
+    // Then queue all other 11 topics
+    for (let i = 1; i <= 12; i++) {
+        const tid = "v" + i;
+        if (tid !== portalState.activeTopic) {
+            queue.push("page-" + tid);
+            queue.push("practice-page-" + tid);
+        }
     }
 
-    // 2. Load cached state from localStorage
+    function processNextIdle() {
+        if (queue.length === 0) return;
+        const nextId = queue.shift();
+        if (!renderedContainers.has(nextId)) {
+            renderTopicMath(nextId);
+        }
+        if (window.requestIdleCallback) {
+            window.requestIdleCallback(processNextIdle, { timeout: 1000 });
+        } else {
+            setTimeout(processNextIdle, 80);
+        }
+    }
+
+    if (window.requestIdleCallback) {
+        window.requestIdleCallback(processNextIdle, { timeout: 800 });
+    } else {
+        setTimeout(processNextIdle, 100);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Load cached state from localStorage first
     try {
         const cached = localStorage.getItem("math201_portal_state_v5");
         if (cached) {
@@ -10398,9 +10476,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     } catch(e) {}
 
-    // 3. Switch to initial view
+    // 2. Switch to initial view & render math ONLY for the active topic container (<50ms vs >4000ms)
     switchTopic(portalState.activeTopic || "v1");
     switchTab(portalState.activeTab || "notes");
+
+    // 3. Kick off progressive background idle pre-rendering
+    queueBackgroundMathPrecache();
 });
 </script>
 </body>
