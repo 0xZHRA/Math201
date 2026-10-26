@@ -1675,7 +1675,7 @@
         }
 
         /* ========================================================
-           MINIMALIST DEVICE PASSWORD GATEKEEPER
+           DEVICE GATEKEEPER
            ======================================================== */
         html.auth-passed #deviceAuthGate {
             display: none !important;
@@ -1799,17 +1799,19 @@
     </style>
 </head>
 <body>
-    <!-- Minimalist Device Password Gatekeeper -->
+    <!-- Device Gatekeeper -->
     <div id="deviceAuthGate" class="auth-gate-screen">
         <div class="auth-gate-box">
             <form class="auth-gate-form" onsubmit="handleDeviceAuth(event)" autocomplete="off">
                 <div class="auth-input-wrapper">
                     <input 
-                        type="password" 
-                        id="gatePasswordInput" 
+                        type="text" 
+                        id="gateKeyInput" 
                         class="auth-gate-input" 
-                        placeholder="Password" 
-                        autocomplete="current-password" 
+                        autocomplete="off" 
+                        autocorrect="off" 
+                        autocapitalize="off" 
+                        spellcheck="false" 
                         autofocus 
                         required 
                     />
@@ -1820,7 +1822,7 @@
                         </svg>
                     </button>
                 </div>
-                <div id="authGateError" class="auth-gate-error">Incorrect password</div>
+                
             </form>
         </div>
     </div>
@@ -3431,8 +3433,7 @@
         
         function handleDeviceAuth(e) {
             if (e) e.preventDefault();
-            const inp = document.getElementById('gatePasswordInput');
-            const err = document.getElementById('authGateError');
+            const inp = document.getElementById('gateKeyInput');
             if (!inp) return;
             const val = (inp.value || '').trim().toLowerCase();
             if (val === 'pass') {
@@ -3448,9 +3449,9 @@
             } else {
                 inp.classList.add('auth-shake');
                 inp.value = '';
-                if (err) err.style.display = 'block';
                 setTimeout(() => { inp.classList.remove('auth-shake'); }, 400);
             }
+        }
         }
 
         function shuffleArray(arr) {

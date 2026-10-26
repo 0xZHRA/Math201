@@ -111,11 +111,13 @@
     <form class="gate-form" onsubmit="handleLogin(event)" autocomplete="off">
         <div class="input-wrap">
             <input 
-                type="password" 
-                id="passInput" 
+                type="text" 
+                id="gateKeyInput" 
                 class="gate-input" 
-                placeholder="Password" 
-                autocomplete="current-password" 
+                autocomplete="off" 
+                autocorrect="off" 
+                autocapitalize="off" 
+                spellcheck="false" 
                 autofocus 
                 required 
             />
@@ -126,14 +128,13 @@
                 </svg>
             </button>
         </div>
-        <div id="errorMsg" class="gate-error">Incorrect password</div>
+        
     </form>
 
     <script>
         function handleLogin(e) {
             e.preventDefault();
-            var inp = document.getElementById('passInput');
-            var err = document.getElementById('errorMsg');
+            var inp = document.getElementById('gateKeyInput');
             var val = (inp.value || '').trim().toLowerCase();
             if (val === 'pass') {
                 try {
@@ -145,7 +146,6 @@
             } else {
                 inp.classList.add('shake');
                 inp.value = '';
-                if (err) err.style.display = 'block';
                 setTimeout(function() { inp.classList.remove('shake'); }, 400);
             }
         }
