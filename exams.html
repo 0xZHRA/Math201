@@ -1404,7 +1404,7 @@
     <header class="top-navbar">
         <div class="container nav-inner">
             <div class="nav-brand-group">
-                <a href="index.html" class="nav-back-link" title="Return to Course Notes & Lectures">
+                <a href="index.html" class="nav-back-link" title="Return to Course Notes & Lectures" onclick="return handleBackToNotes(event);">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="15 18 9 12 15 6"></polyline>
                     </svg>
@@ -1417,9 +1417,9 @@
             <div class="nav-actions">
                 <div class="nav-stat-chip">
                     <span>Questions: <strong>200</strong></span>
-                    <span>•</span>
+                    <span>&bull;</span>
                     <span>Terms: <strong>12</strong></span>
-                    <span>•</span>
+                    <span>&bull;</span>
                     <span>Status: <strong style="color: var(--color-correct);">100% Solved</strong></span>
                 </div>
 
@@ -1430,6 +1430,15 @@
                     </svg>
                     <span>Scratchpad</span>
                 </button>
+
+                <a href="exams.html" target="_blank" class="btn-scratchpad-toggle" title="Open Exam Bank in full browser tab" style="text-decoration: none; display: inline-flex; align-items: center; gap: 5px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    <span>Full Tab</span>
+                </a>
             </div>
         </div>
     </header>

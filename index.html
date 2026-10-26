@@ -1040,7 +1040,7 @@ body {
             <button class="tab-btn active" id="btnNotes" onclick="switchTab('notes')">Notes</button>
             <button class="tab-btn" id="btnPractice" onclick="switchTab('practice')">Practice</button>
             <button class="tab-btn" id="btnVideos" onclick="switchTab('videos')">Videos</button>
-            <a href="exams.html" class="tab-btn" id="btnExamBank" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;"><span>Exam Bank</span><span style="font-size: 10px; background: rgba(56,189,248,0.2); color: #38bdf8; padding: 1px 5px; border-radius: 4px; font-weight: 800;">200 Qs</span></a>
+            <button class="tab-btn" id="btnExams" onclick="switchTab('exams')" style="display: inline-flex; align-items: center; gap: 4px;"><span>Exam Bank</span><span style="font-size: 10px; background: rgba(56,189,248,0.2); color: #38bdf8; padding: 1px 5px; border-radius: 4px; font-weight: 800;">200 Qs</span></button>
         </div>
     </div>
 </nav>
@@ -10307,6 +10307,10 @@ passes through the origin $(0, 0, 0)$.</div>
         
         </div>
     </div>
+    <!-- Dedicated Old Exams View (Single-Page App Integration) -->
+    <div id="examsView" style="display: none; width: 100%; height: calc(100vh - 56px); margin: 0; padding: 0;">
+        <iframe id="examsFrame" src="exams.html" title="MATH 201 Major Exam 2 Bank" style="width: 100%; height: 100%; border: none; display: block;" loading="lazy"></iframe>
+    </div>
 </main>
 
 <!-- Minimalist Floating Quick Jump Anchors -->
@@ -10489,40 +10493,64 @@ function switchTab(tab) {
     const nView = document.getElementById("notesView");
     const pView = document.getElementById("practiceView");
     const vView = document.getElementById("videosView");
+    const eView = document.getElementById("examsView");
     const btnN = document.getElementById("btnNotes");
     const btnP = document.getElementById("btnPractice");
     const btnV = document.getElementById("btnVideos");
+    const btnE = document.getElementById("btnExams");
     const topicMenuBtn = document.getElementById("btnTopicSelect");
+    const mainWrap = document.querySelector(".main-wrapper");
+    const quickAnchors = document.getElementById("quickAnchorsWrap");
 
     btnN.classList.remove("active");
     btnP.classList.remove("active");
     btnV.classList.remove("active");
+    if (btnE) btnE.classList.remove("active");
 
     cachedScrollHeight = 0;
 
     if (tab === "notes") {
+        if (mainWrap) { mainWrap.style.maxWidth = "820px"; mainWrap.style.padding = "18px 14px"; }
         nView.style.display = "block";
         pView.style.display = "none";
         vView.style.display = "none";
+        if (eView) eView.style.display = "none";
         btnN.classList.add("active");
         if (topicMenuBtn) topicMenuBtn.style.display = "inline-flex";
+        if (quickAnchors) quickAnchors.style.display = "flex";
         renderTopicMath("page-" + portalState.activeTopic);
         applyScroll(portalState.topicScroll[portalState.activeTopic] || 0);
     } else if (tab === "practice") {
+        if (mainWrap) { mainWrap.style.maxWidth = "820px"; mainWrap.style.padding = "18px 14px"; }
         nView.style.display = "none";
         pView.style.display = "block";
         vView.style.display = "none";
+        if (eView) eView.style.display = "none";
         btnP.classList.add("active");
         if (topicMenuBtn) topicMenuBtn.style.display = "inline-flex";
+        if (quickAnchors) quickAnchors.style.display = "flex";
         renderTopicMath("practice-page-" + portalState.activeTopic);
         applyScroll(portalState.practiceScroll[portalState.activeTopic] || 0);
     } else if (tab === "videos") {
+        if (mainWrap) { mainWrap.style.maxWidth = "820px"; mainWrap.style.padding = "18px 14px"; }
         nView.style.display = "none";
         pView.style.display = "none";
         vView.style.display = "block";
+        if (eView) eView.style.display = "none";
         btnV.classList.add("active");
         if (topicMenuBtn) topicMenuBtn.style.display = "none";
+        if (quickAnchors) quickAnchors.style.display = "none";
         applyScroll(portalState.videosScroll || 0);
+    } else if (tab === "exams") {
+        if (mainWrap) { mainWrap.style.maxWidth = "100%"; mainWrap.style.padding = "0"; }
+        nView.style.display = "none";
+        pView.style.display = "none";
+        vView.style.display = "none";
+        if (eView) eView.style.display = "block";
+        if (btnE) btnE.classList.add("active");
+        if (topicMenuBtn) topicMenuBtn.style.display = "none";
+        if (quickAnchors) quickAnchors.style.display = "none";
+        window.scrollTo(0, 0);
     }
 
     scheduleSaveState();
