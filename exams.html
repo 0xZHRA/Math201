@@ -4,6 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
+        /* Instant Device Auth Gatekeeper Check */
+        (function () {
+            try {
+                if (localStorage.getItem('math201_device_auth') === 'pass') {
+                    document.documentElement.classList.add('auth-passed');
+                }
+            } catch (e) {}
+        })();
         /* Exam-paper theme: set before first paint to avoid a light/dark flash */
         (function () {
             var t = 'light';
@@ -1665,9 +1673,157 @@
                 display: flex !important;
             }
         }
+
+        /* ========================================================
+           MINIMALIST DEVICE PASSWORD GATEKEEPER
+           ======================================================== */
+        html.auth-passed #deviceAuthGate {
+            display: none !important;
+        }
+
+        html:not(.auth-passed) body > *:not(#deviceAuthGate) {
+            display: none !important;
+        }
+
+        html:not(.auth-passed) body {
+            overflow: hidden !important;
+            background: #070709 !important;
+        }
+
+        .auth-gate-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 9999999;
+            background: #070709;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-inline: 20px;
+            padding-block: 20px;
+            transition: opacity 0.22s ease;
+        }
+
+        .auth-gate-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            inline-size: 100%;
+            max-inline-size: 280px;
+        }
+
+        .auth-gate-form {
+            inline-size: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .auth-input-wrapper {
+            position: relative;
+            inline-size: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-gate-input {
+            inline-size: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            padding-block: 14px;
+            padding-inline-start: 16px;
+            padding-inline-end: 46px;
+            color: #f8fafc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+            font-size: 16px;
+            letter-spacing: 0.04em;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .auth-gate-input::placeholder {
+            color: #555c6d;
+            letter-spacing: normal;
+        }
+
+        .auth-gate-input:focus {
+            border-color: #38bdf8;
+            box-shadow: 0 0 18px rgba(56, 189, 248, 0.16);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .auth-gate-submit-btn {
+            position: absolute;
+            inset-inline-end: 8px;
+            inset-block-start: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: #64748b;
+            inline-size: 32px;
+            block-size: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: color 0.15s ease, background 0.15s ease;
+        }
+
+        .auth-gate-submit-btn:hover {
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.08);
+        }
+
+        .auth-gate-error {
+            font-size: 13px;
+            color: #f43f5e;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+            display: none;
+        }
+
+        @keyframes authShake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+
+        .auth-shake {
+            animation: authShake 0.35s ease;
+            border-color: #f43f5e !important;
+            box-shadow: 0 0 14px rgba(244, 63, 94, 0.22) !important;
+        }
+
     </style>
 </head>
 <body>
+    <!-- Minimalist Device Password Gatekeeper -->
+    <div id="deviceAuthGate" class="auth-gate-screen">
+        <div class="auth-gate-box">
+            <form class="auth-gate-form" onsubmit="handleDeviceAuth(event)" autocomplete="off">
+                <div class="auth-input-wrapper">
+                    <input 
+                        type="password" 
+                        id="gatePasswordInput" 
+                        class="auth-gate-input" 
+                        placeholder="Password" 
+                        autocomplete="current-password" 
+                        autofocus 
+                        required 
+                    />
+                    <button type="submit" class="auth-gate-submit-btn" title="Unlock" aria-label="Unlock">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                </div>
+                <div id="authGateError" class="auth-gate-error">Incorrect password</div>
+            </form>
+        </div>
+    </div>
 
     <!-- TOP NAVIGATION BAR -->
     <header class="top-navbar">
@@ -3269,6 +3425,31 @@
                 });
             } catch (err) {
                 console.warn('KaTeX render warning:', err);
+            }
+        }
+
+        
+        function handleDeviceAuth(e) {
+            if (e) e.preventDefault();
+            const inp = document.getElementById('gatePasswordInput');
+            const err = document.getElementById('authGateError');
+            if (!inp) return;
+            const val = (inp.value || '').trim().toLowerCase();
+            if (val === 'pass') {
+                try {
+                    localStorage.setItem('math201_device_auth', 'pass');
+                } catch(e) {}
+                document.documentElement.classList.add('auth-passed');
+                const gate = document.getElementById('deviceAuthGate');
+                if (gate) {
+                    gate.style.opacity = '0';
+                    setTimeout(() => { gate.style.display = 'none'; }, 220);
+                }
+            } else {
+                inp.classList.add('auth-shake');
+                inp.value = '';
+                if (err) err.style.display = 'block';
+                setTimeout(() => { inp.classList.remove('auth-shake'); }, 400);
             }
         }
 

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math 201</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            background-color: #070709;
+            color: #f8fafc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-inline: 20px;
+            padding-block: 20px;
+        }
+        .gate-form {
+            inline-size: 100%;
+            max-inline-size: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        .input-wrap {
+            position: relative;
+            inline-size: 100%;
+        }
+        .gate-input {
+            inline-size: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            padding-block: 14px;
+            padding-inline-start: 16px;
+            padding-inline-end: 46px;
+            color: #ffffff;
+            font-size: 16px;
+            letter-spacing: 0.04em;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .gate-input::placeholder {
+            color: #555c6d;
+            letter-spacing: normal;
+        }
+        .gate-input:focus {
+            border-color: #38bdf8;
+            box-shadow: 0 0 18px rgba(56, 189, 248, 0.16);
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .gate-submit {
+            position: absolute;
+            inset-inline-end: 8px;
+            inset-block-start: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: #64748b;
+            inline-size: 32px;
+            block-size: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: color 0.15s ease, background 0.15s ease;
+        }
+        .gate-submit:hover {
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.08);
+        }
+        .gate-error {
+            font-size: 13px;
+            color: #f43f5e;
+            display: none;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+        .shake {
+            animation: shake 0.35s ease;
+            border-color: #f43f5e !important;
+            box-shadow: 0 0 14px rgba(244, 63, 94, 0.22) !important;
+        }
+    </style>
+    <script>
+        // If device already has auth, redirect straight to index.html
+        (function() {
+            try {
+                if (localStorage.getItem('math201_device_auth') === 'pass') {
+                    var params = new URLSearchParams(window.location.search);
+                    var dest = params.get('dest') || 'index.html';
+                    window.location.replace(dest);
+                }
+            } catch(e) {}
+        })();
+    </script>
+</head>
+<body>
+    <form class="gate-form" onsubmit="handleLogin(event)" autocomplete="off">
+        <div class="input-wrap">
+            <input 
+                type="password" 
+                id="passInput" 
+                class="gate-input" 
+                placeholder="Password" 
+                autocomplete="current-password" 
+                autofocus 
+                required 
+            />
+            <button type="submit" class="gate-submit" aria-label="Unlock" title="Unlock">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </button>
+        </div>
+        <div id="errorMsg" class="gate-error">Incorrect password</div>
+    </form>
+
+    <script>
+        function handleLogin(e) {
+            e.preventDefault();
+            var inp = document.getElementById('passInput');
+            var err = document.getElementById('errorMsg');
+            var val = (inp.value || '').trim().toLowerCase();
+            if (val === 'pass') {
+                try {
+                    localStorage.setItem('math201_device_auth', 'pass');
+                } catch(e) {}
+                var params = new URLSearchParams(window.location.search);
+                var dest = params.get('dest') || 'index.html';
+                window.location.replace(dest);
+            } else {
+                inp.classList.add('shake');
+                inp.value = '';
+                if (err) err.style.display = 'block';
+                setTimeout(function() { inp.classList.remove('shake'); }, 400);
+            }
+        }
+    </script>
+</body>
+</html>
