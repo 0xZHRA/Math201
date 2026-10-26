@@ -33,7 +33,7 @@
     <!-- KaTeX CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="onKaTeXLoaded()"></script>
     
     <!-- Master Exam Bank Data -->
     <script src="math201_exam2_bank.js"></script>
@@ -1681,13 +1681,8 @@
             display: none !important;
         }
 
-        html:not(.auth-passed) body > *:not(#deviceAuthGate) {
-            display: none !important;
-        }
-
         html:not(.auth-passed) body {
             overflow: hidden !important;
-            background: #070709 !important;
         }
 
         .auth-gate-screen {
@@ -1831,7 +1826,7 @@
     <header class="top-navbar">
         <div class="container nav-inner">
             <div class="nav-brand-group">
-                <a href="index.html" class="nav-back-link" title="Return to Course Notes & Lectures" onclick="return handleBackToNotes(event);">
+                <a href="index.html" class="nav-back-link" title="Return to Course Notes & Lectures">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="15 18 9 12 15 6"></polyline>
                     </svg>
@@ -3414,23 +3409,26 @@
         }
 
         function renderMathOnElement(elem) {
-            if (!elem || typeof renderMathInElement !== 'function') return;
-            try {
-                renderMathInElement(elem, {
-                    delimiters: [
-                        { left: '$$', right: '$$', display: true },
-                        { left: '$', right: '$', display: false },
-                        { left: '\\(', right: '\\)', display: false },
-                        { left: '\\[', right: '\\]', display: true }
-                    ],
-                    throwOnError: false
-                });
-            } catch (err) {
-                console.warn('KaTeX render warning:', err);
+            if (!elem) return;
+            if (typeof renderMathInElement === 'function') {
+                try {
+                    renderMathInElement(elem, {
+                        delimiters: [
+                            { left: '$$', right: '$$', display: true },
+                            { left: '$', right: '$', display: false },
+                            { left: '\\(', right: '\\)', display: false },
+                            { left: '\\[', right: '\\]', display: true }
+                        ],
+                        throwOnError: false
+                    });
+                } catch (err) {
+                    console.warn('KaTeX render warning:', err);
+                }
+            } else {
+                setTimeout(() => renderMathOnElement(elem), 50);
             }
         }
 
-        
         function handleDeviceAuth(e) {
             if (e) e.preventDefault();
             const inp = document.getElementById('gateKeyInput');
@@ -3446,12 +3444,34 @@
                     gate.style.opacity = '0';
                     setTimeout(() => { gate.style.display = 'none'; }, 220);
                 }
+                if (typeof APP !== 'undefined' && typeof APP.renderCurrentTab === 'function') {
+                    APP.renderCurrentTab();
+                }
             } else {
                 inp.classList.add('auth-shake');
                 inp.value = '';
                 setTimeout(() => { inp.classList.remove('auth-shake'); }, 400);
             }
         }
+
+        function handleBackToNotes(e) {
+            if (e) e.preventDefault();
+            window.location.href = 'index.html';
+            return false;
+        }
+
+        function onKaTeXLoaded() {
+            if (typeof APP !== 'undefined') {
+                if (APP.currentTab === 'practice') {
+                    const container = document.getElementById('questionsContainer');
+                    if (container) renderMathOnElement(container);
+                } else if (APP.currentTab === 'simulator') {
+                    const bodyEl = document.getElementById('simQuestionBody');
+                    const choicesEl = document.getElementById('simChoicesContainer');
+                    if (bodyEl) renderMathOnElement(bodyEl);
+                    if (choicesEl) renderMathOnElement(choicesEl);
+                }
+            }
         }
 
         function shuffleArray(arr) {

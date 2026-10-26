@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script>
     /* Instant Device Auth Gatekeeper Check */
     (function () {
@@ -11,14 +13,12 @@
         } catch (e) {}
     })();
 </script>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>KFUPM MATH 201 — Major 2 Study Portal</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="initKaTeXWhenReady()"></script>
 <style>
 /* ========================================================
    STRICT CONTAINER & BORDER CONTAINMENT RULES
@@ -1036,13 +1036,8 @@ html.auth-passed #deviceAuthGate {
     display: none !important;
 }
 
-html:not(.auth-passed) body > *:not(#deviceAuthGate) {
-    display: none !important;
-}
-
 html:not(.auth-passed) body {
     overflow: hidden !important;
-    background: #070709 !important;
 }
 
 .auth-gate-screen {
@@ -1201,7 +1196,7 @@ html:not(.auth-passed) body {
             <button class="tab-btn active" id="btnNotes" onclick="switchTab('notes')">Notes</button>
             <button class="tab-btn" id="btnPractice" onclick="switchTab('practice')">Practice</button>
             <button class="tab-btn" id="btnVideos" onclick="switchTab('videos')">Videos</button>
-            <button class="tab-btn" id="btnExams" onclick="switchTab('exams')" style="display: inline-flex; align-items: center; gap: 4px;"><span>Exam Bank</span><span style="font-size: 10px; background: rgba(56,189,248,0.2); color: #38bdf8; padding: 1px 5px; border-radius: 4px; font-weight: 800;">200 Qs</span></button>
+            <a href="exams.html" class="tab-btn" id="btnExamBank" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;"><span>Exam Bank</span><span style="font-size: 10px; background: rgba(56,189,248,0.2); color: #38bdf8; padding: 1px 5px; border-radius: 4px; font-weight: 800;">200 Qs</span></a>
         </div>
     </div>
 </nav>
@@ -10468,10 +10463,7 @@ passes through the origin $(0, 0, 0)$.</div>
         
         </div>
     </div>
-    <!-- Dedicated Old Exams View (Single-Page App Integration) -->
-    <div id="examsView" style="display: none; width: 100%; height: calc(100vh - 56px); margin: 0; padding: 0;">
-        <iframe id="examsFrame" src="exams.html" title="MATH 201 Major Exam 2 Bank" style="width: 100%; height: 100%; border: none; display: block;" loading="lazy"></iframe>
-    </div>
+
 </main>
 
 <!-- Minimalist Floating Quick Jump Anchors -->
@@ -10586,6 +10578,9 @@ function closeTopicsModal(e) {
 }
 
 function switchTopic(topicId) {
+    if (!topicId || !/^v([1-9]|1[0-2])$/.test(topicId)) {
+        topicId = "v1";
+    }
     const curY = window.scrollY || document.documentElement.scrollTop;
     if (portalState.activeTab === "notes") {
         portalState.topicScroll[portalState.activeTopic] = curY;
@@ -10640,6 +10635,9 @@ function switchTopic(topicId) {
 }
 
 function switchTab(tab) {
+    if (tab !== "notes" && tab !== "practice" && tab !== "videos") {
+        tab = "notes";
+    }
     const curY = window.scrollY || document.documentElement.scrollTop;
     if (portalState.activeTab === "notes") {
         portalState.topicScroll[portalState.activeTopic] = curY;
@@ -10697,21 +10695,10 @@ function switchTab(tab) {
         nView.style.display = "none";
         pView.style.display = "none";
         vView.style.display = "block";
-        if (eView) eView.style.display = "none";
         btnV.classList.add("active");
         if (topicMenuBtn) topicMenuBtn.style.display = "none";
         if (quickAnchors) quickAnchors.style.display = "none";
         applyScroll(portalState.videosScroll || 0);
-    } else if (tab === "exams") {
-        if (mainWrap) { mainWrap.style.maxWidth = "100%"; mainWrap.style.padding = "0"; }
-        nView.style.display = "none";
-        pView.style.display = "none";
-        vView.style.display = "none";
-        if (eView) eView.style.display = "block";
-        if (btnE) btnE.classList.add("active");
-        if (topicMenuBtn) topicMenuBtn.style.display = "none";
-        if (quickAnchors) quickAnchors.style.display = "none";
-        window.scrollTo(0, 0);
     }
 
     scheduleSaveState();
@@ -10860,17 +10847,36 @@ function renderTopicMath(containerId) {
     const el = document.getElementById(containerId);
     if (!el) return;
     if (typeof renderMathInElement === "function") {
-        renderMathInElement(el, {
-            delimiters: [
-                { left: "$$", right: "$$", display: true },
-                { left: "$", right: "$", display: false },
-                { left: "\\(", right: "\\)", display: false },
-                { left: "\\[", right: "\\]", display: true }
-            ],
-            throwOnError: false
-        });
-        renderedContainers.add(containerId);
+        try {
+            renderMathInElement(el, {
+                delimiters: [
+                    { left: "$$", right: "$$", display: true },
+                    { left: "$", right: "$", display: false },
+                    { left: "\\(", right: "\\)", display: false },
+                    { left: "\\[", right: "\\]", display: true }
+                ],
+                throwOnError: false
+            });
+            renderedContainers.add(containerId);
+        } catch(e) {
+            console.warn("KaTeX render error:", e);
+        }
+    } else {
+        setTimeout(() => renderTopicMath(containerId), 50);
     }
+}
+
+function initKaTeXWhenReady() {
+    if (typeof renderMathInElement !== "function") {
+        setTimeout(initKaTeXWhenReady, 50);
+        return;
+    }
+    const activeId = (portalState.activeTab === "practice") 
+        ? "practice-page-" + portalState.activeTopic 
+        : "page-" + portalState.activeTopic;
+    renderedContainers.delete(activeId);
+    renderTopicMath(activeId);
+    queueBackgroundMathPrecache();
 }
 
 // Progressive background idle pre-caching: renders remaining topics without blocking main thread
@@ -10918,8 +10924,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (cached) {
             const parsed = JSON.parse(cached);
             if (parsed && typeof parsed === "object") {
-                portalState.activeTab = parsed.activeTab || "notes";
-                portalState.activeTopic = parsed.activeTopic || "v1";
+                portalState.activeTab = (parsed.activeTab === "practice" || parsed.activeTab === "videos") ? parsed.activeTab : "notes";
+                portalState.activeTopic = (parsed.activeTopic && /^v([1-9]|1[0-2])$/.test(parsed.activeTopic)) ? parsed.activeTopic : "v1";
                 if (parsed.topicScroll) Object.assign(portalState.topicScroll, parsed.topicScroll);
                 if (parsed.practiceScroll) Object.assign(portalState.practiceScroll, parsed.practiceScroll);
                 if (parsed.videosScroll) portalState.videosScroll = parsed.videosScroll;
@@ -10950,6 +10956,10 @@ function handleDeviceAuth(e) {
         if (gate) {
             gate.style.opacity = '0';
             setTimeout(() => { gate.style.display = 'none'; }, 220);
+        }
+        if (typeof switchTopic === 'function' && typeof portalState !== 'undefined') {
+            switchTopic(portalState.activeTopic || 'v1');
+            switchTab(portalState.activeTab || 'notes');
         }
     } else {
         inp.classList.add('auth-shake');
