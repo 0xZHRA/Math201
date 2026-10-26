@@ -1,0 +1,2929 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KFUPM MATH 201 — Major Exam 2 Study Bank (200 Questions)</title>
+    
+    <!-- KaTeX CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    
+    <!-- Master Exam Bank Data -->
+    <script src="math201_exam2_bank.js"></script>
+
+    <style>
+        /* ========================================================
+           CSS LOGICAL PROPERTIES & RESET RULES
+           ======================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --bg-base: #070709;
+            --bg-card: #0e1017;
+            --bg-surface: #141722;
+            --bg-surface-hover: #1c2030;
+            --border-dim: #1e2333;
+            --border-bright: #2d354d;
+            --accent-sky: #38bdf8;
+            --accent-sky-dark: #0284c7;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --color-correct: #10b981;
+            --bg-correct: rgba(16, 185, 129, 0.12);
+            --border-correct: #059669;
+            --color-incorrect: #f43f5e;
+            --bg-incorrect: rgba(244, 63, 94, 0.12);
+            --border-incorrect: #e11d48;
+            --color-amber: #f59e0b;
+            --bg-amber: rgba(245, 158, 11, 0.12);
+            --text-main: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            font-size: 15px;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232738;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #343c56;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin-block: 0;
+            margin-inline: auto;
+            padding-inline: 18px;
+        }
+
+        /* ========================================================
+           HEADER & NAVIGATION (GLASSMORPHIC)
+           ======================================================== */
+        .top-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(7, 7, 9, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-dim);
+            padding-block: 10px;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .nav-brand-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-badge-pill {
+            background: rgba(56, 189, 248, 0.12);
+            color: var(--accent-sky);
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            padding-block: 3px;
+            padding-inline: 8px;
+            border-radius: 6px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .nav-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.2px;
+        }
+
+        .nav-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            padding-block: 6px;
+            padding-inline: 12px;
+            border-radius: 8px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-dim);
+            transition: all 0.15s ease;
+        }
+        .nav-back-link:hover {
+            color: #ffffff;
+            border-color: var(--border-bright);
+            background: var(--bg-surface-hover);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-stat-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-secondary);
+            background: #0e111a;
+            border: 1px solid var(--border-dim);
+            padding-block: 5px;
+            padding-inline: 10px;
+            border-radius: 6px;
+        }
+        .nav-stat-chip strong {
+            color: var(--accent-sky);
+        }
+
+        .btn-scratchpad-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: linear-gradient(135deg, #1b2133, #151a28);
+            border: 1px solid var(--border-bright);
+            color: var(--text-main);
+            font-size: 12.5px;
+            font-weight: 600;
+            padding-block: 6px;
+            padding-inline: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .btn-scratchpad-toggle:hover {
+            border-color: var(--accent-sky);
+            box-shadow: 0 0 12px var(--accent-glow);
+            color: #ffffff;
+        }
+        .btn-scratchpad-toggle svg {
+            color: var(--accent-sky);
+        }
+
+        /* ========================================================
+           SUB-NAV / DEDICATED TABS BAR
+           ======================================================== */
+        .mode-tabs-container {
+            background: #090b10;
+            border-bottom: 1px solid var(--border-dim);
+            padding-block: 8px;
+        }
+
+        .mode-tabs {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn-group {
+            display: inline-flex;
+            background: #11141e;
+            border: 1px solid var(--border-dim);
+            border-radius: 10px;
+            padding: 3px;
+            gap: 3px;
+        }
+
+        .tab-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 600;
+            padding-block: 7px;
+            padding-inline: 14px;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            user-select: none;
+        }
+        .tab-button:hover {
+            color: #ffffff;
+        }
+        .tab-button.active {
+            background: var(--bg-surface-hover);
+            color: #ffffff;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .tab-button .badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding-block: 1px;
+            padding-inline: 5px;
+            border-radius: 4px;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent-sky);
+        }
+
+        /* ========================================================
+           MAIN CONTENT AREA
+           ======================================================== */
+        .main-wrapper {
+            flex: 1;
+            padding-block: 20px 60px;
+        }
+
+        .view-panel {
+            display: none;
+        }
+        .view-panel.active {
+            display: block;
+        }
+
+        /* ========================================================
+           PRACTICE MODE: PROGRESS SUMMARY WIDGET
+           ======================================================== */
+        .progress-widget {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dim);
+            border-radius: 12px;
+            padding: 14px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            inset-inline: 0;
+            height: 2px;
+            background: transparent;
+        }
+        .stat-card.sky::before { background: var(--accent-sky); }
+        .stat-card.green::before { background: var(--color-correct); }
+        .stat-card.amber::before { background: var(--color-amber); }
+        .stat-card.rose::before { background: var(--color-incorrect); }
+
+        .stat-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .stat-value {
+            font-size: 22px;
+            font-weight: 800;
+            color: #ffffff;
+            font-family: var(--font-mono);
+        }
+        .stat-subtext {
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        .btn-reset-progress {
+            background: transparent;
+            border: 1px solid var(--border-dim);
+            color: var(--text-muted);
+            font-size: 11px;
+            padding-block: 4px;
+            padding-inline: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 6px;
+            transition: all 0.15s ease;
+            align-self: flex-start;
+        }
+        .btn-reset-progress:hover {
+            color: var(--color-incorrect);
+            border-color: var(--border-incorrect);
+            background: var(--bg-incorrect);
+        }
+
+        /* ========================================================
+           FILTER & SEARCH CONTROLS
+           ======================================================== */
+        .filter-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dim);
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .filter-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            flex: 1 1 auto;
+        }
+
+        .filter-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .select-input {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-bright);
+            color: var(--text-main);
+            font-size: 13px;
+            padding-block: 8px;
+            padding-inline: 12px;
+            border-radius: 8px;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .select-input:focus {
+            border-color: var(--accent-sky);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .search-input-wrapper {
+            position: relative;
+            flex: 1 1 240px;
+        }
+        .search-input {
+            width: 100%;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-bright);
+            color: var(--text-main);
+            font-size: 13px;
+            padding-block: 8px;
+            padding-inline-start: 36px;
+            padding-inline-end: 12px;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.15s ease;
+        }
+        .search-input:focus {
+            border-color: var(--accent-sky);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+        .search-icon {
+            position: absolute;
+            inset-inline-start: 11px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .status-pills {
+            display: inline-flex;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-dim);
+            border-radius: 8px;
+            padding: 3px;
+            gap: 3px;
+        }
+        .status-pill-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 600;
+            padding-block: 5px;
+            padding-inline: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .status-pill-btn:hover {
+            color: #ffffff;
+        }
+        .status-pill-btn.active {
+            background: #252b3d;
+            color: #ffffff;
+        }
+
+        .filter-meta-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12.5px;
+            color: var(--text-muted);
+            padding-top: 6px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        /* ========================================================
+           PAGINATION BAR
+           ======================================================== */
+        .pagination-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-block: 16px;
+            flex-wrap: wrap;
+        }
+
+        .pagination-info {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .pagination-controls {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .page-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dim);
+            color: var(--text-main);
+            font-size: 12.5px;
+            font-weight: 600;
+            padding-block: 6px;
+            padding-inline: 12px;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .page-btn:hover:not(:disabled) {
+            background: var(--bg-surface-hover);
+            border-color: var(--border-bright);
+        }
+        .page-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        .page-btn.active {
+            background: var(--accent-sky);
+            color: #070709;
+            border-color: var(--accent-sky);
+            font-weight: 800;
+        }
+
+        /* ========================================================
+           QUESTION CARDS
+           ======================================================== */
+        .questions-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .q-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dim);
+            border-radius: 14px;
+            padding: 20px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+        }
+        .q-card:hover {
+            border-color: var(--border-bright);
+        }
+        .q-card.status-correct {
+            border-inline-start: 4px solid var(--color-correct);
+        }
+        .q-card.status-incorrect {
+            border-inline-start: 4px solid var(--color-incorrect);
+        }
+        .q-card.is-bookmarked {
+            border-color: rgba(245, 158, 11, 0.4);
+        }
+
+        .q-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .q-meta-badges {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .badge-term {
+            background: #171b26;
+            color: var(--accent-sky);
+            font-family: var(--font-mono);
+            font-size: 11.5px;
+            font-weight: 700;
+            padding-block: 3px;
+            padding-inline: 8px;
+            border-radius: 5px;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        .badge-section {
+            background: #1b1f2e;
+            color: #cbd5e1;
+            font-family: var(--font-mono);
+            font-size: 11.5px;
+            font-weight: 600;
+            padding-block: 3px;
+            padding-inline: 8px;
+            border-radius: 5px;
+            border: 1px solid var(--border-bright);
+        }
+
+        .badge-topic {
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .q-header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-star {
+            background: transparent;
+            border: 1px solid var(--border-dim);
+            color: var(--text-muted);
+            width: 32px;
+            height: 32px;
+            border-radius: 7px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .btn-star:hover {
+            color: var(--color-amber);
+            border-color: rgba(245, 158, 11, 0.5);
+            background: var(--bg-amber);
+        }
+        .btn-star.bookmarked {
+            color: var(--color-amber);
+            background: var(--bg-amber);
+            border-color: var(--color-amber);
+        }
+
+        .q-body-text {
+            font-size: 15.5px;
+            line-height: 1.7;
+            color: #f1f5f9;
+            margin-bottom: 18px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        /* 5 Choice Options */
+        .choices-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            margin-bottom: 16px;
+        }
+
+        .choice-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            text-align: start;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-dim);
+            border-radius: 10px;
+            padding: 10px 14px;
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            font-size: 14.5px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            position: relative;
+            outline: none;
+        }
+        .choice-btn:hover:not(.disabled) {
+            background: var(--bg-surface-hover);
+            border-color: var(--border-bright);
+        }
+
+        .choice-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: #1e2333;
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 700;
+            flex-shrink: 0;
+            transition: all 0.15s ease;
+        }
+
+        .choice-text {
+            flex: 1;
+            overflow-wrap: break-word;
+        }
+
+        /* Choice Interactive States */
+        .choice-btn.selected-correct {
+            background: var(--bg-correct) !important;
+            border-color: var(--color-correct) !important;
+            color: #ffffff !important;
+        }
+        .choice-btn.selected-correct .choice-letter {
+            background: var(--color-correct) !important;
+            color: #070709 !important;
+        }
+
+        .choice-btn.selected-incorrect {
+            background: var(--bg-incorrect) !important;
+            border-color: var(--color-incorrect) !important;
+            color: #ffffff !important;
+        }
+        .choice-btn.selected-incorrect .choice-letter {
+            background: var(--color-incorrect) !important;
+            color: #ffffff !important;
+        }
+
+        .choice-btn.reveal-correct {
+            border-color: var(--color-correct) !important;
+            background: rgba(16, 185, 129, 0.08) !important;
+        }
+        .choice-btn.reveal-correct .choice-letter {
+            background: var(--color-correct) !important;
+            color: #070709 !important;
+        }
+
+        /* ========================================================
+           COLLAPSIBLE SOLUTION ACCORDION
+           Rule: Chevrons point inward (0deg) and rotate to 90deg
+           ======================================================== */
+        .accordion-box {
+            border: 1px solid var(--border-dim);
+            border-radius: 10px;
+            overflow: hidden;
+            background: #0b0d14;
+        }
+
+        .accordion-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            background: #0d1018;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.15s ease;
+        }
+        .accordion-header:hover {
+            background: #141724;
+        }
+
+        .accordion-title-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .accordion-chevron {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(0deg);
+            transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--text-muted);
+        }
+        [dir="rtl"] .accordion-chevron {
+            transform: rotate(180deg);
+        }
+        .accordion-box.open .accordion-chevron,
+        [dir="rtl"] .accordion-box.open .accordion-chevron {
+            transform: rotate(90deg);
+            color: var(--accent-sky);
+        }
+        .accordion-box.open .accordion-title-group {
+            color: #ffffff;
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 16px;
+            border-top: 1px solid var(--border-dim);
+            font-size: 14px;
+            line-height: 1.7;
+            color: #d1d5db;
+            background: #080a0f;
+            overflow-x: auto;
+        }
+        .accordion-box.open .accordion-content {
+            display: block;
+        }
+
+        .solution-inner p {
+            margin-bottom: 10px;
+        }
+        .solution-inner p:last-child {
+            margin-bottom: 0;
+        }
+        .solution-inner strong {
+            color: var(--accent-sky);
+        }
+
+        /* ========================================================
+           MOCK EXAM SIMULATOR
+           ======================================================== */
+        .simulator-setup-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dim);
+            border-radius: 16px;
+            padding: 28px;
+            max-width: 780px;
+            margin-inline: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .sim-hero-header {
+            text-align: center;
+        }
+        .sim-hero-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+        .sim-hero-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .sim-options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .sim-option-card {
+            background: var(--bg-surface);
+            border: 2px solid var(--border-dim);
+            border-radius: 12px;
+            padding: 18px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            text-align: center;
+        }
+        .sim-option-card:hover {
+            border-color: var(--border-bright);
+        }
+        .sim-option-card.selected {
+            border-color: var(--accent-sky);
+            background: rgba(56, 189, 248, 0.08);
+        }
+        .sim-option-num {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ffffff;
+            font-family: var(--font-mono);
+        }
+        .sim-option-time {
+            font-size: 12px;
+            color: var(--accent-sky);
+            font-weight: 700;
+            margin-top: 2px;
+        }
+        .sim-option-sub {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .btn-start-exam {
+            background: linear-gradient(135deg, #0284c7, #38bdf8);
+            border: none;
+            color: #070709;
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 800;
+            padding-block: 14px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 18px rgba(56, 189, 248, 0.35);
+        }
+        .btn-start-exam:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 24px rgba(56, 189, 248, 0.5);
+        }
+
+        /* Active Test Mode Layout */
+        .simulator-active-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sim-top-bar {
+            position: sticky;
+            top: 54px;
+            z-index: 90;
+            background: rgba(14, 16, 23, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-bright);
+            border-radius: 14px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .sim-timer-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #1a1e2c;
+            border: 1px solid var(--border-bright);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-family: var(--font-mono);
+            font-size: 18px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+        .sim-timer-pill.urgent {
+            color: var(--color-incorrect);
+            border-color: var(--border-incorrect);
+            background: var(--bg-incorrect);
+            animation: pulse-red 1.5s infinite;
+        }
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 rgba(244, 63, 94, 0.4); }
+            50% { box-shadow: 0 0 14px rgba(244, 63, 94, 0.8); }
+            100% { box-shadow: 0 0 0 rgba(244, 63, 94, 0.4); }
+        }
+
+        .btn-sim-submit {
+            background: var(--color-correct);
+            border: none;
+            color: #070709;
+            font-size: 13px;
+            font-weight: 800;
+            padding-block: 8px;
+            padding-inline: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .btn-sim-submit:hover {
+            background: #34d399;
+            box-shadow: 0 0 14px rgba(16, 185, 129, 0.4);
+        }
+
+        .sim-palette-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+            gap: 6px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-dim);
+            border-radius: 12px;
+            padding: 12px;
+        }
+
+        .palette-btn {
+            height: 38px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-dim);
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-size: 12.5px;
+            font-weight: 700;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .palette-btn:hover {
+            color: #ffffff;
+            border-color: var(--border-bright);
+        }
+        .palette-btn.current {
+            border-color: var(--accent-sky);
+            box-shadow: 0 0 8px var(--accent-glow);
+            color: #ffffff;
+        }
+        .palette-btn.answered {
+            background: rgba(56, 189, 248, 0.18);
+            border-color: var(--accent-sky);
+            color: var(--accent-sky);
+        }
+        .palette-btn.flagged {
+            border-color: var(--color-amber);
+            position: relative;
+        }
+        .palette-btn.flagged::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            inset-inline-end: 3px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-amber);
+        }
+
+        .sim-nav-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        /* Results Screen */
+        .results-container {
+            max-width: 860px;
+            margin-inline: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .results-score-banner {
+            background: linear-gradient(135deg, #121624, #0d0f18);
+            border: 1px solid var(--border-bright);
+            border-radius: 18px;
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .score-donut-number {
+            font-size: 48px;
+            font-weight: 900;
+            color: #ffffff;
+            font-family: var(--font-mono);
+            line-height: 1;
+        }
+        .score-percent-badge {
+            font-size: 16px;
+            font-weight: 800;
+            padding-block: 4px;
+            padding-inline: 14px;
+            border-radius: 20px;
+        }
+        .score-percent-badge.pass {
+            background: var(--bg-correct);
+            color: var(--color-correct);
+            border: 1px solid var(--border-correct);
+        }
+        .score-percent-badge.warn {
+            background: var(--bg-amber);
+            color: var(--color-amber);
+            border: 1px solid var(--color-amber);
+        }
+
+        .section-breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 12px;
+        }
+
+        .sec-stat-row {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dim);
+            border-radius: 10px;
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .sec-stat-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 13px;
+        }
+        .sec-progress-bar {
+            height: 6px;
+            background: #1b1f2f;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .sec-progress-fill {
+            height: 100%;
+            background: var(--accent-sky);
+            border-radius: 3px;
+        }
+
+        /* ========================================================
+           PRINTABLE EXAM VIEW & TOOLBAR
+           ======================================================== */
+        .print-config-bar {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dim);
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-print-action {
+            background: linear-gradient(135deg, #0284c7, #38bdf8);
+            border: none;
+            color: #070709;
+            font-size: 14px;
+            font-weight: 800;
+            padding-block: 10px;
+            padding-inline: 22px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-print-action:hover {
+            box-shadow: 0 4px 18px rgba(56, 189, 248, 0.4);
+        }
+
+        /* Print Container Preview on Screen */
+        .print-sheet-paper {
+            background: #ffffff;
+            color: #111827;
+            border-radius: 8px;
+            padding: 36px 44px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+            margin-inline: auto;
+            max-width: 900px;
+        }
+
+        .kfupm-print-header {
+            text-align: center;
+            border-bottom: 2px solid #000000;
+            padding-bottom: 14px;
+            margin-bottom: 24px;
+        }
+        .kfupm-print-header h1 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #000;
+        }
+        .kfupm-print-header h2 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #333;
+            margin-top: 3px;
+        }
+        .kfupm-print-header h3 {
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+            margin-top: 3px;
+        }
+
+        .student-fill-table {
+            width: 100%;
+            margin-top: 14px;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        .student-fill-table td {
+            padding: 6px 4px;
+            border-bottom: 1px dotted #888;
+        }
+
+        .print-question-item {
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px dashed #d1d5db;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+        .print-q-head {
+            font-weight: 700;
+            font-size: 13.5px;
+            margin-bottom: 8px;
+            color: #000;
+        }
+        .print-choices-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px 16px;
+            margin-top: 8px;
+            font-size: 13px;
+        }
+        .print-choice-col {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .print-answer-key-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #000;
+        }
+        .print-answer-key-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            font-size: 12px;
+        }
+        .print-answer-key-table th, .print-answer-key-table td {
+            border: 1px solid #9ca3af;
+            padding: 6px 10px;
+            text-align: center;
+        }
+        .print-answer-key-table th {
+            background: #f3f4f6;
+            font-weight: 700;
+        }
+
+        /* ========================================================
+           SCRATCHPAD MODAL & CANVAS
+           Textless, high-clarity SVGs for tools
+           ======================================================== */
+        .scratchpad-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+        .scratchpad-modal-overlay.open {
+            display: flex;
+        }
+
+        .scratchpad-modal-window {
+            background: #0d0f17;
+            border: 1px solid var(--border-bright);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 960px;
+            height: 82vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+        }
+
+        .scratchpad-topbar {
+            background: #141724;
+            border-bottom: 1px solid var(--border-dim);
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .scratchpad-tools {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tool-icon-btn {
+            background: #1b2030;
+            border: 1px solid var(--border-dim);
+            color: var(--text-secondary);
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .tool-icon-btn:hover {
+            color: #ffffff;
+            border-color: var(--border-bright);
+        }
+        .tool-icon-btn.active {
+            background: var(--accent-sky);
+            color: #070709;
+            border-color: var(--accent-sky);
+        }
+
+        .color-dot-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+        .color-dot-btn:hover {
+            transform: scale(1.15);
+        }
+        .color-dot-btn.active {
+            border-color: #ffffff;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        .scratchpad-body {
+            flex: 1;
+            position: relative;
+            background: #07080d;
+            cursor: crosshair;
+            overflow: hidden;
+        }
+
+        #scratchpadCanvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+
+        .scratchpad-notes-drawer {
+            height: 120px;
+            border-top: 1px solid var(--border-dim);
+            background: #0a0c13;
+            display: flex;
+            flex-direction: column;
+        }
+        .scratchpad-notes-area {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 10px 14px;
+            color: #f1f5f9;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            resize: none;
+            outline: none;
+        }
+
+        /* ========================================================
+           PRINT MEDIA STYLES
+           Pure white background, clean black text, hide web controls
+           ======================================================== */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                font-size: 11pt !important;
+            }
+            .top-navbar,
+            .mode-tabs-container,
+            .print-config-bar,
+            .scratchpad-modal-overlay,
+            .btn-scratchpad-toggle,
+            .pagination-container,
+            .filter-section,
+            .progress-widget,
+            button {
+                display: none !important;
+            }
+            .container {
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .print-sheet-paper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+            }
+            .print-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+            .print-question-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+                border-bottom: 1px solid #ccc !important;
+                margin-bottom: 16px !important;
+                padding-bottom: 12px !important;
+            }
+            .print-answer-key-section {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP NAVIGATION BAR -->
+    <header class="top-navbar">
+        <div class="container nav-inner">
+            <div class="nav-brand-group">
+                <a href="index.html" class="nav-back-link" title="Return to Course Notes & Lectures">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                    <span>Notes</span>
+                </a>
+                <span class="nav-badge-pill">MATH 201</span>
+                <span class="nav-title">MAJOR 2 EXAM BANK</span>
+            </div>
+
+            <div class="nav-actions">
+                <div class="nav-stat-chip">
+                    <span>Questions: <strong>200</strong></span>
+                    <span>•</span>
+                    <span>Terms: <strong>12</strong></span>
+                    <span>•</span>
+                    <span>Status: <strong style="color: var(--color-correct);">100% Solved</strong></span>
+                </div>
+
+                <button class="btn-scratchpad-toggle" onclick="toggleScratchpad()" title="Open scratchpad canvas">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9"></path>
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                    </svg>
+                    <span>Scratchpad</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- DEDICATED MODE TABS BAR -->
+    <nav class="mode-tabs-container">
+        <div class="container mode-tabs">
+            <div class="tab-btn-group">
+                <button class="tab-button active" id="tabPractice" onclick="switchBankTab('practice')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                    </svg>
+                    <span>Practice & Study</span>
+                    <span class="badge">200 Qs</span>
+                </button>
+
+                <button class="tab-button" id="tabSimulator" onclick="switchBankTab('simulator')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>Mock Simulator</span>
+                    <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: var(--color-correct);">Timed</span>
+                </button>
+
+                <button class="tab-button" id="tabPrint" onclick="switchBankTab('print')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    <span>Printable Mock Exam</span>
+                    <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: var(--color-amber);">PDF Ready</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN BODY -->
+    <main class="main-wrapper container">
+
+        <!-- ==========================================
+             VIEW 1: PRACTICE & STUDY
+             ========================================== -->
+        <section class="view-panel active" id="viewPractice">
+            <!-- Progress Summary Widget -->
+            <div class="progress-widget">
+                <div class="stat-card sky">
+                    <span class="stat-label">Progress</span>
+                    <span class="stat-value" id="statAttempted">0 / 200</span>
+                    <span class="stat-subtext" id="statAttemptedPercent">0% Attempted</span>
+                </div>
+                <div class="stat-card green">
+                    <span class="stat-label">Accuracy</span>
+                    <span class="stat-value" id="statAccuracy">0%</span>
+                    <span class="stat-subtext" id="statScoreRatio">0 Correct / 0 Attempted</span>
+                </div>
+                <div class="stat-card amber">
+                    <span class="stat-label">Bookmarks</span>
+                    <span class="stat-value" id="statBookmarks">0</span>
+                    <span class="stat-subtext">Saved for review</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Quick Actions</span>
+                    <button class="btn-reset-progress" onclick="resetAllProgress()">Reset Progress</button>
+                    <span class="stat-subtext" style="margin-top: 4px;">Data saved in browser</span>
+                </div>
+            </div>
+
+            <!-- Filter & Search Toolbar -->
+            <div class="filter-section">
+                <div class="filter-row">
+                    <!-- Term Filter -->
+                    <div class="filter-group">
+                        <span class="filter-label">Term:</span>
+                        <select class="select-input" id="filterTerm" onchange="handleFilterChange()">
+                            <option value="ALL">All Terms (12 Terms)</option>
+                            <option value="253">Term 253 (15 Qs)</option>
+                            <option value="252">Term 252 (15 Qs)</option>
+                            <option value="251A">Term 251A (15 Qs)</option>
+                            <option value="251B">Term 251B (15 Qs)</option>
+                            <option value="243">Term 243 (15 Qs)</option>
+                            <option value="242">Term 242 (15 Qs)</option>
+                            <option value="241">Term 241 (15 Qs)</option>
+                            <option value="233">Term 233 (15 Qs)</option>
+                            <option value="232">Term 232 (20 Qs)</option>
+                            <option value="231">Term 231 (20 Qs)</option>
+                            <option value="223">Term 223 (20 Qs)</option>
+                            <option value="221">Term 221 (20 Qs)</option>
+                        </select>
+                    </div>
+
+                    <!-- Section Filter -->
+                    <div class="filter-group">
+                        <span class="filter-label">Section:</span>
+                        <select class="select-input" id="filterSection" onchange="handleFilterChange()">
+                            <option value="ALL">All Sections (11.5 - 13.8)</option>
+                            <option value="11.5">11.5 Lines & Planes in Space</option>
+                            <option value="11.6">11.6 Quadric Surfaces & Cylinders</option>
+                            <option value="13.1">13.1 Functions & Level Curves</option>
+                            <option value="13.2">13.2 Limits & Continuity</option>
+                            <option value="13.3">13.3 Partial Derivatives</option>
+                            <option value="13.4">13.4 Differentials & Linear Approx</option>
+                            <option value="13.5">13.5 Multivariable Chain Rule</option>
+                            <option value="13.6">13.6 Directional Derivatives & Gradients</option>
+                            <option value="13.7">13.7 Tangent Planes & Normal Lines</option>
+                        </select>
+                    </div>
+
+                    <!-- Status Filter -->
+                    <div class="filter-group">
+                        <span class="filter-label">Status:</span>
+                        <div class="status-pills">
+                            <button class="status-pill-btn active" data-status="ALL" onclick="setStatusFilter('ALL')">All</button>
+                            <button class="status-pill-btn" data-status="UNATTEMPTED" onclick="setStatusFilter('UNATTEMPTED')">Unattempted</button>
+                            <button class="status-pill-btn" data-status="BOOKMARKED" onclick="setStatusFilter('BOOKMARKED')">★ Bookmarked</button>
+                            <button class="status-pill-btn" data-status="CORRECT" onclick="setStatusFilter('CORRECT')">Correct</button>
+                            <button class="status-pill-btn" data-status="INCORRECT" onclick="setStatusFilter('INCORRECT')">Incorrect</button>
+                        </div>
+                    </div>
+
+                    <!-- Search Input -->
+                    <div class="search-input-wrapper">
+                        <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search calculus formulas, topics, terms..." oninput="handleSearchInput()" />
+                    </div>
+                </div>
+
+                <div class="filter-meta-bar">
+                    <span id="filterStatsCount">Showing 200 of 200 questions</span>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span>Per page:</span>
+                        <select class="select-input" id="pageSizeSelect" style="padding-block: 3px; padding-inline: 8px;" onchange="changePageSize()">
+                            <option value="15">15</option>
+                            <option value="25" selected>25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="ALL">All (200)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination Bar (Top) -->
+            <div class="pagination-container" id="paginationTop"></div>
+
+            <!-- Question Cards Container -->
+            <div class="questions-list" id="questionsContainer"></div>
+
+            <!-- Pagination Bar (Bottom) -->
+            <div class="pagination-container" id="paginationBottom"></div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 2: MOCK SIMULATOR
+             ========================================== -->
+        <section class="view-panel" id="viewSimulator">
+            <!-- Setup Screen -->
+            <div id="simSetupContainer">
+                <div class="simulator-setup-card">
+                    <div class="sim-hero-header">
+                        <h2 class="sim-hero-title">KFUPM MATH 201 Simulator</h2>
+                        <p class="sim-hero-desc">Simulate authentic exam conditions with real countdown timer, palette navigation, and instant diagnostic performance analytics.</p>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <span class="filter-label">1. Select Exam Format:</span>
+                        <div class="sim-options-grid">
+                            <div class="sim-option-card selected" id="optFormat15" onclick="selectSimFormat(15, 75)">
+                                <div class="sim-option-num">15 Questions</div>
+                                <div class="sim-option-time">75 Minutes</div>
+                                <div class="sim-option-sub">KFUPM Standard Format (5 mins/Q)</div>
+                            </div>
+                            <div class="sim-option-card" id="optFormat20" onclick="selectSimFormat(20, 100)">
+                                <div class="sim-option-num">20 Questions</div>
+                                <div class="sim-option-time">100 Minutes</div>
+                                <div class="sim-option-sub">KFUPM Full Format (Terms 232-221)</div>
+                            </div>
+                            <div class="sim-option-card" id="optFormat10" onclick="selectSimFormat(10, 50)">
+                                <div class="sim-option-num">10 Questions</div>
+                                <div class="sim-option-time">50 Minutes</div>
+                                <div class="sim-option-sub">Quick Practice Drill</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <span class="filter-label">2. Select Question Source:</span>
+                        <select class="select-input" id="simSourceSelect" style="padding: 10px 14px;">
+                            <option value="RANDOM">Balanced Random Mix across All 12 Terms (Covers all 11.5 - 13.8 sections)</option>
+                            <option value="253">Specific Term 253 (15 Questions)</option>
+                            <option value="252">Specific Term 252 (15 Questions)</option>
+                            <option value="251A">Specific Term 251A (15 Questions)</option>
+                            <option value="251B">Specific Term 251B (15 Questions)</option>
+                            <option value="243">Specific Term 243 (15 Questions)</option>
+                            <option value="242">Specific Term 242 (15 Questions)</option>
+                            <option value="241">Specific Term 241 (15 Questions)</option>
+                            <option value="233">Specific Term 233 (15 Questions)</option>
+                            <option value="232">Specific Term 232 (20 Questions)</option>
+                            <option value="231">Specific Term 231 (20 Questions)</option>
+                            <option value="223">Specific Term 223 (20 Questions)</option>
+                            <option value="221">Specific Term 221 (20 Questions)</option>
+                            <option value="BOOKMARKED">Bookmarked Questions Only</option>
+                        </select>
+                    </div>
+
+                    <button class="btn-start-exam" onclick="startSimulatorExam()">Start Mock Exam Now</button>
+                </div>
+            </div>
+
+            <!-- Active Test-Taking Screen -->
+            <div id="simActiveContainer" style="display: none;">
+                <div class="simulator-active-container">
+                    <!-- Top Floating Bar -->
+                    <div class="sim-top-bar">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div class="sim-timer-pill" id="simTimerDisplay">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span id="simTimeRemaining">75:00</span>
+                            </div>
+                            <span style="font-size: 13.5px; color: var(--text-secondary); font-weight: 600;" id="simQuestionIndicator">Question 1 of 15</span>
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <button class="tool-icon-btn" id="btnSimFlag" onclick="toggleSimFlag()" title="Flag question for review">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                                    <line x1="4" y1="22" x2="4" y2="15"></line>
+                                </svg>
+                            </button>
+                            <button class="btn-scratchpad-toggle" onclick="toggleScratchpad()">Scratchpad</button>
+                            <button class="btn-sim-submit" onclick="confirmSubmitSimulator()">Submit Exam</button>
+                        </div>
+                    </div>
+
+                    <!-- Question Navigator Palette -->
+                    <div class="sim-palette-grid" id="simPaletteContainer"></div>
+
+                    <!-- Active Question Card -->
+                    <div class="q-card" id="simQuestionCard">
+                        <div class="q-card-header">
+                            <div class="q-meta-badges">
+                                <span class="badge-term" id="simBadgeTerm">Term 253 • Q1</span>
+                                <span class="badge-section" id="simBadgeSection">Sec 13.1</span>
+                                <span class="badge-topic" id="simBadgeTopic">Level Curves</span>
+                            </div>
+                        </div>
+
+                        <div class="q-body-text" id="simQuestionBody"></div>
+
+                        <div class="choices-grid" id="simChoicesContainer"></div>
+
+                        <div class="sim-nav-actions">
+                            <button class="page-btn" id="btnSimPrev" onclick="navigateSimQuestion(-1)">← Previous</button>
+                            <button class="btn-reset-progress" onclick="clearSimChoice()" style="align-self: center;">Clear Choice</button>
+                            <button class="page-btn" id="btnSimNext" onclick="navigateSimQuestion(1)">Next →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results & Diagnostics Screen -->
+            <div id="simResultsContainer" style="display: none;">
+                <div class="results-container">
+                    <div class="results-score-banner">
+                        <span style="font-size: 13px; font-weight: 700; color: var(--accent-sky); letter-spacing: 0.8px; text-transform: uppercase;">KFUPM Mock Exam Results</span>
+                        <div class="score-donut-number" id="simFinalScore">13 / 15</div>
+                        <div class="score-percent-badge pass" id="simScorePercentBadge">86.7% • EXCELLENT (Grade A)</div>
+                        <span style="font-size: 13px; color: var(--text-secondary);" id="simTimeElapsedText">Completed in 48 mins 12 secs</span>
+                        <div style="display: flex; gap: 10px; margin-top: 10px;">
+                            <button class="btn-start-exam" style="padding-block: 8px; padding-inline: 18px; font-size: 13px;" onclick="retakeSimulator()">Retake Mock Exam</button>
+                            <button class="page-btn" onclick="switchBankTab('practice')">Review in Practice Bank</button>
+                        </div>
+                    </div>
+
+                    <!-- Topic / Section Breakdown -->
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <h3 style="font-size: 15px; font-weight: 700; color: #ffffff;">Performance by Calculus Section:</h3>
+                        <div class="section-breakdown-grid" id="simSectionBreakdown"></div>
+                    </div>
+
+                    <!-- Question-by-Question Diagnostic Review -->
+                    <div style="display: flex; flex-direction: column; gap: 14px;">
+                        <h3 style="font-size: 15px; font-weight: 700; color: #ffffff;">Detailed Question-by-Question Review:</h3>
+                        <div class="questions-list" id="simReviewQuestionsList"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 3: PRINTABLE MOCK EXAM
+             ========================================== -->
+        <section class="view-panel" id="viewPrint">
+            <div class="print-config-bar">
+                <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                    <div class="filter-group">
+                        <span class="filter-label">Exam Set:</span>
+                        <select class="select-input" id="printSetSelect" onchange="generatePrintLayout()">
+                            <option value="253">Term 253 Exam (15 Questions)</option>
+                            <option value="252">Term 252 Exam (15 Questions)</option>
+                            <option value="251A">Term 251A Exam (15 Questions)</option>
+                            <option value="251B">Term 251B Exam (15 Questions)</option>
+                            <option value="243">Term 243 Exam (15 Questions)</option>
+                            <option value="242">Term 242 Exam (15 Questions)</option>
+                            <option value="241">Term 241 Exam (15 Questions)</option>
+                            <option value="233">Term 233 Exam (15 Questions)</option>
+                            <option value="232">Term 232 Exam (20 Questions)</option>
+                            <option value="231">Term 231 Exam (20 Questions)</option>
+                            <option value="223">Term 223 Exam (20 Questions)</option>
+                            <option value="221">Term 221 Exam (20 Questions)</option>
+                            <option value="RANDOM_15">Balanced Random Mock (15 Questions)</option>
+                            <option value="RANDOM_20">Balanced Random Mock (20 Questions)</option>
+                        </select>
+                    </div>
+
+                    <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-secondary); cursor: pointer;">
+                        <input type="checkbox" id="printIncludeKey" checked onchange="generatePrintLayout()" />
+                        <span>Include Answer Key on New Page</span>
+                    </label>
+                </div>
+
+                <button class="btn-print-action" onclick="window.print()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    <span>Print Exam / Save as PDF</span>
+                </button>
+            </div>
+
+            <!-- Print Paper Area -->
+            <div class="print-sheet-paper" id="printSheetPaper">
+                <div class="kfupm-print-header">
+                    <h1>King Fahd University of Petroleum & Minerals</h1>
+                    <h2>Department of Mathematics & Statistics</h2>
+                    <h3>MATH 201 — Calculus III — Major Exam II</h3>
+                    <table class="student-fill-table">
+                        <tr>
+                            <td style="width: 50%;">Student Name: _____________________________________</td>
+                            <td style="width: 28%;">Student ID: _________________</td>
+                            <td style="width: 22%;">Section: _________</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="printQuestionsList"></div>
+
+                <div class="print-answer-key-section print-page-break" id="printAnswerKeySection">
+                    <h2 style="font-size: 15px; font-weight: 800; text-align: center; margin-bottom: 8px;">ANSWER KEY — MAJOR EXAM II</h2>
+                    <table class="print-answer-key-table" id="printAnswerKeyTable">
+                        <thead>
+                            <tr>
+                                <th>Q #</th>
+                                <th>Correct Choice</th>
+                                <th>Section</th>
+                                <th>Topic</th>
+                            </tr>
+                        </thead>
+                        <tbody id="printAnswerKeyBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         SCRATCHPAD MODAL & CANVAS
+         Textless SVG icons for marker/eraser tools
+         ========================================== -->
+    <div class="scratchpad-modal-overlay" id="scratchpadOverlay" onclick="closeScratchpad(event)">
+        <div class="scratchpad-modal-window" onclick="event.stopPropagation()">
+            <!-- Top Controls Bar -->
+            <div class="scratchpad-topbar">
+                <div class="scratchpad-tools">
+                    <!-- Pen Tool -->
+                    <button class="tool-icon-btn active" id="spPenBtn" onclick="setSpTool('pen')" title="Pen">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Eraser Tool -->
+                    <button class="tool-icon-btn" id="spEraserBtn" onclick="setSpTool('eraser')" title="Eraser">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 20H7L3 16C2 15 2 13 3 12L13 2L22 11L20 20Z"></path>
+                            <line x1="18" y1="9" x2="9" y2="18"></line>
+                        </svg>
+                    </button>
+
+                    <!-- Color Presets -->
+                    <div style="display: flex; align-items: center; gap: 6px; margin-inline: 4px;">
+                        <button class="color-dot-btn active" style="background: #38bdf8;" onclick="setSpColor('#38bdf8', this)"></button>
+                        <button class="color-dot-btn" style="background: #facc15;" onclick="setSpColor('#facc15', this)"></button>
+                        <button class="color-dot-btn" style="background: #f43f5e;" onclick="setSpColor('#f43f5e', this)"></button>
+                        <button class="color-dot-btn" style="background: #ffffff;" onclick="setSpColor('#ffffff', this)"></button>
+                    </div>
+
+                    <!-- Stroke Size -->
+                    <div style="display: flex; align-items: center; gap: 4px; margin-inline: 4px;">
+                        <button class="tool-icon-btn" style="width: 28px; height: 28px;" onclick="setSpSize(2)" title="Thin">
+                            <div style="width: 4px; height: 4px; border-radius: 50%; background: currentColor;"></div>
+                        </button>
+                        <button class="tool-icon-btn active" style="width: 28px; height: 28px;" onclick="setSpSize(4)" title="Medium">
+                            <div style="width: 7px; height: 7px; border-radius: 50%; background: currentColor;"></div>
+                        </button>
+                        <button class="tool-icon-btn" style="width: 28px; height: 28px;" onclick="setSpSize(8)" title="Thick">
+                            <div style="width: 11px; height: 11px; border-radius: 50%; background: currentColor;"></div>
+                        </button>
+                    </div>
+
+                    <!-- Clear Canvas -->
+                    <button class="tool-icon-btn" onclick="clearScratchpadCanvas()" title="Clear drawing">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <button class="tool-icon-btn" onclick="closeScratchpad()" title="Close scratchpad">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Canvas Area -->
+            <div class="scratchpad-body" id="scratchpadCanvasWrap">
+                <canvas id="scratchpadCanvas"></canvas>
+            </div>
+
+            <!-- Collapsible Calculation Scratch Notes -->
+            <div class="scratchpad-notes-drawer">
+                <textarea class="scratchpad-notes-area" id="scratchNotesArea" placeholder="Scratch text notes / intermediate formulas (saved automatically)..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================
+         PORTAL APPLICATION JAVASCRIPT
+         ======================================================== -->
+    <script>
+        /* Global State */
+        const APP = {
+            questions: [],
+            filtered: [],
+            term: 'ALL',
+            section: 'ALL',
+            status: 'ALL',
+            search: '',
+            page: 1,
+            pageSize: 25,
+            progress: {}, // { [id]: { selected: 'A', correct: true/false } }
+            bookmarks: new Set(),
+            scratchNotes: '',
+            
+            // Simulator State
+            sim: {
+                active: false,
+                formatCount: 15,
+                durationMinutes: 75,
+                timerInterval: null,
+                remainingSeconds: 0,
+                startTime: 0,
+                questions: [],
+                currentIndex: 0,
+                answers: {}, // { [index]: 'A' }
+                flags: new Set()
+            }
+        };
+
+        /* Initialize from LocalStorage and Bank Data */
+        window.addEventListener('DOMContentLoaded', () => {
+            initData();
+            initScratchpad();
+            initNotes();
+            setupKeyboard();
+            renderPracticeView();
+        });
+
+        function initData() {
+            if (window.MATH201_EXAM_BANK && window.MATH201_EXAM_BANK.all_questions) {
+                APP.questions = window.MATH201_EXAM_BANK.all_questions;
+            } else {
+                console.error('MATH201_EXAM_BANK data not loaded');
+                APP.questions = [];
+            }
+
+            // Load progress
+            try {
+                const savedProg = localStorage.getItem('math201_exam2_progress');
+                if (savedProg) APP.progress = JSON.parse(savedProg);
+            } catch(e) { APP.progress = {}; }
+
+            // Load bookmarks
+            try {
+                const savedBk = localStorage.getItem('math201_exam2_bookmarks');
+                if (savedBk) APP.bookmarks = new Set(JSON.parse(savedBk));
+            } catch(e) { APP.bookmarks = new Set(); }
+
+            // Apply initial filtering
+            applyFilters();
+            updateProgressStats();
+        }
+
+        /* Mode Tab Navigation */
+        function switchBankTab(tabKey) {
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.view-panel').forEach(panel => panel.classList.remove('active'));
+
+            if (tabKey === 'practice') {
+                document.getElementById('tabPractice').classList.add('active');
+                document.getElementById('viewPractice').classList.add('active');
+                renderPracticeView();
+            } else if (tabKey === 'simulator') {
+                document.getElementById('tabSimulator').classList.add('active');
+                document.getElementById('viewSimulator').classList.add('active');
+            } else if (tabKey === 'print') {
+                document.getElementById('tabPrint').classList.add('active');
+                document.getElementById('viewPrint').classList.add('active');
+                generatePrintLayout();
+            }
+        }
+
+        /* ========================================================
+           PRACTICE MODE: FILTERING & RENDERING
+           ======================================================== */
+        function handleFilterChange() {
+            APP.term = document.getElementById('filterTerm').value;
+            APP.section = document.getElementById('filterSection').value;
+            APP.page = 1;
+            applyFilters();
+            renderPracticeView();
+        }
+
+        function setStatusFilter(status) {
+            APP.status = status;
+            APP.page = 1;
+            document.querySelectorAll('.status-pill-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.status === status);
+            });
+            applyFilters();
+            renderPracticeView();
+        }
+
+        let searchDebounce = null;
+        function handleSearchInput() {
+            clearTimeout(searchDebounce);
+            searchDebounce = setTimeout(() => {
+                APP.search = document.getElementById('searchInput').value.trim().toLowerCase();
+                APP.page = 1;
+                applyFilters();
+                renderPracticeView();
+            }, 180);
+        }
+
+        function changePageSize() {
+            const val = document.getElementById('pageSizeSelect').value;
+            APP.pageSize = val === 'ALL' ? APP.filtered.length || 200 : parseInt(val, 10);
+            APP.page = 1;
+            renderPracticeView();
+        }
+
+        function applyFilters() {
+            APP.filtered = APP.questions.filter(q => {
+                // Term Filter
+                if (APP.term !== 'ALL' && q.term !== APP.term) return false;
+
+                // Section Filter
+                if (APP.section !== 'ALL' && q.section !== APP.section) return false;
+
+                // Status Filter
+                const qProg = APP.progress[q.id];
+                const isBookmarked = APP.bookmarks.has(q.id);
+
+                if (APP.status === 'UNATTEMPTED' && qProg) return false;
+                if (APP.status === 'BOOKMARKED' && !isBookmarked) return false;
+                if (APP.status === 'CORRECT' && (!qProg || !qProg.correct)) return false;
+                if (APP.status === 'INCORRECT' && (!qProg || qProg.correct)) return false;
+
+                // Search Filter
+                if (APP.search) {
+                    const matchQ = q.question.toLowerCase().includes(APP.search);
+                    const matchTopic = (q.topic || '').toLowerCase().includes(APP.search);
+                    const matchId = q.id.toLowerCase().includes(APP.search);
+                    const matchChoices = (q.choices || []).some(c => c.toLowerCase().includes(APP.search));
+                    if (!matchQ && !matchTopic && !matchId && !matchChoices) return false;
+                }
+
+                return true;
+            });
+
+            // Update stats chip
+            const countEl = document.getElementById('filterStatsCount');
+            if (countEl) {
+                countEl.textContent = `Showing ${APP.filtered.length} of ${APP.questions.length} questions`;
+            }
+        }
+
+        function renderPracticeView() {
+            const container = document.getElementById('questionsContainer');
+            if (!container) return;
+
+            if (APP.filtered.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 48px 16px; background: var(--bg-card); border: 1px dashed var(--border-dim); border-radius: 14px;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="1.5" style="margin-bottom: 12px;">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <h3 style="color: #ffffff; font-size: 16px; margin-bottom: 6px;">No questions match your filter criteria</h3>
+                        <p style="color: var(--text-muted); font-size: 13px;">Try clearing search keywords or selecting "All Terms" / "All Sections".</p>
+                    </div>
+                `;
+                renderPagination(0);
+                return;
+            }
+
+            const totalPages = Math.ceil(APP.filtered.length / APP.pageSize) || 1;
+            if (APP.page > totalPages) APP.page = totalPages;
+
+            const startIndex = (APP.page - 1) * APP.pageSize;
+            const pageQuestions = APP.filtered.slice(startIndex, startIndex + APP.pageSize);
+
+            // Build HTML
+            const letters = ['A', 'B', 'C', 'D', 'E'];
+            let html = '';
+
+            pageQuestions.forEach(q => {
+                const userProg = APP.progress[q.id];
+                const isBookmarked = APP.bookmarks.has(q.id);
+
+                let cardClass = 'q-card';
+                if (userProg) {
+                    cardClass += userProg.correct ? ' status-correct' : ' status-incorrect';
+                }
+                if (isBookmarked) cardClass += ' is-bookmarked';
+
+                // Format choices
+                let choicesHtml = '';
+                q.choices.forEach((cText, idx) => {
+                    const ltr = letters[idx];
+                    let btnClass = 'choice-btn';
+                    
+                    if (userProg) {
+                        if (userProg.selected === ltr) {
+                            btnClass += userProg.correct ? ' selected-correct' : ' selected-incorrect';
+                        } else if (!userProg.correct && ltr === q.correct_answer) {
+                            btnClass += ' reveal-correct';
+                        }
+                    }
+
+                    const formattedChoice = ensureMathDelimiters(cText);
+
+                    choicesHtml += `
+                        <button class="${btnClass}" onclick="selectPracticeChoice('${q.id}', '${ltr}')">
+                            <span class="choice-letter">${ltr}</span>
+                            <span class="choice-text">${formattedChoice}</span>
+                        </button>
+                    `;
+                });
+
+                const formattedQuestion = ensureMathDelimiters(q.question);
+
+                html += `
+                    <div class="${cardClass}" id="card-${q.id}">
+                        <div class="q-card-header">
+                            <div class="q-meta-badges">
+                                <span class="badge-term">Term ${q.term} • Q${q.number}</span>
+                                <span class="badge-section">Sec ${q.section}</span>
+                                <span class="badge-topic">${q.topic || ''}</span>
+                            </div>
+
+                            <div class="q-header-actions">
+                                <button class="btn-star ${isBookmarked ? 'bookmarked' : ''}" onclick="toggleBookmark('${q.id}')" title="Bookmark question">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="${isBookmarked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="q-body-text">${formattedQuestion}</div>
+
+                        <div class="choices-grid">
+                            ${choicesHtml}
+                        </div>
+
+                        <!-- Collapsible Solution Accordion -->
+                        <div class="accordion-box ${userProg ? 'open' : ''}" id="accordion-${q.id}">
+                            <div class="accordion-header" onclick="toggleAccordion('${q.id}')">
+                                <div class="accordion-title-group">
+                                    <span class="accordion-chevron">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="9 18 15 12 9 6"></polyline>
+                                        </svg>
+                                    </span>
+                                    <span>Step-by-Step Calculus Solution</span>
+                                </div>
+                                <span style="font-size: 11px; color: var(--accent-sky); font-weight: 700; font-family: var(--font-mono);">
+                                    Answer: [${q.correct_answer}]
+                                </span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="solution-inner">
+                                    ${q.solution}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+
+            // Trigger KaTeX rendering on the container
+            renderMathOnElement(container);
+
+            // Render pagination
+            renderPagination(totalPages);
+        }
+
+        /* Choice Click in Practice Mode */
+        function selectPracticeChoice(qid, choiceLetter) {
+            const q = APP.questions.find(item => item.id === qid);
+            if (!q) return;
+
+            const isCorrect = (choiceLetter === q.correct_answer);
+            APP.progress[qid] = {
+                selected: choiceLetter,
+                correct: isCorrect,
+                timestamp: Date.now()
+            };
+
+            // Save to localStorage
+            try {
+                localStorage.setItem('math201_exam2_progress', JSON.stringify(APP.progress));
+            } catch(e) {}
+
+            updateProgressStats();
+
+            // Open solution accordion automatically
+            const acc = document.getElementById(`accordion-${qid}`);
+            if (acc) acc.classList.add('open');
+
+            // Re-render card buttons smoothly without full re-render
+            const card = document.getElementById(`card-${qid}`);
+            if (card) {
+                card.className = `q-card ${isCorrect ? 'status-correct' : 'status-incorrect'} ${APP.bookmarks.has(qid) ? 'is-bookmarked' : ''}`;
+                const btns = card.querySelectorAll('.choice-btn');
+                const letters = ['A', 'B', 'C', 'D', 'E'];
+                btns.forEach((btn, idx) => {
+                    const ltr = letters[idx];
+                    btn.className = 'choice-btn';
+                    if (ltr === choiceLetter) {
+                        btn.className += isCorrect ? ' selected-correct' : ' selected-incorrect';
+                    } else if (!isCorrect && ltr === q.correct_answer) {
+                        btn.className += ' reveal-correct';
+                    }
+                });
+            }
+        }
+
+        /* Accordion Toggle */
+        function toggleAccordion(qid) {
+            const acc = document.getElementById(`accordion-${qid}`);
+            if (acc) {
+                acc.classList.toggle('open');
+            }
+        }
+
+        /* Bookmark Toggle */
+        function toggleBookmark(qid) {
+            if (APP.bookmarks.has(qid)) {
+                APP.bookmarks.delete(qid);
+            } else {
+                APP.bookmarks.add(qid);
+            }
+
+            try {
+                localStorage.setItem('math201_exam2_bookmarks', JSON.stringify(Array.from(APP.bookmarks)));
+            } catch(e) {}
+
+            updateProgressStats();
+
+            // Update card bookmark icon
+            const card = document.getElementById(`card-${qid}`);
+            if (card) {
+                const btn = card.querySelector('.btn-star');
+                const isBk = APP.bookmarks.has(qid);
+                card.classList.toggle('is-bookmarked', isBk);
+                if (btn) {
+                    btn.classList.toggle('bookmarked', isBk);
+                    const svg = btn.querySelector('svg');
+                    if (svg) svg.setAttribute('fill', isBk ? 'currentColor' : 'none');
+                }
+            }
+
+            // If in status filter BOOKMARKED, refresh
+            if (APP.status === 'BOOKMARKED') {
+                applyFilters();
+                renderPracticeView();
+            }
+        }
+
+        /* Update Progress Stats */
+        function updateProgressStats() {
+            const total = APP.questions.length;
+            const attemptedKeys = Object.keys(APP.progress);
+            const attemptedCount = attemptedKeys.length;
+            const correctCount = attemptedKeys.filter(k => APP.progress[k].correct).length;
+            const accuracy = attemptedCount > 0 ? Math.round((correctCount / attemptedCount) * 100) : 0;
+            const attemptedPercent = total > 0 ? Math.round((attemptedCount / total) * 100) : 0;
+
+            const attEl = document.getElementById('statAttempted');
+            if (attEl) attEl.textContent = `${attemptedCount} / ${total}`;
+
+            const attPctEl = document.getElementById('statAttemptedPercent');
+            if (attPctEl) attPctEl.textContent = `${attemptedPercent}% Completed`;
+
+            const accEl = document.getElementById('statAccuracy');
+            if (accEl) accEl.textContent = `${accuracy}%`;
+
+            const ratioEl = document.getElementById('statScoreRatio');
+            if (ratioEl) ratioEl.textContent = `${correctCount} Correct / ${attemptedCount} Attempted`;
+
+            const bkEl = document.getElementById('statBookmarks');
+            if (bkEl) bkEl.textContent = `${APP.bookmarks.size}`;
+        }
+
+        /* Reset All Progress */
+        function resetAllProgress() {
+            if (confirm('Are you sure you want to reset all your practice progress and answers? Bookmarks will be preserved.')) {
+                APP.progress = {};
+                try {
+                    localStorage.removeItem('math201_exam2_progress');
+                } catch(e) {}
+                updateProgressStats();
+                applyFilters();
+                renderPracticeView();
+            }
+        }
+
+        /* Pagination Rendering */
+        function renderPagination(totalPages) {
+            const topEl = document.getElementById('paginationTop');
+            const btmEl = document.getElementById('paginationBottom');
+
+            if (totalPages <= 1) {
+                if (topEl) topEl.innerHTML = '';
+                if (btmEl) btmEl.innerHTML = '';
+                return;
+            }
+
+            const html = `
+                <div class="pagination-info">
+                    Page <strong>${APP.page}</strong> of <strong>${totalPages}</strong> (${APP.filtered.length} total)
+                </div>
+                <div class="pagination-controls">
+                    <button class="page-btn" ${APP.page <= 1 ? 'disabled' : ''} onclick="changePage(${APP.page - 1})">Prev</button>
+                    ${buildPageNumbers(totalPages)}
+                    <button class="page-btn" ${APP.page >= totalPages ? 'disabled' : ''} onclick="changePage(${APP.page + 1})">Next</button>
+                </div>
+            `;
+
+            if (topEl) topEl.innerHTML = html;
+            if (btmEl) btmEl.innerHTML = html;
+        }
+
+        function buildPageNumbers(total) {
+            let btns = '';
+            const maxVisible = 5;
+            let start = Math.max(1, APP.page - 2);
+            let end = Math.min(total, start + maxVisible - 1);
+            if (end - start < maxVisible - 1) {
+                start = Math.max(1, end - maxVisible + 1);
+            }
+
+            for (let i = start; i <= end; i++) {
+                btns += `<button class="page-btn ${i === APP.page ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
+            }
+            return btns;
+        }
+
+        function changePage(p) {
+            APP.page = p;
+            renderPracticeView();
+            window.scrollTo({ top: 180, behavior: 'smooth' });
+        }
+
+        /* ========================================================
+           MOCK EXAM SIMULATOR LOGIC
+           ======================================================== */
+        function selectSimFormat(count, minutes) {
+            APP.sim.formatCount = count;
+            APP.sim.durationMinutes = minutes;
+            document.querySelectorAll('.sim-option-card').forEach(c => c.classList.remove('selected'));
+            const card = document.getElementById(`optFormat${count}`);
+            if (card) card.classList.add('selected');
+        }
+
+        function startSimulatorExam() {
+            const src = document.getElementById('simSourceSelect').value;
+            let pool = [];
+
+            if (src === 'RANDOM') {
+                pool = shuffleArray([...APP.questions]);
+            } else if (src === 'BOOKMARKED') {
+                pool = APP.questions.filter(q => APP.bookmarks.has(q.id));
+                if (pool.length === 0) {
+                    alert('You have 0 bookmarked questions. Please bookmark questions in Practice Mode first or select another source.');
+                    return;
+                }
+                pool = shuffleArray(pool);
+            } else {
+                // Specific Term
+                pool = APP.questions.filter(q => q.term === src);
+            }
+
+            const count = Math.min(APP.sim.formatCount, pool.length);
+            APP.sim.questions = pool.slice(0, count);
+            APP.sim.currentIndex = 0;
+            APP.sim.answers = {};
+            APP.sim.flags = new Set();
+            APP.sim.active = true;
+            APP.sim.remainingSeconds = APP.sim.durationMinutes * 60;
+            APP.sim.startTime = Date.now();
+
+            // Toggle screens
+            document.getElementById('simSetupContainer').style.display = 'none';
+            document.getElementById('simResultsContainer').style.display = 'none';
+            document.getElementById('simActiveContainer').style.display = 'block';
+
+            // Start timer
+            clearInterval(APP.sim.timerInterval);
+            APP.sim.timerInterval = setInterval(updateSimTimer, 1000);
+            updateSimTimerDisplay();
+
+            // Render Palette and first question
+            renderSimPalette();
+            renderSimActiveQuestion();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updateSimTimer() {
+            if (APP.sim.remainingSeconds <= 0) {
+                clearInterval(APP.sim.timerInterval);
+                alert('Time is up! Submitting exam now.');
+                finishSimulatorExam();
+                return;
+            }
+            APP.sim.remainingSeconds--;
+            updateSimTimerDisplay();
+        }
+
+        function updateSimTimerDisplay() {
+            const mins = Math.floor(APP.sim.remainingSeconds / 60);
+            const secs = APP.sim.remainingSeconds % 60;
+            const str = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+            const timeEl = document.getElementById('simTimeRemaining');
+            const pillEl = document.getElementById('simTimerDisplay');
+            if (timeEl) timeEl.textContent = str;
+            if (pillEl) {
+                pillEl.classList.toggle('urgent', APP.sim.remainingSeconds < 600); // 10 mins
+            }
+        }
+
+        function renderSimPalette() {
+            const pal = document.getElementById('simPaletteContainer');
+            if (!pal) return;
+
+            let html = '';
+            APP.sim.questions.forEach((q, idx) => {
+                const isCurrent = (idx === APP.sim.currentIndex);
+                const isAnswered = APP.sim.answers[idx] !== undefined;
+                const isFlagged = APP.sim.flags.has(idx);
+
+                let cls = 'palette-btn';
+                if (isCurrent) cls += ' current';
+                if (isAnswered) cls += ' answered';
+                if (isFlagged) cls += ' flagged';
+
+                html += `<button class="${cls}" onclick="jumpSimQuestion(${idx})">${idx + 1}</button>`;
+            });
+            pal.innerHTML = html;
+        }
+
+        function renderSimActiveQuestion() {
+            const q = APP.sim.questions[APP.sim.currentIndex];
+            if (!q) return;
+
+            document.getElementById('simQuestionIndicator').textContent = `Question ${APP.sim.currentIndex + 1} of ${APP.sim.questions.length}`;
+            document.getElementById('simBadgeTerm').textContent = `Term ${q.term} • Q${q.number}`;
+            document.getElementById('simBadgeSection').textContent = `Sec ${q.section}`;
+            document.getElementById('simBadgeTopic').textContent = q.topic || '';
+
+            // Flag state
+            const isFlagged = APP.sim.flags.has(APP.sim.currentIndex);
+            const flagBtn = document.getElementById('btnSimFlag');
+            if (flagBtn) flagBtn.classList.toggle('active', isFlagged);
+
+            // Question body
+            const bodyEl = document.getElementById('simQuestionBody');
+            bodyEl.innerHTML = ensureMathDelimiters(q.question);
+
+            // Choices
+            const container = document.getElementById('simChoicesContainer');
+            const letters = ['A', 'B', 'C', 'D', 'E'];
+            const chosen = APP.sim.answers[APP.sim.currentIndex];
+
+            let html = '';
+            q.choices.forEach((cText, idx) => {
+                const ltr = letters[idx];
+                const isSelected = (chosen === ltr);
+                const formattedChoice = ensureMathDelimiters(cText);
+
+                html += `
+                    <button class="choice-btn ${isSelected ? 'selected-correct' : ''}" onclick="selectSimChoice('${ltr}')">
+                        <span class="choice-letter">${ltr}</span>
+                        <span class="choice-text">${formattedChoice}</span>
+                    </button>
+                `;
+            });
+            container.innerHTML = html;
+
+            // Nav buttons state
+            document.getElementById('btnSimPrev').disabled = (APP.sim.currentIndex === 0);
+            document.getElementById('btnSimNext').disabled = (APP.sim.currentIndex === APP.sim.questions.length - 1);
+
+            // Trigger math rendering
+            renderMathOnElement(bodyEl);
+            renderMathOnElement(container);
+            renderSimPalette();
+        }
+
+        function selectSimChoice(ltr) {
+            APP.sim.answers[APP.sim.currentIndex] = ltr;
+            renderSimActiveQuestion();
+        }
+
+        function clearSimChoice() {
+            delete APP.sim.answers[APP.sim.currentIndex];
+            renderSimActiveQuestion();
+        }
+
+        function toggleSimFlag() {
+            const idx = APP.sim.currentIndex;
+            if (APP.sim.flags.has(idx)) {
+                APP.sim.flags.delete(idx);
+            } else {
+                APP.sim.flags.add(idx);
+            }
+            renderSimActiveQuestion();
+        }
+
+        function navigateSimQuestion(delta) {
+            const nextIdx = APP.sim.currentIndex + delta;
+            if (nextIdx >= 0 && nextIdx < APP.sim.questions.length) {
+                APP.sim.currentIndex = nextIdx;
+                renderSimActiveQuestion();
+            }
+        }
+
+        function jumpSimQuestion(idx) {
+            APP.sim.currentIndex = idx;
+            renderSimActiveQuestion();
+        }
+
+        function confirmSubmitSimulator() {
+            const total = APP.sim.questions.length;
+            const answered = Object.keys(APP.sim.answers).length;
+            const unanswered = total - answered;
+
+            let msg = `You have answered ${answered} of ${total} questions.`;
+            if (unanswered > 0) {
+                msg += `\n\nWarning: ${unanswered} question(s) are unanswered!`;
+            }
+            msg += `\n\nAre you sure you want to finish and submit the exam?`;
+
+            if (confirm(msg)) {
+                finishSimulatorExam();
+            }
+        }
+
+        function finishSimulatorExam() {
+            clearInterval(APP.sim.timerInterval);
+            APP.sim.active = false;
+
+            const timeSpentSeconds = Math.round((Date.now() - APP.sim.startTime) / 1000);
+            const minsSpent = Math.floor(timeSpentSeconds / 60);
+            const secsSpent = timeSpentSeconds % 60;
+
+            let correctCount = 0;
+            const secStats = {}; // { section: { total, correct } }
+
+            APP.sim.questions.forEach((q, idx) => {
+                const userAns = APP.sim.answers[idx];
+                const isCorrect = (userAns === q.correct_answer);
+                if (isCorrect) correctCount++;
+
+                if (!secStats[q.section]) secStats[q.section] = { total: 0, correct: 0 };
+                secStats[q.section].total++;
+                if (isCorrect) secStats[q.section].correct++;
+            });
+
+            const total = APP.sim.questions.length;
+            const pct = Math.round((correctCount / total) * 100);
+
+            // Display results
+            document.getElementById('simActiveContainer').style.display = 'none';
+            document.getElementById('simResultsContainer').style.display = 'block';
+
+            document.getElementById('simFinalScore').textContent = `${correctCount} / ${total}`;
+            const badgeEl = document.getElementById('simScorePercentBadge');
+            badgeEl.textContent = `${pct}% • ${getGradeText(pct)}`;
+            badgeEl.className = pct >= 75 ? 'score-percent-badge pass' : 'score-percent-badge warn';
+
+            document.getElementById('simTimeElapsedText').textContent = `Completed in ${minsSpent} mins ${secsSpent} secs`;
+
+            // Render section breakdown
+            const secContainer = document.getElementById('simSectionBreakdown');
+            let secHtml = '';
+            for (const [sec, data] of Object.entries(secStats)) {
+                const secPct = Math.round((data.correct / data.total) * 100);
+                secHtml += `
+                    <div class="sec-stat-row">
+                        <div class="sec-stat-meta">
+                            <span style="font-weight: 700; color: #ffffff;">Section ${sec}</span>
+                            <span style="font-family: var(--font-mono); color: var(--accent-sky);">${data.correct}/${data.total} (${secPct}%)</span>
+                        </div>
+                        <div class="sec-progress-bar">
+                            <div class="sec-progress-fill" style="width: ${secPct}%;"></div>
+                        </div>
+                    </div>
+                `;
+            }
+            secContainer.innerHTML = secHtml;
+
+            // Render full detailed review cards
+            renderSimReviewCards();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function getGradeText(pct) {
+            if (pct >= 90) return 'EXCELLENT (Grade A+)';
+            if (pct >= 85) return 'VERY GOOD (Grade A)';
+            if (pct >= 75) return 'GOOD (Grade B)';
+            if (pct >= 60) return 'SATISFACTORY (Grade C)';
+            return 'NEEDS PRACTICE';
+        }
+
+        function renderSimReviewCards() {
+            const listEl = document.getElementById('simReviewQuestionsList');
+            if (!listEl) return;
+
+            const letters = ['A', 'B', 'C', 'D', 'E'];
+            let html = '';
+
+            APP.sim.questions.forEach((q, idx) => {
+                const userAns = APP.sim.answers[idx];
+                const isCorrect = (userAns === q.correct_answer);
+
+                let choicesHtml = '';
+                q.choices.forEach((cText, cIdx) => {
+                    const ltr = letters[cIdx];
+                    let btnClass = 'choice-btn';
+
+                    if (userAns === ltr) {
+                        btnClass += isCorrect ? ' selected-correct' : ' selected-incorrect';
+                    } else if (ltr === q.correct_answer) {
+                        btnClass += ' reveal-correct';
+                    }
+
+                    choicesHtml += `
+                        <div class="${btnClass}">
+                            <span class="choice-letter">${ltr}</span>
+                            <span class="choice-text">${ensureMathDelimiters(cText)}</span>
+                        </div>
+                    `;
+                });
+
+                html += `
+                    <div class="q-card ${isCorrect ? 'status-correct' : 'status-incorrect'}">
+                        <div class="q-card-header">
+                            <div class="q-meta-badges">
+                                <span class="badge-term">Q${idx + 1} (${q.term} • Q${q.number})</span>
+                                <span class="badge-section">Sec ${q.section}</span>
+                                <span class="badge-topic">${q.topic || ''}</span>
+                            </div>
+                            <span style="font-size: 13px; font-weight: 800; font-family: var(--font-mono); color: ${isCorrect ? 'var(--color-correct)' : 'var(--color-incorrect)'};">
+                                ${isCorrect ? '✓ Correct' : (userAns ? `✗ Incorrect (You chose ${userAns})` : '○ Unanswered')}
+                            </span>
+                        </div>
+
+                        <div class="q-body-text">${ensureMathDelimiters(q.question)}</div>
+
+                        <div class="choices-grid">
+                            ${choicesHtml}
+                        </div>
+
+                        <div class="accordion-box open">
+                            <div class="accordion-header">
+                                <span style="font-weight: 700; color: var(--accent-sky); font-size: 13px;">Correct Answer: [${q.correct_answer}] — Step-by-Step Calculus Solution</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="solution-inner">${q.solution}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            listEl.innerHTML = html;
+            renderMathOnElement(listEl);
+        }
+
+        function retakeSimulator() {
+            document.getElementById('simResultsContainer').style.display = 'none';
+            document.getElementById('simActiveContainer').style.display = 'none';
+            document.getElementById('simSetupContainer').style.display = 'block';
+        }
+
+        /* ========================================================
+           PRINTABLE EXAM VIEW GENERATION
+           ======================================================== */
+        function generatePrintLayout() {
+            const setVal = document.getElementById('printSetSelect').value;
+            const incKey = document.getElementById('printIncludeKey').checked;
+
+            let printQs = [];
+            if (setVal.startsWith('RANDOM_')) {
+                const count = parseInt(setVal.split('_')[1], 10);
+                printQs = shuffleArray([...APP.questions]).slice(0, count);
+            } else {
+                printQs = APP.questions.filter(q => q.term === setVal);
+            }
+
+            const qListEl = document.getElementById('printQuestionsList');
+            const keyTableEl = document.getElementById('printAnswerKeyBody');
+            const keySection = document.getElementById('printAnswerKeySection');
+
+            const letters = ['A', 'B', 'C', 'D', 'E'];
+            let qHtml = '';
+            let keyHtml = '';
+
+            printQs.forEach((q, idx) => {
+                let choicesHtml = '';
+                q.choices.forEach((cText, cIdx) => {
+                    choicesHtml += `
+                        <div class="print-choice-col">
+                            <strong>(${letters[cIdx]})</strong>
+                            <span>${ensureMathDelimiters(cText)}</span>
+                        </div>
+                    `;
+                });
+
+                qHtml += `
+                    <div class="print-question-item">
+                        <div class="print-q-head">
+                            <span>Question ${idx + 1}.</span>
+                            <span style="font-weight: normal; color: #555; font-size: 11px;">[Term ${q.term} • Sec ${q.section} • ${q.topic || ''}]</span>
+                        </div>
+                        <div style="line-height: 1.6; margin-bottom: 8px;">
+                            ${ensureMathDelimiters(q.question)}
+                        </div>
+                        <div class="print-choices-grid">
+                            ${choicesHtml}
+                        </div>
+                    </div>
+                `;
+
+                keyHtml += `
+                    <tr>
+                        <td><strong>${idx + 1}</strong></td>
+                        <td style="font-weight: 800; font-size: 13px;">${q.correct_answer}</td>
+                        <td>${q.section}</td>
+                        <td style="text-align: start;">${q.topic || ''}</td>
+                    </tr>
+                `;
+            });
+
+            qListEl.innerHTML = qHtml;
+            keyTableEl.innerHTML = keyHtml;
+            keySection.style.display = incKey ? 'block' : 'none';
+
+            // KaTeX render print area
+            renderMathOnElement(document.getElementById('printSheetPaper'));
+        }
+
+        /* ========================================================
+           SCRATCHPAD CANVAS & NOTES DRAWER
+           Touch & mouse drawing, textless SVG icons
+           ======================================================== */
+        let spCanvas, spCtx;
+        let spDrawing = false;
+        let spTool = 'pen';
+        let spColor = '#38bdf8';
+        let spSize = 4;
+
+        function initScratchpad() {
+            spCanvas = document.getElementById('scratchpadCanvas');
+            if (!spCanvas) return;
+            spCtx = spCanvas.getContext('2d');
+
+            resizeScratchpad();
+            window.addEventListener('resize', resizeScratchpad);
+
+            // Mouse Events
+            spCanvas.addEventListener('mousedown', startSpDraw);
+            spCanvas.addEventListener('mousemove', drawSpMove);
+            window.addEventListener('mouseup', endSpDraw);
+
+            // Touch Events (passive: false to prevent scrolling)
+            spCanvas.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                startSpDraw(e.touches[0]);
+            }, { passive: false });
+
+            spCanvas.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                drawSpMove(e.touches[0]);
+            }, { passive: false });
+
+            spCanvas.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                endSpDraw();
+            }, { passive: false });
+        }
+
+        function resizeScratchpad() {
+            if (!spCanvas) return;
+            const wrap = document.getElementById('scratchpadCanvasWrap');
+            if (!wrap) return;
+
+            const rect = wrap.getBoundingClientRect();
+            // Store temp canvas content
+            const temp = spCanvas.toDataURL();
+
+            spCanvas.width = rect.width;
+            spCanvas.height = rect.height;
+
+            const img = new Image();
+            img.onload = () => {
+                spCtx.drawImage(img, 0, 0);
+            };
+            img.src = temp;
+        }
+
+        function toggleScratchpad() {
+            const overlay = document.getElementById('scratchpadOverlay');
+            if (overlay.classList.contains('open')) {
+                closeScratchpad();
+            } else {
+                overlay.classList.add('open');
+                setTimeout(resizeScratchpad, 60);
+            }
+        }
+
+        function closeScratchpad() {
+            document.getElementById('scratchpadOverlay').classList.remove('open');
+        }
+
+        function setSpTool(tool) {
+            spTool = tool;
+            document.getElementById('spPenBtn').classList.toggle('active', tool === 'pen');
+            document.getElementById('spEraserBtn').classList.toggle('active', tool === 'eraser');
+        }
+
+        function setSpColor(color, btn) {
+            spColor = color;
+            setSpTool('pen');
+            document.querySelectorAll('.color-dot-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+        }
+
+        function setSpSize(size) {
+            spSize = size;
+        }
+
+        function clearScratchpadCanvas() {
+            if (confirm('Clear the entire scratchpad drawing?')) {
+                spCtx.clearRect(0, 0, spCanvas.width, spCanvas.height);
+            }
+        }
+
+        function startSpDraw(e) {
+            spDrawing = true;
+            const rect = spCanvas.getBoundingClientRect();
+            spCtx.beginPath();
+            spCtx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+        }
+
+        function drawSpMove(e) {
+            if (!spDrawing) return;
+            const rect = spCanvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            spCtx.lineWidth = spSize;
+            spCtx.lineCap = 'round';
+            spCtx.lineJoin = 'round';
+
+            if (spTool === 'eraser') {
+                spCtx.globalCompositeOperation = 'destination-out';
+                spCtx.lineWidth = spSize * 3;
+            } else {
+                spCtx.globalCompositeOperation = 'source-over';
+                spCtx.strokeStyle = spColor;
+            }
+
+            spCtx.lineTo(x, y);
+            spCtx.stroke();
+        }
+
+        function endSpDraw() {
+            if (spDrawing) {
+                spCtx.closePath();
+                spDrawing = false;
+            }
+        }
+
+        function initNotes() {
+            const notesEl = document.getElementById('scratchNotesArea');
+            if (!notesEl) return;
+            try {
+                const saved = localStorage.getItem('math201_exam2_scratchnotes');
+                if (saved) notesEl.value = saved;
+            } catch(e) {}
+
+            notesEl.addEventListener('input', () => {
+                try {
+                    localStorage.setItem('math201_exam2_scratchnotes', notesEl.value);
+                } catch(e) {}
+            });
+        }
+
+        /* Keyboard Shortcuts */
+        function setupKeyboard() {
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeScratchpad();
+                }
+            });
+        }
+
+        /* ========================================================
+           UTILITY FUNCTIONS: KATEX & SHUFFLE
+           ======================================================== */
+        function ensureMathDelimiters(text) {
+            if (!text) return '';
+            // If string has LaTeX commands like \frac, \sqrt, \partial but no $, wrap in $
+            if (text.includes('\\') && !text.includes('$')) {
+                return '$' + text + '$';
+            }
+            return text;
+        }
+
+        function renderMathOnElement(elem) {
+            if (!elem || typeof renderMathInElement !== 'function') return;
+            try {
+                renderMathInElement(elem, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false },
+                        { left: '\\(', right: '\\)', display: false },
+                        { left: '\\[', right: '\\]', display: true }
+                    ],
+                    throwOnError: false
+                });
+            } catch (err) {
+                console.warn('KaTeX render warning:', err);
+            }
+        }
+
+        function shuffleArray(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+    </script>
+</body>
+</html>
