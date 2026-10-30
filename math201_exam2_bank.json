@@ -455,7 +455,7 @@
         "$\\text{Hyperboloid of one sheet}$"
       ],
       "correct_answer": "E",
-      "solution": "The surface is a Hyperboloid of one sheet. **Step 1: Put the Equation in Standard Canonical Form** Divide both sides of $x^2 + y^2 - z^2 = 4$ by $4$:$$\\frac{x^2}{4} + \\frac{y^2}{4} - \\frac{z^2}{4} = 1$$ **Step 2: Compare with Standard Forms of Quadrics**   - Two positive squared terms and one negative squared term equaling $+1$:$$\\frac{x^2}{a^2} + \\frac{y^2}{b^2} - \\frac{z^2}{c^2} = 1 \\implies \\textbf{Hyperboloid of One Sheet}$$  - Two negative squared terms and one positive squared term equaling $+1$:$$-\\frac{x^2}{a^2} - \\frac{y^2}{b^2} + \\frac{z^2}{c^2} = 1 \\implies \\textbf{Hyperboloid of Two Sheets}$$  - Right-hand side equaling $0$:$$\\frac{x^2}{a^2} + \\frac{y^2}{b^2} - \\frac{z^2}{c^2} = 0 \\implies \\textbf{Elliptic Cone}$$   **Step 3: Verify Horizontal and Vertical Traces** Horizontal traces ($z = k$): $x^2 + y^2 = 4 + k^2$ are real circles for every value of $k \\in \\mathbb{R}$. Vertical traces ($x = 0$ or $y = 0$) are hyperbolas ($y^2 - z^2 = 4$). Thus, the surface is connected and tubular: **Hyperboloid of one sheet**."
+      "solution": "The surface is a Hyperboloid of one sheet. **Step 1: Put the Equation in Standard Canonical Form** Divide both sides of $x^2 + y^2 - z^2 = 4$ by $4$:$$\\frac{x^2}{4} + \\frac{y^2}{4} - \\frac{z^2}{4} = 1$$ **Step 2: Compare with Standard Forms of Quadrics**  - Two positive squared terms and one negative squared term equaling $+1$:$$\\frac{x^2}{a^2} + \\frac{y^2}{b^2} - \\frac{z^2}{c^2} = 1 \\implies \\textbf{Hyperboloid of One Sheet}$$ - Two negative squared terms and one positive squared term equaling $+1$:$$-\\frac{x^2}{a^2} - \\frac{y^2}{b^2} + \\frac{z^2}{c^2} = 1 \\implies \\textbf{Hyperboloid of Two Sheets}$$ - Right-hand side equaling $0$:$$\\frac{x^2}{a^2} + \\frac{y^2}{b^2} - \\frac{z^2}{c^2} = 0 \\implies \\textbf{Elliptic Cone}$$  **Step 3: Verify Horizontal and Vertical Traces** Horizontal traces ($z = k$): $x^2 + y^2 = 4 + k^2$ are real circles for every value of $k \\in \\mathbb{R}$. Vertical traces ($x = 0$ or $y = 0$) are hyperbolas ($y^2 - z^2 = 4$). Thus, the surface is connected and tubular: **Hyperboloid of one sheet**."
     },
     {
       "id": "PT1_4",
@@ -540,7 +540,7 @@
         "$0$"
       ],
       "correct_answer": "A",
-      "solution": "The limit Does Not Exist (DNE) by the Two-Path Test. **Step 1: Test Along Straight Lines $y = mx$** $$\\lim_{x \\to 0} \\frac{x^2(mx)}{x^4 + (mx)^2} = \\lim_{x \\to 0} \\frac{m x^3}{x^2(x^2 + m^2)} = \\lim_{x \\to 0} \\frac{m x}{x^2 + m^2} = 0 \\quad (\\text{for } m \\ne 0)$$Along the coordinate axes ($x = 0$ or $y = 0$), the expression is also identically $0$. **Step 2: Examine Degree Balance in the Denominator** In $x^4 + y^2$, the terms balance when $y \\sim x^2$. Let us test parabolic paths $y = k x^2$:$$\\lim_{x \\to 0} \\frac{x^2(k x^2)}{x^4 + (k x^2)^2} = \\lim_{x \\to 0} \\frac{k x^4}{x^4 + k^2 x^4} = \\lim_{x \\to 0} \\frac{k x^4}{x^4(1 + k^2)} = \\frac{k}{1 + k^2}$$ **Step 3: Evaluate Different Paths**   - Along $y = x^2$ ($k = 1$): $\\dfrac{1}{1 + 1^2} = \\dfrac{1}{2}$  - Along $y = -x^2$ ($k = -1$): $\\dfrac{-1}{1 + (-1)^2} = -\\dfrac{1}{2}$  - Along $y = 0$ ($k = 0$): $0$  Since different paths produce different limiting values, the limit **Does Not Exist (DNE)**."
+      "solution": "The limit Does Not Exist (DNE) by the Two-Path Test. **Step 1: Test Along Straight Lines $y = mx$** $$\\lim_{x \\to 0} \\frac{x^2(mx)}{x^4 + (mx)^2} = \\lim_{x \\to 0} \\frac{m x^3}{x^2(x^2 + m^2)} = \\lim_{x \\to 0} \\frac{m x}{x^2 + m^2} = 0 \\quad (\\text{for } m \\ne 0)$$Along the coordinate axes ($x = 0$ or $y = 0$), the expression is also identically $0$. **Step 2: Examine Degree Balance in the Denominator** In $x^4 + y^2$, the terms balance when $y \\sim x^2$. Let us test parabolic paths $y = k x^2$:$$\\lim_{x \\to 0} \\frac{x^2(k x^2)}{x^4 + (k x^2)^2} = \\lim_{x \\to 0} \\frac{k x^4}{x^4 + k^2 x^4} = \\lim_{x \\to 0} \\frac{k x^4}{x^4(1 + k^2)} = \\frac{k}{1 + k^2}$$ **Step 3: Evaluate Different Paths**  - Along $y = x^2$ ($k = 1$): $\\dfrac{1}{1 + 1^2} = \\dfrac{1}{2}$ - Along $y = -x^2$ ($k = -1$): $\\dfrac{-1}{1 + (-1)^2} = -\\dfrac{1}{2}$ - Along $y = 0$ ($k = 0$): $0$ Since different paths produce different limiting values, the limit **Does Not Exist (DNE)**."
     },
     {
       "id": "PT2_1",
@@ -737,11 +737,11 @@
       "topic": "Planes & Distances",
       "question": "The distance between the parallel planes $x - 3y + 2z = 1$ and $2x - 6y + 4z = 3$ is equal to",
       "choices": [
-        "\\frac{\\sqrt{14}}{4}",
-        "\\frac{\\sqrt{14}}{28}",
-        "\\frac{\\sqrt{14}}{14}",
-        "\\frac{\\sqrt{14}}{2}",
-        "\\frac{\\sqrt{14}}{7}"
+        "$\\frac{\\sqrt{14}}{4}$",
+        "$\\frac{\\sqrt{14}}{28}$",
+        "$\\frac{\\sqrt{14}}{14}$",
+        "$\\frac{\\sqrt{14}}{2}$",
+        "$\\frac{\\sqrt{14}}{7}$"
       ],
       "correct_answer": "B",
       "solution": "Choose a convenient point on the first plane $x - 3y + 2z = 1$, such as $P(1, 0, 0)$. The distance from $P(1, 0, 0)$ to the second plane $2x - 6y + 4z - 3 = 0$ is $d = \\frac{|2(1) - 6(0) + 4(0) - 3|}{\\sqrt{2^2 + (-6)^2 + 4^2}} = \\frac{|-1|}{\\sqrt{4 + 36 + 16}} = \\frac{1}{\\sqrt{56}} = \\frac{1}{2\\sqrt{14}} = \\frac{\\sqrt{14}}{28}$."
@@ -754,11 +754,11 @@
       "topic": "Continuity of Multivariable Functions",
       "question": "The set of all points where $f(x, y, z) = \\frac{\\sin z}{e^x - e^y}$ is continuous is given by",
       "choices": [
-        "\\{(x, y, z) : x \\neq y, z \\in [-1, 1]\\}",
-        "\\{(x, y, z) : x, y, z \\in (-\\infty, \\infty)\\}",
-        "\\{(x, y, z) : x \\neq y, z \\in (-\\infty, \\infty)\\}",
-        "\\{(x, y, z) : x = y\\}",
-        "\\{(x, y, z) : x, y \\in (-\\infty, \\infty), z \\in [-1, 1]\\}"
+        "$\\{(x, y, z) : x \\neq y, z \\in [-1, 1]\\}$",
+        "$\\{(x, y, z) : x, y, z \\in (-\\infty, \\infty)\\}$",
+        "$\\{(x, y, z) : x \\neq y, z \\in (-\\infty, \\infty)\\}$",
+        "$\\{(x, y, z) : x = y\\}$",
+        "$\\{(x, y, z) : x, y \\in (-\\infty, \\infty), z \\in [-1, 1]\\}$"
       ],
       "correct_answer": "C",
       "solution": "The numerator $\\sin z$ is continuous for all $z \\in \\mathbb{R}$. The denominator $e^x - e^y$ is continuous for all $x, y \\in \\mathbb{R}$. The quotient is continuous everywhere the denominator is non-zero: $e^x - e^y \\neq 0 \\iff e^x \\neq e^y \\iff x \\neq y$. The variable $z$ is completely unrestricted, so $z \\in (-\\infty, \\infty)$."
@@ -771,11 +771,11 @@
       "topic": "Implicit Differentiation",
       "question": "If the equation $z^3 - 2xy + 2yz + y^3 - 2 = 0$ defines $z$ implicitly as a differentiable function of $x$ and $y$, then the value of $\\frac{\\partial z}{\\partial y}$ when $(x, y, z) = (1, 1, 1)$ is equal to",
       "choices": [
-        "\\frac{4}{5}",
+        "$\\frac{4}{5}$",
         "0",
-        "-\\frac{2}{5}",
-        "\\frac{2}{5}",
-        "-\\frac{3}{5}"
+        "$-\\frac{2}{5}$",
+        "$\\frac{2}{5}$",
+        "$-\\frac{3}{5}$"
       ],
       "correct_answer": "E",
       "solution": "Let $F(x, y, z) = z^3 - 2xy + 2yz + y^3 - 2 = 0$. By the implicit function theorem, $\\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$. Here $F_y = -2x + 2z + 3y^2$ and $F_z = 3z^2 + 2y$. Evaluating at $(1, 1, 1)$: $F_y(1, 1, 1) = -2(1) + 2(1) + 3(1)^2 = 3$, and $F_z(1, 1, 1) = 3(1)^2 + 2(1) = 5$. Thus $\\frac{\\partial z}{\\partial y} = -\\frac{3}{5}$."
@@ -788,11 +788,11 @@
       "topic": "Higher-Order Partial Derivatives",
       "question": "If $f(x, y, z) = y^2 e^{x z^2}$, then $\\frac{\\partial^3 f}{\\partial z \\partial y \\partial x} =$",
       "choices": [
-        "2yz(xz^2 + 1) e^{xz^2}",
-        "xyz(z^2 + 1) e^{xz^2}",
-        "4xy(z^3 + 1) e^{xz^2}",
-        "4yz(xz^2 + 1) e^{xz^2}",
-        "2xz(z^4 + 1) e^{xz^2}"
+        "$2yz(xz^2 + 1) e^{xz^2}$",
+        "$xyz(z^2 + 1) e^{xz^2}$",
+        "$4xy(z^3 + 1) e^{xz^2}$",
+        "$4yz(xz^2 + 1) e^{xz^2}$",
+        "$2xz(z^4 + 1) e^{xz^2}$"
       ],
       "correct_answer": "D",
       "solution": "Differentiating step-by-step: First, $f_x = y^2 z^2 e^{xz^2}$. Second, $f_{xy} = 2y z^2 e^{xz^2}$. Third, differentiate with respect to $z$ using the product rule: $f_{xyz} = 2y \\frac{\\partial}{\\partial z}[z^2 e^{xz^2}] = 2y [2z e^{xz^2} + z^2 e^{xz^2} \\cdot 2xz] = 4yz (1 + xz^2) e^{xz^2}$."
@@ -822,11 +822,11 @@
       "topic": "Differentials & Approximations",
       "question": "Let $z = xy + \\frac{y}{x}$. Using differentials, the change in $z$ when $(x, y)$ moves from the point $(2, 1)$ to the point $(2.1, 1.05)$ is approximately equal to",
       "choices": [
-        "\\frac{3}{5}",
-        "\\frac{2}{5}",
-        "\\frac{3}{40}",
-        "\\frac{1}{5}",
-        "\\frac{1}{40}"
+        "$\\frac{3}{5}$",
+        "$\\frac{2}{5}$",
+        "$\\frac{3}{40}$",
+        "$\\frac{1}{5}$",
+        "$\\frac{1}{40}$"
       ],
       "correct_answer": "D",
       "solution": "Here $x = 2, y = 1$, $dx = 2.1 - 2 = 0.1 = \\frac{1}{10}$, and $dy = 1.05 - 1 = 0.05 = \\frac{1}{20}$. The partial derivatives are $f_x = y - \\frac{y}{x^2}$ and $f_y = x + \\frac{1}{x}$. At $(2, 1)$, $f_x(2, 1) = 1 - \\frac{1}{4} = \\frac{3}{4}$ and $f_y(2, 1) = 2 + \\frac{1}{2} = \\frac{5}{2}$. The differential is $dz = f_x dx + f_y dy = \\frac{3}{4}\\left(\\frac{1}{10}\\right) + \\frac{5}{2}\\left(\\frac{1}{20}\\right) = \\frac{3}{40} + \\frac{5}{40} = \\frac{8}{40} = \\frac{1}{5}$."
@@ -839,11 +839,11 @@
       "topic": "Chain Rule for Several Variables",
       "question": "Let $z = \\tan^{-1}\\left(\\frac{x}{y}\\right)$, $x = te^s$, $y = s\\ln t$. The value of $\\frac{\\partial z}{\\partial t}$ when $(s, t) = (1, e)$ is equal to",
       "choices": [
-        "\\frac{e - 1}{e^4 + 1}",
+        "$\\frac{e - 1}{e^4 + 1}$",
         "0",
-        "\\frac{e + 1}{e^4 + 1}",
-        "\\frac{2e}{e^4 + 1}",
-        "\\frac{-e}{e^4 + 1}"
+        "$\\frac{e + 1}{e^4 + 1}$",
+        "$\\frac{2e}{e^4 + 1}$",
+        "$\\frac{-e}{e^4 + 1}$"
       ],
       "correct_answer": "B",
       "solution": "At $(s, t) = (1, e)$, we have $x = e \\cdot e^1 = e^2$ and $y = 1 \\cdot \\ln(e) = 1$. By the multivariable chain rule, $\\frac{\\partial z}{\\partial t} = \\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial t} + \\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial t}$. Note $\\frac{\\partial z}{\\partial x} = \\frac{1/y}{1 + (x/y)^2} = \\frac{1}{1 + e^4}$, $\\frac{\\partial x}{\\partial t} = e^s = e$. Meanwhile $\\frac{\\partial z}{\\partial y} = \\frac{-x/y^2}{1 + (x/y)^2} = -\\frac{e^2}{1 + e^4}$, $\\frac{\\partial y}{\\partial t} = \\frac{s}{t} = \\frac{1}{e}$. Therefore, $\\frac{\\partial z}{\\partial t} = \\frac{e}{1+e^4} - \\frac{e^2}{1+e^4}\\frac{1}{e} = \\frac{e}{1+e^4} - \\frac{e}{1+e^4} = 0$."
@@ -856,11 +856,11 @@
       "topic": "Range of Multivariable Functions",
       "question": "The range of the function $f(x, y) = 2e^{xy}$ is",
       "choices": [
-        "(-\\infty, \\infty)",
-        "[1, \\infty)",
-        "[2, \\infty)",
-        "(0, \\infty)",
-        "(3, \\infty)"
+        "$(-\\infty, \\infty)$",
+        "$[1, \\infty)$",
+        "$[2, \\infty)$",
+        "$(0, \\infty)$",
+        "$(3, \\infty)$"
       ],
       "correct_answer": "D",
       "solution": "The domain of $f(x, y)$ is all of $\\mathbb{R}^2$. The product $u = xy$ can attain any real number in $(-\\infty, \\infty)$ (for example, setting $y = 1$ gives $u = x \\in (-\\infty, \\infty)$). Since the exponential function $e^u$ maps $(-\\infty, \\infty)$ onto $(0, \\infty)$, the function $2e^{xy}$ maps $(-\\infty, \\infty)$ onto $(0, \\infty)$."
@@ -894,7 +894,7 @@
         "0",
         "-2",
         "2",
-        "-\\frac{1}{2}"
+        "$-\\frac{1}{2}$"
       ],
       "correct_answer": "D",
       "solution": "Write $f(x, y) = \\ln(x + y) - \\ln(x - y)$. Then $f_x = \\frac{1}{x+y} - \\frac{1}{x-y} = \\frac{-2y}{x^2 - y^2}$, and $f_y = \\frac{1}{x+y} - \\frac{-1}{x-y} = \\frac{2x}{x^2 - y^2}$. Then $x f_y + y f_x = x\\left(\\frac{2x}{x^2 - y^2}\\right) + y\\left(\\frac{-2y}{x^2 - y^2}\\right) = \\frac{2(x^2 - y^2)}{x^2 - y^2} = 2$."
@@ -907,10 +907,10 @@
       "topic": "Multivariable Limits",
       "question": "$\\lim_{(x, y) \\to (0, 0)} \\left[ \\frac{1}{\\ln(1 + x^2 + y^2)} - \\frac{1}{x^2 + y^2} \\right] =$",
       "choices": [
-        "\\text{The limit does not exist}",
+        "$\\text{The limit does not exist}$",
         "0",
         "1",
-        "\\frac{1}{2}",
+        "$\\frac{1}{2}$",
         "2"
       ],
       "correct_answer": "D",
@@ -939,13 +939,13 @@
       "number": 1,
       "section": "11.5",
       "topic": "11.5 Planes in Space & Intersections",
-      "question": "If the parametric equations of the line passing through the point (2, 3, 4) and per- pendicular to the plane given by 3x + 2y -z = 6 are x = 2 + at, y = 3 + bt, z = 4 -t, then a + b =",
+      "question": "If the parametric equations of the line passing through the point $(2, 3, 4)$ and perpendicular to the plane given by $3x + 2y - z = 6$ are $x = 2 + at, y = 3 + bt, z = 4 - t$, then $a + b =$",
       "choices": [
-        "3",
-        "5",
-        "-3",
-        "-5",
-        "1"
+        "$3$",
+        "$5$",
+        "$-3$",
+        "$-5$",
+        "$1$"
       ],
       "correct_answer": "B",
       "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$5$$</p>"
@@ -956,13 +956,13 @@
       "number": 2,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "The graph of the equation x2 -2y2 + z2 -4x + 4y -6z = k, represents",
+      "question": "The graph of the equation $x^2 - 2y^2 + z^2 - 4x + 4y - 6z = k$, represents",
       "choices": [
-        "a hyperboloid with one sheet if k = -20.",
-        "an elliptic cone if k = -11.",
-        "a hyperboloid with two sheets if k = 0.",
-        "an elliptic cone if k = 20.",
-        "an ellipsoid if k = 1."
+        "a hyperboloid with one sheet if $k = -20$.",
+        "an elliptic cone if $k = -11$.",
+        "a hyperboloid with two sheets if $k = 0$.",
+        "an elliptic cone if $k = 20$.",
+        "an ellipsoid if $k = 1$."
       ],
       "correct_answer": "B",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$an elliptic cone if k = -11.$$</p>"
@@ -973,13 +973,13 @@
       "number": 3,
       "section": "13.5",
       "topic": "13.5 Multivariable Chain Rule",
-      "question": "If z is defined implicitly as a differentiable function of x and y by the equation 3x2z -x2y2 + 2z3 + 3yz -5 = 0, then ∂z ∂x is equal to",
+      "question": "If $z$ is defined implicitly as a differentiable function of $x$ and $y$ by the equation $3x^2 z - x^2 y^2 + 2z^3 + 3yz - 5 = 0$, then $\\frac{\\partial z}{\\partial x}$ is equal to",
       "choices": [
-        "2x2y -3z 3(x2 + 2z2 + y)",
-        "2x(y2 -3z) 3(x2 + 2z2 + y)",
-        "2xy2 3(x2 + 2z2 + y)",
-        "2(xy2 -3xz -3z2) 3(x2 + y)",
-        "-2x(y2 -3z) 3(x2 + 2z2 + y)"
+        "$\\frac{2x^2 y - 3z}{3(x^2 + 2z^2 + y)}$",
+        "$\\frac{2x(y^2 - 3z)}{3(x^2 + 2z^2 + y)}$",
+        "$\\frac{2xy^2}{3(x^2 + 2z^2 + y)}$",
+        "$\\frac{2(xy^2 - 3xz - 3z^2)}{3(x^2 + y)}$",
+        "$-\\frac{2x(y^2 - 3z)}{3(x^2 + 2z^2 + y)}$"
       ],
       "correct_answer": "B",
       "solution": "<p><strong>1. Chain Rule / Implicit Differentiation:</strong> Using the multivariable chain rule or the implicit derivative formula: $$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}, \\quad \\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$</p><p><strong>2. Gradient Substitution:</strong> Computing partial derivatives with respect to the active variable and substituting the point coordinates.</p><p><strong>3. Conclusion:</strong> Simplifying the resulting fraction gives: $$2x(y2 -3z) 3(x2 + 2z2 + y)$$</p>"
@@ -990,13 +990,13 @@
       "number": 4,
       "section": "13.1",
       "topic": "13.1 Multivariable Functions & Level Curves",
-      "question": "The range of the function f(x, y) = ln (25 -x2 -y2) is",
+      "question": "The range of the function $f(x, y) = \\ln(25 - x^2 - y^2)$ is",
       "choices": [
-        "(-∞, 5 ln 2]",
-        "(-∞, ∞)",
-        "(0, 5 ln 5]",
-        "[2 ln 5, ∞)",
-        "(-∞, 2 ln 5]"
+        "$(-\\infty, 5\\ln 2]$",
+        "$(-\\infty, \\infty)$",
+        "$(0, 5\\ln 5]$",
+        "$[2\\ln 5, \\infty)$",
+        "$(-\\infty, 2\\ln 5]$"
       ],
       "correct_answer": "E",
       "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$(-∞, 2 ln 5]$$</p>"
@@ -1007,13 +1007,13 @@
       "number": 5,
       "section": "11.5",
       "topic": "11.5 Lines in Space & Skew Lines",
-      "question": "If the symmetric equations of the normal line to the surface z = ye2xy at the point (0, 2, 2) are given by x 8 = y -2 b = z -2 c , then b + c =",
+      "question": "If the symmetric equations of the normal line to the surface $z = y e^{2xy}$ at the point $(0, 2, 2)$ are given by $\\frac{x}{8} = \\frac{y - 2}{b} = \\frac{z - 2}{c}$, then $b + c =$",
       "choices": [
-        "-2",
-        "-1",
-        "2",
-        "1",
-        "0"
+        "$-2$",
+        "$-1$",
+        "$2$",
+        "$1$",
+        "$0$"
       ],
       "correct_answer": "E",
       "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$0$$</p>"
@@ -1024,13 +1024,13 @@
       "number": 6,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "Consider the function f(x, y) = (x2 + y2) 2 3, then",
+      "question": "Consider the function $f(x, y) = (x^2 + y^2)^{2/3}$, then",
       "choices": [
-        "fx(0, 0) and fy(0, 0) do not exist.",
-        "fx(2, 2) = 3 4.",
-        "fy(1, 1) = 4 3.",
-        "fx(1, 1)̸ = fx(1, -1).",
-        "fx(0, 0) = 0."
+        "$f_x(0, 0)$ and $f_y(0, 0)$ do not exist.",
+        "$f_x(2, 2) = \\frac{3}{4}$.",
+        "$f_y(1, 1) = \\frac{4}{3}$.",
+        "$f_x(1, 1) \\ne f_x(1, -1)$.",
+        "$f_x(0, 0) = 0$."
       ],
       "correct_answer": "E",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$fx(0, 0) = 0.$$</p>"
@@ -1041,13 +1041,13 @@
       "number": 7,
       "section": "11.5",
       "topic": "13.4 Differentials & Linear Approx",
-      "question": "The total resistance R (in ohms) of two resistors connected in parallel is given by 1 R = 1 R1 + 1 R2 . By using the differentials dR, the change in R as R1 is increased from 10 ohms to 10.5 ohms and R2 is decreased from 15 ohms to 13 ohms, is approximately equal to",
+      "question": "The total resistance $R$ (in ohms) of two resistors connected in parallel is given by $\\frac{1}{R} = \\frac{1}{R_1} + \\frac{1}{R_2}$. By using the differentials $dR$, the change in $R$ as $R_1$ is increased from $10\\,\\Omega$ to $10.5\\,\\Omega$ and $R_2$ is decreased from $15\\,\\Omega$ to $13\\,\\Omega$, is approximately equal to",
       "choices": [
-        "-1.40",
-        "-0.14",
-        "-0.39",
-        "0.39",
-        "0.14"
+        "$-1.40$",
+        "$-0.14$",
+        "$-0.39$",
+        "$0.39$",
+        "$0.14$"
       ],
       "correct_answer": "B",
       "solution": "<p><strong>1. Total Differential Formula:</strong> The linear approximation is given by: $$dz = f_x(x_0, y_0)\\,dx + f_y(x_0, y_0)\\,dy$$</p><p><strong>2. Partial Derivatives Evaluation:</strong> Evaluating $f_x$ and $f_y$ at the base point $(x_0, y_0)$ with deviations $dx = x - x_0$ and $dy = y - y_0$.</p><p><strong>3. Numerical Calculation:</strong> Summing the differentials yields the estimated value: $$-0.14$$</p>"
@@ -1058,13 +1058,13 @@
       "number": 8,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "lim (x,y)→(0,0) x -y √x -√y =",
+      "question": "$\\lim_{(x,y)\\to(0,0)} \\frac{x - y}{\\sqrt{x} - \\sqrt{y}} =$",
       "choices": [
-        "2",
+        "$2$",
         "does not exist",
-        "0",
-        "√ 2 see the last",
-        "1"
+        "$0$",
+        "$\\sqrt{2}$",
+        "$1$"
       ],
       "correct_answer": "B",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$does not exist$$</p>"
@@ -1075,13 +1075,13 @@
       "number": 9,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "Let f(x, y, z) = yex + x ln z, then fxzz(1, 1, 1) + fzxz(1, 1, 1) + fzzx(1, 1, 1) =",
+      "question": "Let $f(x, y, z) = y e^x + x\\ln z$, then $f_{xzz}(1, 1, 1) + f_{zxz}(1, 1, 1) + f_{zzx}(1, 1, 1) =$",
       "choices": [
-        "-8",
-        "-1",
-        "-3",
-        "-27",
-        "1"
+        "$-8$",
+        "$-1$",
+        "$-3$",
+        "$-27$",
+        "$1$"
       ],
       "correct_answer": "C",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$-3$$</p>"
@@ -1092,13 +1092,13 @@
       "number": 10,
       "section": "13.6",
       "topic": "13.6 Directional Derivatives & Gradients",
-      "question": "The maximum value of the directional derivative of f(x, y) = y2 -x√y at the point (0, 3) is equal to",
+      "question": "The maximum value of the directional derivative of $f(x, y) = y^2 - x\\sqrt{y}$ at the point $(0, 3)$ is equal to",
       "choices": [
-        "33",
-        "√ 45",
-        "39",
-        "√ 33",
-        "√ 39"
+        "$33$",
+        "$\\sqrt{45}$",
+        "$39$",
+        "$\\sqrt{33}$",
+        "$\\sqrt{39}$"
       ],
       "correct_answer": "E",
       "solution": "<p><strong>1. Gradient Vector $\\nabla f$:</strong> Computing the partial derivatives gives $\\nabla f = \\langle f_x, f_y, f_z \\rangle$.</p><p><strong>2. Unit Direction $\\vec{u}$:</strong> Normalizing the direction vector $\\vec{v}$ yields $\\vec{u} = \\frac{\\vec{v}}{\\|\\vec{v}\\|}$. The directional derivative is $D_{\\vec{u}} f = \\nabla f \\cdot \\vec{u}$.</p><p><strong>3. Maximum Rate of Change:</strong> The maximum rate of change is given by $\\|\\nabla f\\|$. Evaluating yields: $$√ 39$$</p>"
@@ -1109,13 +1109,13 @@
       "number": 11,
       "section": "11.5",
       "topic": "11.5 Lines in Space & Skew Lines",
-      "question": "If the equation of the tangent plane to the surface z2 -2x2 -2y2 = 12 at the point (1, -1, 4) is given by x + ay + bz + c = 0, then a + b + c =",
+      "question": "If the equation of the tangent plane to the surface $z^2 - 2x^2 - 2y^2 = 12$ at the point $(1, -1, 4)$ is given by $x + ay + bz + c = 0$, then $a + b + c =$",
       "choices": [
-        "3",
-        "2",
-        "4",
-        "-2",
-        "5"
+        "$3$",
+        "$2$",
+        "$4$",
+        "$-2$",
+        "$5$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$3$$</p>"
@@ -1126,13 +1126,13 @@
       "number": 12,
       "section": "11.5",
       "topic": "11.5 Distances in Space",
-      "question": "The distance between the point (2, 8, 4) and the plane 2x + y + z = 5, is equal to",
+      "question": "The distance between the point $(2, 8, 4)$ and the plane $2x + y + z = 5$, is equal to",
       "choices": [
-        "11 √ 6",
-        "21 √ 6",
-        "16 √ 6",
-        "11 2 √ 21",
-        "11 2"
+        "$\\frac{11}{\\sqrt{6}}$",
+        "$\\frac{21}{\\sqrt{6}}$",
+        "$\\frac{16}{\\sqrt{6}}$",
+        "$\\frac{11}{2\\sqrt{21}}$",
+        "$\\frac{11}{2}$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Standard Distance Formula:</strong> The distance $D$ between a point and a line or between parallel planes $Ax + By + Cz = D_1$ and $Ax + By + Cz = D_2$ is computed via: $$D = \\frac{|D_1 - D_2|}{\\sqrt{A^2 + B^2 + C^2}}$$ For skew lines, $D = \\frac{|(\\vec{v}_1 \\times \\vec{v}_2) \\cdot \\vec{P_1P_2}|}{\\|\\vec{v}_1 \\times \\vec{v}_2\\|}.$</p><p><strong>2. Substitution:</strong> Evaluating the magnitudes and dot product gives the simplified radical value: $$11 √ 6$$</p>"
@@ -1143,13 +1143,13 @@
       "number": 13,
       "section": "13.6",
       "topic": "13.6 Directional Derivatives & Gradients",
-      "question": "The directional derivative of f(x, y) = x2 sin 2y at the point \u00001, π 2 \u0001 in the direction of the vector v = 3i -4j, is equal to",
+      "question": "The directional derivative of $f(x, y) = x^2 \\sin(2y)$ at the point $\\left(1, \\frac{\\pi}{2}\\right)$ in the direction of the vector $\\vec{v} = 3\\vec{i} - 4\\vec{j}$, is equal to",
       "choices": [
-        "8 5",
-        "-8",
-        "-8 5",
-        "6 5",
-        "8"
+        "$\\frac{8}{5}$",
+        "$-8$",
+        "$-\\frac{8}{5}$",
+        "$\\frac{6}{5}$",
+        "$8$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Gradient Vector $\\nabla f$:</strong> Computing the partial derivatives gives $\\nabla f = \\langle f_x, f_y, f_z \\rangle$.</p><p><strong>2. Unit Direction $\\vec{u}$:</strong> Normalizing the direction vector $\\vec{v}$ yields $\\vec{u} = \\frac{\\vec{v}}{\\|\\vec{v}\\|}$. The directional derivative is $D_{\\vec{u}} f = \\nabla f \\cdot \\vec{u}$.</p><p><strong>3. Maximum Rate of Change:</strong> The maximum rate of change is given by $\\|\\nabla f\\|$. Evaluating yields: $$8 5$$</p>"
@@ -1160,13 +1160,13 @@
       "number": 14,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "If w = xy + yz + xz, where x = s cos t, y = s sin t, and z = t, then ∂w ∂s when s = 1 and t = 2π is equal to",
+      "question": "If $w = xy + yz + xz$, where $x = s\\cos t, y = s\\sin t$, and $z = t$, then $\\frac{\\partial w}{\\partial s}$ when $s = 1$ and $t = 2\\pi$ is equal to",
       "choices": [
-        "2π",
-        "1 + 2π",
-        "4π",
-        "2",
-        "0"
+        "$2\\pi$",
+        "$1 + 2\\pi$",
+        "$4\\pi$",
+        "$2$",
+        "$0$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$2π$$</p>"
@@ -1177,13 +1177,13 @@
       "number": 15,
       "section": "11.5",
       "topic": "11.5 Lines in Space & Skew Lines",
-      "question": "If θ is the angle of inclination of the tangent plane to the surface 3x2 + 2y2 -z = 4 at the point (1, 1, 1), then cos θ =",
+      "question": "If $\\theta$ is the angle of inclination of the tangent plane to the surface $3x^2 + 2y^2 - z = 4$ at the point $(1, 1, 1)$, then $\\cos\\theta =$",
       "choices": [
-        "6 √ 53",
-        "1 2 √ 13",
-        "1 √ 11",
-        "4 √ 53 The domain of the function 𝑓𝑥, 𝑦= 𝑥-𝑦 𝑥-𝑦is  𝐷= 𝑥, 𝑦: 𝑥> 0 𝑎𝑛𝑑𝑦> 0 . No matter which curve is selected in the first quadrant, the limit approaches zero. According to the definition of the limit stated in our textbook (page 885, Section 13.2), the Limit of a Function of Two Variables is defined as follows: This definition clearly indicates that for a limit to exist, there must be an open disk containing the point (𝑥0, 𝑦0) in which the function 𝑓is defined on this desk (except possibly at (𝑥0, 𝑦0)). If such a disk cannot be found, then the limit does not exist. The Limit of a Function of single Variable is defined as follows: This definition indicates that for a limit to exist, there must be an open interval containing the point 𝑐in which the function 𝑓is defined on this open interval (except possibly at 𝑐). If such an interval cannot be found, then the limit does not exist. For  example 𝑙𝑖𝑚 𝑥→0 𝑥DNE.",
-        "1 √ 53"
+        "$\\frac{6}{\\sqrt{53}}$",
+        "$\\frac{1}{2\\sqrt{13}}$",
+        "$\\frac{1}{\\sqrt{11}}$",
+        "$\\frac{4}{\\sqrt{53}}$",
+        "$\\frac{1}{\\sqrt{53}}$"
       ],
       "correct_answer": "E",
       "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$1 √ 53$$</p>"
@@ -1194,13 +1194,13 @@
       "number": 1,
       "section": "11.5",
       "topic": "11.5 Planes in Space & Intersections",
-      "question": "Which one of the following statements is FALSE about the plane 4x -y + 3z = 6 ?",
+      "question": "Which one of the following statements is FALSE about the plane $4x - y + 3z = 6$ ?",
       "choices": [
-        "It has a normal vector⃗n =< 4, -1, 3 >",
-        "It intersects the x-axis at (3 2, 0, 0)",
-        "It passes through the point (1, 1, 1)",
-        "The point (0, -6, 0) lies in the plane",
-        "It is parallel to the plane 8x -2y -6z = 10"
+        "It has a normal vector $\\vec{n} = \\langle 4, -1, 3 \\rangle$",
+        "It intersects the $x$-axis at $\\left(\\frac{3}{2}, 0, 0\\right)$",
+        "It passes through the point $(1, 1, 1)$",
+        "The point $(0, -6, 0)$ lies in the plane",
+        "It is parallel to the plane $8x - 2y - 6z = 10$"
       ],
       "correct_answer": "E",
       "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$It is parallel to the plane 8x -2y -6z = 10$$</p>"
@@ -1211,13 +1211,13 @@
       "number": 2,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "If w = x2 -3y2, x = s cos t, y = s sin t, then ∂w ∂t =",
+      "question": "If $w = x^2 - 3y^2, x = s\\cos t, y = s\\sin t$, then $\\frac{\\partial w}{\\partial t} =$",
       "choices": [
-        "-4s2 sin(2t)",
-        "-3s2 cos(2t)",
-        "-6s2 sin(2t)",
-        "-2s2 sin(2t)",
-        "-4t2 cos(2t)"
+        "$-4s^2\\sin(2t)$",
+        "$-3s^2\\cos(2t)$",
+        "$-6s^2\\sin(2t)$",
+        "$-2s^2\\sin(2t)$",
+        "$-4t^2\\cos(2t)$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$-4s2 sin(2t)$$</p>"
@@ -1228,13 +1228,13 @@
       "number": 3,
       "section": "13.5",
       "topic": "13.5 Multivariable Chain Rule",
-      "question": "If z is defined implicitly as a differentiable function of x and y by the equation x ln y + y2z + z2 = 6, then ∂z ∂y at the point (4, 1, 2) is equal to",
+      "question": "If $z$ is defined implicitly as a differentiable function of $x$ and $y$ by the equation $x\\ln y + y^2 z + z^2 = 6$, then $\\frac{\\partial z}{\\partial y}$ at the point $(4, 1, 2)$ is equal to",
       "choices": [
-        "-8 5",
-        "-9 4",
-        "23 19",
-        "9 4",
-        "-2 3"
+        "$-\\frac{8}{5}$",
+        "$-\\frac{9}{4}$",
+        "$\\frac{23}{19}$",
+        "$\\frac{9}{4}$",
+        "$-\\frac{2}{3}$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Chain Rule / Implicit Differentiation:</strong> Using the multivariable chain rule or the implicit derivative formula: $$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}, \\quad \\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$</p><p><strong>2. Gradient Substitution:</strong> Computing partial derivatives with respect to the active variable and substituting the point coordinates.</p><p><strong>3. Conclusion:</strong> Simplifying the resulting fraction gives: $$-8 5$$</p>"
@@ -1245,13 +1245,13 @@
       "number": 4,
       "section": "13.1",
       "topic": "13.1 Multivariable Functions & Level Curves",
-      "question": "The domain of the function f(x, y) = p 16 -4x2 -y2 is the set of all points",
+      "question": "The domain of the function $f(x, y) = \\sqrt{16 - 4x^2 - y^2}$ is the set of all points",
       "choices": [
-        "lying outside the ellipse x2 4 + y2 16 = 1",
-        "lying on or inside the circle x2 + y2 = 16",
-        "lying on or outside the circle x2 + y2 = 16",
-        "lying on or inside the ellipse x2 4 + y2 16 = 1",
-        "lying on or inside the ellipse x2 16 + y2 2 = 1"
+        "lying outside the ellipse $\\frac{x^2}{4} + \\frac{y^2}{16} = 1$",
+        "lying on or inside the circle $x^2 + y^2 = 16$",
+        "lying on or outside the circle $x^2 + y^2 = 16$",
+        "lying on or inside the ellipse $\\frac{x^2}{4} + \\frac{y^2}{16} = 1$",
+        "lying on or inside the ellipse $\\frac{x^2}{16} + \\frac{y^2}{2} = 1$"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$lying on or inside the ellipse x2 4 + y2 16 = 1$$</p>"
@@ -1262,13 +1262,13 @@
       "number": 5,
       "section": "11.5",
       "topic": "11.5 Lines in Space & Skew Lines",
-      "question": "An equation of the tangent plane to the surface z = y e2xy at the point (0, 2, 2), is",
+      "question": "An equation of the tangent plane to the surface $z = y e^{2xy}$ at the point $(0, 2, 2)$, is",
       "choices": [
-        "32x + y -z = 0",
-        "8x + y -z = 0",
-        "18x + y -z = 0",
-        "x + y -z = 0",
-        "y -z = 0"
+        "$32x + y - z = 0$",
+        "$8x + y - z = 0$",
+        "$18x + y - z = 0$",
+        "$x + y - z = 0$",
+        "$y - z = 0$"
       ],
       "correct_answer": "B",
       "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$8x + y -z = 0$$</p>"
@@ -1279,13 +1279,13 @@
       "number": 6,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "If f(x, y, z) = x3 -4xy + 3y3 + xy2z2, then fxyzz(1, 1, 1) + fxzyz(1, 1, 1) =",
+      "question": "If $f(x, y, z) = x^3 - 4xy + 3y^3 + x y^2 z^2$, then $f_{xyzz}(1, 1, 1) + f_{xzyz}(1, 1, 1) =$",
       "choices": [
-        "16",
-        "10",
-        "14",
-        "2",
-        "8"
+        "$16$",
+        "$10$",
+        "$14$",
+        "$2$",
+        "$8$"
       ],
       "correct_answer": "E",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$8$$</p>"
@@ -1296,13 +1296,13 @@
       "number": 7,
       "section": "11.5",
       "topic": "13.4 Differentials & Linear Approx",
-      "question": "Let z = x2 + y2. If (x, y) changes from (1, 1) to (1.2, 0.9), then using differentials, the change in z is approximately equal to",
+      "question": "Let $z = x^2 + y^2$. If $(x, y)$ changes from $(1, 1)$ to $(1.2, 0.9)$, then using differentials, the change in $z$ is approximately equal to",
       "choices": [
-        "0.4",
-        "0.02",
-        "0.05",
-        "-0.1",
-        "0.2"
+        "$0.4$",
+        "$0.02$",
+        "$0.05$",
+        "$-0.1$",
+        "$0.2$"
       ],
       "correct_answer": "E",
       "solution": "<p><strong>1. Total Differential Formula:</strong> The linear approximation is given by: $$dz = f_x(x_0, y_0)\\,dx + f_y(x_0, y_0)\\,dy$$</p><p><strong>2. Partial Derivatives Evaluation:</strong> Evaluating $f_x$ and $f_y$ at the base point $(x_0, y_0)$ with deviations $dx = x - x_0$ and $dy = y - y_0$.</p><p><strong>3. Numerical Calculation:</strong> Summing the differentials yields the estimated value: $$0.2$$</p>"
@@ -1313,13 +1313,13 @@
       "number": 8,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "lim (x,y)→(0,0) 3x3 2x2 + 2y2 =",
+      "question": "$\\lim_{(x,y)\\to(0,0)} \\frac{3x^3}{2x^2 + 2y^2} =$",
       "choices": [
-        "3",
+        "$3$",
         "DNE",
-        "3 4",
-        "0",
-        "3 2"
+        "$\\frac{3}{4}$",
+        "$0$",
+        "$\\frac{3}{2}$"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$0$$</p>"
@@ -1330,13 +1330,13 @@
       "number": 9,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "If z = ln (2x2 + y2), then x∂z ∂x + y∂z ∂y =",
+      "question": "If $z = \\ln(2x^2 + y^2)$, then $x\\frac{\\partial z}{\\partial x} + y\\frac{\\partial z}{\\partial y} =$",
       "choices": [
-        "2",
-        "z",
-        "-z",
-        "0",
-        "z2"
+        "$2$",
+        "$z$",
+        "$-z$",
+        "$0$",
+        "$z^2$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$2$$</p>"
@@ -1347,13 +1347,13 @@
       "number": 10,
       "section": "13.6",
       "topic": "13.6 Directional Derivatives & Gradients",
-      "question": "The maximum value of the directional derivative of f(x, y) = y2 -x √y at the point (0, 1) is equal to",
+      "question": "The maximum value of the directional derivative of $f(x, y) = y^2 - x\\sqrt{y}$ at the point $(0, 1)$ is equal to",
       "choices": [
-        "2",
-        "√ 5",
-        "3",
-        "5",
-        "√ 3"
+        "$2$",
+        "$\\sqrt{5}$",
+        "$3$",
+        "$5$",
+        "$\\sqrt{3}$"
       ],
       "correct_answer": "B",
       "solution": "<p><strong>1. Gradient Vector $\\nabla f$:</strong> Computing the partial derivatives gives $\\nabla f = \\langle f_x, f_y, f_z \\rangle$.</p><p><strong>2. Unit Direction $\\vec{u}$:</strong> Normalizing the direction vector $\\vec{v}$ yields $\\vec{u} = \\frac{\\vec{v}}{\\|\\vec{v}\\|}$. The directional derivative is $D_{\\vec{u}} f = \\nabla f \\cdot \\vec{u}$.</p><p><strong>3. Maximum Rate of Change:</strong> The maximum rate of change is given by $\\|\\nabla f\\|$. Evaluating yields: $$√ 5$$</p>"
@@ -1364,13 +1364,13 @@
       "number": 11,
       "section": "13.1",
       "topic": "13.1 Multivariable Functions & Level Curves",
-      "question": "An equation for the level surface of f(x, y, z) = 4x2 +4y2 -z2 that passes through the point (1, 1, 3) is given by",
+      "question": "An equation for the level surface of $f(x, y, z) = 4x^2 + 4y^2 - z^2$ that passes through the point $(1, 1, 3)$ is given by",
       "choices": [
-        "z2 = 4x2 + 4y2 + 3",
-        "z2 = 4x2 + 4y2",
-        "z2 = x2 + y2 + 9",
-        "z2 = 4x2 + 4y2 + 1",
-        "z2 = x2 + y2 + 3"
+        "$z^2 = 4x^2 + 4y^2 + 3$",
+        "$z^2 = 4x^2 + 4y^2$",
+        "$z^2 = x^2 + y^2 + 9$",
+        "$z^2 = 4x^2 + 4y^2 + 1$",
+        "$z^2 = x^2 + y^2 + 3$"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$z2 = 4x2 + 4y2 + 1$$</p>"
@@ -1381,13 +1381,13 @@
       "number": 12,
       "section": "11.5",
       "topic": "11.5 Lines in Space & Skew Lines",
-      "question": "If (a, b, c) is the point of intersection between the lines L1 : x = 1 + 2t, y = 1 -3t, z = 2 -5t L2 : x = 8 -3s, y = -8 + 4s, z = -14 + 7s then a b c =",
+      "question": "If $(a, b, c)$ is the point of intersection between the lines $L_1 : x = 1 + 2t, y = 1 - 3t, z = 2 - 5t$ and $L_2 : x = 8 - 3s, y = -8 + 4s, z = -14 + 7s$, then $a b c =$",
       "choices": [
-        "27",
-        "38",
-        "25",
-        "-28",
-        "-17"
+        "$27$",
+        "$38$",
+        "$25$",
+        "$-28$",
+        "$-17$"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$-28$$</p>"
@@ -1398,13 +1398,13 @@
       "number": 13,
       "section": "11.5",
       "topic": "11.5 Planes in Space & Intersections",
-      "question": "If ax + by + cz = 8 is an equation for the plane passing through the points P(2, 1, 0) and Q(0, 3, 4) and is perpendicular to the xz-plane, then a + b + c =",
+      "question": "If $ax + by + cz = 8$ is an equation for the plane passing through the points $P(2, 1, 0)$ and $Q(0, 3, 4)$ and is perpendicular to the $xz$-plane, then $a + b + c =$",
       "choices": [
-        "6",
-        "2",
-        "3",
-        "8",
-        "4"
+        "$6$",
+        "$2$",
+        "$3$",
+        "$8$",
+        "$4$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$6$$</p>"
@@ -1415,13 +1415,13 @@
       "number": 14,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "Consider the unit vector u = 1 √ 2(i + j) and the two functions f(x, y) =    4xy x2 + y2 if (x, y)̸ = (0, 0) 0 if (x, y) = (0, 0) g(x, y) =    4xy x2 + y2 if (x, y)̸ = (0, 0) 2 if (x, y) = (0, 0) Which of the following is FALSE ?",
+      "question": "Consider the unit vector $\\vec{u} = \\frac{1}{\\sqrt{2}}(\\vec{i} + \\vec{j})$ and the two functions $f(x, y) = \\begin{cases} \\frac{4xy}{x^2 + y^2} & (x, y) \\ne (0, 0) \\\\ 0 & (x, y) = (0, 0) \\end{cases}$ and $g(x, y) = \\begin{cases} \\frac{4xy}{x^2 + y^2} & (x, y) \\ne (0, 0) \\\\ 2 & (x, y) = (0, 0) \\end{cases}$. Which of the following is FALSE ?",
       "choices": [
-        "Du g(0, 0) = 0",
-        "fx(0, 0) = 0",
-        "f is not differentiable at (0, 0)",
-        "g is differentiable at (0, 0)",
-        "Du f(0, 0) does not exist"
+        "$D_{\\vec{u}} g(0, 0) = 0$",
+        "$f_x(0, 0) = 0$",
+        "$f$ is not differentiable at $(0, 0)$",
+        "$g$ is differentiable at $(0, 0)$",
+        "$D_{\\vec{u}} f(0, 0)$ does not exist"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$g is differentiable at (0, 0)$$</p>"
@@ -1434,11 +1434,11 @@
       "topic": "13.3 Partial Derivatives",
       "question": "Which of the following statements is FALSE ?",
       "choices": [
-        "The graph of 16x2 + y2 + 16z2 = 4 is a cylinder",
-        "The graph of 16x2 -y2 + 16z2 = 0 is an elliptic cone",
-        "The graph of 16x2 -y2 + 16z2 = 4 is a hyperboloid of one sheet",
-        "The graph of 16x2 -y + 16z2 = 4 is an elliptic paraboloid",
-        "The graph of 16x2 -y2 -16z2 = 4 is a hyperboloid of two sheets"
+        "The graph of $16x^2 + y^2 + 16z^2 = 4$ is a cylinder",
+        "The graph of $16x^2 - y^2 + 16z^2 = 0$ is an elliptic cone",
+        "The graph of $16x^2 - y^2 + 16z^2 = 4$ is a hyperboloid of one sheet",
+        "The graph of $16x^2 - y + 16z^2 = 4$ is an elliptic paraboloid",
+        "The graph of $16x^2 - y^2 - 16z^2 = 4$ is a hyperboloid of two sheets"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$The graph of 16x2 + y2 + 16z2 = 4 is a cylinder$$</p>"
@@ -1449,13 +1449,13 @@
       "number": 1,
       "section": "11.5",
       "topic": "11.5 Planes in Space & Intersections",
-      "question": "Which one of the following statements is FALSE about the plane 3x -2y + z = 6?",
+      "question": "Which one of the following statements is FALSE about the plane $3x - 2y + z = 6$?",
       "choices": [
-        "It passes through the point (1, 1, 5)",
-        "It is parallel to the plane 6x -4y -2z = 10",
-        "It intersects the x-axis at (2, 0, 0)",
-        "It has a normal vector⃗n =< 3, -2, 1 >",
-        "The point (0, -3, 0) lies in the plane"
+        "It passes through the point $(1, 1, 5)$",
+        "It is parallel to the plane $6x - 4y - 2z = 10$",
+        "It intersects the $x$-axis at $(2, 0, 0)$",
+        "It has a normal vector $\\vec{n} = \\langle 3, -2, 1 \\rangle$",
+        "The point $(0, -3, 0)$ lies in the plane"
       ],
       "correct_answer": "B",
       "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$It is parallel to the plane 6x -4y -2z = 10$$</p>"
@@ -1466,13 +1466,13 @@
       "number": 2,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "If w = 2x2 -y2, x = s cos t, y = s sin t, then ∂w ∂t =",
+      "question": "If $w = 2x^2 - y^2, x = s\\cos t, y = s\\sin t$, then $\\frac{\\partial w}{\\partial t} =$",
       "choices": [
-        "-6s2 sin(2t)",
-        "-2s2 sin(2t)",
-        "-3s2 sin(2t)",
-        "-3s2 cos(2t)",
-        "-4t2 cos(2t)"
+        "$-6s^2\\sin(2t)$",
+        "$-2s^2\\sin(2t)$",
+        "$-3s^2\\sin(2t)$",
+        "$-3s^2\\cos(2t)$",
+        "$-4t^2\\cos(2t)$"
       ],
       "correct_answer": "C",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$-3s2 sin(2t)$$</p>"
@@ -1483,13 +1483,13 @@
       "number": 3,
       "section": "13.5",
       "topic": "13.5 Multivariable Chain Rule",
-      "question": "If z is defined implicitly as a differentiable function of x and y by the equation x ln y + y2z + z2 = 6, then ∂z ∂y at the point (6, 1, 2) is equal to",
+      "question": "If $z$ is defined implicitly as a differentiable function of $x$ and $y$ by the equation $x\\ln y + y^2 z + z^2 = 6$, then $\\frac{\\partial z}{\\partial y}$ at the point $(6, 1, 2)$ is equal to",
       "choices": [
-        "-2",
-        "-9 4",
-        "9 5",
-        "-5 3",
-        "27 19"
+        "$-2$",
+        "$-\\frac{9}{4}$",
+        "$\\frac{9}{5}$",
+        "$-\\frac{5}{3}$",
+        "$\\frac{27}{19}$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Chain Rule / Implicit Differentiation:</strong> Using the multivariable chain rule or the implicit derivative formula: $$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}, \\quad \\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$</p><p><strong>2. Gradient Substitution:</strong> Computing partial derivatives with respect to the active variable and substituting the point coordinates.</p><p><strong>3. Conclusion:</strong> Simplifying the resulting fraction gives: $$-2$$</p>"
@@ -1500,13 +1500,13 @@
       "number": 4,
       "section": "13.1",
       "topic": "13.1 Multivariable Functions & Level Curves",
-      "question": "The domain of the function f(x, y) = p 16 -x2 -4y2 is the set of all points",
+      "question": "The domain of the function $f(x, y) = \\sqrt{16 - x^2 - 4y^2}$ is the set of all points",
       "choices": [
-        "lying on or inside the ellipse x2 16 + y2 4 = 1",
-        "lying on or outside the circle x2 + y2 = 16",
-        "lying on or inside the circle x2 + y2 = 16",
-        "lying on or inside the ellipse x2 16 + y2 2 = 1",
-        "lying outside the ellipse x2 4 + y2 16 = 1"
+        "lying on or inside the ellipse $\\frac{x^2}{16} + \\frac{y^2}{4} = 1$",
+        "lying on or outside the circle $x^2 + y^2 = 16$",
+        "lying on or inside the circle $x^2 + y^2 = 16$",
+        "lying on or inside the ellipse $\\frac{x^2}{16} + \\frac{y^2}{2} = 1$",
+        "lying outside the ellipse $\\frac{x^2}{4} + \\frac{y^2}{16} = 1$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$lying on or inside the ellipse x2 16 + y2 4 = 1$$</p>"
@@ -1517,13 +1517,13 @@
       "number": 5,
       "section": "11.5",
       "topic": "11.5 Lines in Space & Skew Lines",
-      "question": "An equation of the tangent plane to the surface z = y e2xy at the point (0, 2, 2), is",
+      "question": "An equation of the tangent plane to the surface $z = y e^{2xy}$ at the point $(0, 2, 2)$, is",
       "choices": [
-        "y -8z = 0",
-        "x + y -8z = 0",
-        "8x + y -z = 0",
-        "8x + y + z = 0",
-        "32x + y -z = 0"
+        "$y - 8z = 0$",
+        "$x + y - 8z = 0$",
+        "$8x + y - z = 0$",
+        "$8x + y + z = 0$",
+        "$32x + y - z = 0$"
       ],
       "correct_answer": "C",
       "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$8x + y -z = 0$$</p>"
@@ -1534,13 +1534,13 @@
       "number": 6,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "If f(x, y, z) = x3 -4xy + 3y3 + xy2z2, then fxyzz(2, 2, 2) + fyzxz(2, 2, 2) =",
+      "question": "If $f(x, y, z) = x^3 - 4xy + 3y^3 + x y^2 z^2$, then $f_{xyzz}(2, 2, 2) + f_{yzxz}(2, 2, 2) =$",
       "choices": [
-        "10",
-        "2",
-        "14",
-        "8",
-        "16"
+        "$10$",
+        "$2$",
+        "$14$",
+        "$8$",
+        "$16$"
       ],
       "correct_answer": "E",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$16$$</p>"
@@ -1551,13 +1551,13 @@
       "number": 7,
       "section": "11.5",
       "topic": "13.4 Differentials & Linear Approx",
-      "question": "Let z = x2 + y2. If (x, y) changes from (1, 1) to (1.3, 0.9), then using differentials, the change in z is approximately equal to",
+      "question": "Let $z = x^2 + y^2$. If $(x, y)$ changes from $(1, 1)$ to $(1.3, 0.9)$, then using differentials, the change in $z$ is approximately equal to",
       "choices": [
-        "0.4",
-        "-0.1",
-        "0.2",
-        "0.02",
-        "0.05"
+        "$0.4$",
+        "$-0.1$",
+        "$0.2$",
+        "$0.02$",
+        "$0.05$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Total Differential Formula:</strong> The linear approximation is given by: $$dz = f_x(x_0, y_0)\\,dx + f_y(x_0, y_0)\\,dy$$</p><p><strong>2. Partial Derivatives Evaluation:</strong> Evaluating $f_x$ and $f_y$ at the base point $(x_0, y_0)$ with deviations $dx = x - x_0$ and $dy = y - y_0$.</p><p><strong>3. Numerical Calculation:</strong> Summing the differentials yields the estimated value: $$0.4$$</p>"
@@ -1568,13 +1568,13 @@
       "number": 8,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "lim (x,y)→(0,0) 4x3 2x2 + 2y2 =",
+      "question": "$\\lim_{(x,y)\\to(0,0)} \\frac{4x^3}{2x^2 + 2y^2} =$",
       "choices": [
-        "3 2",
-        "2",
-        "0",
+        "$\\frac{3}{2}$",
+        "$2$",
+        "$0$",
         "DNE",
-        "1"
+        "$1$"
       ],
       "correct_answer": "C",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$0$$</p>"
@@ -1585,13 +1585,13 @@
       "number": 9,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "If z = ln (4x2 + y2), then x∂z ∂x + y∂z ∂y =",
+      "question": "If $z = \\ln(4x^2 + y^2)$, then $x\\frac{\\partial z}{\\partial x} + y\\frac{\\partial z}{\\partial y} =$",
       "choices": [
-        "0",
-        "z2",
-        "2",
-        "-z",
-        "z"
+        "$0$",
+        "$z^2$",
+        "$2$",
+        "$-z$",
+        "$z$"
       ],
       "correct_answer": "C",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$2$$</p>"
@@ -1602,13 +1602,13 @@
       "number": 10,
       "section": "13.6",
       "topic": "13.6 Directional Derivatives & Gradients",
-      "question": "The maximum value of the directional derivative of f(x, y) = y2 -x √y at the point (4, 4) is equal to",
+      "question": "The maximum value of the directional derivative of $f(x, y) = y^2 - x\\sqrt{y}$ at the point $(4, 4)$ is equal to",
       "choices": [
-        "3",
-        "√ 33",
-        "7",
-        "√ 53",
-        "4"
+        "$3$",
+        "$\\sqrt{33}$",
+        "$7$",
+        "$\\sqrt{53}$",
+        "$4$"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Gradient Vector $\\nabla f$:</strong> Computing the partial derivatives gives $\\nabla f = \\langle f_x, f_y, f_z \\rangle$.</p><p><strong>2. Unit Direction $\\vec{u}$:</strong> Normalizing the direction vector $\\vec{v}$ yields $\\vec{u} = \\frac{\\vec{v}}{\\|\\vec{v}\\|}$. The directional derivative is $D_{\\vec{u}} f = \\nabla f \\cdot \\vec{u}$.</p><p><strong>3. Maximum Rate of Change:</strong> The maximum rate of change is given by $\\|\\nabla f\\|$. Evaluating yields: $$√ 53$$</p>"
@@ -1619,13 +1619,13 @@
       "number": 11,
       "section": "13.1",
       "topic": "13.1 Multivariable Functions & Level Curves",
-      "question": "An equation for the level surface of f(x, y, z) = 4x2 +4y2 -z2 that passes through the point (0, 0, 3) is given by",
+      "question": "An equation for the level surface of $f(x, y, z) = 4x^2 + 4y^2 - z^2$ that passes through the point $(0, 0, 3)$ is given by",
       "choices": [
-        "z2 = 4x2 + 4y2 + 9",
-        "z2 = 4x2 + 4y2 + 81",
-        "z2 = x2 + y2 + 3",
-        "z2 = x2 + y2 + 9",
-        "z2 = 4x2 + 4y2"
+        "$z^2 = 4x^2 + 4y^2 + 9$",
+        "$z^2 = 4x^2 + 4y^2 + 81$",
+        "$z^2 = x^2 + y^2 + 3$",
+        "$z^2 = x^2 + y^2 + 9$",
+        "$z^2 = 4x^2 + 4y^2$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$z2 = 4x2 + 4y2 + 9$$</p>"
@@ -1636,13 +1636,13 @@
       "number": 12,
       "section": "11.5",
       "topic": "11.5 Lines in Space & Skew Lines",
-      "question": "If (a, b, c) is the point of intersection between the lines L1 : x = 1 + 2t, y = 1 -3t, z = 2 -5t L2 : x = 9 -3s, y = -10 + 4s, z = -17 + 7s then a b c =",
+      "question": "If $(a, b, c)$ is the point of intersection between the lines $L_1 : x = 1 + 2t, y = 1 - 3t, z = 2 - 5t$ and $L_2 : x = 9 - 3s, y = -10 + 4s, z = -17 + 7s$, then $a b c =$",
       "choices": [
-        "-16",
-        "-15",
-        "9",
-        "18",
-        "12"
+        "$-16$",
+        "$-15$",
+        "$9$",
+        "$18$",
+        "$12$"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$18$$</p>"
@@ -1653,13 +1653,13 @@
       "number": 13,
       "section": "11.5",
       "topic": "11.5 Planes in Space & Intersections",
-      "question": "If ax + by + cz = 8 is an equation for the plane passing through the points P(2, 1, 0) and Q(3, 0, 4) and is perpendicular to the yz-plane, then a + b + c =",
+      "question": "If $ax + by + cz = 8$ is an equation for the plane passing through the points $P(2, 1, 0)$ and $Q(3, 0, 4)$ and is perpendicular to the $yz$-plane, then $a + b + c =$",
       "choices": [
-        "6",
-        "10",
-        "4",
-        "3",
-        "8"
+        "$6$",
+        "$10$",
+        "$4$",
+        "$3$",
+        "$8$"
       ],
       "correct_answer": "B",
       "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$10$$</p>"
@@ -1670,13 +1670,13 @@
       "number": 14,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "Consider the unit vector u = 1 √ 2(i + j) and the two functions f(x, y) =    4xy x2 + y2 if (x, y)̸ = (0, 0) 2 if (x, y) = (0, 0) g(x, y) =    4xy x2 + y2 if (x, y)̸ = (0, 0) 0 if (x, y) = (0, 0) Which of the following is FALSE ?",
+      "question": "Consider the unit vector $\\vec{u} = \\frac{1}{\\sqrt{2}}(\\vec{i} + \\vec{j})$ and the two functions $f(x, y) = \\begin{cases} \\frac{4xy}{x^2 + y^2} & (x, y) \\ne (0, 0) \\\\ 2 & (x, y) = (0, 0) \\end{cases}$ and $g(x, y) = \\begin{cases} \\frac{4xy}{x^2 + y^2} & (x, y) \\ne (0, 0) \\\\ 0 & (x, y) = (0, 0) \\end{cases}$. Which of the following is FALSE ?",
       "choices": [
-        "Du f(0, 0) = 0",
-        "g is not differentiable at (0, 0)",
-        "gx(0, 0) = 0",
-        "f is differentiable at (0, 0)",
-        "Du g(0, 0) does not exist"
+        "$D_{\\vec{u}} f(0, 0) = 0$",
+        "$g$ is not differentiable at $(0, 0)$",
+        "$g_x(0, 0) = 0$",
+        "$f$ is differentiable at $(0, 0)$",
+        "$D_{\\vec{u}} g(0, 0)$ does not exist"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$f is differentiable at (0, 0)$$</p>"
@@ -1689,11 +1689,11 @@
       "topic": "13.3 Partial Derivatives",
       "question": "Which one of the following statements is FALSE ?",
       "choices": [
-        "The graph of 16x2 + y2 + 16z2 = 4 is a cylinder",
-        "The graph of 16x2 -y2 -16z2 = 4 is a hyperboloid of two sheets",
-        "The graph of 16x2 -y + 16z2 = 4 is an elliptic paraboloid",
-        "The graph of 16x2 -y2 + 16z2 = 4 is a hyperboloid of one sheet",
-        "The graph of 16x2 -y2 + 16z2 = 0 is an elliptic cone"
+        "The graph of $16x^2 + y^2 + 16z^2 = 4$ is a cylinder",
+        "The graph of $16x^2 - y^2 - 16z^2 = 4$ is a hyperboloid of two sheets",
+        "The graph of $16x^2 - y + 16z^2 = 4$ is an elliptic paraboloid",
+        "The graph of $16x^2 - y^2 + 16z^2 = 4$ is a hyperboloid of one sheet",
+        "The graph of $16x^2 - y^2 + 16z^2 = 0$ is an elliptic cone"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$The graph of 16x2 + y2 + 16z2 = 4 is a cylinder$$</p>"
@@ -1704,13 +1704,13 @@
       "number": 1,
       "section": "11.5",
       "topic": "11.5 Planes in Space & Intersections",
-      "question": "The line through the point (-4, 5, 2) and perpendicular to the plane given by -x + 2y + z = 5 also passes through the point (-3, a, b). Then a + b =",
+      "question": "The line through the point $(-4, 5, 2)$ and perpendicular to the plane given by $-x + 2y + z = 5$ also passes through the point $(-3, a, b)$. Then $a + b =$",
       "choices": [
-        "10",
-        "7",
-        "11",
-        "4",
-        "12"
+        "$10$",
+        "$7$",
+        "$11$",
+        "$4$",
+        "$12$"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$4$$</p>"
@@ -1721,13 +1721,13 @@
       "number": 2,
       "section": "11.5",
       "topic": "11.5 Planes in Space & Intersections",
-      "question": "The plane ax+by +cz = 21 contains the points (4, 1, 3) and (2, -2, 1) and is perpendicular to the plane x + 2y -z = 2. Then a + b + c =",
+      "question": "The plane $ax + by + cz = 21$ contains the points $(4, 1, 3)$ and $(2, -2, 1)$ and is perpendicular to the plane $x + 2y - z = 2$. Then $a + b + c =$",
       "choices": [
-        "4",
-        "3",
-        "2",
-        "7",
-        "5"
+        "$4$",
+        "$3$",
+        "$2$",
+        "$7$",
+        "$5$"
       ],
       "correct_answer": "C",
       "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$2$$</p>"
@@ -1738,13 +1738,13 @@
       "number": 3,
       "section": "11.5",
       "topic": "11.5 Distances in Space",
-      "question": "The distance between the point (-2, 1, 3) and the line given by x = 1 -t, y = 2 + t, z = -2t is equal to",
+      "question": "The distance between the point $(-2, 1, 3)$ and the line given by $x = 1 - t, y = 2 + t, z = -2t$ is equal to",
       "choices": [
-        "√ 3",
-        "1 √ 3",
-        "2 √ 3",
-        "5 √ 3",
-        "7 √ 3"
+        "$\\sqrt{3}$",
+        "$\\frac{1}{\\sqrt{3}}$",
+        "$\\frac{2}{\\sqrt{3}}$",
+        "$\\frac{5}{\\sqrt{3}}$",
+        "$\\frac{7}{\\sqrt{3}}$"
       ],
       "correct_answer": "E",
       "solution": "<p><strong>1. Standard Distance Formula:</strong> The distance $D$ between a point and a line or between parallel planes $Ax + By + Cz = D_1$ and $Ax + By + Cz = D_2$ is computed via: $$D = \\frac{|D_1 - D_2|}{\\sqrt{A^2 + B^2 + C^2}}$$ For skew lines, $D = \\frac{|(\\vec{v}_1 \\times \\vec{v}_2) \\cdot \\vec{P_1P_2}|}{\\|\\vec{v}_1 \\times \\vec{v}_2\\|}.$</p><p><strong>2. Substitution:</strong> Evaluating the magnitudes and dot product gives the simplified radical value: $$7 √ 3$$</p>"
@@ -1755,13 +1755,13 @@
       "number": 4,
       "section": "11.5",
       "topic": "11.5 Distances in Space",
-      "question": "The distance between the skew lines L1 : x = 2t, y = 4t, z = 6t and L2 : x = 1-s, y = 4+s, z = -1+s is equal to",
+      "question": "The distance between the skew lines $L_1 : x = 2t, y = 4t, z = 6t$ and $L_2 : x = 1 - s, y = 4 + s, z = -1 + s$ is equal to",
       "choices": [
-        "2 √ 13",
-        "5 √ 26 13",
-        "10 √ 13",
-        "√ 26",
-        "20 √ 26"
+        "$\\frac{2}{\\sqrt{13}}$",
+        "$\\frac{5\\sqrt{26}}{13}$",
+        "$\\frac{10}{\\sqrt{13}}$",
+        "$\\sqrt{26}$",
+        "$\\frac{20}{\\sqrt{26}}$"
       ],
       "correct_answer": "E",
       "solution": "<p><strong>1. Standard Distance Formula:</strong> The distance $D$ between a point and a line or between parallel planes $Ax + By + Cz = D_1$ and $Ax + By + Cz = D_2$ is computed via: $$D = \\frac{|D_1 - D_2|}{\\sqrt{A^2 + B^2 + C^2}}$$ For skew lines, $D = \\frac{|(\\vec{v}_1 \\times \\vec{v}_2) \\cdot \\vec{P_1P_2}|}{\\|\\vec{v}_1 \\times \\vec{v}_2\\|}.$</p><p><strong>2. Substitution:</strong> Evaluating the magnitudes and dot product gives the simplified radical value: $$20 √ 26$$</p>"
@@ -1772,13 +1772,13 @@
       "number": 5,
       "section": "11.6",
       "topic": "11.6 Quadric Surfaces & Cylinders",
-      "question": "The graph of the equation 2x2 + 4y2 + 2z2 -8x + 8y -4z = c is an ellipsoid when c =",
+      "question": "The graph of the equation $2x^2 + 4y^2 + 2z^2 - 8x + 8y - 4z = c$ is an ellipsoid when $c =$",
       "choices": [
-        "-21",
-        "-11",
-        "-15",
-        "-17",
-        "-19"
+        "$-21$",
+        "$-11$",
+        "$-15$",
+        "$-17$",
+        "$-19$"
       ],
       "correct_answer": "B",
       "solution": "<p><strong>1. Completing the Square:</strong> Grouping terms in $x, y, z$ and completing the squares transforms the general second-degree equation into its canonical quadric form.</p><p><strong>2. Trace & Surface Identification:</strong> Examining the signs of coefficients: equal positive signs indicate an ellipsoid, one negative sign yields a hyperboloid of one sheet, two negative signs yield a hyperboloid of two sheets, and a degree-1 linear variable indicates an elliptic/hyperbolic paraboloid.</p><p><strong>3. Conclusion:</strong> The geometric classification corresponds to: $$-11$$</p>"
@@ -1789,13 +1789,13 @@
       "number": 6,
       "section": "13.4",
       "topic": "13.4 Differentials & Linear Approx",
-      "question": "Using differentials, the quantity (2.01)2(6.01) -22.6 = is approximately equal to",
+      "question": "Using differentials, the quantity $(2.01)^2(6.01) - 22.6$ is approximately equal to",
       "choices": [
-        "0.28",
-        "0.14",
-        "0.26",
-        "0.24",
-        "0.30"
+        "$0.28$",
+        "$0.14$",
+        "$0.26$",
+        "$0.24$",
+        "$0.30$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Total Differential Formula:</strong> The linear approximation is given by: $$dz = f_x(x_0, y_0)\\,dx + f_y(x_0, y_0)\\,dy$$</p><p><strong>2. Partial Derivatives Evaluation:</strong> Evaluating $f_x$ and $f_y$ at the base point $(x_0, y_0)$ with deviations $dx = x - x_0$ and $dy = y - y_0$.</p><p><strong>3. Numerical Calculation:</strong> Summing the differentials yields the estimated value: $$0.28$$</p>"
@@ -1806,13 +1806,13 @@
       "number": 7,
       "section": "13.5",
       "topic": "13.5 Multivariable Chain Rule",
-      "question": "Let w = √x -y + √y -z. The value of ∂w ∂x + ∂w ∂y + ∂w ∂z at x = 5, y = 3 and z = 1 is",
+      "question": "Let $w = \\sqrt{x - y} + \\sqrt{y - z}$. The value of $\\frac{\\partial w}{\\partial x} + \\frac{\\partial w}{\\partial y} + \\frac{\\partial w}{\\partial z}$ at $x = 5, y = 3$ and $z = 1$ is",
       "choices": [
-        "3 √ 2",
-        "1 √ 2",
-        "-4 √ 2",
-        "0",
-        "√ 2"
+        "$\\frac{3}{\\sqrt{2}}$",
+        "$\\frac{1}{\\sqrt{2}}$",
+        "$-\\frac{4}{\\sqrt{2}}$",
+        "$0$",
+        "$\\sqrt{2}$"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Chain Rule / Implicit Differentiation:</strong> Using the multivariable chain rule or the implicit derivative formula: $$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}, \\quad \\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$</p><p><strong>2. Gradient Substitution:</strong> Computing partial derivatives with respect to the active variable and substituting the point coordinates.</p><p><strong>3. Conclusion:</strong> Simplifying the resulting fraction gives: $$0$$</p>"
@@ -1823,13 +1823,13 @@
       "number": 8,
       "section": "13.1",
       "topic": "13.1 Multivariable Functions & Level Curves",
-      "question": "Let D be the domain and R be the range of f(x, y) = arccos(x -y). Then",
+      "question": "Let $D$ be the domain and $R$ be the range of $f(x, y) = \\arccos(x - y)$. Then",
       "choices": [
-        "D = {(x, y) : -1 -x ≤y ≤1 + x} and R = [0, π]",
-        "D = {(x, y) : -π 2 ≤x -y ≤π 2} and R = [0, ∞)",
-        "D = {(x, y) : -x ≤y ≤1 -x} and R = [-π/2, π/2]",
-        "D = {(x, y) : -1 + x ≤y ≤1 + x} and R = [0, π]",
-        "D = {(x, y) : -∞< x < ∞and -∞< y < ∞} and R = [-1, 1]"
+        "$D = \\{(x, y) : -1 - x \\le y \\le 1 + x\\}$ and $R = [0, \\pi]$",
+        "$D = \\left\\{(x, y) : -\\frac{\\pi}{2} \\le x - y \\le \\frac{\\pi}{2}\\right\\}$ and $R = [0, \\infty)$",
+        "$D = \\{(x, y) : -x \\le y \\le 1 - x\\}$ and $R = [-\\pi/2, \\pi/2]$",
+        "$D = \\{(x, y) : -1 + x \\le y \\le 1 + x\\}$ and $R = [0, \\pi]$",
+        "$D = \\{(x, y) : -\\infty < x < \\infty \\text{ and } -\\infty < y < \\infty\\}$ and $R = [-1, 1]$"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$D = {(x, y) : -1 + x ≤y ≤1 + x} and R = [0, π]$$</p>"
@@ -1840,7 +1840,7 @@
       "number": 9,
       "section": "13.1",
       "topic": "13.1 Multivariable Functions & Level Curves",
-      "question": "The level surfaces of the function f(x, y, z) = 4x2 + 4y2 -z2 are",
+      "question": "The level surfaces of the function $f(x, y, z) = 4x^2 + 4y^2 - z^2$ are",
       "choices": [
         "cones only",
         "hyperboloids of one sheet, hyperboloids of two sheets, and cones",
@@ -1857,13 +1857,13 @@
       "number": 10,
       "section": "13.5",
       "topic": "13.5 Multivariable Chain Rule",
-      "question": "Let w = f(x, y) with x = g(s, t) and y = h(s, t), where f, g, and h are differentiable functions, with the following values: g(1, 2) h(1, 2) gs(1, 2) hs(1, 2) fx(4, 3) fy(4, 3) 4 3 -3 5 -4 6 Then ws(1, 2) =",
+      "question": "Let $w = f(x, y)$ with $x = g(s, t)$ and $y = h(s, t)$, where $f, g$, and $h$ are differentiable functions with values $g(1, 2) = 4, h(1, 2) = 3, g_s(1, 2) = -3, h_s(1, 2) = 5, f_x(4, 3) = -4, f_y(4, 3) = 6$. Then $w_s(1, 2) =$",
       "choices": [
-        "20",
-        "36",
-        "42",
-        "-39",
-        "-38"
+        "$20$",
+        "$36$",
+        "$42$",
+        "$-39$",
+        "$-38$"
       ],
       "correct_answer": "C",
       "solution": "<p><strong>1. Chain Rule / Implicit Differentiation:</strong> Using the multivariable chain rule or the implicit derivative formula: $$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}, \\quad \\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$</p><p><strong>2. Gradient Substitution:</strong> Computing partial derivatives with respect to the active variable and substituting the point coordinates.</p><p><strong>3. Conclusion:</strong> Simplifying the resulting fraction gives: $$42$$</p>"
@@ -1874,13 +1874,13 @@
       "number": 11,
       "section": "13.2",
       "topic": "13.2 Limits & Continuity",
-      "question": "lim (x,y)→(1,1) 2x -y -1 √2x -y -1 =",
+      "question": "$\\lim_{(x,y)\\to(1,1)} \\frac{2x - y - 1}{\\sqrt{2x - y - 1}} =$",
       "choices": [
-        "1",
+        "$1$",
         "DNE",
-        "2",
-        "-2",
-        "0"
+        "$2$",
+        "$-2$",
+        "$0$"
       ],
       "correct_answer": "C",
       "solution": "<p><strong>1. Limit Analysis:</strong> Direct substitution yields the indeterminate form $\\frac{0}{0}$.</p><p><strong>2. Path Test or Polar Conversion:</strong> Factoring, algebraic cancellation of terms, or converting to polar coordinates ($x = r\\cos\\theta, y = r\\sin\\theta$ as $r \\to 0^+$) resolves the limit.</p><p><strong>3. Result:</strong> The limit value (or continuity condition) is: $$2$$</p>"
@@ -1891,13 +1891,13 @@
       "number": 12,
       "section": "13.2",
       "topic": "13.2 Limits & Continuity",
-      "question": "Let f(x, y) = |xy| \u0012x2 -y2 x2 + y2 \u0013 . The value of f(0, 0) such that f is continuous at the origin is",
+      "question": "Let $f(x, y) = |xy| \\left(\\frac{x^2 - y^2}{x^2 + y^2}\\right)$. The value of $f(0, 0)$ such that $f$ is continuous at the origin is",
       "choices": [
-        "-1",
-        "0",
-        "2",
-        "1",
-        "-2"
+        "$-1$",
+        "$0$",
+        "$2$",
+        "$1$",
+        "$-2$"
       ],
       "correct_answer": "B",
       "solution": "<p><strong>1. Limit Analysis:</strong> Direct substitution yields the indeterminate form $\\frac{0}{0}$.</p><p><strong>2. Path Test or Polar Conversion:</strong> Factoring, algebraic cancellation of terms, or converting to polar coordinates ($x = r\\cos\\theta, y = r\\sin\\theta$ as $r \\to 0^+$) resolves the limit.</p><p><strong>3. Result:</strong> The limit value (or continuity condition) is: $$0$$</p>"
@@ -1908,13 +1908,13 @@
       "number": 13,
       "section": "13.5",
       "topic": "13.5 Multivariable Chain Rule",
-      "question": "If x ln y + y2z + z2 = 8, then ∂z ∂x=",
+      "question": "If $x\\ln y + y^2 z + z^2 = 8$, then $\\frac{\\partial z}{\\partial x} =$",
       "choices": [
-        "-x ln y y + 2z",
-        "x y2 + 2z",
-        "-y2z + z2 y2 + 2z",
-        "- x ln y y2 + z2 -8",
-        "-ln y y2 + 2z"
+        "$-\\frac{x\\ln y}{y + 2z}$",
+        "$\\frac{x}{y^2 + 2z}$",
+        "$-\\frac{y^2 z + z^2}{y^2 + 2z}$",
+        "$-\\frac{x\\ln y}{y^2 + z^2 - 8}$",
+        "$-\\frac{\\ln y}{y^2 + 2z}$"
       ],
       "correct_answer": "E",
       "solution": "<p><strong>1. Chain Rule / Implicit Differentiation:</strong> Using the multivariable chain rule or the implicit derivative formula: $$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}, \\quad \\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$</p><p><strong>2. Gradient Substitution:</strong> Computing partial derivatives with respect to the active variable and substituting the point coordinates.</p><p><strong>3. Conclusion:</strong> Simplifying the resulting fraction gives: $$-ln y y2 + 2z$$</p>"
@@ -1925,13 +1925,13 @@
       "number": 14,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "If z = arctan \u0010y x \u0011 , then ∂2z ∂x2 + ∂2z ∂y2 =",
+      "question": "If $z = \\arctan\\left(\\frac{y}{x}\\right)$, then $\\frac{\\partial^2 z}{\\partial x^2} + \\frac{\\partial^2 z}{\\partial y^2} =$",
       "choices": [
-        "- x + y (x2 + y2)2",
-        "1 (x2 + y2)2",
-        "0",
-        "2xy (x2 + y2)2",
-        "x2 -y2 (x2 + y2)2"
+        "$-\\frac{x + y}{(x^2 + y^2)^2}$",
+        "$\\frac{1}{(x^2 + y^2)^2}$",
+        "$0$",
+        "$\\frac{2xy}{(x^2 + y^2)^2}$",
+        "$\\frac{x^2 - y^2}{(x^2 + y^2)^2}$"
       ],
       "correct_answer": "C",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$0$$</p>"
@@ -1942,13 +1942,13 @@
       "number": 15,
       "section": "13.5",
       "topic": "13.5 Multivariable Chain Rule",
-      "question": "If w = zexy, x = s -t, y = s + t, z = st, then ws =",
+      "question": "If $w = z e^{xy}, x = s - t, y = s + t, z = st$, then $w_s =$",
       "choices": [
-        "2stes2-t2",
-        "t(1 -s2)es2-t2",
-        "t(1 + 2s2)es2-t2",
-        "es2-t2",
-        "(1 + s2)es2-t2"
+        "$2st e^{s^2 - t^2}$",
+        "$t(1 - s^2)e^{s^2 - t^2}$",
+        "$t(1 + 2s^2)e^{s^2 - t^2}$",
+        "$e^{s^2 - t^2}$",
+        "$(1 + s^2)e^{s^2 - t^2}$"
       ],
       "correct_answer": "C",
       "solution": "<p><strong>1. Chain Rule / Implicit Differentiation:</strong> Using the multivariable chain rule or the implicit derivative formula: $$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}, \\quad \\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$</p><p><strong>2. Gradient Substitution:</strong> Computing partial derivatives with respect to the active variable and substituting the point coordinates.</p><p><strong>3. Conclusion:</strong> Simplifying the resulting fraction gives: $$t(1 + 2s2)es2-t2$$</p>"
@@ -1979,10 +1979,10 @@
       "question": "If $(a, b, c)$ is the point of intersection between the lines $L_1: x = 1 + 2t, y = 1 - t, z = 2 - 3t$ and $L_2: x = 4 - s, y = -1 + 2s, z = -4 + 6s$, then $abc =$",
       "choices": [
         "-7",
-        "\\frac{11}{9}",
-        "-\\frac{20}{9}",
-        "\\frac{22}{9}",
-        "\\frac{22}{3}"
+        "$\\frac{11}{9}$",
+        "$-\\frac{20}{9}$",
+        "$\\frac{22}{9}$",
+        "$\\frac{22}{3}$"
       ],
       "correct_answer": "D",
       "solution": "Equating coordinates gives $1 + 2t = 4 - s \\implies 2t + s = 3$, and $1 - t = -1 + 2s \\implies -t - 2s = -2$. Solving this system yields $t = \\frac{4}{3}$ and $s = \\frac{1}{3}$. Checking $z$: $2 - 3\\left(\\frac{4}{3}\\right) = -2$, and $-4 + 6\\left(\\frac{1}{3}\\right) = -2$ (consistent). Substituting $t = \\frac{4}{3}$ into $L_1$ gives $(a, b, c) = \\left(\\frac{11}{3}, -\\frac{1}{3}, -2\\right)$. Therefore, $abc = \\frac{11}{3} \\cdot \\left(-\\frac{1}{3}\\right) \\cdot (-2) = \\frac{22}{9}$."
@@ -2046,11 +2046,11 @@
       "topic": "Domain of Multivariable Functions",
       "question": "The domain of the function $f(x, y) = \\frac{y - 1}{\\sqrt{x + 1}}$ is",
       "choices": [
-        "\\{(x, y) : x \\in (-\\infty, \\infty), y \\in (-\\infty, \\infty)\\}",
-        "\\{(x, y) : x \\in (-1, \\infty), y \\in [1, \\infty)\\}",
-        "\\{(x, y) : x \\in [-1, \\infty), y \\in (-\\infty, \\infty)\\}",
-        "\\{(x, y) : x \\in (-1, \\infty), y \\in (-\\infty, \\infty)\\}",
-        "\\{(x, y) : x \\in (1, \\infty), y \\in (-1, \\infty)\\}"
+        "$\\{(x, y) : x \\in (-\\infty, \\infty), y \\in (-\\infty, \\infty)\\}$",
+        "$\\{(x, y) : x \\in (-1, \\infty), y \\in [1, \\infty)\\}$",
+        "$\\{(x, y) : x \\in [-1, \\infty), y \\in (-\\infty, \\infty)\\}$",
+        "$\\{(x, y) : x \\in (-1, \\infty), y \\in (-\\infty, \\infty)\\}$",
+        "$\\{(x, y) : x \\in (1, \\infty), y \\in (-1, \\infty)\\}$"
       ],
       "correct_answer": "D",
       "solution": "The square root $\\sqrt{x+1}$ in the denominator requires $x + 1 > 0 \\iff x > -1$, so $x \\in (-1, \\infty)$. The numerator $y - 1$ has no real restrictions, so $y \\in (-\\infty, \\infty)$. Therefore, the domain is $\\{(x, y) : x \\in (-1, \\infty), y \\in (-\\infty, \\infty)\\}$."
@@ -2082,8 +2082,8 @@
       "choices": [
         "1",
         "0",
-        "\\text{DNE}",
-        "\\frac{1}{2}",
+        "$\\text{DNE}$",
+        "$\\frac{1}{2}$",
         "2"
       ],
       "correct_answer": "B",
@@ -2097,7 +2097,7 @@
       "topic": "Partial Derivatives & Identity",
       "question": "If $z = \\ln\\sqrt{x^2 + y^2}$, then $x\\frac{\\partial z}{\\partial x} + y\\frac{\\partial z}{\\partial y} =$",
       "choices": [
-        "\\frac{z}{2}",
+        "$\\frac{z}{2}$",
         "1",
         "z",
         "-z",
@@ -2114,11 +2114,11 @@
       "topic": "Higher-Order Partial Derivatives",
       "question": "If $f(x, y, z) = x^4 - 2xy + 3y^3 + xy^2z^4$, then $f_{xyzz}(x, y, z) =$",
       "choices": [
-        "12xz^2",
-        "12yz^2",
-        "24yz^2",
-        "6xyz^2",
-        "24xyz^2"
+        "$12xz^2$",
+        "$12yz^2$",
+        "$24yz^2$",
+        "$6xyz^2$",
+        "$24xyz^2$"
       ],
       "correct_answer": "C",
       "solution": "By Clairaut's theorem, change the differentiation order to $f_{zzxy}$. Note that only the term $xy^2z^4$ contains $z$. Then $f_z = 4xy^2z^3$, $f_{zz} = 12xy^2z^2$. Differentiating with respect to $x$ gives $f_{zzx} = 12y^2z^2$. Finally, differentiating with respect to $y$ gives $f_{zzxy} = 24yz^2$."
@@ -2148,11 +2148,11 @@
       "topic": "Chain Rule",
       "question": "If $z = \\sin(x^2 y)$, $x = s^2 t$, $y = s + \\frac{1}{t^2}$, then $\\frac{\\partial z}{\\partial t} =$",
       "choices": [
-        "2s^5 t \\cos(x^2 y)",
-        "3s^4 t^2 \\cos(x^2 y)",
-        "\\left(2s^5 t - \\frac{s^5}{t}\\right)\\cos(x^2 y)",
-        "2st^2 \\cos(x^2 y)",
-        "\\left(s^3 - \\frac{s^2}{t}\\right)\\cos(x^2 y)"
+        "$2s^5 t \\cos(x^2 y)$",
+        "$3s^4 t^2 \\cos(x^2 y)$",
+        "$\\left(2s^5 t - \\frac{s^5}{t}\\right)\\cos(x^2 y)$",
+        "$2st^2 \\cos(x^2 y)$",
+        "$\\left(s^3 - \\frac{s^2}{t}\\right)\\cos(x^2 y)$"
       ],
       "correct_answer": "A",
       "solution": "By the chain rule, $\\frac{\\partial z}{\\partial t} = \\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial t} + \\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial t} = 2xy\\cos(x^2y)(s^2) + x^2\\cos(x^2y)\\left(-\\frac{2}{t^3}\\right) = \\left[2s^2xy - \\frac{2x^2}{t^3}\\right]\\cos(x^2y)$. Substituting $x = s^2t$ and $y = s + \\frac{1}{t^2}$: $2s^2(s^2t)(s + \\frac{1}{t^2}) - \\frac{2(s^4t^2)}{t^3} = 2s^4t(s + \\frac{1}{t^2}) - \\frac{2s^4}{t} = 2s^5t + \\frac{2s^4}{t} - \\frac{2s^4}{t} = 2s^5t$. Thus $\\frac{\\partial z}{\\partial t} = 2s^5 t \\cos(x^2 y)$."
@@ -2165,11 +2165,11 @@
       "topic": "Implicit Differentiation",
       "question": "If $z$ is defined implicitly as a differentiable function of $x$ and $y$ by the equation $\\sin(2x + y) - 2x \\cos(z^2) = 1$, then $\\frac{\\partial z}{\\partial x} =$",
       "choices": [
-        "\\frac{\\cos(z^2) + \\cos(2x + y)}{xz \\sin(z^2)}",
-        "\\frac{\\cos(2x + y) - 2\\cos(z^2)}{xz \\sin(z^2)}",
-        "\\frac{\\cos(z^2) - \\cos(2x + y)}{2xz \\sin(z^2)}",
-        "\\frac{\\cos(2x + y) - \\cos(z^2)}{2z \\sin(z^2)}",
-        "\\frac{\\cos(2x + y) - \\cos(z^2)}{2xz \\cos(z^2)}"
+        "$\\frac{\\cos(z^2) + \\cos(2x + y)}{xz \\sin(z^2)}$",
+        "$\\frac{\\cos(2x + y) - 2\\cos(z^2)}{xz \\sin(z^2)}$",
+        "$\\frac{\\cos(z^2) - \\cos(2x + y)}{2xz \\sin(z^2)}$",
+        "$\\frac{\\cos(2x + y) - \\cos(z^2)}{2z \\sin(z^2)}$",
+        "$\\frac{\\cos(2x + y) - \\cos(z^2)}{2xz \\cos(z^2)}$"
       ],
       "correct_answer": "C",
       "solution": "Let $F(x, y, z) = \\sin(2x + y) - 2x\\cos(z^2) - 1 = 0$. Then $\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}$. Here $F_x = 2\\cos(2x + y) - 2\\cos(z^2)$ and $F_z = -2x(-\\sin(z^2) \\cdot 2z) = 4xz\\sin(z^2)$. Therefore, $\\frac{\\partial z}{\\partial x} = -\\frac{2\\cos(2x+y) - 2\\cos(z^2)}{4xz\\sin(z^2)} = \\frac{\\cos(z^2) - \\cos(2x+y)}{2xz\\sin(z^2)}$."
@@ -2214,13 +2214,13 @@
       "number": 1,
       "section": "11.5",
       "topic": "11.5 Lines in Space & Skew Lines",
-      "question": "Consider a line that passes through the point (5, -3, -4) and is parallel to the vector⃗u = ⟨2, -1, 3⟩. If this line also passes through the point (7, -4, a), then a is equal to",
+      "question": "Consider a line that passes through the point $(5, -3, -4)$ and is parallel to the vector $\\vec{u} = \\langle 2, -1, 3 \\rangle$. If this line also passes through the point $(7, -4, a)$, then $a$ is equal to",
       "choices": [
-        "-2",
-        "-1",
-        "0",
-        "-3",
-        "4"
+        "$-2$",
+        "$-1$",
+        "$0$",
+        "$-3$",
+        "$4$"
       ],
       "correct_answer": "B",
       "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$-1$$</p>"
@@ -2231,13 +2231,13 @@
       "number": 2,
       "section": "11.5",
       "topic": "11.5 Planes in Space & Intersections",
-      "question": "An equation of the plane passing through the point (1, 2, 3) and parallel to the xy-plane is",
+      "question": "An equation of the plane passing through the point $(1, 2, 3)$ and parallel to the $xy$-plane is",
       "choices": [
-        "x + y -3 = 0",
-        "x + y + z -6 = 0",
-        "z = 3",
-        "y = 2",
-        "x = 1"
+        "$x + y - 3 = 0$",
+        "$x + y + z - 6 = 0$",
+        "$z = 3$",
+        "$y = 2$",
+        "$x = 1$"
       ],
       "correct_answer": "C",
       "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$z = 3$$</p>"
@@ -2248,7 +2248,7 @@
       "number": 3,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "The surface given by the equation x -y2 -4z2 = 2 is:",
+      "question": "The surface given by the equation $x - y^2 - 4z^2 = 2$ is:",
       "choices": [
         "Elliptic paraboloid",
         "Hyperboloid of two sheets",
@@ -2265,13 +2265,13 @@
       "number": 4,
       "section": "13.1",
       "topic": "13.1 Multivariable Functions & Level Curves",
-      "question": "The range of f(x, y) = p 4 -x2 -y2 is",
+      "question": "The range of $f(x, y) = \\sqrt{4 - x^2 - y^2}$ is",
       "choices": [
-        "[2, ∞)",
-        "(-∞, ∞)",
-        "[0, ∞)",
-        "(0, 4)",
-        "[0, 2]"
+        "$[2, \\infty)$",
+        "$(-\\infty, \\infty)$",
+        "$[0, \\infty)$",
+        "$(0, 4)$",
+        "$[0, 2]$"
       ],
       "correct_answer": "E",
       "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$[0, 2]$$</p>"
@@ -2282,13 +2282,13 @@
       "number": 5,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "lim (x,y)→(0,0)(x2 + y2) ln(x2 + y2) =",
+      "question": "$\\lim_{(x,y)\\to(0,0)} (x^2 + y^2)\\ln(x^2 + y^2) =$",
       "choices": [
-        "0",
-        "ln(2)",
-        "1",
-        "2",
-        "∞"
+        "$0$",
+        "$\\ln 2$",
+        "$1$",
+        "$2$",
+        "$\\infty$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$0$$</p>"
@@ -2299,13 +2299,13 @@
       "number": 6,
       "section": "13.1",
       "topic": "13.1 Multivariable Functions & Level Curves",
-      "question": "The level curve of the function f(x, y) = p 9 -x2 -y2 passing through the point (2, √ 5, f(2, √ 5)) is a circle of radius:",
+      "question": "The level curve of the function $f(x, y) = \\sqrt{9 - x^2 - y^2}$ passing through the point $(2, \\sqrt{5}, f(2, \\sqrt{5}))$ is a circle of radius:",
       "choices": [
-        "9",
-        "1",
-        "√ 5",
-        "3",
-        "2"
+        "$9$",
+        "$1$",
+        "$\\sqrt{5}$",
+        "$3$",
+        "$2$"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$3$$</p>"
@@ -2316,7 +2316,7 @@
       "number": 7,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "Consider the following statements about the function f(x, y, z) = xy + yz2 + xz2 x2 + y2 + z2 (I) lim (x,y)→(0,0) f(x, y, 0) = 0 (II) lim (x,z)→(0,0) f(x, 0, z) = 0 (III) lim x→0 f(x, x, x) = 1 3 Then",
+      "question": "Consider the following statements about the function $f(x, y, z) = \\frac{xy + yz^2 + xz^2}{x^2 + y^2 + z^2}$: (I) $\\lim_{(x,y)\\to(0,0)} f(x, y, 0) = 0$ (II) $\\lim_{(x,z)\\to(0,0)} f(x, 0, z) = 0$ (III) $\\lim_{x\\to 0} f(x, x, x) = \\frac{1}{3}$. Then",
       "choices": [
         "(I) and (III) are true",
         "only (I) is true",
@@ -2333,13 +2333,13 @@
       "number": 8,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "If f(x, y, z) = e-x sin(yz), then fxyy =",
+      "question": "If $f(x, y, z) = e^{-x}\\sin(yz)$, then $f_{xyy} =$",
       "choices": [
-        "-e-xz2 cos(yz)",
-        "e-xy2 cos(yz)",
-        "-e-x sin(yz)",
-        "e-xz2 sin(yz)",
-        "e-x cos(yz)"
+        "$-e^{-x}z^2\\cos(yz)$",
+        "$e^{-x}y^2\\cos(yz)$",
+        "$-e^{-x}\\sin(yz)$",
+        "$e^{-x}z^2\\sin(yz)$",
+        "$e^{-x}\\cos(yz)$"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$e-xz2 sin(yz)$$</p>"
@@ -2350,13 +2350,13 @@
       "number": 9,
       "section": "11.5",
       "topic": "13.4 Differentials & Linear Approx",
-      "question": "Using total differential, the expression 5 p (4.03)2 + (3.1)2 -5 p 42 + 32 is approximately equal to",
+      "question": "Using total differential, the expression $5\\sqrt{(4.03)^2 + (3.1)^2} - 5\\sqrt{4^2 + 3^2}$ is approximately equal to",
       "choices": [
-        "0.30",
-        "0.50",
-        "0.60",
-        "0.42",
-        "0.35"
+        "$0.30$",
+        "$0.50$",
+        "$0.60$",
+        "$0.42$",
+        "$0.35$"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Total Differential Formula:</strong> The linear approximation is given by: $$dz = f_x(x_0, y_0)\\,dx + f_y(x_0, y_0)\\,dy$$</p><p><strong>2. Partial Derivatives Evaluation:</strong> Evaluating $f_x$ and $f_y$ at the base point $(x_0, y_0)$ with deviations $dx = x - x_0$ and $dy = y - y_0$.</p><p><strong>3. Numerical Calculation:</strong> Summing the differentials yields the estimated value: $$0.42$$</p>"
@@ -2367,13 +2367,13 @@
       "number": 10,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "Let w = x2 -y2, where x = s cos t and y = s sin t. The value of ∂w ∂t when s = 3 and t = π 4 is equal to",
+      "question": "Let $w = x^2 - y^2$, where $x = s\\cos t$ and $y = s\\sin t$. The value of $\\frac{\\partial w}{\\partial t}$ when $s = 3$ and $t = \\frac{\\pi}{4}$ is equal to",
       "choices": [
-        "-18",
-        "9",
-        "6",
-        "3",
-        "-12"
+        "$-18$",
+        "$9$",
+        "$6$",
+        "$3$",
+        "$-12$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$-18$$</p>"
@@ -2384,13 +2384,13 @@
       "number": 11,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "If tan(x + y) + cos z = 2, then ∂z ∂x + ∂z ∂y=",
+      "question": "If $\\tan(x + y) + \\cos z = 2$, then $\\frac{\\partial z}{\\partial x} + \\frac{\\partial z}{\\partial y} =$",
       "choices": [
-        "2 tan(x + y) cos z",
-        "csc2(x + y) sin z",
-        "-sec2(x + y) sin z",
-        "tan2(x + y) cos z",
-        "2 sec2(x + y) sin z"
+        "$2\\tan(x + y)\\cos z$",
+        "$\\csc^2(x + y)\\sin z$",
+        "$-\\sec^2(x + y)\\sin z$",
+        "$\\tan^2(x + y)\\cos z$",
+        "$2\\sec^2(x + y)\\sin z$"
       ],
       "correct_answer": "E",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$2 sec2(x + y) sin z$$</p>"
@@ -2401,13 +2401,13 @@
       "number": 12,
       "section": "13.6",
       "topic": "13.6 Directional Derivatives & Gradients",
-      "question": "The directional derivative of f(x, y) = ey sin x at the point P(0, 0) in the direction of the vector -→ PQ, where Q(2, 1), is equal to",
+      "question": "The directional derivative of $f(x, y) = e^y \\sin x$ at the point $P(0, 0)$ in the direction of the vector $\\vec{PQ}$, where $Q(2, 1)$, is equal to",
       "choices": [
-        "3 √ 5",
-        "1 √ 5",
-        "- √ 5",
-        "2 √ 5",
-        "2"
+        "$\\frac{3}{\\sqrt{5}}$",
+        "$\\frac{1}{\\sqrt{5}}$",
+        "$-\\sqrt{5}$",
+        "$\\frac{2}{\\sqrt{5}}$",
+        "$2$"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Gradient Vector $\\nabla f$:</strong> Computing the partial derivatives gives $\\nabla f = \\langle f_x, f_y, f_z \\rangle$.</p><p><strong>2. Unit Direction $\\vec{u}$:</strong> Normalizing the direction vector $\\vec{v}$ yields $\\vec{u} = \\frac{\\vec{v}}{\\|\\vec{v}\\|}$. The directional derivative is $D_{\\vec{u}} f = \\nabla f \\cdot \\vec{u}$.</p><p><strong>3. Maximum Rate of Change:</strong> The maximum rate of change is given by $\\|\\nabla f\\|$. Evaluating yields: $$2 √ 5$$</p>"
@@ -2418,13 +2418,13 @@
       "number": 13,
       "section": "11.5",
       "topic": "11.5 Lines in Space & Skew Lines",
-      "question": "An equation of the tangent plane to the surface z2 -2x2 -2y2 = 12 at the point (1, -1, 4) is given by x + ay + bz + c = 0, then a + b + c =",
+      "question": "An equation of the tangent plane to the surface $z^2 - 2x^2 - 2y^2 = 12$ at the point $(1, -1, 4)$ is given by $x + ay + bz + c = 0$, then $a + b + c =$",
       "choices": [
-        "1",
-        "6",
-        "9",
-        "12",
-        "3"
+        "$1$",
+        "$6$",
+        "$9$",
+        "$12$",
+        "$3$"
       ],
       "correct_answer": "E",
       "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$3$$</p>"
@@ -2435,13 +2435,13 @@
       "number": 14,
       "section": "11.5",
       "topic": "11.5 Lines in Space & Skew Lines",
-      "question": "A set of symmetric equations for the tangent line to the curve of intersec- tion of the surfaces x2 + y2 + z2 = 14 and x -y -z = 0 at the point (3, 1, 2) is",
+      "question": "A set of symmetric equations for the tangent line to the curve of intersection of the surfaces $x^2 + y^2 + z^2 = 14$ and $x - y - z = 0$ at the point $(3, 1, 2)$ is",
       "choices": [
-        "x -3 4 = y -1 = z -3 5",
-        "x -3 2 = y -1 5 = z -2 -4",
-        "x -3 2 = y -1 10 = z -2 -7",
-        "x -3 = y -1 5 = z -2 -4",
-        "x -3 = y -1 -5 = z -2 4"
+        "$\\frac{x - 3}{4} = y - 1 = \\frac{z - 3}{5}$",
+        "$\\frac{x - 3}{2} = \\frac{y - 1}{5} = \\frac{z - 2}{-4}$",
+        "$\\frac{x - 3}{2} = \\frac{y - 1}{10} = \\frac{z - 2}{-7}$",
+        "$x - 3 = \\frac{y - 1}{5} = \\frac{z - 2}{-4}$",
+        "$x - 3 = \\frac{y - 1}{-5} = \\frac{z - 2}{4}$"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$x -3 = y -1 5 = z -2 -4$$</p>"
@@ -2452,13 +2452,13 @@
       "number": 15,
       "section": "11.5",
       "topic": "11.5 Distances in Space",
-      "question": "The distance between the planes given by the equations -x + 6y + 2z = 3 and -1 2x + 3y + z = 4 is",
+      "question": "The distance between the planes given by the equations $-x + 6y + 2z = 3$ and $-\\frac{1}{2}x + 3y + z = 4$ is",
       "choices": [
-        "7 √ 41",
-        "1 √ 41",
-        "3 √ 41",
-        "5 √ 41",
-        "8 √ 41"
+        "$\\frac{7}{\\sqrt{41}}$",
+        "$\\frac{1}{\\sqrt{41}}$",
+        "$\\frac{3}{\\sqrt{41}}$",
+        "$\\frac{5}{\\sqrt{41}}$",
+        "$\\frac{8}{\\sqrt{41}}$"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Standard Distance Formula:</strong> The distance $D$ between a point and a line or between parallel planes $Ax + By + Cz = D_1$ and $Ax + By + Cz = D_2$ is computed via: $$D = \\frac{|D_1 - D_2|}{\\sqrt{A^2 + B^2 + C^2}}$$ For skew lines, $D = \\frac{|(\\vec{v}_1 \\times \\vec{v}_2) \\cdot \\vec{P_1P_2}|}{\\|\\vec{v}_1 \\times \\vec{v}_2\\|}.$</p><p><strong>2. Substitution:</strong> Evaluating the magnitudes and dot product gives the simplified radical value: $$5 √ 41$$</p>"
@@ -2539,11 +2539,11 @@
       "topic": "Domain of Multivariable Functions",
       "question": "The domain of the function $f(x, y) = \\ln(y - x + 2)$ is",
       "choices": [
-        "\\{(x, y) : y > x - 2\\}",
-        "\\{(x, y) : y < x - 2\\}",
-        "\\{(x, y) : y = x - 2\\}",
-        "\\{(x, y) : y \\ge x - 2\\}",
-        "\\{(x, y) : y > x - 1\\}"
+        "$\\{(x, y) : y > x - 2\\}$",
+        "$\\{(x, y) : y < x - 2\\}$",
+        "$\\{(x, y) : y = x - 2\\}$",
+        "$\\{(x, y) : y \\ge x - 2\\}$",
+        "$\\{(x, y) : y > x - 1\\}$"
       ],
       "correct_answer": "A",
       "solution": "The argument of the natural logarithm must be strictly positive: $y - x + 2 > 0 \\iff y > x - 2$. Thus the domain is $\\{(x, y) : y > x - 2\\}$."
@@ -2573,10 +2573,10 @@
       "topic": "Multivariable Limits",
       "question": "$\\lim_{(x, y) \\to (0, 0)} \\frac{\\ln(2x^2 + 2y^2 + 1)}{x^2 + y^2} =$",
       "choices": [
-        "\\frac{1}{4}",
+        "$\\frac{1}{4}$",
         "1",
         "2",
-        "\\frac{1}{2}",
+        "$\\frac{1}{2}$",
         "0"
       ],
       "correct_answer": "C",
@@ -2641,11 +2641,11 @@
       "topic": "Differentials",
       "question": "Let $z = \\sqrt{29 - x^2 - y^2}$. If $(x, y)$ moves from the point $(3, 4)$ to the point $(3.01, 3.97)$, then the change in $z$ is approximately equal to",
       "choices": [
-        "\\frac{1}{20}",
-        "\\frac{9}{200}",
-        "\\frac{3}{25}",
-        "\\frac{7}{200}",
-        "\\frac{1}{25}"
+        "$\\frac{1}{20}$",
+        "$\\frac{9}{200}$",
+        "$\\frac{3}{25}$",
+        "$\\frac{7}{200}$",
+        "$\\frac{1}{25}$"
       ],
       "correct_answer": "B",
       "solution": "At $(3, 4)$, $z = \\sqrt{29 - 9 - 16} = \\sqrt{4} = 2$. Changes: $dx = 3.01 - 3 = 0.01$, $dy = 3.97 - 4 = -0.03$. Partials: $\\frac{\\partial z}{\\partial x} = \\frac{-x}{\\sqrt{29 - x^2 - y^2}} = \\frac{-3}{2}$, and $\\frac{\\partial z}{\\partial y} = \\frac{-y}{\\sqrt{29 - x^2 - y^2}} = \\frac{-4}{2} = -2$. Differential: $dz = -\\frac{3}{2}(0.01) - 2(-0.03) = -\\frac{3}{200} + \\frac{6}{100} = -\\frac{3}{200} + \\frac{12}{200} = \\frac{9}{200}$."
@@ -2675,11 +2675,11 @@
       "topic": "Implicit Differentiation",
       "question": "If $z$ is defined implicitly as a differentiable function of $x$ and $y$ by the equation $xyz = \\sin(3x - 2y - z)$, then $\\frac{\\partial z}{\\partial x} =$",
       "choices": [
-        "\\frac{3\\cos(3x - 2y - z) + xy}{\\cos(3x - 2y - z) - yz}",
-        "\\frac{3yz - \\cos(3x - 2y - z)}{xy + \\cos(3x - 2y - z)}",
-        "\\frac{3\\cos(3x - 2y - z) - yz}{\\cos(3x - 2y - z) + xy}",
-        "\\frac{\\cos(3x - 2y - z) + yz}{3\\cos(3x - 2y - z) - xy}",
-        "\\frac{3\\sin(3x - 2y - z) - yz}{\\sin(3x - 2y - z) + xy}"
+        "$\\frac{3\\cos(3x - 2y - z) + xy}{\\cos(3x - 2y - z) - yz}$",
+        "$\\frac{3yz - \\cos(3x - 2y - z)}{xy + \\cos(3x - 2y - z)}$",
+        "$\\frac{3\\cos(3x - 2y - z) - yz}{\\cos(3x - 2y - z) + xy}$",
+        "$\\frac{\\cos(3x - 2y - z) + yz}{3\\cos(3x - 2y - z) - xy}$",
+        "$\\frac{3\\sin(3x - 2y - z) - yz}{\\sin(3x - 2y - z) + xy}$"
       ],
       "correct_answer": "C",
       "solution": "Let $F(x, y, z) = \\sin(3x - 2y - z) - xyz = 0$. Then $\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}$. Here $F_x = 3\\cos(3x - 2y - z) - yz$, and $F_z = -\\cos(3x - 2y - z) - xy$. Thus $\\frac{\\partial z}{\\partial x} = -\\frac{3\\cos(3x - 2y - z) - yz}{-\\cos(3x - 2y - z) - xy} = \\frac{3\\cos(3x - 2y - z) - yz}{\\cos(3x - 2y - z) + xy}$."
@@ -2692,11 +2692,11 @@
       "topic": "Distance From Point to Line",
       "question": "The distance between the point $Q(1, 1, 1)$ and the line $L: x = t, y = -t, z = 2t$ is equal to",
       "choices": [
-        "\\frac{\\sqrt{21}}{4}",
-        "\\frac{\\sqrt{7}}{4}",
-        "\\frac{\\sqrt{7}}{2}",
-        "\\frac{\\sqrt{21}}{3}",
-        "\\frac{\\sqrt{21}}{2}"
+        "$\\frac{\\sqrt{21}}{4}$",
+        "$\\frac{\\sqrt{7}}{4}$",
+        "$\\frac{\\sqrt{7}}{2}$",
+        "$\\frac{\\sqrt{21}}{3}$",
+        "$\\frac{\\sqrt{21}}{2}$"
       ],
       "correct_answer": "D",
       "solution": "Choose a point on the line $P(0, 0, 0)$. The vector $\\vec{PQ} = \\langle 1, 1, 1 \\rangle$. The direction vector of the line is $\\vec{u} = \\langle 1, -1, 2 \\rangle$. The cross product is $\\vec{PQ} \\times \\vec{u} = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ 1 & 1 & 1 \\\\ 1 & -1 & 2 \\end{vmatrix} = \\langle 2 - (-1), -(2 - 1), -1 - 1 \\rangle = \\langle 3, -1, -2 \\rangle$. Magnitude: $\\|\\vec{PQ} \\times \\vec{u}\\| = \\sqrt{9 + 1 + 4} = \\sqrt{14}$. Magnitude of $\\vec{u}$: $\\|\\vec{u}\\| = \\sqrt{1 + 1 + 4} = \\sqrt{6}$. Distance: $d = \\frac{\\sqrt{14}}{\\sqrt{6}} = \\frac{\\sqrt{7}}{\\sqrt{3}} = \\frac{\\sqrt{21}}{3}$."
@@ -2846,8 +2846,8 @@
       "question": "$\\lim_{(x, y) \\to (0, 0)} \\frac{\\sin(2x^2 + 2y^2)}{4x^2 + 4y^2} =$",
       "choices": [
         "1",
-        "\\frac{1}{2}",
-        "\\frac{1}{4}",
+        "$\\frac{1}{2}$",
+        "$\\frac{1}{4}$",
         "2",
         "0"
       ],
@@ -2879,11 +2879,11 @@
       "topic": "Partial Derivatives",
       "question": "If $f(x, y) = e^{-2y}\\sin(\\pi x y)$, then $f_y\\left(1, \\frac{1}{2}\\right) =$",
       "choices": [
-        "e\\pi",
-        "-\\frac{\\pi}{2}",
-        "\\pi",
-        "\\frac{1}{e}",
-        "-\\frac{2}{e}"
+        "$e\\pi$",
+        "$-\\frac{\\pi}{2}$",
+        "$\\pi$",
+        "$\\frac{1}{e}$",
+        "$-\\frac{2}{e}$"
       ],
       "correct_answer": "E",
       "solution": "By the product and chain rules: $f_y(x, y) = -2e^{-2y}\\sin(\\pi x y) + e^{-2y}\\cos(\\pi x y) \\cdot (\\pi x)$. Evaluating at $(1, 1/2)$: $\\pi x y = \\pi/2$, $\\sin(\\pi/2) = 1$, $\\cos(\\pi/2) = 0$, and $e^{-2(1/2)} = e^{-1} = 1/e$. Hence $f_y(1, 1/2) = -2e^{-1}(1) + 0 = -\\frac{2}{e}$."
@@ -2896,11 +2896,11 @@
       "topic": "Higher-Order Partial Derivatives",
       "question": "If $f(x, y, z) = \\frac{z^2}{x + 2y}$, then $f_{xyz}(x, y, z) =$",
       "choices": [
-        "\\frac{z}{(x + 2y)^3}",
-        "-\\frac{4z}{(x + 2y)^3}",
-        "\\frac{8z}{(x + 2y)^3}",
-        "\\frac{2z}{(x + 2y)^2}",
-        "\\frac{2z + x}{(x + 2y)^2}"
+        "$\\frac{z}{(x + 2y)^3}$",
+        "$-\\frac{4z}{(x + 2y)^3}$",
+        "$\\frac{8z}{(x + 2y)^3}$",
+        "$\\frac{2z}{(x + 2y)^2}$",
+        "$\\frac{2z + x}{(x + 2y)^2}$"
       ],
       "correct_answer": "C",
       "solution": "Rewrite as $f(x, y, z) = z^2(x + 2y)^{-1}$. Differentiating with respect to $x$: $f_x = -z^2(x + 2y)^{-2}$. Differentiating with respect to $y$: $f_{xy} = -z^2 \\cdot (-2)(x + 2y)^{-3} \\cdot 2 = 4z^2(x + 2y)^{-3}$. Differentiating with respect to $z$: $f_{xyz} = 8z(x + 2y)^{-3} = \\frac{8z}{(x + 2y)^3}$."
@@ -2930,11 +2930,11 @@
       "topic": "Chain Rule for Functions of Several Variables",
       "question": "Let $z = e^{xy}, x = \\ln\\left(\\frac{s}{t}\\right), y = s^2 - t^2$. The value of $\\frac{\\partial z}{\\partial t}$ when $s = 2$ and $t = 1$ is equal to",
       "choices": [
-        "16 - 8\\ln 2",
-        "-8 - 8\\ln 2",
-        "-24 - 16\\ln 2",
-        "12 + 16\\ln 2",
-        "16 - 16\\ln 2"
+        "$16 - 8\\ln 2$",
+        "$-8 - 8\\ln 2$",
+        "$-24 - 16\\ln 2$",
+        "$12 + 16\\ln 2$",
+        "$16 - 16\\ln 2$"
       ],
       "correct_answer": "C",
       "solution": "At $s = 2, t = 1$, we have $x = \\ln(2/1) = \\ln 2$ and $y = 2^2 - 1^2 = 3$. Then $e^{xy} = e^{3\\ln 2} = 2^3 = 8$. Using the chain rule: $\\frac{\\partial z}{\\partial t} = \\frac{\\partial z}{\\partial x} \\frac{\\partial x}{\\partial t} + \\frac{\\partial z}{\\partial y} \\frac{\\partial y}{\\partial t} = (y e^{xy})\\left(-\\frac{1}{t}\\right) + (x e^{xy})(-2t)$. Substituting the values: $3(8)(-1) + (\\ln 2)(8)(-2) = -24 - 16\\ln 2$."
@@ -2947,11 +2947,11 @@
       "topic": "Implicit Differentiation",
       "question": "If $x\\ln y + y^2 z + z^2 = 8$, then $\\frac{\\partial z}{\\partial y} =$",
       "choices": [
-        "\\frac{x - 2y^2 z}{y^3 + 2yz}",
-        "\\frac{x - 2yz}{y^3 - 2yz}",
-        "-\\frac{\\ln y}{y^2 + 2z}",
-        "-\\frac{x + 2y^2 z}{y^2 + 2z}",
-        "-\\frac{x + 2y^2 z}{y^3 + 2yz}"
+        "$\\frac{x - 2y^2 z}{y^3 + 2yz}$",
+        "$\\frac{x - 2yz}{y^3 - 2yz}$",
+        "$-\\frac{\\ln y}{y^2 + 2z}$",
+        "$-\\frac{x + 2y^2 z}{y^2 + 2z}$",
+        "$-\\frac{x + 2y^2 z}{y^3 + 2yz}$"
       ],
       "correct_answer": "E",
       "solution": "Let $F(x, y, z) = x\\ln y + y^2 z + z^2 - 8 = 0$. By implicit differentiation, $\\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$. Here $F_y = \\frac{x}{y} + 2yz = \\frac{x + 2y^2 z}{y}$ and $F_z = y^2 + 2z$. Therefore, $\\frac{\\partial z}{\\partial y} = -\\frac{x + 2y^2 z}{y(y^2 + 2z)} = -\\frac{x + 2y^2 z}{y^3 + 2yz}$."
@@ -2967,7 +2967,7 @@
         "-8",
         "1",
         "-1",
-        "\\frac{13}{5}",
+        "$\\frac{13}{5}$",
         "3"
       ],
       "correct_answer": "B",
@@ -2981,11 +2981,11 @@
       "topic": "Maximum Directional Derivative",
       "question": "The maximum value of the directional derivative of $f(x, y, z) = \\sqrt{x^2 + y^2 + z^2}$ at the point $(1, 4, 2)$ is equal to",
       "choices": [
-        "\\frac{1}{2}",
+        "$\\frac{1}{2}$",
         "2",
         "1",
-        "\\frac{1}{4}",
-        "\\frac{3}{2}"
+        "$\\frac{1}{4}$",
+        "$\\frac{3}{2}$"
       ],
       "correct_answer": "C",
       "solution": "The maximum value of the directional derivative equals the magnitude of the gradient vector $|\\nabla f(1, 4, 2)|$. Since $\\nabla f(x, y, z) = \\left\\langle \\frac{x}{\\sqrt{x^2+y^2+z^2}}, \\frac{y}{\\sqrt{x^2+y^2+z^2}}, \\frac{z}{\\sqrt{x^2+y^2+z^2}} \\right\\rangle = \\frac{\\langle x, y, z \\rangle}{|\\langle x, y, z \\rangle|}$, this is a unit vector for all $(x, y, z) \\ne (0, 0, 0)$. Thus $|\\nabla f(1, 4, 2)| = 1$."
@@ -2998,11 +2998,11 @@
       "topic": "Direction of Minimum Increase",
       "question": "The direction of minimum increase of $f(x, y, z) = e^{2y}\\cos(x + z^3)$ at the point $\\left(\\frac{\\pi}{2}, \\frac{1}{2}, 0\\right)$ is given by",
       "choices": [
-        "-e\\vec{i} + 2e\\vec{j} + e\\vec{k}",
-        "e\\vec{i}",
-        "e\\vec{i} - e\\vec{j}",
-        "e\\vec{j}",
-        "-e\\vec{i} + e\\vec{k}"
+        "$-e\\vec{i} + 2e\\vec{j} + e\\vec{k}$",
+        "$e\\vec{i}$",
+        "$e\\vec{i} - e\\vec{j}$",
+        "$e\\vec{j}$",
+        "$-e\\vec{i} + e\\vec{k}$"
       ],
       "correct_answer": "B",
       "solution": "The direction of minimum increase (steepest decrease) is given by $-\\nabla f$. The gradient is $\\nabla f = \\langle -e^{2y}\\sin(x + z^3), 2e^{2y}\\cos(x + z^3), -3z^2 e^{2y}\\sin(x + z^3) \\rangle$. At $\\left(\\frac{\\pi}{2}, \\frac{1}{2}, 0\\right)$, $x + z^3 = \\frac{\\pi}{2}$, so $\\sin(\\pi/2) = 1, \\cos(\\pi/2) = 0$, and $e^{2(1/2)} = e$. Thus $\\nabla f = \\langle -e, 0, 0 \\rangle = -e\\vec{i}$. The direction of minimum increase is $-\\nabla f = -(-e\\vec{i}) = e\\vec{i}$."
@@ -3015,11 +3015,11 @@
       "topic": "Tangent Plane to a Surface",
       "question": "An equation of the tangent plane to the surface $z = x^2 + y^2 + 3$ at the point $(2, 1, 8)$ is",
       "choices": [
-        "3x + y - z = -1",
-        "4x - 2y - z = -2",
-        "4x + 2y - z = 2",
-        "4x + y + z = 17",
-        "2x + 2y - z = -2"
+        "$3x + y - z = -1$",
+        "$4x - 2y - z = -2$",
+        "$4x + 2y - z = 2$",
+        "$4x + y + z = 17$",
+        "$2x + 2y - z = -2$"
       ],
       "correct_answer": "C",
       "solution": "We have $f_x(x, y) = 2x$ and $f_y(x, y) = 2y$. At $(2, 1)$, $f_x(2, 1) = 4$ and $f_y(2, 1) = 2$. The tangent plane equation is $z - z_0 = f_x(x_0, y_0)(x - x_0) + f_y(x_0, y_0)(y - y_0) \\implies z - 8 = 4(x - 2) + 2(y - 1) = 4x - 8 + 2y - 2 = 4x + 2y - 10 \\iff 4x + 2y - z = 2$."
@@ -3050,9 +3050,9 @@
       "question": "If $(a, b, c)$ is a point on the ellipsoid $3x^2 + y^2 + 3z^2 = 1$ where the tangent plane is parallel to the plane $-6x + y + 3z = 0$, then $a + b + c =$",
       "choices": [
         "0",
-        "-\\frac{1}{4}",
+        "$-\\frac{1}{4}$",
         "-1",
-        "\\frac{1}{2}",
+        "$\\frac{1}{2}$",
         "1"
       ],
       "correct_answer": "A",
@@ -3064,13 +3064,13 @@
       "number": 1,
       "section": "13.1",
       "topic": "13.1 Multivariable Functions & Level Curves",
-      "question": "The area of the region that lies in the ﬁrst quadrant as well as in the domain of the function f(x, y) = ln(6 -x -y) is equal to",
+      "question": "The area of the region that lies in the first quadrant as well as in the domain of the function $f(x, y) = \\ln(6 - x - y)$ is equal to",
       "choices": [
-        "12",
-        "23",
-        "30",
-        "34",
-        "18"
+        "$12$",
+        "$23$",
+        "$30$",
+        "$34$",
+        "$18$"
       ],
       "correct_answer": "E",
       "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$18$$</p>"
@@ -3081,7 +3081,7 @@
       "number": 2,
       "section": "13.1",
       "topic": "13.1 Multivariable Functions & Level Curves",
-      "question": "The level surfaces of f(x, y, z) = ln(4x2 + 4y2 -z2) are",
+      "question": "The level surfaces of $f(x, y, z) = \\ln(4x^2 + 4y^2 - z^2)$ are",
       "choices": [
         "elliptic cones",
         "hyperbolic paraboloids",
@@ -3098,13 +3098,13 @@
       "number": 3,
       "section": "13.1",
       "topic": "13.1 Multivariable Functions & Level Curves",
-      "question": "The range of f(x, y) = 4 ln(3 -2x2 -y2) is",
+      "question": "The range of $f(x, y) = 4\\ln(3 - 2x^2 - y^2)$ is",
       "choices": [
-        "(-∞, ∞)",
-        "(-∞, 4 ln 3]",
-        "(-1, 1)",
-        "(-ln 4, 0]",
-        "[-1, ln 4)"
+        "$(-\\infty, \\infty)$",
+        "$(-\\infty, 4\\ln 3]$",
+        "$(-1, 1)$",
+        "$(-\\ln 4, 0]$",
+        "$[-1, \\ln 4)$"
       ],
       "correct_answer": "B",
       "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$(-∞, 4 ln 3]$$</p>"
@@ -3115,13 +3115,13 @@
       "number": 4,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "lim (x,y)→(0,0) e-x2-y2 -1 x2 + y2 =",
+      "question": "$\\lim_{(x,y)\\to(0,0)} \\frac{e^{-x^2-y^2} - 1}{x^2 + y^2} =$",
       "choices": [
         "does not exist",
-        "-1",
-        "0",
-        "3",
-        "-2"
+        "$-1$",
+        "$0$",
+        "$3$",
+        "$-2$"
       ],
       "correct_answer": "B",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$-1$$</p>"
@@ -3132,13 +3132,13 @@
       "number": 5,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "If the maximum increase of the function f(x, y) = x2 + y2 -4x -2y at the point (5, c) occurs in the direction of⃗i + 2⃗j, then c =",
+      "question": "If the maximum increase of the function $f(x, y) = x^2 + y^2 - 4x - 2y$ at the point $(5, c)$ occurs in the direction of $\\vec{i} + 2\\vec{j}$, then $c =$",
       "choices": [
-        "4",
-        "3",
-        "0",
-        "7",
-        "5"
+        "$4$",
+        "$3$",
+        "$0$",
+        "$7$",
+        "$5$"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$7$$</p>"
@@ -3149,13 +3149,13 @@
       "number": 6,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "lim (x,y)→(0,0) x2y x4 + y2 =",
+      "question": "$\\lim_{(x,y)\\to(0,0)} \\frac{x^2 y}{x^4 + y^2} =$",
       "choices": [
         "does not exist",
-        "-1",
-        "1",
-        "0",
-        "∞"
+        "$-1$",
+        "$1$",
+        "$0$",
+        "$\\infty$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$does not exist$$</p>"
@@ -3166,13 +3166,13 @@
       "number": 7,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "Let z = tan-1(xy) where x = s + sin t and y = cos t. Then ∂z ∂s + ∂z ∂t at (s, t) = (1, 0) is equal to",
+      "question": "Let $z = \\arctan(xy)$ where $x = s + \\sin t$ and $y = \\cos t$. Then $\\frac{\\partial z}{\\partial s} + \\frac{\\partial z}{\\partial t}$ at $(s, t) = (1, 0)$ is equal to",
       "choices": [
-        "0",
-        "8",
-        "1",
-        "-2",
-        "-4"
+        "$0$",
+        "$8$",
+        "$1$",
+        "$-2$",
+        "$-4$"
       ],
       "correct_answer": "C",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$1$$</p>"
@@ -3183,13 +3183,13 @@
       "number": 8,
       "section": "13.2",
       "topic": "13.2 Limits & Continuity",
-      "question": "Let f(x, y) =    sin(xy) xy , xy̸ = 0 c, xy = 0 The value of c that makes f(x, y) continuous at (0, 0) is",
+      "question": "Let $f(x, y) = \\begin{cases} \\frac{\\sin(xy)}{xy} & xy \\ne 0 \\\\ c & xy = 0 \\end{cases}$. The value of $c$ that makes $f(x, y)$ continuous at $(0, 0)$ is",
       "choices": [
-        "-1",
-        "1",
-        "0",
-        "2",
-        "-4"
+        "$-1$",
+        "$1$",
+        "$0$",
+        "$2$",
+        "$-4$"
       ],
       "correct_answer": "B",
       "solution": "<p><strong>1. Limit Analysis:</strong> Direct substitution yields the indeterminate form $\\frac{0}{0}$.</p><p><strong>2. Path Test or Polar Conversion:</strong> Factoring, algebraic cancellation of terms, or converting to polar coordinates ($x = r\\cos\\theta, y = r\\sin\\theta$ as $r \\to 0^+$) resolves the limit.</p><p><strong>3. Result:</strong> The limit value (or continuity condition) is: $$1$$</p>"
@@ -3200,13 +3200,13 @@
       "number": 9,
       "section": "11.5",
       "topic": "11.5 Lines in Space & Skew Lines",
-      "question": "The normal line to the surface ln \u0012 x y -z \u0013 = x -1 at the point (1, 4, 3) passes through the point",
+      "question": "The normal line to the surface $\\ln\\left(\\frac{x}{y - z}\\right) = x - 1$ at the point $(1, 4, 3)$ passes through the point",
       "choices": [
-        "(0, 3, 3)",
-        "(1, 3, 4)",
-        "(1, 2, 3)",
-        "(2, 3, 3)",
-        "(1, 2, 1)"
+        "$(0, 3, 3)$",
+        "$(1, 3, 4)$",
+        "$(1, 2, 3)$",
+        "$(2, 3, 3)$",
+        "$(1, 2, 1)$"
       ],
       "correct_answer": "B",
       "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$(1, 3, 4)$$</p>"
@@ -3217,13 +3217,13 @@
       "number": 10,
       "section": "11.6",
       "topic": "11.6 Quadric Surfaces & Cylinders",
-      "question": "If the radius and height of a right circular cone are measured as 10 cm and 25 cm, respectively, with a possible error in measurement of as much as 0.1 cm in each. The maximum error in the calculated volume of the cone is estimated as ( Hint: The volume V of a cone with radius r and height h is V = 1 3πr2h).",
+      "question": "If the radius and height of a right circular cone are measured as $10\\,\\text{cm}$ and $25\\,\\text{cm}$, respectively, with a possible error in measurement of as much as $0.1\\,\\text{cm}$ in each. The maximum error in the calculated volume of the cone is estimated as (Hint: The volume $V$ of a cone with radius $r$ and height $h$ is $V = \\frac{1}{3}\\pi r^2 h$).",
       "choices": [
-        "12 π",
-        "20 π",
-        "4 π",
-        "10 π",
-        "2 π"
+        "$12\\pi$",
+        "$20\\pi$",
+        "$4\\pi$",
+        "$10\\pi$",
+        "$2\\pi$"
       ],
       "correct_answer": "B",
       "solution": "<p><strong>1. Completing the Square:</strong> Grouping terms in $x, y, z$ and completing the squares transforms the general second-degree equation into its canonical quadric form.</p><p><strong>2. Trace & Surface Identification:</strong> Examining the signs of coefficients: equal positive signs indicate an ellipsoid, one negative sign yields a hyperboloid of one sheet, two negative signs yield a hyperboloid of two sheets, and a degree-1 linear variable indicates an elliptic/hyperbolic paraboloid.</p><p><strong>3. Conclusion:</strong> The geometric classification corresponds to: $$20 π$$</p>"
@@ -3234,13 +3234,13 @@
       "number": 11,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "Let f(x, y, z) = xexy sin2 z. Then fxyz(-1, 0, π/4) =",
+      "question": "Let $f(x, y, z) = x e^{xy} \\sin^2 z$. Then $f_{xyz}(-1, 0, \\pi/4) =$",
       "choices": [
-        "-1",
-        "1",
-        "-2",
-        "0",
-        "4"
+        "$-1$",
+        "$1$",
+        "$-2$",
+        "$0$",
+        "$4$"
       ],
       "correct_answer": "C",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$-2$$</p>"
@@ -3251,13 +3251,13 @@
       "number": 12,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "Let W(s, t) = F(u(s, t), v(s, t)), where F, u and v are diﬀerentiable functions, and Fu(2, -3) = 1, Fv(2, -3) = 3, u(1, 0) = 2, v(1, 0) = -3, us(1, 0) = -2, vs(1, 0) = 5, ut(1, 0) = -6, vt(1, 0) = 4, Then Ws(1, 0) + Wt(1, 0) =",
+      "question": "Let $W(s, t) = F(u(s, t), v(s, t))$, where $F, u$ and $v$ are differentiable functions, and $F_u(2, -3) = 1, F_v(2, -3) = 3, u(1, 0) = 2, v(1, 0) = -3, u_s(1, 0) = -2, v_s(1, 0) = 5, u_t(1, 0) = -6, v_t(1, 0) = 4$. Then $W_s(1, 0) + W_t(1, 0) =$",
       "choices": [
-        "19",
-        "22",
-        "20",
-        "0",
-        "11"
+        "$19$",
+        "$22$",
+        "$20$",
+        "$0$",
+        "$11$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$19$$</p>"
@@ -3268,13 +3268,13 @@
       "number": 13,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "If 2yz + x ln y = z2, then ∂z ∂y at (2, 1, 2) equals",
+      "question": "If $2yz + x\\ln y = z^2$, then $\\frac{\\partial z}{\\partial y}$ at $(2, 1, 2)$ equals",
       "choices": [
-        "3",
-        "0",
-        "4",
-        "5",
-        "1"
+        "$3$",
+        "$0$",
+        "$4$",
+        "$5$",
+        "$1$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$3$$</p>"
@@ -3285,13 +3285,13 @@
       "number": 14,
       "section": "11.5",
       "topic": "11.5 Distances in Space",
-      "question": "The distance between the parallel planes 10x + 2y -2z = 5 and 5x + y -z = 1 is equal to",
+      "question": "The distance between the parallel planes $10x + 2y - 2z = 5$ and $5x + y - z = 1$ is equal to",
       "choices": [
-        "√ 13",
-        "1 √ 3",
-        "√ 7",
-        "√ 3 6",
-        "1 √ 2"
+        "$\\sqrt{13}$",
+        "$\\frac{1}{\\sqrt{3}}$",
+        "$\\sqrt{7}$",
+        "$\\frac{\\sqrt{3}}{6}$",
+        "$\\frac{1}{\\sqrt{2}}$"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Standard Distance Formula:</strong> The distance $D$ between a point and a line or between parallel planes $Ax + By + Cz = D_1$ and $Ax + By + Cz = D_2$ is computed via: $$D = \\frac{|D_1 - D_2|}{\\sqrt{A^2 + B^2 + C^2}}$$ For skew lines, $D = \\frac{|(\\vec{v}_1 \\times \\vec{v}_2) \\cdot \\vec{P_1P_2}|}{\\|\\vec{v}_1 \\times \\vec{v}_2\\|}.$</p><p><strong>2. Substitution:</strong> Evaluating the magnitudes and dot product gives the simplified radical value: $$√ 3 6$$</p>"
@@ -3302,13 +3302,13 @@
       "number": 15,
       "section": "13.6",
       "topic": "13.6 Directional Derivatives & Gradients",
-      "question": "If the directional derivative of f(x, y) = ln(1 + xy) at (a, 4) in the direction of⃗ v = ⟨1, -2⟩is 0, then a =",
+      "question": "If the directional derivative of $f(x, y) = \\ln(1 + xy)$ at $(a, 4)$ in the direction of $\\vec{v} = \\langle 1, -2 \\rangle$ is $0$, then $a =$",
       "choices": [
-        "-1",
-        "1",
-        "4",
-        "2",
-        "0"
+        "$-1$",
+        "$1$",
+        "$4$",
+        "$2$",
+        "$0$"
       ],
       "correct_answer": "D",
       "solution": "<p><strong>1. Gradient Vector $\\nabla f$:</strong> Computing the partial derivatives gives $\\nabla f = \\langle f_x, f_y, f_z \\rangle$.</p><p><strong>2. Unit Direction $\\vec{u}$:</strong> Normalizing the direction vector $\\vec{v}$ yields $\\vec{u} = \\frac{\\vec{v}}{\\|\\vec{v}\\|}$. The directional derivative is $D_{\\vec{u}} f = \\nabla f \\cdot \\vec{u}$.</p><p><strong>3. Maximum Rate of Change:</strong> The maximum rate of change is given by $\\|\\nabla f\\|$. Evaluating yields: $$2$$</p>"
@@ -3319,13 +3319,13 @@
       "number": 16,
       "section": "11.5",
       "topic": "11.5 Lines in Space & Skew Lines",
-      "question": "If the line that passes through the points P(1, 3, 4) and Q(0, 5, 7) passes also through the point R(2, 1, a), then a =",
+      "question": "If the line that passes through the points $P(1, 3, 4)$ and $Q(0, 5, 7)$ passes also through the point $R(2, 1, a)$, then $a =$",
       "choices": [
-        "1",
-        "2",
-        "-2",
-        "3",
-        "5"
+        "$1$",
+        "$2$",
+        "$-2$",
+        "$3$",
+        "$5$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$1$$</p>"
@@ -3336,13 +3336,13 @@
       "number": 17,
       "section": "11.5",
       "topic": "11.5 Planes in Space & Intersections",
-      "question": "If the equation of the plane containing the point (1, 2, 3) and passing through the line of intersection of the planes x + y + z = 1, 2x -y + 2z = 2 is given by 2x + ay + 2z = b, then a + b =",
+      "question": "If the equation of the plane containing the point $(1, 2, 3)$ and passing through the line of intersection of the planes $x + y + z = 1$ and $2x - y + 2z = 2$ is given by $2x + ay + 2z = b$, then $a + b =$",
       "choices": [
-        "3",
-        "2",
-        "-2",
-        "0",
-        "-1"
+        "$3$",
+        "$2$",
+        "$-2$",
+        "$0$",
+        "$-1$"
       ],
       "correct_answer": "E",
       "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$-1$$</p>"
@@ -3353,7 +3353,7 @@
       "number": 18,
       "section": "11.5",
       "topic": "11.5 Planes in Space & Intersections",
-      "question": "Consider the surface x2 -3y2 -9z2 = 0. Which of the following is/are correct? (I) The vertical trace in the xz-plane is the lines x = ±3z. (II) The traces in the plane parallel to the yz-plane are ellipses. (III) The surface represents a hyperboloid of two sheets.",
+      "question": "Consider the surface $x^2 - 3y^2 - 9z^2 = 0$. Which of the following is/are correct? (I) The vertical trace in the $xz$-plane is the lines $x = \\pm 3z$. (II) The traces in the plane parallel to the $yz$-plane are ellipses. (III) The surface represents a hyperboloid of two sheets.",
       "choices": [
         "(I) only",
         "(II) and (III) only",
@@ -3370,13 +3370,13 @@
       "number": 19,
       "section": "11.5",
       "topic": "11.5 Lines in Space & Skew Lines",
-      "question": "If the line with symmetric equations x -2 = z -1, y = 1 is perpendicular to the surface 3x2 -2xy + z2 = 1 at the point (x0, y0, z0), then x0 + y0 + z0 =",
+      "question": "If the line with symmetric equations $x - 2 = z - 1, y = 1$ is perpendicular to the surface $3x^2 - 2xy + z^2 = 1$ at the point $(x_0, y_0, z_0)$, then $x_0 + y_0 + z_0 =$",
       "choices": [
-        "0",
-        "2",
-        "4",
-        "3",
-        "1"
+        "$0$",
+        "$2$",
+        "$4$",
+        "$3$",
+        "$1$"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$0$$</p>"
@@ -3387,13 +3387,13 @@
       "number": 20,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
-      "question": "Let w = p x2 + y2 + z2, where x = cos θ, y = sin θ, z = tan θ. Then dw dθ at θ = π 4 is equal to",
+      "question": "Let $w = \\sqrt{x^2 + y^2 + z^2}$, where $x = \\cos\\theta, y = \\sin\\theta, z = \\tan\\theta$. Then $\\frac{dw}{d\\theta}$ at $\\theta = \\frac{\\pi}{4}$ is equal to",
       "choices": [
-        "3 √ 2",
-        "√ 3",
-        "2 √ 3",
-        "1",
-        "√ 2"
+        "$\\frac{3}{\\sqrt{2}}$",
+        "$\\sqrt{3}$",
+        "$2\\sqrt{3}$",
+        "$1$",
+        "$\\sqrt{2}$"
       ],
       "correct_answer": "E",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$√ 2$$</p>"
@@ -3440,11 +3440,11 @@
       "topic": "Distance Between Parallel Lines",
       "question": "The distance between the two lines $L_1: -2x = y - 3 = 2z - 8$ and $L_2: 2x = 1 - y = 8 - 2z$ is equal to",
       "choices": [
-        "\\frac{2}{3}",
-        "\\frac{\\sqrt{12}}{3}",
-        "\\frac{\\sqrt{22}}{3}",
-        "\\frac{\\sqrt{66}}{3}",
-        "\\frac{4}{3}"
+        "$\\frac{2}{3}$",
+        "$\\frac{\\sqrt{12}}{3}$",
+        "$\\frac{\\sqrt{22}}{3}$",
+        "$\\frac{\\sqrt{66}}{3}$",
+        "$\\frac{4}{3}$"
       ],
       "correct_answer": "B",
       "solution": "In standard symmetric form: $L_1: \\frac{x}{-1/2} = \\frac{y - 3}{1} = \\frac{z - 4}{1/2}$ passing through $P_1(0, 3, 4)$ with direction vector $\\vec{v} = \\langle -1, 2, 1 \\rangle$. Line $L_2: \\frac{x}{1/2} = \\frac{y - 1}{-1} = \\frac{z - 4}{-1/2}$ passes through $P_2(0, 1, 4)$ with direction $\\langle 1, -2, -1 \\rangle = -\\vec{v}$. Since their directions are parallel, the distance is $D = \\frac{|\\vec{P_1 P_2} \\times \\vec{v}|}{|\\vec{v}|}$. Here $\\vec{P_1 P_2} = \\langle 0, -2, 0 \\rangle$. $\\vec{P_1 P_2} \\times \\vec{v} = \\langle -2, 0, -2 \\rangle$, which has length $\\sqrt{(-2)^2 + 0^2 + (-2)^2} = \\sqrt{8} = 2\\sqrt{2}$. Since $|\\vec{v}| = \\sqrt{(-1)^2 + 2^2 + 1^2} = \\sqrt{6}$, $D = \\frac{\\sqrt{8}}{\\sqrt{6}} = \\sqrt{\\frac{4}{3}} = \\frac{2\\sqrt{3}}{3} = \\frac{\\sqrt{12}}{3}$."
@@ -3508,11 +3508,11 @@
       "topic": "Multivariable Limits with Exponential/Trig",
       "question": "$\\lim_{(x, y) \\to (0, 0)} e^{\\left(\\frac{1 - \\sec(x^2 + y^2)}{x^2 + y^2}\\right)} =$",
       "choices": [
-        "-\\infty",
+        "$-\\infty$",
         "1",
         "e",
         "0",
-        "\\infty"
+        "$\\infty$"
       ],
       "correct_answer": "B",
       "solution": "Let $u = x^2 + y^2$. As $(x, y) \\to (0, 0)$, $u \\to 0^+$. For the exponent, apply L'Hôpital's Rule: $\\lim_{u \\to 0^+} \\frac{1 - \\sec u}{u} = \\lim_{u \\to 0^+} \\frac{-\\sec u \\tan u}{1} = 0$. Since the exponential function is continuous, $\\lim_{(x, y) \\to (0, 0)} e^{\\frac{1 - \\sec(x^2 + y^2)}{x^2 + y^2}} = e^0 = 1$."
@@ -3525,11 +3525,11 @@
       "topic": "Multivariable Limits with Inverse Trig",
       "question": "$\\lim_{(x, y) \\to (0, 1)} \\tan^{-1}\\left(\\frac{x^2 - 1}{x^2 + (y - 1)^2}\\right) =$",
       "choices": [
-        "\\text{DNE}",
+        "$\\text{DNE}$",
         "0",
-        "-\\frac{\\pi}{2}",
-        "\\frac{\\pi}{2}",
-        "-\\frac{\\pi}{4}"
+        "$-\\frac{\\pi}{2}$",
+        "$\\frac{\\pi}{2}$",
+        "$-\\frac{\\pi}{4}$"
       ],
       "correct_answer": "C",
       "solution": "As $(x, y) \\to (0, 1)$, the numerator approaches $0^2 - 1 = -1 < 0$, while the denominator $x^2 + (y - 1)^2$ is strictly positive for $(x, y) \\ne (0, 1)$ and approaches $0^+$. Thus $\\frac{x^2 - 1}{x^2 + (y - 1)^2} \\to -\\infty$. Since $\\lim_{t \\to -\\infty} \\tan^{-1} t = -\\frac{\\pi}{2}$, the limit equals $-\\frac{\\pi}{2}$."
@@ -3543,10 +3543,10 @@
       "question": "Let $f(x, y, z) = y e^x + x\\ln z$, then $x f_{xz} f_{zx} + f_{zz} =$",
       "choices": [
         "1",
-        "\\frac{x}{z^2}",
-        "-\\frac{x}{z^2}",
+        "$\\frac{x}{z^2}$",
+        "$-\\frac{x}{z^2}$",
         "0",
-        "-\\frac{x}{z}"
+        "$-\\frac{x}{z}$"
       ],
       "correct_answer": "D",
       "solution": "First partials: $f_x = y e^x + \\ln z$ and $f_z = \\frac{x}{z}$. Mixed second partials: $f_{xz} = \\frac{\\partial}{\\partial z}[y e^x + \\ln z] = \\frac{1}{z}$, and $f_{zx} = \\frac{\\partial}{\\partial x}[\\frac{x}{z}] = \\frac{1}{z}$. Also $f_{zz} = \\frac{\\partial}{\\partial z}[\\frac{x}{z}] = -\\frac{x}{z^2}$. Substituting into the expression: $x f_{xz} f_{zx} + f_{zz} = x\\left(\\frac{1}{z}\\right)\\left(\\frac{1}{z}\\right) + \\left(-\\frac{x}{z^2}\\right) = \\frac{x}{z^2} - \\frac{x}{z^2} = 0$."
@@ -3560,8 +3560,8 @@
       "question": "Let $f(x, y) = x^y$, then $f_y(e, 1) =$",
       "choices": [
         "1",
-        "e^2",
-        "e^e",
+        "$e^2$",
+        "$e^e$",
         "e",
         "0"
       ],
@@ -3576,11 +3576,11 @@
       "topic": "Error Estimation with Differentials",
       "question": "If the radius and height of a right circular cylinder are respectively measured as $10\\text{ cm}$ and $30\\text{ cm}$ with possible errors $\\pm 0.02\\text{ cm}$ and $\\pm 0.04\\text{ cm}$, respectively, then the error in calculating the volume of the cylinder is approximately",
       "choices": [
-        "\\pm 12\\pi\\text{ cm}^3",
-        "\\pm 20\\pi\\text{ cm}^3",
-        "\\pm 15\\pi\\text{ cm}^3",
-        "\\pm 18\\pi\\text{ cm}^3",
-        "\\pm 16\\pi\\text{ cm}^3"
+        "$\\pm 12\\pi\\text{ cm}^3$",
+        "$\\pm 20\\pi\\text{ cm}^3$",
+        "$\\pm 15\\pi\\text{ cm}^3$",
+        "$\\pm 18\\pi\\text{ cm}^3$",
+        "$\\pm 16\\pi\\text{ cm}^3$"
       ],
       "correct_answer": "E",
       "solution": "Volume of cylinder: $V = \\pi r^2 h$. The total differential is $dV = \\frac{\\partial V}{\\partial r} dr + \\frac{\\partial V}{\\partial h} dh = 2\\pi r h \\, dr + \\pi r^2 \\, dh$. Given $r = 10, h = 30, |dr| \\le 0.02, |dh| \\le 0.04$: $|dV| \\le 2\\pi(10)(30)(0.02) + \\pi(10)^2(0.04) = 12\\pi + 4\\pi = 16\\pi\\text{ cm}^3$. Thus the error is approximately $\\pm 16\\pi\\text{ cm}^3$."
@@ -3661,11 +3661,11 @@
       "topic": "Gradient Vector and Direction of Greatest Increase",
       "question": "If the temperature at the point $(x, y)$ on a metal plate is $T(x, y) = \\frac{x}{x^2 + 2y^2}$, the direction of the greatest increase in heat from the point $(1, -1)$ is",
       "choices": [
-        "\\langle \\frac{1}{9}, \\frac{4}{9} \\rangle",
-        "\\langle \\frac{1}{9}, -\\frac{2}{9} \\rangle",
-        "\\langle \\frac{4}{9}, \\frac{1}{9} \\rangle",
-        "\\langle \\frac{1}{25}, -\\frac{4}{25} \\rangle",
-        "\\langle \\frac{2}{9}, -\\frac{1}{9} \\rangle"
+        "$\\langle \\frac{1}{9}, \\frac{4}{9} \\rangle$",
+        "$\\langle \\frac{1}{9}, -\\frac{2}{9} \\rangle$",
+        "$\\langle \\frac{4}{9}, \\frac{1}{9} \\rangle$",
+        "$\\langle \\frac{1}{25}, -\\frac{4}{25} \\rangle$",
+        "$\\langle \\frac{2}{9}, -\\frac{1}{9} \\rangle$"
       ],
       "correct_answer": "A",
       "solution": "The direction of greatest increase is given by the gradient vector $\\nabla T(1, -1)$. $T_x = \\frac{1(x^2 + 2y^2) - x(2x)}{(x^2 + 2y^2)^2} = \\frac{2y^2 - x^2}{(x^2 + 2y^2)^2}$. At $(1, -1)$: $T_x(1, -1) = \\frac{2(1) - 1}{(1 + 2)^2} = \\frac{1}{9}$. $T_y = \\frac{-x(4y)}{(x^2 + 2y^2)^2} = \\frac{-4xy}{(x^2 + 2y^2)^2}$. At $(1, -1)$: $T_y(1, -1) = \\frac{-4(1)(-1)}{9} = \\frac{4}{9}$. Thus $\\nabla T(1, -1) = \\langle \\frac{1}{9}, \\frac{4}{9} \\rangle$."
@@ -3678,11 +3678,11 @@
       "topic": "Tangent Line to a Level Curve",
       "question": "If $f(x, y) = x - y^2$, then the tangent line to the level curve $f(x, y) = 3$ at point $(4, -1)$ is",
       "choices": [
-        "-7y = -x + 11",
-        "y = x + 1",
-        "2y = -x + 2",
-        "7y = -2x + 1",
-        "y = -x + 3"
+        "$-7y = -x + 11$",
+        "$y = x + 1$",
+        "$2y = -x + 2$",
+        "$7y = -2x + 1$",
+        "$y = -x + 3$"
       ],
       "correct_answer": "C",
       "solution": "The normal vector to the level curve is $\\nabla f(x, y) = \\langle 1, -2y \\rangle$. At $(4, -1)$, $\\nabla f(4, -1) = \\langle 1, 2 \\rangle$. The tangent line equation is $1(x - 4) + 2(y - (-1)) = 0 \\iff x - 4 + 2y + 2 = 0 \\iff x + 2y - 2 = 0 \\iff 2y = -x + 2$."
@@ -3729,11 +3729,11 @@
       "topic": "Implicit Differentiation",
       "question": "If $z$ is defined implicitly as a differentiable function of $x$ and $y$ by the equation $x\\ln y + y^2 z - z^2 x = 10$, then $\\frac{\\partial z}{\\partial x} =$",
       "choices": [
-        "\\frac{z^2 - \\ln y}{y^2 + 2xz}",
-        "\\frac{z^2 - \\ln y}{y^2 - 2xz}",
-        "\\frac{y^2 - \\ln y}{y^2 - 2xz}",
-        "\\frac{z^2 + \\ln y}{y^2 + 2xz}",
-        "\\frac{z^2 - x}{y^2 - 2xz}"
+        "$\\frac{z^2 - \\ln y}{y^2 + 2xz}$",
+        "$\\frac{z^2 - \\ln y}{y^2 - 2xz}$",
+        "$\\frac{y^2 - \\ln y}{y^2 - 2xz}$",
+        "$\\frac{z^2 + \\ln y}{y^2 + 2xz}$",
+        "$\\frac{z^2 - x}{y^2 - 2xz}$"
       ],
       "correct_answer": "B",
       "solution": "Let $F(x, y, z) = x\\ln y + y^2 z - z^2 x - 10 = 0$. Then $F_x = \\ln y - z^2$ and $F_z = y^2 - 2xz$. By implicit differentiation, $\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z} = -\\frac{\\ln y - z^2}{y^2 - 2xz} = \\frac{z^2 - \\ln y}{y^2 - 2xz}$."
@@ -3831,11 +3831,11 @@
       "topic": "Domain of Functions of Several Variables",
       "question": "The domain of the function $f(x, y, z) = \\ln(x - y) + yz\\cos x$ is",
       "choices": [
-        "\\{(x, y, z) \\in \\mathbb{R}^3 : y > z\\}",
-        "\\{(x, y, z) \\in \\mathbb{R}^3 : y < z\\}",
-        "\\{(x, y, z) \\in \\mathbb{R}^3 : y^2 + z^2 = 1\\}",
-        "\\{(x, y, z) \\in \\mathbb{R}^3 : x > y\\}",
-        "\\{(x, y, z) \\in \\mathbb{R}^3 : x < z\\}"
+        "$\\{(x, y, z) \\in \\mathbb{R}^3 : y > z\\}$",
+        "$\\{(x, y, z) \\in \\mathbb{R}^3 : y < z\\}$",
+        "$\\{(x, y, z) \\in \\mathbb{R}^3 : y^2 + z^2 = 1\\}$",
+        "$\\{(x, y, z) \\in \\mathbb{R}^3 : x > y\\}$",
+        "$\\{(x, y, z) \\in \\mathbb{R}^3 : x < z\\}$"
       ],
       "correct_answer": "D",
       "solution": "The logarithmic term $\\ln(x - y)$ requires $x - y > 0 \\iff x > y$. The polynomial-trigonometric term $yz\\cos x$ is defined for all real numbers. Thus the domain is $\\{(x, y, z) \\in \\mathbb{R}^3 : x > y\\}$."
@@ -3848,11 +3848,11 @@
       "topic": "Range of Multivariable Functions",
       "question": "The range of $f(x, y) = \\ln(16 - x^2 - y^2)$ is",
       "choices": [
-        "(-\\infty, \\ln 2]",
-        "(-\\infty, 4\\ln 2]",
-        "(-\\infty, \\ln 5]",
-        "(-\\infty, 2\\ln 2]",
-        "(-\\infty, \\infty)"
+        "$(-\\infty, \\ln 2]$",
+        "$(-\\infty, 4\\ln 2]$",
+        "$(-\\infty, \\ln 5]$",
+        "$(-\\infty, 2\\ln 2]$",
+        "$(-\\infty, \\infty)$"
       ],
       "correct_answer": "B",
       "solution": "The argument $16 - (x^2 + y^2)$ is strictly positive on its domain, and satisfies $0 < 16 - (x^2 + y^2) \\le 16$. The natural logarithm is strictly increasing, so $\\ln(16 - x^2 - y^2) \\le \\ln(16) = \\ln(2^4) = 4\\ln 2$. As $x^2 + y^2 \\to 16^-$, $\\ln(16 - x^2 - y^2) \\to -\\infty$. Hence the range is $(-\\infty, 4\\ln 2]$."
@@ -3883,7 +3883,7 @@
       "question": "The limit $\\lim_{(x, y) \\to (0, 0)} \\frac{8x^2 \\sin y}{3x^3 + 5y^3}$",
       "choices": [
         "does not exist",
-        "is equal to \\infty",
+        "$is equal to \\infty$",
         "is equal to 0",
         "is equal to 1",
         "is equal to -1"
@@ -3933,11 +3933,11 @@
       "topic": "Partial Derivatives",
       "question": "If $f(x, y) = \\tan^{-1}(x + y^2)$, then $f_y(1, 2) =$",
       "choices": [
-        "\\frac{4}{13}",
-        "\\frac{2}{13}",
-        "\\frac{1}{13}",
-        "\\frac{3}{13}",
-        "\\frac{5}{13}"
+        "$\\frac{4}{13}$",
+        "$\\frac{2}{13}$",
+        "$\\frac{1}{13}$",
+        "$\\frac{3}{13}$",
+        "$\\frac{5}{13}$"
       ],
       "correct_answer": "B",
       "solution": "Differentiating with respect to $y$: $f_y(x, y) = \\frac{1}{1 + (x + y^2)^2} \\cdot 2y = \\frac{2y}{1 + (x + y^2)^2}$. Evaluating at $(1, 2)$: $f_y(1, 2) = \\frac{2(2)}{1 + (1 + 4)^2} = \\frac{4}{1 + 25} = \\frac{4}{26} = \\frac{2}{13}$."
@@ -3950,11 +3950,11 @@
       "topic": "Partial Derivatives",
       "question": "If $f(x, y) = \\cos(x^2 y)$, then $f_x(x, y) - f_y(x, y) =$",
       "choices": [
-        "(x^2 + 2xy)\\sin(xy)",
-        "(x^2 - 2xy)\\sin(x^2 y)",
-        "x^2\\cos(x^2 y)",
-        "x^2\\sin(x^2 y)",
-        "2xy\\cos(x^2 y)"
+        "$(x^2 + 2xy)\\sin(xy)$",
+        "$(x^2 - 2xy)\\sin(x^2 y)$",
+        "$x^2\\cos(x^2 y)$",
+        "$x^2\\sin(x^2 y)$",
+        "$2xy\\cos(x^2 y)$"
       ],
       "correct_answer": "B",
       "solution": "First partials: $f_x(x, y) = -\\sin(x^2 y) \\cdot 2xy = -2xy\\sin(x^2 y)$, and $f_y(x, y) = -\\sin(x^2 y) \\cdot x^2 = -x^2\\sin(x^2 y)$. Then $f_x(x, y) - f_y(x, y) = -2xy\\sin(x^2 y) - (-x^2\\sin(x^2 y)) = (x^2 - 2xy)\\sin(x^2 y)$."
@@ -3984,11 +3984,11 @@
       "topic": "Linearization and Tangent Plane Approximation",
       "question": "Consider the function $f(x, y) = y\\ln\\left(\\frac{x}{y}\\right)$. The linearization $L(x, y)$ of $f(x, y)$ at the point $(e, 1)$ is:",
       "choices": [
-        "L(x, y) = \\frac{x}{e} + e",
-        "L(x, y) = \\frac{x}{e} - 1",
-        "L(x, y) = \\frac{y}{e} + e",
-        "L(x, y) = \\frac{x}{e}",
-        "L(x, y) = \\frac{y}{e} - 1"
+        "$L(x, y) = \\frac{x}{e} + e$",
+        "$L(x, y) = \\frac{x}{e} - 1$",
+        "$L(x, y) = \\frac{y}{e} + e$",
+        "$L(x, y) = \\frac{x}{e}$",
+        "$L(x, y) = \\frac{y}{e} - 1$"
       ],
       "correct_answer": "D",
       "solution": "At $(e, 1)$, $f(e, 1) = 1\\ln(e/1) = 1$. $f(x, y) = y(\\ln x - \\ln y) \\implies f_x = \\frac{y}{x} \\implies f_x(e, 1) = \\frac{1}{e}$. Also $f_y = (\\ln x - \\ln y) + y(-1/y) = \\ln(x/y) - 1 \\implies f_y(e, 1) = \\ln(e) - 1 = 0$. The linearization is $L(x, y) = f(e, 1) + f_x(e, 1)(x - e) + f_y(e, 1)(y - 1) = 1 + \\frac{1}{e}(x - e) + 0 = 1 + \\frac{x}{e} - 1 = \\frac{x}{e}$."
@@ -4001,11 +4001,11 @@
       "topic": "Implicit Differentiation",
       "question": "If $e^z = xyz$, then $\\frac{\\partial z}{\\partial x} =$",
       "choices": [
-        "\\frac{x}{e^z - xy}",
-        "\\frac{xz}{e^z - xy}",
-        "\\frac{xy}{e^z - xy}",
-        "\\frac{y}{e^z - xy}",
-        "\\frac{yz}{e^z - xy}"
+        "$\\frac{x}{e^z - xy}$",
+        "$\\frac{xz}{e^z - xy}$",
+        "$\\frac{xy}{e^z - xy}$",
+        "$\\frac{y}{e^z - xy}$",
+        "$\\frac{yz}{e^z - xy}$"
       ],
       "correct_answer": "E",
       "solution": "Differentiating implicitly with respect to $x$: $e^z \\frac{\\partial z}{\\partial x} = y\\left(1 \\cdot z + x \\frac{\\partial z}{\\partial x}\\right) = yz + xy\\frac{\\partial z}{\\partial x}$. Factoring out $\\frac{\\partial z}{\\partial x}$: $(e^z - xy)\\frac{\\partial z}{\\partial x} = yz \\iff \\frac{\\partial z}{\\partial x} = \\frac{yz}{e^z - xy}$."
@@ -4019,10 +4019,10 @@
       "question": "If $z = \\frac{x}{y}, x = s e^t, y = 1 - s e^{-t}$, then $\\frac{\\partial z}{\\partial s}$ at $x = 3, y = -2$, and $t = 0$ is",
       "choices": [
         "1",
-        "\\frac{5}{4}",
+        "$\\frac{5}{4}$",
         "4",
-        "\\frac{3}{4}",
-        "\\frac{1}{4}"
+        "$\\frac{3}{4}$",
+        "$\\frac{1}{4}$"
       ],
       "correct_answer": "E",
       "solution": "By the chain rule: $\\frac{\\partial z}{\\partial s} = \\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial s} + \\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial s} = \\left(\\frac{1}{y}\\right)(e^t) + \\left(-\\frac{x}{y^2}\\right)(-e^{-t}) = \\frac{e^t}{y} + \\frac{x e^{-t}}{y^2}$. At $x = 3, y = -2, t = 0$: $\\frac{\\partial z}{\\partial s} = \\frac{1}{-2} + \\frac{3}{(-2)^2} = -\\frac{1}{2} + \\frac{3}{4} = \\frac{1}{4}$."
@@ -4071,9 +4071,9 @@
       "choices": [
         "0",
         "1",
-        "\\frac{1}{\\sqrt{14}}",
-        "\\frac{2}{\\sqrt{14}}",
-        "-\\frac{3}{\\sqrt{14}}"
+        "$\\frac{1}{\\sqrt{14}}$",
+        "$\\frac{2}{\\sqrt{14}}$",
+        "$-\\frac{3}{\\sqrt{14}}$"
       ],
       "correct_answer": "A",
       "solution": "The gradient is $\\nabla f = \\langle e^y + z e^x, x e^y + e^z, y e^z + e^x \\rangle$. At $(0, 0, 0)$, $\\nabla f(0, 0, 0) = \\langle 1, 1, 1 \\rangle$. The unit vector is $\\vec{u} = \\frac{\\langle -3, 1, 2 \\rangle}{\\sqrt{14}}$. The directional derivative is $D_{\\vec{u}} f(0, 0, 0) = \\langle 1, 1, 1 \\rangle \\cdot \\frac{\\langle -3, 1, 2 \\rangle}{\\sqrt{14}} = \\frac{-3 + 1 + 2}{\\sqrt{14}} = 0$."

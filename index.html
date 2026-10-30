@@ -33,6 +33,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="initKaTeXWhenReady()"></script>
+<script src="math201_exam2_bank.js"></script>
 <style>
 /* ========================================================
    CONTAINER & BORDER CONTAINMENT RULES
@@ -1237,6 +1238,833 @@ html.auth-passed .auth-gate-screen {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* ========================================================
+   EMBEDDED MAJOR 2 EXAM BANK STYLES (UNIFIED EDITORIAL)
+   ======================================================== */
+.exambank-header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 12px 18px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+}
+.exambank-stat-pills {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+.exambank-stat-pills strong {
+    color: var(--text-primary);
+}
+.btn-open-scratchpad {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 6px 12px;
+    color: var(--text-primary);
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.btn-open-scratchpad:hover {
+    background: var(--border-subtle);
+    border-color: var(--border-strong);
+}
+
+.mode-tabs-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 4px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+}
+.mode-tab-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    user-select: none;
+}
+.mode-tab-button:hover {
+    color: var(--text-primary);
+}
+.mode-tab-button.active {
+    background: var(--accent-primary);
+    color: var(--accent-fg);
+    box-shadow: var(--shadow-sm);
+}
+.mode-tab-button .badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: var(--border-subtle);
+    color: var(--text-secondary);
+}
+.mode-tab-button.active .badge {
+    background: rgba(255, 255, 255, 0.25);
+    color: var(--accent-fg);
+}
+[data-theme="dark"] .mode-tab-button.active .badge {
+    background: rgba(0, 0, 0, 0.25);
+    color: var(--accent-fg);
+}
+
+.bank-view-panel {
+    display: none;
+}
+.bank-view-panel.active {
+    display: block;
+}
+
+.progress-widget {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+.stat-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.stat-value {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-primary);
+    font-family: ui-monospace, SFMono-Regular, monospace;
+}
+.stat-subtext {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+}
+.btn-reset-progress {
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: all 0.15s ease;
+    align-self: flex-start;
+}
+.btn-reset-progress:hover {
+    color: var(--status-err);
+    border-color: var(--status-err-border);
+    background: var(--status-err-bg);
+}
+
+.filter-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: var(--shadow-sm);
+}
+.filter-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    flex: 1 1 auto;
+}
+.filter-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.select-input {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    font-size: 13px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.select-input:focus {
+    border-color: var(--border-focus);
+}
+.search-input-wrapper {
+    position: relative;
+    flex: 1 1 240px;
+}
+.search-input {
+    width: 100%;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    font-size: 13px;
+    padding-block: 8px;
+    padding-inline-start: 36px;
+    padding-inline-end: 12px;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.15s ease;
+}
+.search-input:focus {
+    border-color: var(--border-focus);
+}
+.search-icon {
+    position: absolute;
+    inset-inline-start: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+}
+.status-pills {
+    display: inline-flex;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 3px;
+    gap: 3px;
+}
+.status-pill-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.status-pill-btn:hover {
+    color: var(--text-primary);
+}
+.status-pill-btn.active {
+    background: var(--accent-primary);
+    color: var(--accent-fg);
+}
+.filter-meta-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    padding-top: 6px;
+    border-top: 1px solid var(--border-subtle);
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-block: 16px;
+    flex-wrap: wrap;
+}
+.pagination-info {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+.page-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 5px 10px;
+    min-width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+}
+.page-btn:hover:not(:disabled) {
+    background: var(--bg-subtle);
+    color: var(--text-primary);
+    border-color: var(--border-strong);
+}
+.page-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+.page-btn.active {
+    background: var(--accent-primary);
+    color: var(--accent-fg);
+    border-color: var(--accent-primary);
+    font-weight: 700;
+}
+
+/* Paper Sheet Layout */
+:root, [data-theme="light"] {
+    --paper-bg: #fdfcf9;
+    --paper-ink: #111111;
+    --paper-ink-soft: #55524c;
+    --paper-rule: rgba(17, 17, 17, 0.55);
+    --paper-rule-faint: rgba(17, 17, 17, 0.2);
+    --paper-hover: rgba(17, 17, 17, 0.05);
+    --paper-edge: rgba(0, 0, 0, 0.08);
+    --paper-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.06);
+    --paper-blue: #1d4ed8;
+    --paper-green: #15803d;
+    --paper-red: #c81e1e;
+    --paper-amber: #b45309;
+}
+[data-theme="dark"] {
+    --paper-bg: #141416;
+    --paper-ink: #e7e5df;
+    --paper-ink-soft: #a29f97;
+    --paper-rule: rgba(231, 229, 223, 0.5);
+    --paper-rule-faint: rgba(231, 229, 223, 0.18);
+    --paper-hover: rgba(231, 229, 223, 0.06);
+    --paper-edge: rgba(255, 255, 255, 0.08);
+    --paper-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.6);
+    --paper-blue: #7cb7ff;
+    --paper-green: #4ade80;
+    --paper-red: #f87171;
+    --paper-amber: #fbbf24;
+}
+
+.paper-sheet {
+    --paper-indent: 2.1em;
+    inline-size: 100%;
+    margin-inline: auto;
+    padding-block: 28px 36px;
+    padding-inline: 42px;
+    background: var(--paper-bg);
+    color: var(--paper-ink);
+    font-family: var(--font-paper, "Latin Modern Roman", "CMU Serif", Georgia, serif);
+    font-size: 17px;
+    line-height: 1.55;
+    border: 1px solid var(--paper-edge);
+    border-radius: 6px;
+    box-shadow: var(--paper-shadow);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+@media (max-width: 768px) {
+    .paper-sheet {
+        padding-inline: 18px;
+        padding-block: 20px 28px;
+        --paper-indent: 1.6em;
+    }
+}
+.paper-pagehead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    margin-block-end: 6px;
+    padding-block-end: 5px;
+    border-block-end: 1px solid var(--paper-rule);
+    font-size: 13.5px;
+    line-height: 1.3;
+    color: var(--paper-ink-soft);
+}
+.paper-empty {
+    padding-block: 44px;
+    text-align: center;
+    color: var(--paper-ink-soft);
+}
+.paper-empty h3 {
+    margin-block-end: 6px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--paper-ink);
+}
+.paper-q-block {
+    position: relative;
+    padding-block: 20px 22px;
+    border-block-end: 1px dashed var(--paper-rule-faint);
+}
+.paper-q-block:last-child {
+    border-block-end: none;
+}
+.paper-q-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    margin-block-end: 4px;
+}
+.paper-q-meta-line {
+    font-size: 12.5px;
+    color: var(--paper-ink-soft);
+}
+.paper-q-tools {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+}
+.paper-bookmark-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--paper-ink-soft);
+    font-size: 15px;
+    line-height: 1;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: color 0.15s ease;
+}
+.paper-bookmark-btn.bookmarked {
+    color: #eab308;
+}
+.paper-q-row {
+    display: grid;
+    grid-template-columns: var(--paper-indent) minmax(0, 1fr);
+    align-items: baseline;
+    margin-block-start: 4px;
+}
+.paper-q-num {
+    font-weight: 700;
+    color: var(--paper-ink);
+}
+.paper-q-text {
+    min-inline-size: 0;
+    color: var(--paper-ink);
+    line-height: 1.6;
+}
+.paper-choices-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px 18px;
+    margin-block-start: 10px;
+    margin-inline-start: var(--paper-indent);
+    font-size: 16px;
+}
+@media (max-width: 600px) {
+    .paper-choices-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+.paper-choice-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5em;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background-color 0.12s ease;
+    color: var(--paper-ink);
+    text-align: start;
+    background: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+}
+.paper-choice-item:hover {
+    background: var(--paper-hover);
+}
+.paper-choice-item.selected-correct {
+    background: rgba(21, 128, 61, 0.12);
+    border-color: rgba(21, 128, 61, 0.4);
+}
+.paper-choice-item.selected-incorrect {
+    background: rgba(185, 28, 28, 0.12);
+    border-color: rgba(185, 28, 28, 0.4);
+}
+.paper-choice-item.reveal-correct {
+    background: rgba(21, 128, 61, 0.08);
+    border-color: rgba(21, 128, 61, 0.3);
+}
+.paper-choice-letter {
+    font-weight: 600;
+    flex-shrink: 0;
+}
+.paper-choice-text {
+    flex-grow: 1;
+}
+.paper-sol-accordion-trigger {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--paper-ink-soft);
+    font-family: inherit;
+    font-size: 13.5px;
+    margin-block-start: 12px;
+    margin-inline-start: var(--paper-indent);
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+}
+.paper-sol-accordion-trigger:hover {
+    color: var(--paper-ink);
+    background: var(--paper-hover);
+}
+.paper-sol-box {
+    display: none;
+    margin-block-start: 10px;
+    margin-inline-start: var(--paper-indent);
+    padding: 14px 18px;
+    border-inline-start: 2px solid var(--paper-rule);
+    background: var(--paper-hover);
+    border-radius: 0 6px 6px 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--paper-ink);
+}
+.paper-sol-box.open {
+    display: block;
+}
+
+/* Simulator Components */
+.simulator-setup-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 28px;
+    max-width: 780px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-shadow: var(--shadow-sm);
+}
+.sim-hero-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+.sim-hero-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+.sim-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+}
+.sim-option-card {
+    background: var(--bg-subtle);
+    border: 2px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-align: center;
+}
+.sim-option-card:hover {
+    border-color: var(--border-strong);
+}
+.sim-option-card.selected {
+    border-color: var(--accent-primary);
+    background: var(--bg-card);
+}
+.sim-option-num {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text-primary);
+    font-family: ui-monospace, SFMono-Regular, monospace;
+}
+.sim-option-time {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+.btn-start-exam {
+    background: var(--accent-primary);
+    border: 1px solid var(--accent-primary);
+    color: var(--accent-fg);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+.btn-start-exam:hover {
+    opacity: 0.9;
+}
+.sim-active-bar {
+    position: sticky;
+    top: 60px;
+    z-index: 90;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 18px;
+}
+.sim-timer-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-family: ui-monospace, SFMono-Regular, monospace;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+.sim-timer-pill.urgent {
+    color: var(--status-err);
+    border-color: var(--status-err-border);
+    background: var(--status-err-bg);
+}
+.sim-palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(38px, 1fr));
+    gap: 6px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 16px;
+}
+.palette-btn {
+    height: 36px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-family: ui-monospace, SFMono-Regular, monospace;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.12s ease;
+}
+.palette-btn:hover {
+    background: var(--border-subtle);
+    color: var(--text-primary);
+}
+.palette-btn.active {
+    background: var(--accent-primary);
+    color: var(--accent-fg);
+    border-color: var(--accent-primary);
+}
+.palette-btn.answered {
+    background: var(--status-ok-bg);
+    color: var(--status-ok);
+    border-color: var(--status-ok-border);
+}
+.btn-sim-submit {
+    background: var(--status-ok);
+    border: 1px solid var(--status-ok);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+.btn-sim-submit:hover {
+    opacity: 0.9;
+}
+
+/* Printable Exam Components */
+.print-sheet-paper {
+    background: var(--paper-bg);
+    color: var(--paper-ink);
+    font-family: var(--font-paper, "Latin Modern Roman", "CMU Serif", Georgia, serif);
+    padding: 36px 48px;
+    border: 1px solid var(--paper-edge);
+    border-radius: 6px;
+    box-shadow: var(--paper-shadow);
+    max-width: 860px;
+    margin: 0 auto;
+}
+.btn-print-action {
+    background: var(--accent-primary);
+    border: 1px solid var(--accent-primary);
+    color: var(--accent-fg);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+.btn-print-action:hover {
+    opacity: 0.9;
+}
+.print-answer-key-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-block-start: 12px;
+    font-size: 13.5px;
+}
+.print-answer-key-table th, .print-answer-key-table td {
+    border: 1px solid var(--paper-rule);
+    padding: 6px 10px;
+    text-align: center;
+}
+
+/* Scratchpad Overlay Modal */
+.scratchpad-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+.scratchpad-overlay.open {
+    display: flex;
+}
+.scratchpad-modal-window {
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: 14px;
+    width: 100%;
+    max-width: 900px;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+.scratchpad-topbar {
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-dim);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.scratchpad-tools {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.tool-icon-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-dim);
+    color: var(--text-secondary);
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.tool-icon-btn:hover {
+    color: var(--text-main);
+    border-color: var(--border-bright);
+}
+.tool-icon-btn.active {
+    background: var(--accent-sky);
+    color: var(--bg-base);
+    border-color: var(--accent-sky);
+}
+.color-dot-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+.color-dot-btn:hover {
+    transform: scale(1.15);
+}
+.color-dot-btn.active {
+    border-color: var(--text-main);
+    box-shadow: none;
+}
+.scratchpad-body {
+    flex: 1;
+    position: relative;
+    background: var(--bg-base);
+    cursor: crosshair;
+    overflow: hidden;
+}
+#scratchpadCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+}
+
 </style>
 </head>
 <body>
@@ -1288,7 +2116,7 @@ html.auth-passed .auth-gate-screen {
                 <button class="tab-btn active" id="btnNotes" onclick="switchTab('notes')">Notes</button>
                 <button class="tab-btn" id="btnPractice" onclick="switchTab('practice')">Practice</button>
                 <button class="tab-btn" id="btnVideos" onclick="switchTab('videos')">Videos</button>
-                <a href="exams.html" class="tab-btn" id="btnExamBank"><span>Exam Bank</span><span class="exam-bank-badge">216 Qs</span></a>
+                <button class="tab-btn" id="btnExams" onclick="switchTab('exambank')"><span>Exam Bank</span><span class="exam-bank-badge">216 Qs</span></button>
             </div>
 
             <button class="btn-theme-toggle" id="btnThemeToggle" onclick="togglePortalTheme()" aria-label="Toggle Theme" title="Toggle Light/Dark Theme">
@@ -6117,6 +6945,480 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</em>
         </div>
     </div>
 
+
+    <!-- Major 2 Exam Bank View (Embedded) -->
+    <div id="exambankView" style="display: none;">
+        <!-- Exam Bank Top Header Bar -->
+        <div class="exambank-header-bar">
+            <div class="exambank-stat-pills">
+                <span>Questions: <strong>216</strong></span>
+                <span>&bull;</span>
+                <span>Terms: <strong>14</strong></span>
+                <span>&bull;</span>
+                <span>Coordinator: <strong>Major Exam 2</strong></span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-open-scratchpad" id="btnOpenScratchpad" onclick="toggleScratchpad()" title="Open scratchpad whiteboard">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                        <path d="M2 2l7.586 7.586"></path>
+                        <circle cx="11" cy="11" r="2"></circle>
+                    </svg>
+                    <span>Scratchpad</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mode Tabs Container -->
+        <nav class="mode-tabs-container">
+            <button class="mode-tab-button active" id="tabPractice" onclick="switchBankTab('practice')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+                <span>Practice &amp; Study</span>
+                <span class="badge">216 Qs</span>
+            </button>
+
+            <button class="mode-tab-button" id="tabSimulator" onclick="switchBankTab('simulator')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>Mock Simulator</span>
+                <span class="badge">15 Qs</span>
+            </button>
+
+            <button class="mode-tab-button" id="tabPrint" onclick="switchBankTab('print')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                    <rect x="6" y="14" width="12" height="8"></rect>
+                </svg>
+                <span>Printable Exam</span>
+            </button>
+        </nav>
+
+        
+
+<section class="view-panel active" id="viewPractice">
+            <!-- Progress Summary Widget -->
+            <div class="progress-widget">
+                <div class="stat-card sky">
+                    <span class="stat-label">Progress</span>
+                    <span class="stat-value" id="statAttempted">0 / 200</span>
+                    <span class="stat-subtext" id="statAttemptedPercent">0% Attempted</span>
+                </div>
+                <div class="stat-card green">
+                    <span class="stat-label">Accuracy</span>
+                    <span class="stat-value" id="statAccuracy">0%</span>
+                    <span class="stat-subtext" id="statScoreRatio">0 Correct / 0 Attempted</span>
+                </div>
+                <div class="stat-card amber">
+                    <span class="stat-label">Bookmarks</span>
+                    <span class="stat-value" id="statBookmarks">0</span>
+                    <span class="stat-subtext">Saved for review</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Quick Actions</span>
+                    <button class="btn-reset-progress" onclick="resetAllProgress()">Reset Progress</button>
+                    <span class="stat-subtext" style="margin-top: 4px;">Data saved in browser</span>
+                </div>
+            </div>
+
+            <!-- Filter & Search Toolbar -->
+            <div class="filter-section">
+                <div class="filter-row">
+                    <!-- Term Filter -->
+                    <div class="filter-group">
+                        <span class="filter-label">Term:</span>
+                        <select class="select-input" id="filterTerm" onchange="handleFilterChange()">
+                        <option value="PT1">Practice Test 1 (Sec 11.5–13.2) &bull; 8 Qs</option>
+                        <option value="PT2">Practice Test 2 (Sec 13.3–13.6) &bull; 8 Qs</option>
+                            <option value="ALL">All Terms (12 Terms)</option>
+                            <option value="253">Term 253 (15 Qs)</option>
+                            <option value="252">Term 252 (15 Qs)</option>
+                            <option value="251A">Term 251A (15 Qs)</option>
+                            <option value="251B">Term 251B (15 Qs)</option>
+                            <option value="243">Term 243 (15 Qs)</option>
+                            <option value="242">Term 242 (15 Qs)</option>
+                            <option value="241">Term 241 (15 Qs)</option>
+                            <option value="233">Term 233 (15 Qs)</option>
+                            <option value="232">Term 232 (20 Qs)</option>
+                            <option value="231">Term 231 (20 Qs)</option>
+                            <option value="223">Term 223 (20 Qs)</option>
+                            <option value="221">Term 221 (20 Qs)</option>
+                        </select>
+                    </div>
+
+                    <!-- Section Filter -->
+                    <div class="filter-group">
+                        <span class="filter-label">Section:</span>
+                        <select class="select-input" id="filterSection" onchange="handleFilterChange()">
+                            <option value="ALL">All Sections (11.5 - 13.8)</option>
+                            <option value="11.5">11.5 Lines & Planes in Space</option>
+                            <option value="11.6">11.6 Quadric Surfaces & Cylinders</option>
+                            <option value="13.1">13.1 Functions & Level Curves</option>
+                            <option value="13.2">13.2 Limits & Continuity</option>
+                            <option value="13.3">13.3 Partial Derivatives</option>
+                            <option value="13.4">13.4 Differentials & Linear Approx</option>
+                            <option value="13.5">13.5 Multivariable Chain Rule</option>
+                            <option value="13.6">13.6 Directional Derivatives & Gradients</option>
+                            <option value="13.7">13.7 Tangent Planes & Normal Lines</option>
+                        </select>
+                    </div>
+
+                    <!-- Status Filter -->
+                    <div class="filter-group">
+                        <span class="filter-label">Status:</span>
+                        <div class="status-pills">
+                            <button class="status-pill-btn active" data-status="ALL" onclick="setStatusFilter('ALL')">All</button>
+                            <button class="status-pill-btn" data-status="UNATTEMPTED" onclick="setStatusFilter('UNATTEMPTED')">Unattempted</button>
+                            <button class="status-pill-btn" data-status="BOOKMARKED" onclick="setStatusFilter('BOOKMARKED')">Bookmarked</button>
+                            <button class="status-pill-btn" data-status="CORRECT" onclick="setStatusFilter('CORRECT')">Correct</button>
+                            <button class="status-pill-btn" data-status="INCORRECT" onclick="setStatusFilter('INCORRECT')">Incorrect</button>
+                        </div>
+                    </div>
+
+                    <!-- Search Input -->
+                    <div class="search-input-wrapper">
+                        <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search calculus formulas, topics, terms..." oninput="handleSearchInput()" />
+                    </div>
+                </div>
+
+                <div class="filter-meta-bar">
+                    <span id="filterStatsCount">Showing 200 of 200 questions</span>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span>Per page:</span>
+                        <select class="select-input" id="pageSizeSelect" style="padding-block: 3px; padding-inline: 8px;" onchange="changePageSize()">
+                            <option value="15">15</option>
+                            <option value="25" selected>25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="ALL">All (200)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination Bar (Top) -->
+            <div class="pagination-container" id="paginationTop"></div>
+
+            <!-- Question Cards Container -->
+            <div class="questions-list paper-sheet" id="questionsContainer"></div>
+
+            <!-- Pagination Bar (Bottom) -->
+            <div class="pagination-container" id="paginationBottom"></div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 2: MOCK SIMULATOR
+             ========================================== -->
+        <section class="view-panel" id="viewSimulator">
+            <!-- Setup Screen -->
+            <div id="simSetupContainer">
+                <div class="simulator-setup-card">
+                    <div class="sim-hero-header">
+                        <h2 class="sim-hero-title">KFUPM MATH 201 Simulator</h2>
+                        <p class="sim-hero-desc">Simulate authentic exam conditions with real countdown timer, palette navigation, and instant diagnostic performance analytics.</p>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <span class="filter-label">1. Select Exam Format:</span>
+                        <div class="sim-options-grid">
+                            <div class="sim-option-card selected" id="optFormat15" onclick="selectSimFormat(15, 75)">
+                                <div class="sim-option-num">15 Questions</div>
+                                <div class="sim-option-time">75 Minutes</div>
+                                <div class="sim-option-sub">KFUPM Standard Format (5 mins/Q)</div>
+                            </div>
+                            <div class="sim-option-card" id="optFormat20" onclick="selectSimFormat(20, 100)">
+                                <div class="sim-option-num">20 Questions</div>
+                                <div class="sim-option-time">100 Minutes</div>
+                                <div class="sim-option-sub">KFUPM Full Format (Terms 232-221)</div>
+                            </div>
+                            <div class="sim-option-card" id="optFormat10" onclick="selectSimFormat(10, 50)">
+                                <div class="sim-option-num">10 Questions</div>
+                                <div class="sim-option-time">50 Minutes</div>
+                                <div class="sim-option-sub">Quick Practice Drill</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <span class="filter-label">2. Select Question Source:</span>
+                        <select class="select-input" id="simSourceSelect" style="padding: 10px 14px;">
+                            <option value="RANDOM">Balanced Random Mix across All 12 Terms (Covers all 11.5 - 13.8 sections)</option>
+                            <option value="PT1">Practice Test 1 (8 Questions &bull; Sec 11.5–13.2)</option>
+                            <option value="PT2">Practice Test 2 (8 Questions &bull; Sec 13.3–13.6)</option>
+                            <option value="253">Specific Term 253 (15 Questions)</option>
+                            <option value="252">Specific Term 252 (15 Questions)</option>
+                            <option value="251A">Specific Term 251A (15 Questions)</option>
+                            <option value="251B">Specific Term 251B (15 Questions)</option>
+                            <option value="243">Specific Term 243 (15 Questions)</option>
+                            <option value="242">Specific Term 242 (15 Questions)</option>
+                            <option value="241">Specific Term 241 (15 Questions)</option>
+                            <option value="233">Specific Term 233 (15 Questions)</option>
+                            <option value="232">Specific Term 232 (20 Questions)</option>
+                            <option value="231">Specific Term 231 (20 Questions)</option>
+                            <option value="223">Specific Term 223 (20 Questions)</option>
+                            <option value="221">Specific Term 221 (20 Questions)</option>
+                            <option value="BOOKMARKED">Bookmarked Questions Only</option>
+                        </select>
+                    </div>
+
+                    <button class="btn-start-exam" onclick="startSimulatorExam()">Start Mock Exam Now</button>
+                </div>
+            </div>
+
+            <!-- Active Test-Taking Screen -->
+            <div id="simActiveContainer" style="display: none;">
+                <div class="simulator-active-container">
+                    <!-- Top Floating Bar -->
+                    <div class="sim-top-bar">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div class="sim-timer-pill" id="simTimerDisplay">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <span id="simTimeRemaining">75:00</span>
+                            </div>
+                            <span style="font-size: 13.5px; color: var(--text-secondary); font-weight: 600;" id="simQuestionIndicator">Question 1 of 15</span>
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <button class="tool-icon-btn" id="btnSimFlag" onclick="toggleSimFlag()" title="Flag question for review">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                                    <line x1="4" y1="22" x2="4" y2="15"></line>
+                                </svg>
+                            </button>
+                            <button class="btn-scratchpad-toggle" onclick="toggleScratchpad()">Scratchpad</button>
+                            <button class="btn-sim-submit" onclick="confirmSubmitSimulator()">Submit Exam</button>
+                        </div>
+                    </div>
+
+                    <!-- Question Navigator Palette -->
+                    <div class="sim-palette-grid" id="simPaletteContainer"></div>
+
+                    <!-- Active Question Card -->
+                    <div class="q-card paper-sheet" id="simQuestionCard">
+                        <div class="paper-pagehead">
+                            <span>Math 201, Major Exam II</span>
+                            <span class="paper-pagehead-end"><span id="simPageNo">Page 1 of 15</span></span>
+                        </div>
+                        <div class="q-card-header">
+                            <div class="q-meta-badges">
+                                <span class="badge-term" id="simBadgeTerm">Term 253 • Q1</span>
+                                <span class="badge-section" id="simBadgeSection">Sec 13.1</span>
+                                <span class="badge-topic" id="simBadgeTopic">Level Curves</span>
+                            </div>
+                        </div>
+
+                        <div class="q-body-text" id="simQuestionBody"></div>
+
+                        <div class="choices-grid" id="simChoicesContainer"></div>
+
+                    </div>
+
+                    <div class="sim-nav-actions">
+                            <button class="page-btn" id="btnSimPrev" onclick="navigateSimQuestion(-1)">← Previous</button>
+                            <button class="btn-reset-progress" onclick="clearSimChoice()" style="align-self: center;">Clear Choice</button>
+                            <button class="page-btn" id="btnSimNext" onclick="navigateSimQuestion(1)">Next →</button>
+                        </div>
+                </div>
+            </div>
+
+            <!-- Results & Diagnostics Screen -->
+            <div id="simResultsContainer" style="display: none;">
+                <div class="results-container">
+                    <div class="results-score-banner">
+                        <span style="font-size: 13px; font-weight: 700; color: var(--accent-sky); letter-spacing: 0.8px; text-transform: uppercase;">KFUPM Mock Exam Results</span>
+                        <div class="score-donut-number" id="simFinalScore">13 / 15</div>
+                        <div class="score-percent-badge pass" id="simScorePercentBadge">86.7% • EXCELLENT (Grade A)</div>
+                        <span style="font-size: 13px; color: var(--text-secondary);" id="simTimeElapsedText">Completed in 48 mins 12 secs</span>
+                        <div style="display: flex; gap: 10px; margin-top: 10px;">
+                            <button class="btn-start-exam" style="padding-block: 8px; padding-inline: 18px; font-size: 13px;" onclick="retakeSimulator()">Retake Mock Exam</button>
+                            <button class="page-btn" onclick="switchBankTab('practice')">Review in Practice Bank</button>
+                        </div>
+                    </div>
+
+                    <!-- Topic / Section Breakdown -->
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <h3 style="font-size: 15px; font-weight: 700; color: var(--text-main);">Performance by Calculus Section:</h3>
+                        <div class="section-breakdown-grid" id="simSectionBreakdown"></div>
+                    </div>
+
+                    <!-- Question-by-Question Diagnostic Review -->
+                    <div style="display: flex; flex-direction: column; gap: 14px;">
+                        <h3 style="font-size: 15px; font-weight: 700; color: var(--text-main);">Detailed Question-by-Question Review:</h3>
+                        <div class="questions-list paper-sheet" id="simReviewQuestionsList"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 3: PRINTABLE MOCK EXAM
+             ========================================== -->
+        <section class="view-panel" id="viewPrint">
+            <div class="print-config-bar">
+                <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                    <div class="filter-group">
+                        <span class="filter-label">Exam Set:</span>
+                        <select class="select-input" id="printSetSelect" onchange="generatePrintLayout()">
+                            <option value="PT1">Practice Test 1 (8 Questions &bull; Sec 11.5–13.2)</option>
+                            <option value="PT2">Practice Test 2 (8 Questions &bull; Sec 13.3–13.6)</option>
+                            <option value="253">Term 253 Exam (15 Questions)</option>
+                            <option value="252">Term 252 Exam (15 Questions)</option>
+                            <option value="251A">Term 251A Exam (15 Questions)</option>
+                            <option value="251B">Term 251B Exam (15 Questions)</option>
+                            <option value="243">Term 243 Exam (15 Questions)</option>
+                            <option value="242">Term 242 Exam (15 Questions)</option>
+                            <option value="241">Term 241 Exam (15 Questions)</option>
+                            <option value="233">Term 233 Exam (15 Questions)</option>
+                            <option value="232">Term 232 Exam (20 Questions)</option>
+                            <option value="231">Term 231 Exam (20 Questions)</option>
+                            <option value="223">Term 223 Exam (20 Questions)</option>
+                            <option value="221">Term 221 Exam (20 Questions)</option>
+                            <option value="RANDOM_15">Balanced Random Mock (15 Questions)</option>
+                            <option value="RANDOM_20">Balanced Random Mock (20 Questions)</option>
+                        </select>
+                    </div>
+
+                    <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-secondary); cursor: pointer;">
+                        <input type="checkbox" id="printIncludeKey" checked onchange="generatePrintLayout()" />
+                        <span>Include Answer Key on New Page</span>
+                    </label>
+                </div>
+
+                <button class="btn-print-action" onclick="window.print()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    <span>Print Exam / Save as PDF</span>
+                </button>
+            </div>
+
+            <!-- Print Paper Area -->
+            <div class="print-sheet-paper" id="printSheetPaper">
+                <div class="paper-pagehead">
+                    <span id="printPageHeadText">Math 201, Major Exam II</span>
+                    <span class="paper-pagehead-end"><span class="paper-master-tag">MASTER</span></span>
+                </div>
+                <div class="kfupm-print-header">
+                    <h1>King Fahd University of Petroleum & Minerals</h1>
+                    <h2>Department of Mathematics & Statistics</h2>
+                    <h3>MATH 201 — Calculus III — Major Exam II</h3>
+                    <table class="student-fill-table">
+                        <tr>
+                            <td style="width: 50%;">Student Name: _____________________________________</td>
+                            <td style="width: 28%;">Student ID: _________________</td>
+                            <td style="width: 22%;">Section: _________</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="printQuestionsList"></div>
+
+                <div class="print-answer-key-section print-page-break" id="printAnswerKeySection">
+                    <h2 style="font-size: 15px; font-weight: 800; text-align: center; margin-bottom: 8px;">ANSWER KEY — MAJOR EXAM II</h2>
+                    <table class="print-answer-key-table" id="printAnswerKeyTable">
+                        <thead>
+                            <tr>
+                                <th>Q #</th>
+                                <th>Correct Choice</th>
+                                <th>Section</th>
+                                <th>Topic</th>
+                            </tr>
+                        </thead>
+                        <tbody id="printAnswerKeyBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+<div class="scratchpad-modal-overlay" id="scratchpadOverlay" onclick="closeScratchpad(event)">
+        <div class="scratchpad-modal-window" onclick="event.stopPropagation()">
+            <!-- Top Controls Bar -->
+            <div class="scratchpad-topbar">
+                <div class="scratchpad-tools">
+                    <!-- Pen Tool -->
+                    <button class="tool-icon-btn active" id="spPenBtn" onclick="setSpTool('pen')" title="Pen">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Eraser Tool -->
+                    <button class="tool-icon-btn" id="spEraserBtn" onclick="setSpTool('eraser')" title="Eraser">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 20H7L3 16C2 15 2 13 3 12L13 2L22 11L20 20Z"></path>
+                            <line x1="18" y1="9" x2="9" y2="18"></line>
+                        </svg>
+                    </button>
+
+                    <!-- Color Presets -->
+                    <div style="display: flex; align-items: center; gap: 6px; margin-inline: 4px;">
+                        <button class="color-dot-btn active" style="background: #2563eb;" onclick="setSpColor('#2563eb', this)"></button>
+                        <button class="color-dot-btn" style="background: #facc15;" onclick="setSpColor('#facc15', this)"></button>
+                        <button class="color-dot-btn" style="background: #f43f5e;" onclick="setSpColor('#f43f5e', this)"></button>
+                        <button class="color-dot-btn" style="background: #ffffff;" onclick="setSpColor('#ffffff', this)"></button>
+                    </div>
+
+                    <!-- Stroke Size -->
+                    <div style="display: flex; align-items: center; gap: 4px; margin-inline: 4px;">
+                        <button class="tool-icon-btn" style="width: 28px; height: 28px;" onclick="setSpSize(2)" title="Thin">
+                            <div style="width: 4px; height: 4px; border-radius: 50%; background: currentColor;"></div>
+                        </button>
+                        <button class="tool-icon-btn active" style="width: 28px; height: 28px;" onclick="setSpSize(4)" title="Medium">
+                            <div style="width: 7px; height: 7px; border-radius: 50%; background: currentColor;"></div>
+                        </button>
+                        <button class="tool-icon-btn" style="width: 28px; height: 28px;" onclick="setSpSize(8)" title="Thick">
+                            <div style="width: 11px; height: 11px; border-radius: 50%; background: currentColor;"></div>
+                        </button>
+                    </div>
+
+                    <!-- Clear Canvas -->
+                    <button class="tool-icon-btn" onclick="clearScratchpadCanvas()" title="Clear drawing">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <button class="tool-icon-btn" onclick="closeScratchpad()" title="Close scratchpad">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Canvas Area -->
+            <div class="scratchpad-body" id="scratchpadCanvasWrap">
+                <canvas id="scratchpadCanvas"></canvas>
+            </div>
+
+            <!-- Collapsible Calculation Scratch Notes -->
+            <div class="scratchpad-notes-drawer">
+                <textarea class="scratchpad-notes-area" id="scratchNotesArea" placeholder="Scratch text notes / intermediate formulas (saved automatically)..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
 </main>
 
 <!-- Minimalist Floating Quick Jump Anchors -->
@@ -6252,14 +7554,14 @@ function switchTopic(topicId) {
     for (let i = 1; i <= 12; i++) {
         const np = document.getElementById("page-v" + i);
         if (np) np.style.display = "none";
-        const pp = document.getElementById("practice-page-v" + i);
+        const pp = document.getElementById("practice-v" + i + "-page") || document.getElementById("practice-page-v" + i);
         if (pp) pp.style.display = "none";
     }
 
     // Show active topic page
     const curNote = document.getElementById("page-" + topicId);
     if (curNote) curNote.style.display = "block";
-    const curPractice = document.getElementById("practice-page-" + topicId);
+    const curPractice = document.getElementById("practice-" + topicId + "-page") || document.getElementById("practice-page-" + topicId);
     if (curPractice) curPractice.style.display = "block";
 
     // Update modal selection
@@ -6279,7 +7581,7 @@ function switchTopic(topicId) {
         renderTopicMath("page-" + topicId);
         applyScroll(portalState.topicScroll[topicId] || 0);
     } else if (portalState.activeTab === "practice") {
-        renderTopicMath("practice-page-" + topicId);
+        renderTopicMath("practice-" + topicId + "-page");
         applyScroll(portalState.practiceScroll[topicId] || 0);
     }
 
@@ -6288,9 +7590,11 @@ function switchTopic(topicId) {
 }
 
 function switchTab(tab) {
-    if (tab !== "notes" && tab !== "practice" && tab !== "videos") {
+    if (tab !== "notes" && tab !== "practice" && tab !== "videos" && tab !== "exambank" && tab !== "exams") {
         tab = "notes";
     }
+    if (tab === "exams") tab = "exambank";
+
     const curY = window.scrollY || document.documentElement.scrollTop;
     if (portalState.activeTab === "notes") {
         portalState.topicScroll[portalState.activeTopic] = curY;
@@ -6298,6 +7602,8 @@ function switchTab(tab) {
         portalState.practiceScroll[portalState.activeTopic] = curY;
     } else if (portalState.activeTab === "videos") {
         portalState.videosScroll = curY;
+    } else if (portalState.activeTab === "exambank") {
+        portalState.exambankScroll = curY;
     }
 
     portalState.activeTab = tab;
@@ -6305,7 +7611,7 @@ function switchTab(tab) {
     const nView = document.getElementById("notesView");
     const pView = document.getElementById("practiceView");
     const vView = document.getElementById("videosView");
-    const eView = document.getElementById("examsView");
+    const eView = document.getElementById("exambankView");
     const btnN = document.getElementById("btnNotes");
     const btnP = document.getElementById("btnPractice");
     const btnV = document.getElementById("btnVideos");
@@ -6314,66 +7620,154 @@ function switchTab(tab) {
     const mainWrap = document.querySelector(".main-wrapper");
     const quickAnchors = document.getElementById("quickAnchorsWrap");
 
-    btnN.classList.remove("active");
-    btnP.classList.remove("active");
-    btnV.classList.remove("active");
+    if (btnN) btnN.classList.remove("active");
+    if (btnP) btnP.classList.remove("active");
+    if (btnV) btnV.classList.remove("active");
     if (btnE) btnE.classList.remove("active");
 
     cachedScrollHeight = 0;
 
     if (tab === "notes") {
-        if (mainWrap) { mainWrap.style.maxWidth = "820px"; mainWrap.style.padding = "18px 14px"; }
-        nView.style.display = "block";
-        pView.style.display = "none";
-        vView.style.display = "none";
+        if (mainWrap) { mainWrap.style.maxWidth = "860px"; mainWrap.style.padding = "24px 16px"; }
+        if (nView) nView.style.display = "block";
+        if (pView) pView.style.display = "none";
+        if (vView) vView.style.display = "none";
         if (eView) eView.style.display = "none";
-        btnN.classList.add("active");
+        if (btnN) btnN.classList.add("active");
         if (topicMenuBtn) topicMenuBtn.style.display = "inline-flex";
         if (quickAnchors) quickAnchors.style.display = "flex";
         renderTopicMath("page-" + portalState.activeTopic);
         applyScroll(portalState.topicScroll[portalState.activeTopic] || 0);
     } else if (tab === "practice") {
-        if (mainWrap) { mainWrap.style.maxWidth = "820px"; mainWrap.style.padding = "18px 14px"; }
-        nView.style.display = "none";
-        pView.style.display = "block";
-        vView.style.display = "none";
+        if (mainWrap) { mainWrap.style.maxWidth = "860px"; mainWrap.style.padding = "24px 16px"; }
+        if (nView) nView.style.display = "none";
+        if (pView) pView.style.display = "block";
+        if (vView) vView.style.display = "none";
         if (eView) eView.style.display = "none";
-        btnP.classList.add("active");
-        if (topicMenuBtn) topicMenuBtn.style.display = "inline-flex";
+        if (btnP) btnP.classList.add("active");
+        if (topicMenuBtn) topicMenuBtn.style.display = (currentPracticeMode === "topic") ? "inline-flex" : "none";
         if (quickAnchors) quickAnchors.style.display = "flex";
-        renderTopicMath("practice-page-" + portalState.activeTopic);
+        switchPracticeMode(currentPracticeMode, portalState.activeTopic);
         applyScroll(portalState.practiceScroll[portalState.activeTopic] || 0);
     } else if (tab === "videos") {
-        if (mainWrap) { mainWrap.style.maxWidth = "820px"; mainWrap.style.padding = "18px 14px"; }
-        nView.style.display = "none";
-        pView.style.display = "none";
-        vView.style.display = "block";
-        btnV.classList.add("active");
+        if (mainWrap) { mainWrap.style.maxWidth = "860px"; mainWrap.style.padding = "24px 16px"; }
+        if (nView) nView.style.display = "none";
+        if (pView) pView.style.display = "none";
+        if (vView) vView.style.display = "block";
+        if (eView) eView.style.display = "none";
+        if (btnV) btnV.classList.add("active");
         if (topicMenuBtn) topicMenuBtn.style.display = "none";
-        if (quickAnchors) quickAnchors.style.display = "none";
+        if (quickAnchors) quickAnchors.style.display = "flex";
         applyScroll(portalState.videosScroll || 0);
+    } else if (tab === "exambank") {
+        if (mainWrap) { mainWrap.style.maxWidth = "960px"; mainWrap.style.padding = "24px 16px"; }
+        if (nView) nView.style.display = "none";
+        if (pView) pView.style.display = "none";
+        if (vView) vView.style.display = "none";
+        if (eView) eView.style.display = "block";
+        if (btnE) btnE.classList.add("active");
+        if (topicMenuBtn) topicMenuBtn.style.display = "none";
+        if (quickAnchors) quickAnchors.style.display = "flex";
+        initExamBank();
+        applyScroll(portalState.exambankScroll || 0);
     }
 
+    populateQuickAnchors();
     scheduleSaveState();
-    closeQuickAnchors();
+}
+
+
+let currentPracticeMode = 'topic';
+
+function switchPracticeMode(mode, topicId) {
+    if (!mode) mode = 'topic';
+    currentPracticeMode = mode;
+    const activeTopic = topicId || portalState.activeTopic || 'v1';
+
+    // 1. Hide all practice section pages & full test pages
+    for (let i = 1; i <= 12; i++) {
+        const p = document.getElementById('practice-v' + i + '-page');
+        if (p) p.style.display = 'none';
+    }
+    const t1Page = document.getElementById('practice-test1-page');
+    const t2Page = document.getElementById('practice-test2-page');
+    if (t1Page) t1Page.style.display = 'none';
+    if (t2Page) t2Page.style.display = 'none';
+
+    // 2. Topic menu visibility
+    const topicMenuBtn = document.getElementById('btnTopicSelect');
+
+    // 3. Update all .pt-mode-btn buttons across the entire document
+    document.querySelectorAll('.pt-mode-btn').forEach(btn => {
+        const btnMode = btn.getAttribute('data-mode') || '';
+        const btnId = btn.id || '';
+        if (btnMode === mode || (mode === 'topic' && btnId.includes('topic')) || (mode === 'test1' && btnId.includes('test1')) || (mode === 'test2' && btnId.includes('test2'))) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+
+    // 4. Show the selected page and render math
+    if (mode === 'topic') {
+        const p = document.getElementById('practice-' + activeTopic + '-page');
+        if (p) p.style.display = 'block';
+        if (topicMenuBtn) topicMenuBtn.style.display = 'inline-flex';
+        renderTopicMath('practice-' + activeTopic + '-page');
+    } else if (mode === 'test1') {
+        if (t1Page) t1Page.style.display = 'block';
+        if (topicMenuBtn) topicMenuBtn.style.display = 'none';
+        renderTopicMath('practice-test1-page');
+    } else if (mode === 'test2') {
+        if (t2Page) t2Page.style.display = 'block';
+        if (topicMenuBtn) topicMenuBtn.style.display = 'none';
+        renderTopicMath('practice-test2-page');
+    }
+
+    // 5. Update Quick Anchors
+    populateQuickAnchors();
 }
 
 function teleportTo(elemId) {
-    const el = document.getElementById(elemId);
-    if (!el) return;
-    const topBar = document.querySelector(".top-nav-bar");
-    const offset = (topBar ? topBar.offsetHeight : 60) + 16;
-    const elPos = el.getBoundingClientRect().top + window.pageYOffset;
-    window.scrollTo({
-        top: elPos - offset,
-        behavior: "smooth"
-    });
-    el.classList.add("highlight-pulse");
-    setTimeout(() => {
-        el.classList.remove("highlight-pulse");
-    }, 1400);
-}
+    if (!elemId) return;
 
+    if (elemId.includes('full_t1_')) {
+        if (currentPracticeMode !== 'test1') {
+            switchPracticeMode('test1');
+        }
+    } else if (elemId.includes('full_t2_')) {
+        if (currentPracticeMode !== 'test2') {
+            switchPracticeMode('test2');
+        }
+    } else if (elemId.startsWith('card-v')) {
+        const m = elemId.match(/card-(v\d+)_/);
+        if (m) {
+            const vid = m[1];
+            if (portalState.activeTopic !== vid) {
+                switchTopic(vid);
+            }
+            if (currentPracticeMode !== 'topic') {
+                switchPracticeMode('topic', vid);
+            }
+        }
+    }
+
+    setTimeout(() => {
+        const el = document.getElementById(elemId);
+        if (!el) return;
+        const topBar = document.querySelector(".top-nav-bar");
+        const offset = (topBar ? topBar.offsetHeight : 60) + 16;
+        const elPos = el.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+            top: elPos - offset,
+            behavior: "smooth"
+        });
+        el.classList.add("highlight-pulse");
+        setTimeout(() => {
+            el.classList.remove("highlight-pulse");
+        }, 1400);
+    }, 60);
+}
 
 function toggleQuickAnchors(e) {
     if (e) e.stopPropagation();
@@ -6390,7 +7784,9 @@ function toggleQuickAnchors(e) {
 
 function closeQuickAnchors() {
     const popover = document.getElementById("quickAnchorsPopover");
-    if (popover) popover.classList.remove("open");
+    if (popover) {
+        popover.classList.remove("open");
+    }
 }
 
 function populateQuickAnchors() {
@@ -6398,7 +7794,6 @@ function populateQuickAnchors() {
     if (!container) return;
     container.innerHTML = "";
 
-    // Quick Top button
     const topChip = document.createElement("button");
     topChip.className = "anchor-chip anchor-chip-top";
     topChip.innerHTML = "&uarr; Top";
@@ -6431,16 +7826,23 @@ function populateQuickAnchors() {
             });
         }
     } else if (activeTab === "practice") {
-        const page = document.getElementById("practice-page-" + activeTopic);
-        if (page) {
-            const chips = page.querySelectorAll(".teleport-chip");
+        let activePage = null;
+        if (currentPracticeMode === 'test1') {
+            activePage = document.getElementById('practice-test1-page');
+        } else if (currentPracticeMode === 'test2') {
+            activePage = document.getElementById('practice-test2-page');
+        } else {
+            activePage = document.getElementById("practice-" + activeTopic + "-page");
+        }
+        if (activePage) {
+            const chips = activePage.querySelectorAll(".teleport-chip");
             chips.forEach(c => {
                 const onclickStr = c.getAttribute("onclick") || "";
                 const m = onclickStr.match(/teleportTo\('([^']+)'\)/);
                 if (m) {
                     const btn = document.createElement("button");
                     btn.className = "anchor-chip";
-                    btn.innerText = c.innerText.trim();
+                    btn.innerHTML = c.innerHTML;
                     btn.onclick = () => {
                         teleportTo(m[1]);
                         closeQuickAnchors();
@@ -6450,34 +7852,46 @@ function populateQuickAnchors() {
             });
         }
     } else if (activeTab === "videos") {
-        const cards = document.querySelectorAll(".video-card");
-        cards.forEach((card, i) => {
-            const vidId = card.id || ("vid-card-" + (i + 1));
-            card.id = vidId;
+        const vcards = document.querySelectorAll("#videosView .video-card");
+        vcards.forEach((vc, idx) => {
+            const titleEl = vc.querySelector(".video-title");
             const btn = document.createElement("button");
             btn.className = "anchor-chip";
-            btn.innerText = `Vid ${i + 1}`;
+            btn.innerHTML = titleEl ? titleEl.textContent : ("Video " + (idx + 1));
             btn.onclick = () => {
-                teleportTo(vidId);
+                const topBar = document.querySelector(".top-nav-bar");
+                const offset = (topBar ? topBar.offsetHeight : 60) + 16;
+                const pos = vc.getBoundingClientRect().top + window.pageYOffset;
+                window.scrollTo({ top: pos - offset, behavior: "smooth" });
                 closeQuickAnchors();
             };
             container.appendChild(btn);
         });
+    } else if (activeTab === "exambank") {
+        const items = [
+            { label: "Filters & Search", target: "filterTerm" },
+            { label: "Questions Sheet", target: "questionsContainer" },
+            { label: "Simulator Setup", target: "simSetupContainer" },
+            { label: "Printable Sheet", target: "printSheetPaper" }
+        ];
+        items.forEach(it => {
+            const el = document.getElementById(it.target);
+            if (el) {
+                const btn = document.createElement("button");
+                btn.className = "anchor-chip";
+                btn.innerHTML = it.label;
+                btn.onclick = () => {
+                    const topBar = document.querySelector(".top-nav-bar");
+                    const offset = (topBar ? topBar.offsetHeight : 60) + 16;
+                    const pos = el.getBoundingClientRect().top + window.pageYOffset;
+                    window.scrollTo({ top: pos - offset, behavior: "smooth" });
+                    closeQuickAnchors();
+                };
+                container.appendChild(btn);
+            }
+        });
     }
 }
-
-document.addEventListener("click", (e) => {
-    const wrap = document.getElementById("quickAnchorsWrap");
-    if (wrap && !wrap.contains(e.target)) {
-        closeQuickAnchors();
-    }
-});
-
-window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-        closeQuickAnchors();
-    }
-});
 
 function togglePracticeSol(pid, triggerBtn) {
     const body = document.getElementById("sol-" + pid) || document.getElementById("sol-body-" + pid);
@@ -6564,47 +7978,7 @@ function handlePracticeChoiceClick(qid, selectedLetter, correctLetter) {
     } catch(e) {}
 }
 
-function switchPracticeMode(mode) {
-    const btnSection = document.getElementById('btnModeSection');
-    const btnT1 = document.getElementById('btnModeTest1');
-    const btnT2 = document.getElementById('btnModeTest2');
-    const topicMenuBtn = document.getElementById('btnTopicSelect');
-    const t1Page = document.getElementById('practice-test1-page');
-    const t2Page = document.getElementById('practice-test2-page');
-
-    if (btnSection) btnSection.classList.remove('active');
-    if (btnT1) btnT1.classList.remove('active');
-    if (btnT2) btnT2.classList.remove('active');
-
-    // Hide all section pages
-    for (let i = 1; i <= 12; i++) {
-        const p = document.getElementById('practice-page-v' + i);
-        if (p) p.style.display = 'none';
-    }
-    if (t1Page) t1Page.style.display = 'none';
-    if (t2Page) t2Page.style.display = 'none';
-
-    if (mode === 'test1') {
-        if (btnT1) btnT1.classList.add('active');
-        if (t1Page) t1Page.style.display = 'block';
-        if (topicMenuBtn) topicMenuBtn.style.display = 'none';
-        renderTopicMath('practice-test1-page');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (mode === 'test2') {
-        if (btnT2) btnT2.classList.add('active');
-        if (t2Page) t2Page.style.display = 'block';
-        if (topicMenuBtn) topicMenuBtn.style.display = 'none';
-        renderTopicMath('practice-test2-page');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-        if (btnSection) btnSection.classList.add('active');
-        if (topicMenuBtn) topicMenuBtn.style.display = 'inline-flex';
-        const curTopic = (typeof portalState !== 'undefined' && portalState.activeTopic) ? portalState.activeTopic : 'v1';
-        const activePage = document.getElementById('practice-page-' + curTopic);
-        if (activePage) activePage.style.display = 'block';
-        renderTopicMath('practice-page-' + curTopic);
-    }
-}
+// Duplicate switchPracticeMode removed
 
 
 const renderedContainers = new Set();
@@ -6639,7 +8013,7 @@ function initKaTeXWhenReady() {
         return;
     }
     const activeId = (portalState.activeTab === "practice") 
-        ? "practice-page-" + portalState.activeTopic 
+        ? "practice-" + portalState.activeTopic + "-page" 
         : "page-" + portalState.activeTopic;
     renderedContainers.delete(activeId);
     renderTopicMath(activeId);
@@ -6651,7 +8025,7 @@ function queueBackgroundMathPrecache() {
     const queue = [];
     // Prioritize active topic's practice/notes partner first
     if (portalState.activeTab === "notes") {
-        queue.push("practice-page-" + portalState.activeTopic);
+        queue.push("practice-" + portalState.activeTopic + "-page");
     } else {
         queue.push("page-" + portalState.activeTopic);
     }
@@ -6660,7 +8034,7 @@ function queueBackgroundMathPrecache() {
         const tid = "v" + i;
         if (tid !== portalState.activeTopic) {
             queue.push("page-" + tid);
-            queue.push("practice-page-" + tid);
+            queue.push("practice-" + tid + "-page");
         }
     }
 
@@ -6761,6 +8135,1156 @@ function handleDeviceAuth(e) {
     }
 }
 
+
+
+
+let examBankInitialized = false;
+
+function initExamBank() {
+    if (!examBankInitialized) {
+        initData();
+        initScratchpad();
+        initNotes();
+        setupKeyboard();
+        renderPracticeView();
+        examBankInitialized = true;
+    }
+}
+
+
+/* Global State */
+        const APP = {
+            questions: [],
+            filtered: [],
+            term: 'ALL',
+            section: 'ALL',
+            status: 'ALL',
+            search: '',
+            page: 1,
+            pageSize: 25,
+            progress: {}, // { [id]: { selected: 'A', correct: true/false } }
+            bookmarks: new Set(),
+            scratchNotes: '',
+            
+            // Simulator State
+            sim: {
+                active: false,
+                formatCount: 15,
+                durationMinutes: 75,
+                timerInterval: null,
+                remainingSeconds: 0,
+                startTime: 0,
+                questions: [],
+                currentIndex: 0,
+                answers: {}, // { [index]: 'A' }
+                flags: new Set()
+            }
+        };
+
+        /* ========================================================
+           EXAM PAPER HELPERS (display-style math, letters, theme)
+           ======================================================== */
+        const CHOICE_LETTERS = ['A', 'B', 'C', 'D', 'E'];
+        const PAPER_THEME_KEY = 'math201_paper_theme';
+        // Alternation order matters: $$block$$ | escaped \$ | inline $...$ (may contain \$ inside)
+        const PAPER_MATH_RE = /(\$\$[\s\S]*?\$\$)|(\\\$)|\$((?:\\[\s\S]|[^$\\])+)\$/g;
+        const PAPER_STYLE_RE = /\\(?:displaystyle|textstyle)(?![A-Za-z])/;
+
+        function paperMathReplace(match, block, escaped, inline) {
+            if (block !== undefined || escaped !== undefined) return match;
+            return PAPER_STYLE_RE.test(inline) ? match : '$\\displaystyle ' + inline + '$';
+        }
+
+        /* LaTeX-PDF look: inline $...$ becomes display-style (stacked fractions); $$...$$ untouched */
+        function paperMath(text) {
+            const src = ensureMathDelimiters(text);
+            return src.indexOf('$') === -1 ? src : src.replace(PAPER_MATH_RE, paperMathReplace);
+        }
+
+        
+
+        /* Initialize from LocalStorage and Bank Data */
+        function initPaperTheme() {
+    if (typeof applyPortalTheme === 'function') {
+        applyPortalTheme(document.documentElement.getAttribute('data-theme') || 'light');
+    }
+}
+
+        window.addEventListener('DOMContentLoaded', () => {
+
+    // Check initial tab from URL parameter (?tab=exambank, ?tab=practice, ?tab=videos)
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get('tab');
+    if (tabParam && ['notes', 'practice', 'videos', 'exambank', 'exams'].includes(tabParam.toLowerCase())) {
+        switchTab(tabParam.toLowerCase() === 'exams' ? 'exambank' : tabParam.toLowerCase());
+    }
+            initPaperTheme();
+            initData();
+            initScratchpad();
+            initNotes();
+            setupKeyboard();
+            renderPracticeView();
+        });
+
+        function initData() {
+            if (window.MATH201_EXAM_BANK && window.MATH201_EXAM_BANK.all_questions) {
+                APP.questions = window.MATH201_EXAM_BANK.all_questions;
+            } else {
+                console.error('MATH201_EXAM_BANK data not loaded');
+                APP.questions = [];
+            }
+
+            // Load progress
+            try {
+                const savedProg = localStorage.getItem('math201_exam2_progress');
+                if (savedProg) APP.progress = JSON.parse(savedProg);
+            } catch(e) { APP.progress = {}; }
+
+            // Load bookmarks
+            try {
+                const savedBk = localStorage.getItem('math201_exam2_bookmarks');
+                if (savedBk) APP.bookmarks = new Set(JSON.parse(savedBk));
+            } catch(e) { APP.bookmarks = new Set(); }
+
+            // Apply initial filtering
+            applyFilters();
+            updateProgressStats();
+        }
+
+        /* Mode Tab Navigation */
+        function switchBankTab(tabKey) {
+            document.querySelectorAll('.mode-tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.bank-view-panel').forEach(panel => panel.classList.remove('active'));
+
+            if (tabKey === 'practice') {
+                document.getElementById('tabPractice').classList.add('active');
+                document.getElementById('viewPractice').classList.add('active');
+                renderPracticeView();
+            } else if (tabKey === 'simulator') {
+                document.getElementById('tabSimulator').classList.add('active');
+                document.getElementById('viewSimulator').classList.add('active');
+            } else if (tabKey === 'print') {
+                document.getElementById('tabPrint').classList.add('active');
+                document.getElementById('viewPrint').classList.add('active');
+                generatePrintLayout();
+            }
+        }
+
+        /* ========================================================
+           PRACTICE MODE: FILTERING & RENDERING
+           ======================================================== */
+        function handleFilterChange() {
+            APP.term = document.getElementById('filterTerm').value;
+            APP.section = document.getElementById('filterSection').value;
+            APP.page = 1;
+            applyFilters();
+            renderPracticeView();
+        }
+
+        function setStatusFilter(status) {
+            APP.status = status;
+            APP.page = 1;
+            document.querySelectorAll('.status-pill-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.status === status);
+            });
+            applyFilters();
+            renderPracticeView();
+        }
+
+        let searchDebounce = null;
+        function handleSearchInput() {
+            clearTimeout(searchDebounce);
+            searchDebounce = setTimeout(() => {
+                APP.search = document.getElementById('searchInput').value.trim().toLowerCase();
+                APP.page = 1;
+                applyFilters();
+                renderPracticeView();
+            }, 180);
+        }
+
+        function changePageSize() {
+            const val = document.getElementById('pageSizeSelect').value;
+            APP.pageSize = val === 'ALL' ? APP.filtered.length || 200 : parseInt(val, 10);
+            APP.page = 1;
+            renderPracticeView();
+        }
+
+        function applyFilters() {
+            APP.filtered = APP.questions.filter(q => {
+                // Term Filter
+                if (APP.term !== 'ALL' && q.term !== APP.term) return false;
+
+                // Section Filter
+                if (APP.section !== 'ALL' && q.section !== APP.section) return false;
+
+                // Status Filter
+                const qProg = APP.progress[q.id];
+                const isBookmarked = APP.bookmarks.has(q.id);
+
+                if (APP.status === 'UNATTEMPTED' && qProg) return false;
+                if (APP.status === 'BOOKMARKED' && !isBookmarked) return false;
+                if (APP.status === 'CORRECT' && (!qProg || !qProg.correct)) return false;
+                if (APP.status === 'INCORRECT' && (!qProg || qProg.correct)) return false;
+
+                // Search Filter
+                if (APP.search) {
+                    const matchQ = q.question.toLowerCase().includes(APP.search);
+                    const matchTopic = (q.topic || '').toLowerCase().includes(APP.search);
+                    const matchId = q.id.toLowerCase().includes(APP.search);
+                    const matchChoices = (q.choices || []).some(c => c.toLowerCase().includes(APP.search));
+                    if (!matchQ && !matchTopic && !matchId && !matchChoices) return false;
+                }
+
+                return true;
+            });
+
+            // Update stats chip
+            const countEl = document.getElementById('filterStatsCount');
+            if (countEl) {
+                countEl.textContent = `Showing ${APP.filtered.length} of ${APP.questions.length} questions`;
+            }
+        }
+
+        function renderPracticeView() {
+            const container = document.getElementById('questionsContainer');
+            if (!container) return;
+
+            if (APP.filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="paper-empty">
+                        <h3>No questions match your filter criteria</h3>
+                        <p>Try clearing search keywords or selecting "All Terms" / "All Sections".</p>
+                    </div>
+                `;
+                renderPagination(0);
+                return;
+            }
+
+            const totalPages = Math.ceil(APP.filtered.length / APP.pageSize) || 1;
+            if (APP.page > totalPages) APP.page = totalPages;
+
+            const startIndex = (APP.page - 1) * APP.pageSize;
+            const pageQuestions = APP.filtered.slice(startIndex, startIndex + APP.pageSize);
+
+            // Running page header: single term if uniform, otherwise "Mixed Terms"
+            const firstTerm = pageQuestions[0].term;
+            const termLabel = pageQuestions.every(q => q.term === firstTerm) ? `Term ${firstTerm}` : 'Mixed Terms';
+
+            // Build HTML
+            let html = `
+                <div class="paper-pagehead">
+                    <span>${termLabel}, Math 201, Major Exam II</span>
+                    <span class="paper-pagehead-end">
+                        <span>Page ${APP.page} of ${totalPages}</span>
+                        <span class="paper-master-tag">MASTER</span>
+                    </span>
+                </div>
+            `;
+
+            pageQuestions.forEach(q => {
+                const userProg = APP.progress[q.id];
+                const isBookmarked = APP.bookmarks.has(q.id);
+
+                let cardClass = 'q-card';
+                if (userProg) {
+                    cardClass += userProg.correct ? ' status-correct' : ' status-incorrect';
+                }
+                if (isBookmarked) cardClass += ' is-bookmarked';
+
+                // Format choices
+                let choicesHtml = '';
+                q.choices.forEach((cText, idx) => {
+                    const ltr = CHOICE_LETTERS[idx];
+                    let btnClass = 'choice-btn';
+                    
+                    if (userProg) {
+                        if (userProg.selected === ltr) {
+                            btnClass += userProg.correct ? ' selected-correct' : ' selected-incorrect';
+                        } else if (!userProg.correct && ltr === q.correct_answer) {
+                            btnClass += ' reveal-correct';
+                        }
+                    }
+
+                    choicesHtml += `
+                        <button class="${btnClass}" onclick="selectPracticeChoice('${q.id}', '${ltr}')">
+                            <span class="choice-letter">${ltr}</span>
+                            <span class="choice-text">${paperMath(cText)}</span>
+                        </button>
+                    `;
+                });
+
+                html += `
+                    <div class="${cardClass}" id="card-${q.id}">
+                        <div class="q-card-header">
+                            <div class="q-meta-badges">
+                                <span class="badge-term">Term ${q.term} • Q${q.number}</span>
+                                <span class="badge-section">Sec ${q.section}</span>
+                                <span class="badge-topic">${q.topic || ''}</span>
+                            </div>
+
+                            <div class="q-header-actions">
+                                <button class="btn-star ${isBookmarked ? 'bookmarked' : ''}" onclick="toggleBookmark('${q.id}')" title="Bookmark question" aria-label="Bookmark question">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="${isBookmarked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="q-body-text"><span class="q-num">${q.number}.</span><span class="q-stem">${paperMath(q.question)}</span></div>
+
+                        <div class="choices-grid">
+                            ${choicesHtml}
+                        </div>
+
+                        <!-- Collapsible Solution Accordion (blue-ink annotation) -->
+                        <div class="accordion-box ${userProg ? 'open' : ''}" id="accordion-${q.id}">
+                            <div class="accordion-header" onclick="toggleAccordion('${q.id}')">
+                                <div class="accordion-title-group">
+                                    <span class="accordion-chevron">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="9 18 15 12 9 6"></polyline>
+                                        </svg>
+                                    </span>
+                                    <span>Step-by-Step Calculus Solution</span>
+                                </div>
+                                <span class="accordion-answer">
+                                    Answer: [${q.correct_answer}]
+                                </span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="solution-inner">
+                                    ${q.solution}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+
+            // Trigger KaTeX rendering on the container
+            renderMathOnElement(container);
+
+            // Render pagination
+            renderPagination(totalPages);
+        }
+
+        /* Choice Click in Practice Mode */
+        function selectPracticeChoice(qid, choiceLetter) {
+            const q = APP.questions.find(item => item.id === qid);
+            if (!q) return;
+
+            const isCorrect = (choiceLetter === q.correct_answer);
+            APP.progress[qid] = {
+                selected: choiceLetter,
+                correct: isCorrect,
+                timestamp: Date.now()
+            };
+
+            // Save to localStorage
+            try {
+                localStorage.setItem('math201_exam2_progress', JSON.stringify(APP.progress));
+            } catch(e) {}
+
+            updateProgressStats();
+
+            // Open solution accordion automatically
+            const acc = document.getElementById(`accordion-${qid}`);
+            if (acc) acc.classList.add('open');
+
+            // Re-render card buttons smoothly without full re-render
+            const card = document.getElementById(`card-${qid}`);
+            if (card) {
+                card.className = `q-card ${isCorrect ? 'status-correct' : 'status-incorrect'} ${APP.bookmarks.has(qid) ? 'is-bookmarked' : ''}`;
+                const btns = card.querySelectorAll('.choice-btn');
+                const letters = ['A', 'B', 'C', 'D', 'E'];
+                btns.forEach((btn, idx) => {
+                    const ltr = letters[idx];
+                    btn.className = 'choice-btn';
+                    if (ltr === choiceLetter) {
+                        btn.className += isCorrect ? ' selected-correct' : ' selected-incorrect';
+                    } else if (!isCorrect && ltr === q.correct_answer) {
+                        btn.className += ' reveal-correct';
+                    }
+                });
+            }
+        }
+
+        /* Accordion Toggle */
+        function toggleAccordion(qid) {
+            const acc = document.getElementById(`accordion-${qid}`);
+            if (acc) {
+                acc.classList.toggle('open');
+            }
+        }
+
+        /* Bookmark Toggle */
+        function toggleBookmark(qid) {
+            if (APP.bookmarks.has(qid)) {
+                APP.bookmarks.delete(qid);
+            } else {
+                APP.bookmarks.add(qid);
+            }
+
+            try {
+                localStorage.setItem('math201_exam2_bookmarks', JSON.stringify(Array.from(APP.bookmarks)));
+            } catch(e) {}
+
+            updateProgressStats();
+
+            // Update card bookmark icon
+            const card = document.getElementById(`card-${qid}`);
+            if (card) {
+                const btn = card.querySelector('.btn-star');
+                const isBk = APP.bookmarks.has(qid);
+                card.classList.toggle('is-bookmarked', isBk);
+                if (btn) {
+                    btn.classList.toggle('bookmarked', isBk);
+                    const svg = btn.querySelector('svg');
+                    if (svg) svg.setAttribute('fill', isBk ? 'currentColor' : 'none');
+                }
+            }
+
+            // If in status filter BOOKMARKED, refresh
+            if (APP.status === 'BOOKMARKED') {
+                applyFilters();
+                renderPracticeView();
+            }
+        }
+
+        /* Update Progress Stats */
+        function updateProgressStats() {
+            const total = APP.questions.length;
+            const attemptedKeys = Object.keys(APP.progress);
+            const attemptedCount = attemptedKeys.length;
+            const correctCount = attemptedKeys.filter(k => APP.progress[k].correct).length;
+            const accuracy = attemptedCount > 0 ? Math.round((correctCount / attemptedCount) * 100) : 0;
+            const attemptedPercent = total > 0 ? Math.round((attemptedCount / total) * 100) : 0;
+
+            const attEl = document.getElementById('statAttempted');
+            if (attEl) attEl.textContent = `${attemptedCount} / ${total}`;
+
+            const attPctEl = document.getElementById('statAttemptedPercent');
+            if (attPctEl) attPctEl.textContent = `${attemptedPercent}% Completed`;
+
+            const accEl = document.getElementById('statAccuracy');
+            if (accEl) accEl.textContent = `${accuracy}%`;
+
+            const ratioEl = document.getElementById('statScoreRatio');
+            if (ratioEl) ratioEl.textContent = `${correctCount} Correct / ${attemptedCount} Attempted`;
+
+            const bkEl = document.getElementById('statBookmarks');
+            if (bkEl) bkEl.textContent = `${APP.bookmarks.size}`;
+        }
+
+        /* Reset All Progress */
+        function resetAllProgress() {
+            if (confirm('Are you sure you want to reset all your practice progress and answers? Bookmarks will be preserved.')) {
+                APP.progress = {};
+                try {
+                    localStorage.removeItem('math201_exam2_progress');
+                } catch(e) {}
+                updateProgressStats();
+                applyFilters();
+                renderPracticeView();
+            }
+        }
+
+        /* Pagination Rendering */
+        function renderPagination(totalPages) {
+            const topEl = document.getElementById('paginationTop');
+            const btmEl = document.getElementById('paginationBottom');
+
+            if (totalPages <= 1) {
+                if (topEl) topEl.innerHTML = '';
+                if (btmEl) btmEl.innerHTML = '';
+                return;
+            }
+
+            const html = `
+                <div class="pagination-info">
+                    Page <strong>${APP.page}</strong> of <strong>${totalPages}</strong> (${APP.filtered.length} total)
+                </div>
+                <div class="pagination-controls">
+                    <button class="page-btn" ${APP.page <= 1 ? 'disabled' : ''} onclick="changePage(${APP.page - 1})">Prev</button>
+                    ${buildPageNumbers(totalPages)}
+                    <button class="page-btn" ${APP.page >= totalPages ? 'disabled' : ''} onclick="changePage(${APP.page + 1})">Next</button>
+                </div>
+            `;
+
+            if (topEl) topEl.innerHTML = html;
+            if (btmEl) btmEl.innerHTML = html;
+        }
+
+        function buildPageNumbers(total) {
+            let btns = '';
+            const maxVisible = 5;
+            let start = Math.max(1, APP.page - 2);
+            let end = Math.min(total, start + maxVisible - 1);
+            if (end - start < maxVisible - 1) {
+                start = Math.max(1, end - maxVisible + 1);
+            }
+
+            for (let i = start; i <= end; i++) {
+                btns += `<button class="page-btn ${i === APP.page ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
+            }
+            return btns;
+        }
+
+        function changePage(p) {
+            APP.page = p;
+            renderPracticeView();
+            window.scrollTo({ top: 180, behavior: 'smooth' });
+        }
+
+        /* ========================================================
+           MOCK EXAM SIMULATOR LOGIC
+           ======================================================== */
+        function selectSimFormat(count, minutes) {
+            APP.sim.formatCount = count;
+            APP.sim.durationMinutes = minutes;
+            document.querySelectorAll('.sim-option-card').forEach(c => c.classList.remove('selected'));
+            const card = document.getElementById(`optFormat${count}`);
+            if (card) card.classList.add('selected');
+        }
+
+        function startSimulatorExam() {
+            const src = document.getElementById('simSourceSelect').value;
+            let pool = [];
+
+            if (src === 'RANDOM') {
+                pool = shuffleArray([...APP.questions]);
+            } else if (src === 'BOOKMARKED') {
+                pool = APP.questions.filter(q => APP.bookmarks.has(q.id));
+                if (pool.length === 0) {
+                    alert('You have 0 bookmarked questions. Please bookmark questions in Practice Mode first or select another source.');
+                    return;
+                }
+                pool = shuffleArray(pool);
+            } else {
+                // Specific Term
+                pool = APP.questions.filter(q => q.term === src);
+            }
+
+            const count = Math.min(APP.sim.formatCount, pool.length);
+            APP.sim.questions = pool.slice(0, count);
+            APP.sim.currentIndex = 0;
+            APP.sim.answers = {};
+            APP.sim.flags = new Set();
+            APP.sim.active = true;
+            APP.sim.remainingSeconds = APP.sim.durationMinutes * 60;
+            APP.sim.startTime = Date.now();
+
+            // Toggle screens
+            document.getElementById('simSetupContainer').style.display = 'none';
+            document.getElementById('simResultsContainer').style.display = 'none';
+            document.getElementById('simActiveContainer').style.display = 'block';
+
+            // Start timer
+            clearInterval(APP.sim.timerInterval);
+            APP.sim.timerInterval = setInterval(updateSimTimer, 1000);
+            updateSimTimerDisplay();
+
+            // Render Palette and first question
+            renderSimPalette();
+            renderSimActiveQuestion();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updateSimTimer() {
+            if (APP.sim.remainingSeconds <= 0) {
+                clearInterval(APP.sim.timerInterval);
+                alert('Time is up! Submitting exam now.');
+                finishSimulatorExam();
+                return;
+            }
+            APP.sim.remainingSeconds--;
+            updateSimTimerDisplay();
+        }
+
+        function updateSimTimerDisplay() {
+            const mins = Math.floor(APP.sim.remainingSeconds / 60);
+            const secs = APP.sim.remainingSeconds % 60;
+            const str = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+            const timeEl = document.getElementById('simTimeRemaining');
+            const pillEl = document.getElementById('simTimerDisplay');
+            if (timeEl) timeEl.textContent = str;
+            if (pillEl) {
+                pillEl.classList.toggle('urgent', APP.sim.remainingSeconds < 600); // 10 mins
+            }
+        }
+
+        function renderSimPalette() {
+            const pal = document.getElementById('simPaletteContainer');
+            if (!pal) return;
+
+            let html = '';
+            APP.sim.questions.forEach((q, idx) => {
+                const isCurrent = (idx === APP.sim.currentIndex);
+                const isAnswered = APP.sim.answers[idx] !== undefined;
+                const isFlagged = APP.sim.flags.has(idx);
+
+                let cls = 'palette-btn';
+                if (isCurrent) cls += ' current';
+                if (isAnswered) cls += ' answered';
+                if (isFlagged) cls += ' flagged';
+
+                html += `<button class="${cls}" onclick="jumpSimQuestion(${idx})">${idx + 1}</button>`;
+            });
+            pal.innerHTML = html;
+        }
+
+        function renderSimActiveQuestion() {
+            const q = APP.sim.questions[APP.sim.currentIndex];
+            if (!q) return;
+
+            document.getElementById('simQuestionIndicator').textContent = `Question ${APP.sim.currentIndex + 1} of ${APP.sim.questions.length}`;
+            document.getElementById('simBadgeTerm').textContent = `Term ${q.term} • Q${q.number}`;
+            document.getElementById('simBadgeSection').textContent = `Sec ${q.section}`;
+            document.getElementById('simBadgeTopic').textContent = q.topic || '';
+
+            // Flag state
+            const isFlagged = APP.sim.flags.has(APP.sim.currentIndex);
+            const flagBtn = document.getElementById('btnSimFlag');
+            if (flagBtn) flagBtn.classList.toggle('active', isFlagged);
+
+            // Question body
+            const bodyEl = document.getElementById('simQuestionBody');
+            bodyEl.innerHTML = `<span class="q-num">${APP.sim.currentIndex + 1}.</span><span class="q-stem">${paperMath(q.question)}</span>`;
+            const pageNoEl = document.getElementById('simPageNo');
+            if (pageNoEl) pageNoEl.textContent = `Page ${APP.sim.currentIndex + 1} of ${APP.sim.questions.length}`;
+
+            // Choices
+            const container = document.getElementById('simChoicesContainer');
+            const chosen = APP.sim.answers[APP.sim.currentIndex];
+
+            let html = '';
+            q.choices.forEach((cText, idx) => {
+                const ltr = CHOICE_LETTERS[idx];
+                const isSelected = (chosen === ltr);
+                const formattedChoice = paperMath(cText);
+
+                html += `
+                    <button class="choice-btn ${isSelected ? 'selected-correct' : ''}" onclick="selectSimChoice('${ltr}')">
+                        <span class="choice-letter">${ltr}</span>
+                        <span class="choice-text">${formattedChoice}</span>
+                    </button>
+                `;
+            });
+            container.innerHTML = html;
+
+            // Nav buttons state
+            document.getElementById('btnSimPrev').disabled = (APP.sim.currentIndex === 0);
+            document.getElementById('btnSimNext').disabled = (APP.sim.currentIndex === APP.sim.questions.length - 1);
+
+            // Trigger math rendering
+            renderMathOnElement(bodyEl);
+            renderMathOnElement(container);
+            renderSimPalette();
+        }
+
+        function selectSimChoice(ltr) {
+            APP.sim.answers[APP.sim.currentIndex] = ltr;
+            renderSimActiveQuestion();
+        }
+
+        function clearSimChoice() {
+            delete APP.sim.answers[APP.sim.currentIndex];
+            renderSimActiveQuestion();
+        }
+
+        function toggleSimFlag() {
+            const idx = APP.sim.currentIndex;
+            if (APP.sim.flags.has(idx)) {
+                APP.sim.flags.delete(idx);
+            } else {
+                APP.sim.flags.add(idx);
+            }
+            renderSimActiveQuestion();
+        }
+
+        function navigateSimQuestion(delta) {
+            const nextIdx = APP.sim.currentIndex + delta;
+            if (nextIdx >= 0 && nextIdx < APP.sim.questions.length) {
+                APP.sim.currentIndex = nextIdx;
+                renderSimActiveQuestion();
+            }
+        }
+
+        function jumpSimQuestion(idx) {
+            APP.sim.currentIndex = idx;
+            renderSimActiveQuestion();
+        }
+
+        function confirmSubmitSimulator() {
+            const total = APP.sim.questions.length;
+            const answered = Object.keys(APP.sim.answers).length;
+            const unanswered = total - answered;
+
+            let msg = `You have answered ${answered} of ${total} questions.`;
+            if (unanswered > 0) {
+                msg += `\n\nWarning: ${unanswered} question(s) are unanswered!`;
+            }
+            msg += `\n\nAre you sure you want to finish and submit the exam?`;
+
+            if (confirm(msg)) {
+                finishSimulatorExam();
+            }
+        }
+
+        function finishSimulatorExam() {
+            clearInterval(APP.sim.timerInterval);
+            APP.sim.active = false;
+
+            const timeSpentSeconds = Math.round((Date.now() - APP.sim.startTime) / 1000);
+            const minsSpent = Math.floor(timeSpentSeconds / 60);
+            const secsSpent = timeSpentSeconds % 60;
+
+            let correctCount = 0;
+            const secStats = {}; // { section: { total, correct } }
+
+            APP.sim.questions.forEach((q, idx) => {
+                const userAns = APP.sim.answers[idx];
+                const isCorrect = (userAns === q.correct_answer);
+                if (isCorrect) correctCount++;
+
+                if (!secStats[q.section]) secStats[q.section] = { total: 0, correct: 0 };
+                secStats[q.section].total++;
+                if (isCorrect) secStats[q.section].correct++;
+            });
+
+            const total = APP.sim.questions.length;
+            const pct = Math.round((correctCount / total) * 100);
+
+            // Display results
+            document.getElementById('simActiveContainer').style.display = 'none';
+            document.getElementById('simResultsContainer').style.display = 'block';
+
+            document.getElementById('simFinalScore').textContent = `${correctCount} / ${total}`;
+            const badgeEl = document.getElementById('simScorePercentBadge');
+            badgeEl.textContent = `${pct}% • ${getGradeText(pct)}`;
+            badgeEl.className = pct >= 75 ? 'score-percent-badge pass' : 'score-percent-badge warn';
+
+            document.getElementById('simTimeElapsedText').textContent = `Completed in ${minsSpent} mins ${secsSpent} secs`;
+
+            // Render section breakdown
+            const secContainer = document.getElementById('simSectionBreakdown');
+            let secHtml = '';
+            for (const [sec, data] of Object.entries(secStats)) {
+                const secPct = Math.round((data.correct / data.total) * 100);
+                secHtml += `
+                    <div class="sec-stat-row">
+                        <div class="sec-stat-meta">
+                            <span style="font-weight: 700; color: var(--text-main);">Section ${sec}</span>
+                            <span style="font-family: var(--font-mono); color: var(--accent-sky);">${data.correct}/${data.total} (${secPct}%)</span>
+                        </div>
+                        <div class="sec-progress-bar">
+                            <div class="sec-progress-fill" style="width: ${secPct}%;"></div>
+                        </div>
+                    </div>
+                `;
+            }
+            secContainer.innerHTML = secHtml;
+
+            // Render full detailed review cards
+            renderSimReviewCards();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function getGradeText(pct) {
+            if (pct >= 90) return 'EXCELLENT (Grade A+)';
+            if (pct >= 85) return 'VERY GOOD (Grade A)';
+            if (pct >= 75) return 'GOOD (Grade B)';
+            if (pct >= 60) return 'SATISFACTORY (Grade C)';
+            return 'NEEDS PRACTICE';
+        }
+
+        function renderSimReviewCards() {
+            const listEl = document.getElementById('simReviewQuestionsList');
+            if (!listEl) return;
+
+            // Running header, same as the paper in practice mode
+            let html = `
+                <div class="paper-pagehead">
+                    <span>Math 201, Major Exam II</span>
+                    <span class="paper-pagehead-end"><span>Review · ${APP.sim.questions.length} questions</span></span>
+                </div>
+            `;
+
+            APP.sim.questions.forEach((q, idx) => {
+                const userAns = APP.sim.answers[idx];
+                const isCorrect = (userAns === q.correct_answer);
+
+                let choicesHtml = '';
+                q.choices.forEach((cText, cIdx) => {
+                    const ltr = CHOICE_LETTERS[cIdx];
+                    let btnClass = 'choice-btn';
+
+                    if (userAns === ltr) {
+                        btnClass += isCorrect ? ' selected-correct' : ' selected-incorrect';
+                    } else if (ltr === q.correct_answer) {
+                        btnClass += ' reveal-correct';
+                    }
+
+                    choicesHtml += `
+                        <div class="${btnClass}">
+                            <span class="choice-letter">${ltr}</span>
+                            <span class="choice-text">${paperMath(cText)}</span>
+                        </div>
+                    `;
+                });
+
+                html += `
+                    <div class="q-card ${isCorrect ? 'status-correct' : 'status-incorrect'}">
+                        <div class="q-card-header">
+                            <div class="q-meta-badges">
+                                <span class="badge-term">Q${idx + 1} (${q.term} • Q${q.number})</span>
+                                <span class="badge-section">Sec ${q.section}</span>
+                                <span class="badge-topic">${q.topic || ''}</span>
+                            </div>
+                            <span class="q-review-status ${isCorrect ? 'ok' : 'bad'}">
+                                ${isCorrect ? '✓ Correct' : (userAns ? `✗ Incorrect (You chose ${userAns})` : '○ Unanswered')}
+                            </span>
+                        </div>
+
+                        <div class="q-body-text"><span class="q-num">${idx + 1}.</span><span class="q-stem">${paperMath(q.question)}</span></div>
+
+                        <div class="choices-grid">
+                            ${choicesHtml}
+                        </div>
+
+                        <div class="accordion-box open">
+                            <div class="accordion-header">
+                                <span class="accordion-title-group">Correct Answer: [${q.correct_answer}] — Step-by-Step Calculus Solution</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="solution-inner">${q.solution}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            listEl.innerHTML = html;
+            renderMathOnElement(listEl);
+        }
+
+        function retakeSimulator() {
+            document.getElementById('simResultsContainer').style.display = 'none';
+            document.getElementById('simActiveContainer').style.display = 'none';
+            document.getElementById('simSetupContainer').style.display = 'block';
+        }
+
+        /* ========================================================
+           PRINTABLE EXAM VIEW GENERATION
+           ======================================================== */
+        function generatePrintLayout() {
+            const setVal = document.getElementById('printSetSelect').value;
+            const incKey = document.getElementById('printIncludeKey').checked;
+
+            let printQs = [];
+            if (setVal.startsWith('RANDOM_')) {
+                const count = parseInt(setVal.split('_')[1], 10);
+                printQs = shuffleArray([...APP.questions]).slice(0, count);
+            } else {
+                printQs = APP.questions.filter(q => q.term === setVal);
+            }
+
+            const qListEl = document.getElementById('printQuestionsList');
+            const keyTableEl = document.getElementById('printAnswerKeyBody');
+            const keySection = document.getElementById('printAnswerKeySection');
+
+            // Running header text: "Term 253, Math 201, Major Exam II" / "Mixed Terms, ..."
+            const headEl = document.getElementById('printPageHeadText');
+            if (headEl) {
+                headEl.textContent = `${setVal.startsWith('RANDOM_') ? 'Mixed Terms' : `Term ${setVal}`}, Math 201, Major Exam II`;
+            }
+
+            let qHtml = '';
+            let keyHtml = '';
+
+            printQs.forEach((q, idx) => {
+                let choicesHtml = '';
+                q.choices.forEach((cText, cIdx) => {
+                    choicesHtml += `
+                        <div class="print-choice-col">
+                            <strong>(${CHOICE_LETTERS[cIdx]})</strong>
+                            <span>${paperMath(cText)}</span>
+                        </div>
+                    `;
+                });
+
+                qHtml += `
+                    <div class="print-question-item">
+                        <div class="print-q-meta">[Term ${q.term} • Sec ${q.section} • ${q.topic || ''}]</div>
+                        <div class="print-q-row"><span class="q-num">${idx + 1}.</span><span class="q-stem">${paperMath(q.question)}</span></div>
+                        <div class="print-choices-grid">
+                            ${choicesHtml}
+                        </div>
+                    </div>
+                `;
+
+                keyHtml += `
+                    <tr>
+                        <td><strong>${idx + 1}</strong></td>
+                        <td style="font-weight: 800; font-size: 13px;">${q.correct_answer}</td>
+                        <td>${q.section}</td>
+                        <td style="text-align: start;">${q.topic || ''}</td>
+                    </tr>
+                `;
+            });
+
+            qListEl.innerHTML = qHtml;
+            keyTableEl.innerHTML = keyHtml;
+            keySection.style.display = incKey ? 'block' : 'none';
+
+            // KaTeX render print area
+            renderMathOnElement(document.getElementById('printSheetPaper'));
+        }
+
+        /* ========================================================
+           SCRATCHPAD CANVAS & NOTES DRAWER
+           Touch & mouse drawing, textless SVG icons
+           ======================================================== */
+        let spCanvas, spCtx;
+        let spDrawing = false;
+        let spTool = 'pen';
+        let spColor = '#2563eb';
+        let spSize = 4;
+
+        function initScratchpad() {
+            spCanvas = document.getElementById('scratchpadCanvas');
+            if (!spCanvas) return;
+            spCtx = spCanvas.getContext('2d');
+
+            resizeScratchpad();
+            window.addEventListener('resize', resizeScratchpad);
+
+            // Mouse Events
+            spCanvas.addEventListener('mousedown', startSpDraw);
+            spCanvas.addEventListener('mousemove', drawSpMove);
+            window.addEventListener('mouseup', endSpDraw);
+
+            // Touch Events (passive: false to prevent scrolling)
+            spCanvas.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                startSpDraw(e.touches[0]);
+            }, { passive: false });
+
+            spCanvas.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                drawSpMove(e.touches[0]);
+            }, { passive: false });
+
+            spCanvas.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                endSpDraw();
+            }, { passive: false });
+        }
+
+        function resizeScratchpad() {
+            if (!spCanvas) return;
+            const wrap = document.getElementById('scratchpadCanvasWrap');
+            if (!wrap) return;
+
+            const rect = wrap.getBoundingClientRect();
+            // Store temp canvas content
+            const temp = spCanvas.toDataURL();
+
+            spCanvas.width = rect.width;
+            spCanvas.height = rect.height;
+
+            const img = new Image();
+            img.onload = () => {
+                spCtx.drawImage(img, 0, 0);
+            };
+            img.src = temp;
+        }
+
+        function toggleScratchpad() {
+            const overlay = document.getElementById('scratchpadOverlay');
+            if (overlay.classList.contains('open')) {
+                closeScratchpad();
+            } else {
+                overlay.classList.add('open');
+                setTimeout(resizeScratchpad, 60);
+            }
+        }
+
+        function closeScratchpad() {
+            document.getElementById('scratchpadOverlay').classList.remove('open');
+        }
+
+        function setSpTool(tool) {
+            spTool = tool;
+            document.getElementById('spPenBtn').classList.toggle('active', tool === 'pen');
+            document.getElementById('spEraserBtn').classList.toggle('active', tool === 'eraser');
+        }
+
+        function setSpColor(color, btn) {
+            spColor = color;
+            setSpTool('pen');
+            document.querySelectorAll('.color-dot-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+        }
+
+        function setSpSize(size) {
+            spSize = size;
+        }
+
+        function clearScratchpadCanvas() {
+            if (confirm('Clear the entire scratchpad drawing?')) {
+                spCtx.clearRect(0, 0, spCanvas.width, spCanvas.height);
+            }
+        }
+
+        function startSpDraw(e) {
+            spDrawing = true;
+            const rect = spCanvas.getBoundingClientRect();
+            spCtx.beginPath();
+            spCtx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+        }
+
+        function drawSpMove(e) {
+            if (!spDrawing) return;
+            const rect = spCanvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            spCtx.lineWidth = spSize;
+            spCtx.lineCap = 'round';
+            spCtx.lineJoin = 'round';
+
+            if (spTool === 'eraser') {
+                spCtx.globalCompositeOperation = 'destination-out';
+                spCtx.lineWidth = spSize * 3;
+            } else {
+                spCtx.globalCompositeOperation = 'source-over';
+                spCtx.strokeStyle = spColor;
+            }
+
+            spCtx.lineTo(x, y);
+            spCtx.stroke();
+        }
+
+        function endSpDraw() {
+            if (spDrawing) {
+                spCtx.closePath();
+                spDrawing = false;
+            }
+        }
+
+        function initNotes() {
+            const notesEl = document.getElementById('scratchNotesArea');
+            if (!notesEl) return;
+            try {
+                const saved = localStorage.getItem('math201_exam2_scratchnotes');
+                if (saved) notesEl.value = saved;
+            } catch(e) {}
+
+            notesEl.addEventListener('input', () => {
+                try {
+                    localStorage.setItem('math201_exam2_scratchnotes', notesEl.value);
+                } catch(e) {}
+            });
+        }
+
+        /* Keyboard Shortcuts */
+        function setupKeyboard() {
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeScratchpad();
+                }
+            });
+        }
+
+        /* ========================================================
+           UTILITY FUNCTIONS: KATEX & SHUFFLE
+           ======================================================== */
+        function ensureMathDelimiters(text) {
+            if (!text) return '';
+            // If string has LaTeX commands like \frac, \sqrt, \partial but no $, wrap in $
+            if (text.includes('\\') && !text.includes('$')) {
+                return '$' + text + '$';
+            }
+            return text;
+        }
+
+        function renderMathOnElement(elem) {
+            if (!elem) return;
+            if (typeof renderMathInElement === 'function') {
+                try {
+                    renderMathInElement(elem, {
+                        delimiters: [
+                            { left: '$$', right: '$$', display: true },
+                            { left: '$', right: '$', display: false },
+                            { left: '\\(', right: '\\)', display: false },
+                            { left: '\\[', right: '\\]', display: true }
+                        ],
+                        throwOnError: false
+                    });
+                } catch (err) {
+                    console.warn('KaTeX render warning:', err);
+                }
+            } else {
+                setTimeout(() => renderMathOnElement(elem), 50);
+            }
+        }
+
+        function handleDeviceAuth(e) {
+            if (e) e.preventDefault();
+            const inp = document.getElementById('gateKeyInput');
+            if (!inp) return;
+            const val = (inp.value || '').trim().toLowerCase();
+            if (val === 'pass') {
+                try {
+                    localStorage.setItem('math201_device_auth', 'pass');
+                } catch(e) {}
+                document.documentElement.classList.add('auth-passed');
+                const gate = document.getElementById('deviceAuthGate');
+                if (gate) {
+                    gate.style.opacity = '0';
+                    setTimeout(() => { gate.style.display = 'none'; }, 220);
+                }
+                if (typeof APP !== 'undefined' && typeof APP.renderCurrentTab === 'function') {
+                    APP.renderCurrentTab();
+                }
+            } else {
+                inp.classList.add('auth-shake');
+                inp.value = '';
+                setTimeout(() => { inp.classList.remove('auth-shake'); }, 400);
+            }
+        }
+
+        function handleBackToNotes(e) {
+            if (e) e.preventDefault();
+            window.location.href = 'index.html';
+            return false;
+        }
+
+        function onKaTeXLoaded() {
+            if (typeof APP !== 'undefined') {
+                if (APP.currentTab === 'practice') {
+                    const container = document.getElementById('questionsContainer');
+                    if (container) renderMathOnElement(container);
+                } else if (APP.currentTab === 'simulator') {
+                    const bodyEl = document.getElementById('simQuestionBody');
+                    const choicesEl = document.getElementById('simChoicesContainer');
+                    if (bodyEl) renderMathOnElement(bodyEl);
+                    if (choicesEl) renderMathOnElement(choicesEl);
+                }
+            }
+        }
+
+        function shuffleArray(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
 </script>
 </body>
 </html>
