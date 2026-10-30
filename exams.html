@@ -1838,7 +1838,7 @@
 
             <div class="nav-actions">
                 <div class="nav-stat-chip">
-                    <span>Questions: <strong>200</strong></span>
+                    <span>Questions: <strong>216</strong></span>
                     <span>&bull;</span>
                     <span>Terms: <strong>12</strong></span>
                     <span>&bull;</span>
@@ -1886,7 +1886,7 @@
                         <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                     </svg>
                     <span>Practice & Study</span>
-                    <span class="badge">200 Qs</span>
+                    <span class="badge">216 Qs</span>
                 </button>
 
                 <button class="tab-button" id="tabSimulator" onclick="switchBankTab('simulator')">
@@ -1949,6 +1949,8 @@
                     <div class="filter-group">
                         <span class="filter-label">Term:</span>
                         <select class="select-input" id="filterTerm" onchange="handleFilterChange()">
+                        <option value="PT1">Practice Test 1 (Sec 11.5–13.2) &bull; 8 Qs</option>
+                        <option value="PT2">Practice Test 2 (Sec 13.3–13.6) &bull; 8 Qs</option>
                             <option value="ALL">All Terms (12 Terms)</option>
                             <option value="253">Term 253 (15 Qs)</option>
                             <option value="252">Term 252 (15 Qs)</option>
@@ -2066,6 +2068,8 @@
                         <span class="filter-label">2. Select Question Source:</span>
                         <select class="select-input" id="simSourceSelect" style="padding: 10px 14px;">
                             <option value="RANDOM">Balanced Random Mix across All 12 Terms (Covers all 11.5 - 13.8 sections)</option>
+                            <option value="PT1">Practice Test 1 (8 Questions &bull; Sec 11.5–13.2)</option>
+                            <option value="PT2">Practice Test 2 (8 Questions &bull; Sec 13.3–13.6)</option>
                             <option value="253">Specific Term 253 (15 Questions)</option>
                             <option value="252">Specific Term 252 (15 Questions)</option>
                             <option value="251A">Specific Term 251A (15 Questions)</option>
@@ -2183,6 +2187,8 @@
                     <div class="filter-group">
                         <span class="filter-label">Exam Set:</span>
                         <select class="select-input" id="printSetSelect" onchange="generatePrintLayout()">
+                            <option value="PT1">Practice Test 1 (8 Questions &bull; Sec 11.5–13.2)</option>
+                            <option value="PT2">Practice Test 2 (8 Questions &bull; Sec 13.3–13.6)</option>
                             <option value="253">Term 253 Exam (15 Questions)</option>
                             <option value="252">Term 252 Exam (15 Questions)</option>
                             <option value="251A">Term 251A Exam (15 Questions)</option>

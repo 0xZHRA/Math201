@@ -2,8 +2,10 @@
   "course": "MATH 201 - Calculus III",
   "exam": "Major Exam II",
   "coordinator": "Dr. Ibrahim Al-Rasasi",
-  "total_questions": 200,
+  "total_questions": 216,
   "terms_included": [
+    "PT1",
+    "PT2",
     "253",
     "252",
     "251A",
@@ -42,6 +44,282 @@
     "13.8": "Extreme Values and Saddle Points, Lagrange Multipliers"
   },
   "exams": {
+    "PT1": [
+      {
+        "id": "PT1_1",
+        "term": "PT1",
+        "number": 1,
+        "section": "11.5",
+        "topic": "Lines & Planes in Space",
+        "question": "For the line $\\mathbf{r}(t) = \\langle 1, 2, -1 \\rangle + t\\langle 2, -1, 2 \\rangle$ and the plane $2x - y + 2z = 7$, the intersection point is:",
+        "choices": [
+          "$(3, 1, 1)$",
+          "$(7, -1, 5)$",
+          "$(1, 2, -1)$",
+          "$(5, 0, 3)$",
+          "$\\text{No intersection}$"
+        ],
+        "correct_answer": "A",
+        "solution": "The line intersects the plane at the point $(3, 1, 1)$. **Step 1: Write Parametric Equations for the Line** From the vector equation $\\mathbf{r}(t) = \\langle 1, 2, -1 \\rangle + t\\langle 2, -1, 2 \\rangle$, extract coordinate functions:$$x(t) = 1 + 2t, \\quad y(t) = 2 - t, \\quad z(t) = -1 + 2t$$ **Step 2: Substitute Parametric Equations into the Plane Equation** Substitute $x(t), y(t), z(t)$ into $2x - y + 2z = 7$:$$2(1 + 2t) - (2 - t) + 2(-1 + 2t) = 7$$Expand and collect like terms:$$2 + 4t - 2 + t - 2 + 4t = 7$$$$(4t + t + 4t) + (2 - 2 - 2) = 7$$$$9t - 2 = 7 \\implies 9t = 9 \\implies t = 1$$ **Step 3: Calculate the Coordinates of the Intersection Point** Substitute parameter value $t = 1$ back into the line equations:$$x(1) = 1 + 2(1) = 3$$$$y(1) = 2 - (1) = 1$$$$z(1) = -1 + 2(1) = 1$$Therefore, the intersection point is $(3, 1, 1)$. **Step 4: Verify in the Plane Equation** $$2(3) - (1) + 2(1) = 6 - 1 + 2 = 7 \\quad \\checkmark$$"
+      },
+      {
+        "id": "PT1_2",
+        "term": "PT1",
+        "number": 2,
+        "section": "11.5",
+        "topic": "Distances in Space",
+        "question": "The distance from the point $P = (1, 2, 3)$ to the plane $2x - 2y + z = 9$ is:",
+        "choices": [
+          "$\\dfrac{2}{3}$",
+          "$\\dfrac{10}{3}$",
+          "$\\dfrac{4}{3}$",
+          "$\\dfrac{8}{3}$",
+          "$2$"
+        ],
+        "correct_answer": "D",
+        "solution": "The perpendicular distance from $P(1, 2, 3)$ to the plane is $\\dfrac{8}{3}$. **Step 1: State the Point-to-Plane Distance Formula** The perpendicular distance $D$ from a point $P(x_0, y_0, z_0)$ to a plane $Ax + By + Cz = d$ is given by:$$D = \\frac{|A x_0 + B y_0 + C z_0 - d|}{\\sqrt{A^2 + B^2 + C^2}}$$ **Step 2: Identify Plane Constants and Point Coordinates** Given $P = (1, 2, 3)$, normal vector $\\mathbf{n} = \\langle A, B, C \\rangle = \\langle 2, -2, 1 \\rangle$, and scalar $d = 9$. **Step 3: Evaluate Numerator and Denominator** Numerator:$$|2(1) - 2(2) + 1(3) - 9| = |2 - 4 + 3 - 9| = |-8| = 8$$Denominator (magnitude of the normal vector):$$\\|\\mathbf{n}\\| = \\sqrt{2^2 + (-2)^2 + 1^2} = \\sqrt{4 + 4 + 1} = \\sqrt{9} = 3$$ **Step 4: Compute the Distance** $$D = \\frac{8}{3}$$"
+      },
+      {
+        "id": "PT1_3",
+        "term": "PT1",
+        "number": 3,
+        "section": "11.6",
+        "topic": "Quadric Surfaces Classification",
+        "question": "Identify the quadric surface given by the equation:$$x^2 + y^2 - z^2 = 4$$",
+        "choices": [
+          "$\\text{Hyperboloid of two sheets}$",
+          "$\\text{Hyperbolic paraboloid}$",
+          "$\\text{Elliptic cone}$",
+          "$\\text{Elliptic paraboloid}$",
+          "$\\text{Hyperboloid of one sheet}$"
+        ],
+        "correct_answer": "E",
+        "solution": "The surface is a Hyperboloid of one sheet. **Step 1: Put the Equation in Standard Canonical Form** Divide both sides of $x^2 + y^2 - z^2 = 4$ by $4$:$$\\frac{x^2}{4} + \\frac{y^2}{4} - \\frac{z^2}{4} = 1$$ **Step 2: Compare with Standard Forms of Quadrics**   - Two positive squared terms and one negative squared term equaling $+1$:$$\\frac{x^2}{a^2} + \\frac{y^2}{b^2} - \\frac{z^2}{c^2} = 1 \\implies \\textbf{Hyperboloid of One Sheet}$$  - Two negative squared terms and one positive squared term equaling $+1$:$$-\\frac{x^2}{a^2} - \\frac{y^2}{b^2} + \\frac{z^2}{c^2} = 1 \\implies \\textbf{Hyperboloid of Two Sheets}$$  - Right-hand side equaling $0$:$$\\frac{x^2}{a^2} + \\frac{y^2}{b^2} - \\frac{z^2}{c^2} = 0 \\implies \\textbf{Elliptic Cone}$$   **Step 3: Verify Horizontal and Vertical Traces** Horizontal traces ($z = k$): $x^2 + y^2 = 4 + k^2$ are real circles for every value of $k \\in \\mathbb{R}$. Vertical traces ($x = 0$ or $y = 0$) are hyperbolas ($y^2 - z^2 = 4$). Thus, the surface is connected and tubular: **Hyperboloid of one sheet**."
+      },
+      {
+        "id": "PT1_4",
+        "term": "PT1",
+        "number": 4,
+        "section": "11.6",
+        "topic": "Quadric Surfaces & Intersections",
+        "question": "The intersection of the hyperbolic paraboloid (saddle surface) $z = x^2 - y^2$ with the vertical plane $y = x + 1$ is:",
+        "choices": [
+          "$z = 1$",
+          "$z = -2x - 1$",
+          "$z = 2x^2 + 1$",
+          "$z = 2x + 1$",
+          "$z = -x^2 - 1$"
+        ],
+        "correct_answer": "B",
+        "solution": "The intersection curve is the line $z = -2x - 1$ in the plane $y = x + 1$. **Step 1: Understand the Geometric Intersection** Any point on the curve of intersection must satisfy the surface equation $z = x^2 - y^2$ and the plane equation $y = x + 1$ simultaneously. **Step 2: Substitute $y = x + 1$ into the Surface Equation** $$z = x^2 - (x + 1)^2$$ **Step 3: Expand the Binomial and Simplify** $$z = x^2 - (x^2 + 2x + 1) = x^2 - x^2 - 2x - 1 = -2x - 1$$ **Step 4: Geometric Interpretation** In $\\mathbb{R}^3$, the intersection is a straight line lying within the vertical plane $y = x + 1$, with height coordinate given by $z = -2x - 1$."
+      },
+      {
+        "id": "PT1_5",
+        "term": "PT1",
+        "number": 5,
+        "section": "13.1",
+        "topic": "Domain of Multivariable Functions",
+        "question": "For the function $f(x, y) = \\dfrac{\\sqrt{9 - x^2 - y^2}}{x - 1}$, which description gives its domain $\\operatorname{Dom}(f)$?",
+        "choices": [
+          "$x^2 + y^2 \\le 9, \\quad y \\ne 1$",
+          "$x^2 + y^2 \\le 9$",
+          "$x^2 + y^2 > 9, \\quad x \\ne 1$",
+          "$x^2 + y^2 < 9$",
+          "$x^2 + y^2 \\le 9, \\quad x \\ne 1$"
+        ],
+        "correct_answer": "E",
+        "solution": "$\\operatorname{Dom}(f) = \\{ (x, y) \\mid x^2 + y^2 \\le 9, \\ x \\ne 1 \\}$. **Step 1: Radical Domain Condition** The radicand of the square root in the numerator must be non-negative:$$9 - x^2 - y^2 \\ge 0 \\iff x^2 + y^2 \\le 9$$This specifies the closed disk of radius $3$ centered at $(0, 0)$. **Step 2: Non-Zero Denominator Condition** The denominator cannot be zero:$$x - 1 \\ne 0 \\iff x \\ne 1$$This excludes all points on the vertical line $x = 1$. **Step 3: Combine Conditions** $$\\operatorname{Dom}(f) = \\left\\{ (x, y) \\in \\mathbb{R}^2 \\mid x^2 + y^2 \\le 9 \\text{ and } x \\ne 1 \\right\\}$$"
+      },
+      {
+        "id": "PT1_6",
+        "term": "PT1",
+        "number": 6,
+        "section": "13.1",
+        "topic": "Level Curves of Multivariable Functions",
+        "question": "For the function $f(x, y) = \\ln(4 - x^2 - y^2)$, the level curve $f(x, y) = \\ln 3$ is:",
+        "choices": [
+          "$\\text{A circle of radius } 2$",
+          "$\\text{The empty set}$",
+          "$\\text{A single point}$",
+          "$\\text{A circle of radius } 1$",
+          "$\\text{A circle of radius } \\sqrt{3}$"
+        ],
+        "correct_answer": "D",
+        "solution": "A circle centered at the origin of radius $1$. **Step 1: Set Up Level Curve Equation** Substitute $f(x, y) = \\ln 3$:$$\\ln(4 - x^2 - y^2) = \\ln 3$$ **Step 2: Exponentiate Both Sides** $$e^{\\ln(4 - x^2 - y^2)} = e^{\\ln 3} \\iff 4 - x^2 - y^2 = 3$$ **Step 3: Identify the Geometric Curve** Rearrange:$$x^2 + y^2 = 4 - 3 = 1$$This is a circle centered at the origin with radius $r = \\sqrt{1} = 1$."
+      },
+      {
+        "id": "PT1_7",
+        "term": "PT1",
+        "number": 7,
+        "section": "13.2",
+        "topic": "Multivariable Limits - Squeeze Theorem",
+        "question": "Evaluate the limit:$$\\lim_{(x, y) \\to (0, 0)} \\frac{x^2 y}{x^2 + y^2}$$",
+        "choices": [
+          "$\\text{Does not exist}$",
+          "$1$",
+          "$-1$",
+          "$0$",
+          "$\\dfrac{1}{2}$"
+        ],
+        "correct_answer": "D",
+        "solution": "$\\lim_{(x, y) \\to (0, 0)} \\dfrac{x^2 y}{x^2 + y^2} = 0$. **Method 1: Polar Coordinates** Let $x = r \\cos\\theta$ and $y = r \\sin\\theta$. As $(x, y) \\to (0, 0)$, $r \\to 0^+$:$$\\frac{x^2 y}{x^2 + y^2} = \\frac{(r^2 \\cos^2\\theta)(r \\sin\\theta)}{r^2} = r \\cos^2\\theta \\sin\\theta$$Since $|\\cos^2\\theta \\sin\\theta| \\le 1$, we have:$$|r \\cos^2\\theta \\sin\\theta| \\le r \\to 0 \\quad \\text{as } r \\to 0^+$$By the Squeeze Theorem, the limit is $0$, regardless of direction $\\theta$. **Method 2: Squeeze Inequality** Notice that $\\dfrac{x^2}{x^2 + y^2} \\le 1$ for all $(x, y) \\ne (0, 0)$. Therefore:$$0 \\le \\left| \\frac{x^2 y}{x^2 + y^2} \\right| = \\frac{x^2}{x^2 + y^2} |y| \\le 1 \\cdot |y| = |y|$$Since $\\lim_{(x, y) \\to (0, 0)} |y| = 0$, by the Squeeze Theorem:$$\\lim_{(x, y) \\to (0, 0)} \\frac{x^2 y}{x^2 + y^2} = 0$$"
+      },
+      {
+        "id": "PT1_8",
+        "term": "PT1",
+        "number": 8,
+        "section": "13.2",
+        "topic": "Multivariable Limits - Two-Path Test",
+        "question": "Evaluate the limit:$$\\lim_{(x, y) \\to (0, 0)} \\frac{x^2 y}{x^4 + y^2}$$",
+        "choices": [
+          "$\\text{Does not exist}$",
+          "$\\dfrac{1}{2}$",
+          "$1$",
+          "$-1$",
+          "$0$"
+        ],
+        "correct_answer": "A",
+        "solution": "The limit Does Not Exist (DNE) by the Two-Path Test. **Step 1: Test Along Straight Lines $y = mx$** $$\\lim_{x \\to 0} \\frac{x^2(mx)}{x^4 + (mx)^2} = \\lim_{x \\to 0} \\frac{m x^3}{x^2(x^2 + m^2)} = \\lim_{x \\to 0} \\frac{m x}{x^2 + m^2} = 0 \\quad (\\text{for } m \\ne 0)$$Along the coordinate axes ($x = 0$ or $y = 0$), the expression is also identically $0$. **Step 2: Examine Degree Balance in the Denominator** In $x^4 + y^2$, the terms balance when $y \\sim x^2$. Let us test parabolic paths $y = k x^2$:$$\\lim_{x \\to 0} \\frac{x^2(k x^2)}{x^4 + (k x^2)^2} = \\lim_{x \\to 0} \\frac{k x^4}{x^4 + k^2 x^4} = \\lim_{x \\to 0} \\frac{k x^4}{x^4(1 + k^2)} = \\frac{k}{1 + k^2}$$ **Step 3: Evaluate Different Paths**   - Along $y = x^2$ ($k = 1$): $\\dfrac{1}{1 + 1^2} = \\dfrac{1}{2}$  - Along $y = -x^2$ ($k = -1$): $\\dfrac{-1}{1 + (-1)^2} = -\\dfrac{1}{2}$  - Along $y = 0$ ($k = 0$): $0$  Since different paths produce different limiting values, the limit **Does Not Exist (DNE)**."
+      }
+    ],
+    "PT2": [
+      {
+        "id": "PT2_1",
+        "term": "PT2",
+        "number": 1,
+        "section": "13.3",
+        "topic": "Partial Derivatives & Clairaut's Theorem",
+        "question": "If $f(x, y) = x^2 e^{xy}$, then the mixed second partial derivative $f_{xy}(1, 0)$ equals:",
+        "choices": [
+          "$0$",
+          "$2$",
+          "$4$",
+          "$3$",
+          "$1$"
+        ],
+        "correct_answer": "D",
+        "solution": "$f_{xy}(1, 0) = 3$. **Step 1: Compute First Partial Derivative $f_y$** Differentiating with respect to $y$ (treating $x$ as constant):$$f_y(x, y) = \\frac{\\partial}{\\partial y}[x^2 e^{xy}] = x^2 \\cdot (x e^{xy}) = x^3 e^{xy}$$ **Step 2: Differentiate with Respect to $x$ ($f_{yx} = f_{xy}$)** Using the Product Rule:$$\\frac{\\partial}{\\partial x}[x^3 e^{xy}] = \\left( \\frac{\\partial}{\\partial x}[x^3] \\right) e^{xy} + x^3 \\left( \\frac{\\partial}{\\partial x}[e^{xy}] \\right) = 3x^2 e^{xy} + x^3 (y e^{xy}) = e^{xy}(3x^2 + x^3 y)$$ **Step 3: Evaluate at $(x, y) = (1, 0)$** $$f_{xy}(1, 0) = e^{1 \\cdot 0} \\left( 3(1)^2 + (1)^3(0) \\right) = e^0 (3 + 0) = 1 \\cdot 3 = 3$$"
+      },
+      {
+        "id": "PT2_2",
+        "term": "PT2",
+        "number": 2,
+        "section": "13.3",
+        "topic": "Higher-Order Partial Derivatives",
+        "question": "Let $f(x, y) = x^3 y^2 - 2x y^3$. Then the third-order partial derivative $f_{xxy}(1, 2)$ equals:",
+        "choices": [
+          "$24$",
+          "$12$",
+          "$-12$",
+          "$6$",
+          "$18$"
+        ],
+        "correct_answer": "A",
+        "solution": "$f_{xxy}(1, 2) = 24$. **Step 1: First Partial Derivative $f_x$** Treat $y$ as a constant:$$f_x(x, y) = \\frac{\\partial}{\\partial x}[x^3 y^2 - 2x y^3] = 3x^2 y^2 - 2y^3$$ **Step 2: Second Partial Derivative $f_{xx}$** Differentiate $f_x$ with respect to $x$:$$f_{xx}(x, y) = \\frac{\\partial}{\\partial x}[3x^2 y^2 - 2y^3] = 6x y^2 - 0 = 6x y^2$$ **Step 3: Third Partial Derivative $f_{xxy}$** Differentiate $f_{xx}$ with respect to $y$:$$f_{xxy}(x, y) = \\frac{\\partial}{\\partial y}[6x y^2] = 6x(2y) = 12xy$$ **Step 4: Evaluate at $(x, y) = (1, 2)$** $$f_{xxy}(1, 2) = 12(1)(2) = 24$$"
+      },
+      {
+        "id": "PT2_3",
+        "term": "PT2",
+        "number": 3,
+        "section": "13.4",
+        "topic": "Linearization & Tangent Approximations",
+        "question": "For the upper hemisphere $z = \\sqrt{25 - x^2 - y^2}$ at the base point $(3, 0)$, the local linear approximation predicts $z(3.1, 0.2) \\approx$:",
+        "choices": [
+          "$3.75$",
+          "$4.25$",
+          "$3.5$",
+          "$3.925$",
+          "$4.075$"
+        ],
+        "correct_answer": "D",
+        "solution": "$z(3.1, 0.2) \\approx 3.925$. **Step 1: Calculate Function Value at the Base Point $(3, 0)$** $$z(3, 0) = \\sqrt{25 - 3^2 - 0^2} = \\sqrt{25 - 9} = \\sqrt{16} = 4$$ **Step 2: Calculate First Partial Derivatives at $(3, 0)$** $$z_x = \\frac{-2x}{2\\sqrt{25 - x^2 - y^2}} = \\frac{-x}{\\sqrt{25 - x^2 - y^2}} \\implies z_x(3, 0) = \\frac{-3}{4} = -0.75$$$$z_y = \\frac{-2y}{2\\sqrt{25 - x^2 - y^2}} = \\frac{-y}{\\sqrt{25 - x^2 - y^2}} \\implies z_y(3, 0) = \\frac{-0}{4} = 0$$ **Step 3: Construct the Linearization Formula** $$L(x, y) = z(3, 0) + z_x(3, 0)(x - 3) + z_y(3, 0)(y - 0)$$$$L(x, y) = 4 - 0.75(x - 3) + 0(y - 0) = 4 - 0.75(x - 3)$$ **Step 4: Approximate at $(3.1, 0.2)$** Here $\\Delta x = 3.1 - 3 = 0.1$:$$z(3.1, 0.2) \\approx L(3.1, 0.2) = 4 - 0.75(0.1) = 4 - 0.075 = 3.925$$"
+      },
+      {
+        "id": "PT2_4",
+        "term": "PT2",
+        "number": 4,
+        "section": "13.4",
+        "topic": "Differentials & Relative Error Estimation",
+        "question": "A rectangular box has sides $2$, $3$, and $4\\text{ cm}$. If each side increases by $1\\%$, the total differential predicts its volume increases by approximately:",
+        "choices": [
+          "$4\\%$",
+          "$1\\%$",
+          "$6\\%$",
+          "$3\\%$",
+          "$2\\%$"
+        ],
+        "correct_answer": "D",
+        "solution": "The volume increases by approximately $3\\%$. **Step 1: Formula for Volume and Total Differential** Volume of the box is $V = xyz$. The total differential is:$$dV = \\frac{\\partial V}{\\partial x} dx + \\frac{\\partial V}{\\partial y} dy + \\frac{\\partial V}{\\partial z} dz = (yz) dx + (xz) dy + (xy) dz$$ **Step 2: Express Relative Percentage Change** Divide through by $V = xyz$:$$\\frac{dV}{V} = \\frac{yz\\,dx + xz\\,dy + xy\\,dz}{xyz} = \\frac{dx}{x} + \\frac{dy}{y} + \\frac{dz}{z}$$ **Step 3: Substitute the Given Percentage Changes** Given $\\frac{dx}{x} = 1\\%$, $\\frac{dy}{y} = 1\\%$, $\\frac{dz}{z} = 1\\%$:$$\\frac{dV}{V} = 1\\% + 1\\% + 1\\% = 3\\%$$<small style='color:var(--color-primary);'>Notice: The relative change is invariant with respect to the initial side lengths!</small>"
+      },
+      {
+        "id": "PT2_5",
+        "term": "PT2",
+        "number": 5,
+        "section": "13.5",
+        "topic": "Multivariable Chain Rule",
+        "question": "Let $z = x^2 y + e^{xy}$, with $x = s + t$ and $y = s - t$. Find $\\dfrac{\\partial z}{\\partial t}$ at the parameter point $(s, t) = (1, 0)$:",
+        "choices": [
+          "$1$",
+          "$-e$",
+          "$2 + e$",
+          "$-1$",
+          "$0$"
+        ],
+        "correct_answer": "A",
+        "solution": "$\\left. \\dfrac{\\partial z}{\\partial t} \\right|_{(1, 0)} = 1$. **Step 1: Formulate the Chain Rule** $$\\frac{\\partial z}{\\partial t} = \\frac{\\partial z}{\\partial x} \\frac{\\partial x}{\\partial t} + \\frac{\\partial z}{\\partial y} \\frac{\\partial y}{\\partial t}$$ **Step 2: Compute Intermediate Coordinates at $(s, t) = (1, 0)$** $$x = 1 + 0 = 1, \\quad y = 1 - 0 = 1$$ **Step 3: Evaluate All Partial Derivatives** $$\\frac{\\partial x}{\\partial t} = 1, \\quad \\frac{\\partial y}{\\partial t} = -1$$$$\\frac{\\partial z}{\\partial x} = 2xy + y e^{xy} \\implies \\left. \\frac{\\partial z}{\\partial x} \\right|_{(1, 1)} = 2(1)(1) + (1)e^1 = 2 + e$$$$\\frac{\\partial z}{\\partial y} = x^2 + x e^{xy} \\implies \\left. \\frac{\\partial z}{\\partial y} \\right|_{(1, 1)} = 1^2 + (1)e^1 = 1 + e$$ **Step 4: Combine Using the Chain Rule Formula** $$\\frac{\\partial z}{\\partial t} = (2 + e)(1) + (1 + e)(-1) = 2 + e - 1 - e = 1$$"
+      },
+      {
+        "id": "PT2_6",
+        "term": "PT2",
+        "number": 6,
+        "section": "13.5",
+        "topic": "Implicit Differentiation",
+        "question": "If $x^2 + y^2 + z^2 + xyz = 8$ defines $z = z(x, y)$ implicitly as a differentiable function near $(1, 1, 2)$, then $z_x(1, 1)$ equals:",
+        "choices": [
+          "$-1$",
+          "$\\dfrac{4}{5}$",
+          "$-\\dfrac{2}{3}$",
+          "$-\\dfrac{4}{5}$",
+          "$-\\dfrac{3}{5}$"
+        ],
+        "correct_answer": "D",
+        "solution": "$z_x(1, 1) = -\\dfrac{4}{5}$. **Step 1: Define Implicit Function $F(x, y, z)$** Let $F(x, y, z) = x^2 + y^2 + z^2 + xyz - 8 = 0$. By the Implicit Function Theorem:$$z_x = -\\frac{F_x}{F_z}$$ **Step 2: Differentiate $F$ Partially with Respect to $x$ and $z$** $$F_x = \\frac{\\partial}{\\partial x}[x^2 + y^2 + z^2 + xyz - 8] = 2x + yz$$$$F_z = \\frac{\\partial}{\\partial z}[x^2 + y^2 + z^2 + xyz - 8] = 2z + xy$$ **Step 3: Evaluate at the Given Point $(x, y, z) = (1, 1, 2)$** $$F_x(1, 1, 2) = 2(1) + (1)(2) = 2 + 2 = 4$$$$F_z(1, 1, 2) = 2(2) + (1)(1) = 4 + 1 = 5$$ **Step 4: Compute $z_x(1, 1)$** $$z_x(1, 1) = -\\frac{F_x(1, 1, 2)}{F_z(1, 1, 2)} = -\\frac{4}{5}$$"
+      },
+      {
+        "id": "PT2_7",
+        "term": "PT2",
+        "number": 7,
+        "section": "13.6",
+        "topic": "Directional Derivatives & Gradients",
+        "question": "For the surface $f(x, y) = x^2 + 2xy + 3y^2$, find the maximum directional derivative at the point $(1, -1)$:",
+        "choices": [
+          "$2\\sqrt{10}$",
+          "$4$",
+          "$10$",
+          "$2\\sqrt{5}$",
+          "$\\sqrt{20}$"
+        ],
+        "correct_answer": "B",
+        "solution": "The maximum directional derivative at $(1, -1)$ is $4$. **Step 1: Theorem for Maximum Directional Derivative** For any differentiable function $f$, the maximum value of the directional derivative $D_{\\mathbf{u}} f$ at a point $P$ occurs when $\\mathbf{u}$ has the direction of $\\nabla f(P)$, and its maximum value is:$$D_{\\mathbf{u}, \\max} f(P) = \\|\\nabla f(P)\\|$$ **Step 2: Calculate the Gradient Vector $\\nabla f(x, y)$** $$f_x(x, y) = 2x + 2y, \\quad f_y(x, y) = 2x + 6y$$$$\\nabla f(x, y) = \\langle 2x + 2y, 2x + 6y \\rangle$$ **Step 3: Evaluate at Point $(1, -1)$** $$f_x(1, -1) = 2(1) + 2(-1) = 2 - 2 = 0$$$$f_y(1, -1) = 2(1) + 6(-1) = 2 - 6 = -4$$$$\\nabla f(1, -1) = \\langle 0, -4 \\rangle$$ **Step 4: Compute the Length of the Gradient Vector** $$\\|\\nabla f(1, -1)\\| = \\sqrt{0^2 + (-4)^2} = \\sqrt{16} = 4$$"
+      },
+      {
+        "id": "PT2_8",
+        "term": "PT2",
+        "number": 8,
+        "section": "13.6",
+        "topic": "Gradient Vectors & Normal Lines",
+        "question": "At the point $P = (1, 2)$, a unit normal vector to the level curve $x^2 + xy + y^2 = 7$ pointing toward increasing values of $f(x, y) = x^2 + xy + y^2$ is:",
+        "choices": [
+          "$\\dfrac{\\langle 1, 2 \\rangle}{\\sqrt{5}}$",
+          "$\\dfrac{\\langle -4, -5 \\rangle}{\\sqrt{41}}$",
+          "$\\dfrac{\\langle 5, 4 \\rangle}{\\sqrt{41}}$",
+          "$\\dfrac{\\langle 3, 6 \\rangle}{\\sqrt{45}}$",
+          "$\\dfrac{\\langle 4, 5 \\rangle}{\\sqrt{41}}$"
+        ],
+        "correct_answer": "E",
+        "solution": "$\\mathbf{u} = \\dfrac{\\langle 4, 5 \\rangle}{\\sqrt{41}}$. **Step 1: Normal Property of the Gradient** For any smooth level curve $f(x, y) = c$, the gradient vector $\\nabla f(P)$ is perpendicular to the level curve at $P$ and points toward increasing values of $f$. **Step 2: Differentiate to Obtain the Gradient** With $f(x, y) = x^2 + xy + y^2$:$$f_x = 2x + y, \\quad f_y = x + 2y$$$$\\nabla f(x, y) = \\langle 2x + y, x + 2y \\rangle$$ **Step 3: Evaluate at Point $P = (1, 2)$** $$f_x(1, 2) = 2(1) + 2 = 4$$$$f_y(1, 2) = 1 + 2(2) = 5$$$$\\nabla f(1, 2) = \\langle 4, 5 \\rangle$$ **Step 4: Normalize to a Unit Vector** $$\\|\\nabla f(1, 2)\\| = \\sqrt{4^2 + 5^2} = \\sqrt{16 + 25} = \\sqrt{41}$$$$\\mathbf{u} = \\frac{\\nabla f(1, 2)}{\\|\\nabla f(1, 2)\\|} = \\frac{\\langle 4, 5 \\rangle}{\\sqrt{41}} = \\left\\langle \\frac{4}{\\sqrt{41}}, \\frac{5}{\\sqrt{41}} \\right\\rangle$$"
+      }
+    ],
     "253": {
       "term": "253",
       "title": "Term 253",
@@ -128,6 +406,278 @@
     }
   },
   "all_questions": [
+    {
+      "id": "PT1_1",
+      "term": "PT1",
+      "number": 1,
+      "section": "11.5",
+      "topic": "Lines & Planes in Space",
+      "question": "For the line $\\mathbf{r}(t) = \\langle 1, 2, -1 \\rangle + t\\langle 2, -1, 2 \\rangle$ and the plane $2x - y + 2z = 7$, the intersection point is:",
+      "choices": [
+        "$(3, 1, 1)$",
+        "$(7, -1, 5)$",
+        "$(1, 2, -1)$",
+        "$(5, 0, 3)$",
+        "$\\text{No intersection}$"
+      ],
+      "correct_answer": "A",
+      "solution": "The line intersects the plane at the point $(3, 1, 1)$. **Step 1: Write Parametric Equations for the Line** From the vector equation $\\mathbf{r}(t) = \\langle 1, 2, -1 \\rangle + t\\langle 2, -1, 2 \\rangle$, extract coordinate functions:$$x(t) = 1 + 2t, \\quad y(t) = 2 - t, \\quad z(t) = -1 + 2t$$ **Step 2: Substitute Parametric Equations into the Plane Equation** Substitute $x(t), y(t), z(t)$ into $2x - y + 2z = 7$:$$2(1 + 2t) - (2 - t) + 2(-1 + 2t) = 7$$Expand and collect like terms:$$2 + 4t - 2 + t - 2 + 4t = 7$$$$(4t + t + 4t) + (2 - 2 - 2) = 7$$$$9t - 2 = 7 \\implies 9t = 9 \\implies t = 1$$ **Step 3: Calculate the Coordinates of the Intersection Point** Substitute parameter value $t = 1$ back into the line equations:$$x(1) = 1 + 2(1) = 3$$$$y(1) = 2 - (1) = 1$$$$z(1) = -1 + 2(1) = 1$$Therefore, the intersection point is $(3, 1, 1)$. **Step 4: Verify in the Plane Equation** $$2(3) - (1) + 2(1) = 6 - 1 + 2 = 7 \\quad \\checkmark$$"
+    },
+    {
+      "id": "PT1_2",
+      "term": "PT1",
+      "number": 2,
+      "section": "11.5",
+      "topic": "Distances in Space",
+      "question": "The distance from the point $P = (1, 2, 3)$ to the plane $2x - 2y + z = 9$ is:",
+      "choices": [
+        "$\\dfrac{2}{3}$",
+        "$\\dfrac{10}{3}$",
+        "$\\dfrac{4}{3}$",
+        "$\\dfrac{8}{3}$",
+        "$2$"
+      ],
+      "correct_answer": "D",
+      "solution": "The perpendicular distance from $P(1, 2, 3)$ to the plane is $\\dfrac{8}{3}$. **Step 1: State the Point-to-Plane Distance Formula** The perpendicular distance $D$ from a point $P(x_0, y_0, z_0)$ to a plane $Ax + By + Cz = d$ is given by:$$D = \\frac{|A x_0 + B y_0 + C z_0 - d|}{\\sqrt{A^2 + B^2 + C^2}}$$ **Step 2: Identify Plane Constants and Point Coordinates** Given $P = (1, 2, 3)$, normal vector $\\mathbf{n} = \\langle A, B, C \\rangle = \\langle 2, -2, 1 \\rangle$, and scalar $d = 9$. **Step 3: Evaluate Numerator and Denominator** Numerator:$$|2(1) - 2(2) + 1(3) - 9| = |2 - 4 + 3 - 9| = |-8| = 8$$Denominator (magnitude of the normal vector):$$\\|\\mathbf{n}\\| = \\sqrt{2^2 + (-2)^2 + 1^2} = \\sqrt{4 + 4 + 1} = \\sqrt{9} = 3$$ **Step 4: Compute the Distance** $$D = \\frac{8}{3}$$"
+    },
+    {
+      "id": "PT1_3",
+      "term": "PT1",
+      "number": 3,
+      "section": "11.6",
+      "topic": "Quadric Surfaces Classification",
+      "question": "Identify the quadric surface given by the equation:$$x^2 + y^2 - z^2 = 4$$",
+      "choices": [
+        "$\\text{Hyperboloid of two sheets}$",
+        "$\\text{Hyperbolic paraboloid}$",
+        "$\\text{Elliptic cone}$",
+        "$\\text{Elliptic paraboloid}$",
+        "$\\text{Hyperboloid of one sheet}$"
+      ],
+      "correct_answer": "E",
+      "solution": "The surface is a Hyperboloid of one sheet. **Step 1: Put the Equation in Standard Canonical Form** Divide both sides of $x^2 + y^2 - z^2 = 4$ by $4$:$$\\frac{x^2}{4} + \\frac{y^2}{4} - \\frac{z^2}{4} = 1$$ **Step 2: Compare with Standard Forms of Quadrics**   - Two positive squared terms and one negative squared term equaling $+1$:$$\\frac{x^2}{a^2} + \\frac{y^2}{b^2} - \\frac{z^2}{c^2} = 1 \\implies \\textbf{Hyperboloid of One Sheet}$$  - Two negative squared terms and one positive squared term equaling $+1$:$$-\\frac{x^2}{a^2} - \\frac{y^2}{b^2} + \\frac{z^2}{c^2} = 1 \\implies \\textbf{Hyperboloid of Two Sheets}$$  - Right-hand side equaling $0$:$$\\frac{x^2}{a^2} + \\frac{y^2}{b^2} - \\frac{z^2}{c^2} = 0 \\implies \\textbf{Elliptic Cone}$$   **Step 3: Verify Horizontal and Vertical Traces** Horizontal traces ($z = k$): $x^2 + y^2 = 4 + k^2$ are real circles for every value of $k \\in \\mathbb{R}$. Vertical traces ($x = 0$ or $y = 0$) are hyperbolas ($y^2 - z^2 = 4$). Thus, the surface is connected and tubular: **Hyperboloid of one sheet**."
+    },
+    {
+      "id": "PT1_4",
+      "term": "PT1",
+      "number": 4,
+      "section": "11.6",
+      "topic": "Quadric Surfaces & Intersections",
+      "question": "The intersection of the hyperbolic paraboloid (saddle surface) $z = x^2 - y^2$ with the vertical plane $y = x + 1$ is:",
+      "choices": [
+        "$z = 1$",
+        "$z = -2x - 1$",
+        "$z = 2x^2 + 1$",
+        "$z = 2x + 1$",
+        "$z = -x^2 - 1$"
+      ],
+      "correct_answer": "B",
+      "solution": "The intersection curve is the line $z = -2x - 1$ in the plane $y = x + 1$. **Step 1: Understand the Geometric Intersection** Any point on the curve of intersection must satisfy the surface equation $z = x^2 - y^2$ and the plane equation $y = x + 1$ simultaneously. **Step 2: Substitute $y = x + 1$ into the Surface Equation** $$z = x^2 - (x + 1)^2$$ **Step 3: Expand the Binomial and Simplify** $$z = x^2 - (x^2 + 2x + 1) = x^2 - x^2 - 2x - 1 = -2x - 1$$ **Step 4: Geometric Interpretation** In $\\mathbb{R}^3$, the intersection is a straight line lying within the vertical plane $y = x + 1$, with height coordinate given by $z = -2x - 1$."
+    },
+    {
+      "id": "PT1_5",
+      "term": "PT1",
+      "number": 5,
+      "section": "13.1",
+      "topic": "Domain of Multivariable Functions",
+      "question": "For the function $f(x, y) = \\dfrac{\\sqrt{9 - x^2 - y^2}}{x - 1}$, which description gives its domain $\\operatorname{Dom}(f)$?",
+      "choices": [
+        "$x^2 + y^2 \\le 9, \\quad y \\ne 1$",
+        "$x^2 + y^2 \\le 9$",
+        "$x^2 + y^2 > 9, \\quad x \\ne 1$",
+        "$x^2 + y^2 < 9$",
+        "$x^2 + y^2 \\le 9, \\quad x \\ne 1$"
+      ],
+      "correct_answer": "E",
+      "solution": "$\\operatorname{Dom}(f) = \\{ (x, y) \\mid x^2 + y^2 \\le 9, \\ x \\ne 1 \\}$. **Step 1: Radical Domain Condition** The radicand of the square root in the numerator must be non-negative:$$9 - x^2 - y^2 \\ge 0 \\iff x^2 + y^2 \\le 9$$This specifies the closed disk of radius $3$ centered at $(0, 0)$. **Step 2: Non-Zero Denominator Condition** The denominator cannot be zero:$$x - 1 \\ne 0 \\iff x \\ne 1$$This excludes all points on the vertical line $x = 1$. **Step 3: Combine Conditions** $$\\operatorname{Dom}(f) = \\left\\{ (x, y) \\in \\mathbb{R}^2 \\mid x^2 + y^2 \\le 9 \\text{ and } x \\ne 1 \\right\\}$$"
+    },
+    {
+      "id": "PT1_6",
+      "term": "PT1",
+      "number": 6,
+      "section": "13.1",
+      "topic": "Level Curves of Multivariable Functions",
+      "question": "For the function $f(x, y) = \\ln(4 - x^2 - y^2)$, the level curve $f(x, y) = \\ln 3$ is:",
+      "choices": [
+        "$\\text{A circle of radius } 2$",
+        "$\\text{The empty set}$",
+        "$\\text{A single point}$",
+        "$\\text{A circle of radius } 1$",
+        "$\\text{A circle of radius } \\sqrt{3}$"
+      ],
+      "correct_answer": "D",
+      "solution": "A circle centered at the origin of radius $1$. **Step 1: Set Up Level Curve Equation** Substitute $f(x, y) = \\ln 3$:$$\\ln(4 - x^2 - y^2) = \\ln 3$$ **Step 2: Exponentiate Both Sides** $$e^{\\ln(4 - x^2 - y^2)} = e^{\\ln 3} \\iff 4 - x^2 - y^2 = 3$$ **Step 3: Identify the Geometric Curve** Rearrange:$$x^2 + y^2 = 4 - 3 = 1$$This is a circle centered at the origin with radius $r = \\sqrt{1} = 1$."
+    },
+    {
+      "id": "PT1_7",
+      "term": "PT1",
+      "number": 7,
+      "section": "13.2",
+      "topic": "Multivariable Limits - Squeeze Theorem",
+      "question": "Evaluate the limit:$$\\lim_{(x, y) \\to (0, 0)} \\frac{x^2 y}{x^2 + y^2}$$",
+      "choices": [
+        "$\\text{Does not exist}$",
+        "$1$",
+        "$-1$",
+        "$0$",
+        "$\\dfrac{1}{2}$"
+      ],
+      "correct_answer": "D",
+      "solution": "$\\lim_{(x, y) \\to (0, 0)} \\dfrac{x^2 y}{x^2 + y^2} = 0$. **Method 1: Polar Coordinates** Let $x = r \\cos\\theta$ and $y = r \\sin\\theta$. As $(x, y) \\to (0, 0)$, $r \\to 0^+$:$$\\frac{x^2 y}{x^2 + y^2} = \\frac{(r^2 \\cos^2\\theta)(r \\sin\\theta)}{r^2} = r \\cos^2\\theta \\sin\\theta$$Since $|\\cos^2\\theta \\sin\\theta| \\le 1$, we have:$$|r \\cos^2\\theta \\sin\\theta| \\le r \\to 0 \\quad \\text{as } r \\to 0^+$$By the Squeeze Theorem, the limit is $0$, regardless of direction $\\theta$. **Method 2: Squeeze Inequality** Notice that $\\dfrac{x^2}{x^2 + y^2} \\le 1$ for all $(x, y) \\ne (0, 0)$. Therefore:$$0 \\le \\left| \\frac{x^2 y}{x^2 + y^2} \\right| = \\frac{x^2}{x^2 + y^2} |y| \\le 1 \\cdot |y| = |y|$$Since $\\lim_{(x, y) \\to (0, 0)} |y| = 0$, by the Squeeze Theorem:$$\\lim_{(x, y) \\to (0, 0)} \\frac{x^2 y}{x^2 + y^2} = 0$$"
+    },
+    {
+      "id": "PT1_8",
+      "term": "PT1",
+      "number": 8,
+      "section": "13.2",
+      "topic": "Multivariable Limits - Two-Path Test",
+      "question": "Evaluate the limit:$$\\lim_{(x, y) \\to (0, 0)} \\frac{x^2 y}{x^4 + y^2}$$",
+      "choices": [
+        "$\\text{Does not exist}$",
+        "$\\dfrac{1}{2}$",
+        "$1$",
+        "$-1$",
+        "$0$"
+      ],
+      "correct_answer": "A",
+      "solution": "The limit Does Not Exist (DNE) by the Two-Path Test. **Step 1: Test Along Straight Lines $y = mx$** $$\\lim_{x \\to 0} \\frac{x^2(mx)}{x^4 + (mx)^2} = \\lim_{x \\to 0} \\frac{m x^3}{x^2(x^2 + m^2)} = \\lim_{x \\to 0} \\frac{m x}{x^2 + m^2} = 0 \\quad (\\text{for } m \\ne 0)$$Along the coordinate axes ($x = 0$ or $y = 0$), the expression is also identically $0$. **Step 2: Examine Degree Balance in the Denominator** In $x^4 + y^2$, the terms balance when $y \\sim x^2$. Let us test parabolic paths $y = k x^2$:$$\\lim_{x \\to 0} \\frac{x^2(k x^2)}{x^4 + (k x^2)^2} = \\lim_{x \\to 0} \\frac{k x^4}{x^4 + k^2 x^4} = \\lim_{x \\to 0} \\frac{k x^4}{x^4(1 + k^2)} = \\frac{k}{1 + k^2}$$ **Step 3: Evaluate Different Paths**   - Along $y = x^2$ ($k = 1$): $\\dfrac{1}{1 + 1^2} = \\dfrac{1}{2}$  - Along $y = -x^2$ ($k = -1$): $\\dfrac{-1}{1 + (-1)^2} = -\\dfrac{1}{2}$  - Along $y = 0$ ($k = 0$): $0$  Since different paths produce different limiting values, the limit **Does Not Exist (DNE)**."
+    },
+    {
+      "id": "PT2_1",
+      "term": "PT2",
+      "number": 1,
+      "section": "13.3",
+      "topic": "Partial Derivatives & Clairaut's Theorem",
+      "question": "If $f(x, y) = x^2 e^{xy}$, then the mixed second partial derivative $f_{xy}(1, 0)$ equals:",
+      "choices": [
+        "$0$",
+        "$2$",
+        "$4$",
+        "$3$",
+        "$1$"
+      ],
+      "correct_answer": "D",
+      "solution": "$f_{xy}(1, 0) = 3$. **Step 1: Compute First Partial Derivative $f_y$** Differentiating with respect to $y$ (treating $x$ as constant):$$f_y(x, y) = \\frac{\\partial}{\\partial y}[x^2 e^{xy}] = x^2 \\cdot (x e^{xy}) = x^3 e^{xy}$$ **Step 2: Differentiate with Respect to $x$ ($f_{yx} = f_{xy}$)** Using the Product Rule:$$\\frac{\\partial}{\\partial x}[x^3 e^{xy}] = \\left( \\frac{\\partial}{\\partial x}[x^3] \\right) e^{xy} + x^3 \\left( \\frac{\\partial}{\\partial x}[e^{xy}] \\right) = 3x^2 e^{xy} + x^3 (y e^{xy}) = e^{xy}(3x^2 + x^3 y)$$ **Step 3: Evaluate at $(x, y) = (1, 0)$** $$f_{xy}(1, 0) = e^{1 \\cdot 0} \\left( 3(1)^2 + (1)^3(0) \\right) = e^0 (3 + 0) = 1 \\cdot 3 = 3$$"
+    },
+    {
+      "id": "PT2_2",
+      "term": "PT2",
+      "number": 2,
+      "section": "13.3",
+      "topic": "Higher-Order Partial Derivatives",
+      "question": "Let $f(x, y) = x^3 y^2 - 2x y^3$. Then the third-order partial derivative $f_{xxy}(1, 2)$ equals:",
+      "choices": [
+        "$24$",
+        "$12$",
+        "$-12$",
+        "$6$",
+        "$18$"
+      ],
+      "correct_answer": "A",
+      "solution": "$f_{xxy}(1, 2) = 24$. **Step 1: First Partial Derivative $f_x$** Treat $y$ as a constant:$$f_x(x, y) = \\frac{\\partial}{\\partial x}[x^3 y^2 - 2x y^3] = 3x^2 y^2 - 2y^3$$ **Step 2: Second Partial Derivative $f_{xx}$** Differentiate $f_x$ with respect to $x$:$$f_{xx}(x, y) = \\frac{\\partial}{\\partial x}[3x^2 y^2 - 2y^3] = 6x y^2 - 0 = 6x y^2$$ **Step 3: Third Partial Derivative $f_{xxy}$** Differentiate $f_{xx}$ with respect to $y$:$$f_{xxy}(x, y) = \\frac{\\partial}{\\partial y}[6x y^2] = 6x(2y) = 12xy$$ **Step 4: Evaluate at $(x, y) = (1, 2)$** $$f_{xxy}(1, 2) = 12(1)(2) = 24$$"
+    },
+    {
+      "id": "PT2_3",
+      "term": "PT2",
+      "number": 3,
+      "section": "13.4",
+      "topic": "Linearization & Tangent Approximations",
+      "question": "For the upper hemisphere $z = \\sqrt{25 - x^2 - y^2}$ at the base point $(3, 0)$, the local linear approximation predicts $z(3.1, 0.2) \\approx$:",
+      "choices": [
+        "$3.75$",
+        "$4.25$",
+        "$3.5$",
+        "$3.925$",
+        "$4.075$"
+      ],
+      "correct_answer": "D",
+      "solution": "$z(3.1, 0.2) \\approx 3.925$. **Step 1: Calculate Function Value at the Base Point $(3, 0)$** $$z(3, 0) = \\sqrt{25 - 3^2 - 0^2} = \\sqrt{25 - 9} = \\sqrt{16} = 4$$ **Step 2: Calculate First Partial Derivatives at $(3, 0)$** $$z_x = \\frac{-2x}{2\\sqrt{25 - x^2 - y^2}} = \\frac{-x}{\\sqrt{25 - x^2 - y^2}} \\implies z_x(3, 0) = \\frac{-3}{4} = -0.75$$$$z_y = \\frac{-2y}{2\\sqrt{25 - x^2 - y^2}} = \\frac{-y}{\\sqrt{25 - x^2 - y^2}} \\implies z_y(3, 0) = \\frac{-0}{4} = 0$$ **Step 3: Construct the Linearization Formula** $$L(x, y) = z(3, 0) + z_x(3, 0)(x - 3) + z_y(3, 0)(y - 0)$$$$L(x, y) = 4 - 0.75(x - 3) + 0(y - 0) = 4 - 0.75(x - 3)$$ **Step 4: Approximate at $(3.1, 0.2)$** Here $\\Delta x = 3.1 - 3 = 0.1$:$$z(3.1, 0.2) \\approx L(3.1, 0.2) = 4 - 0.75(0.1) = 4 - 0.075 = 3.925$$"
+    },
+    {
+      "id": "PT2_4",
+      "term": "PT2",
+      "number": 4,
+      "section": "13.4",
+      "topic": "Differentials & Relative Error Estimation",
+      "question": "A rectangular box has sides $2$, $3$, and $4\\text{ cm}$. If each side increases by $1\\%$, the total differential predicts its volume increases by approximately:",
+      "choices": [
+        "$4\\%$",
+        "$1\\%$",
+        "$6\\%$",
+        "$3\\%$",
+        "$2\\%$"
+      ],
+      "correct_answer": "D",
+      "solution": "The volume increases by approximately $3\\%$. **Step 1: Formula for Volume and Total Differential** Volume of the box is $V = xyz$. The total differential is:$$dV = \\frac{\\partial V}{\\partial x} dx + \\frac{\\partial V}{\\partial y} dy + \\frac{\\partial V}{\\partial z} dz = (yz) dx + (xz) dy + (xy) dz$$ **Step 2: Express Relative Percentage Change** Divide through by $V = xyz$:$$\\frac{dV}{V} = \\frac{yz\\,dx + xz\\,dy + xy\\,dz}{xyz} = \\frac{dx}{x} + \\frac{dy}{y} + \\frac{dz}{z}$$ **Step 3: Substitute the Given Percentage Changes** Given $\\frac{dx}{x} = 1\\%$, $\\frac{dy}{y} = 1\\%$, $\\frac{dz}{z} = 1\\%$:$$\\frac{dV}{V} = 1\\% + 1\\% + 1\\% = 3\\%$$<small style='color:var(--color-primary);'>Notice: The relative change is invariant with respect to the initial side lengths!</small>"
+    },
+    {
+      "id": "PT2_5",
+      "term": "PT2",
+      "number": 5,
+      "section": "13.5",
+      "topic": "Multivariable Chain Rule",
+      "question": "Let $z = x^2 y + e^{xy}$, with $x = s + t$ and $y = s - t$. Find $\\dfrac{\\partial z}{\\partial t}$ at the parameter point $(s, t) = (1, 0)$:",
+      "choices": [
+        "$1$",
+        "$-e$",
+        "$2 + e$",
+        "$-1$",
+        "$0$"
+      ],
+      "correct_answer": "A",
+      "solution": "$\\left. \\dfrac{\\partial z}{\\partial t} \\right|_{(1, 0)} = 1$. **Step 1: Formulate the Chain Rule** $$\\frac{\\partial z}{\\partial t} = \\frac{\\partial z}{\\partial x} \\frac{\\partial x}{\\partial t} + \\frac{\\partial z}{\\partial y} \\frac{\\partial y}{\\partial t}$$ **Step 2: Compute Intermediate Coordinates at $(s, t) = (1, 0)$** $$x = 1 + 0 = 1, \\quad y = 1 - 0 = 1$$ **Step 3: Evaluate All Partial Derivatives** $$\\frac{\\partial x}{\\partial t} = 1, \\quad \\frac{\\partial y}{\\partial t} = -1$$$$\\frac{\\partial z}{\\partial x} = 2xy + y e^{xy} \\implies \\left. \\frac{\\partial z}{\\partial x} \\right|_{(1, 1)} = 2(1)(1) + (1)e^1 = 2 + e$$$$\\frac{\\partial z}{\\partial y} = x^2 + x e^{xy} \\implies \\left. \\frac{\\partial z}{\\partial y} \\right|_{(1, 1)} = 1^2 + (1)e^1 = 1 + e$$ **Step 4: Combine Using the Chain Rule Formula** $$\\frac{\\partial z}{\\partial t} = (2 + e)(1) + (1 + e)(-1) = 2 + e - 1 - e = 1$$"
+    },
+    {
+      "id": "PT2_6",
+      "term": "PT2",
+      "number": 6,
+      "section": "13.5",
+      "topic": "Implicit Differentiation",
+      "question": "If $x^2 + y^2 + z^2 + xyz = 8$ defines $z = z(x, y)$ implicitly as a differentiable function near $(1, 1, 2)$, then $z_x(1, 1)$ equals:",
+      "choices": [
+        "$-1$",
+        "$\\dfrac{4}{5}$",
+        "$-\\dfrac{2}{3}$",
+        "$-\\dfrac{4}{5}$",
+        "$-\\dfrac{3}{5}$"
+      ],
+      "correct_answer": "D",
+      "solution": "$z_x(1, 1) = -\\dfrac{4}{5}$. **Step 1: Define Implicit Function $F(x, y, z)$** Let $F(x, y, z) = x^2 + y^2 + z^2 + xyz - 8 = 0$. By the Implicit Function Theorem:$$z_x = -\\frac{F_x}{F_z}$$ **Step 2: Differentiate $F$ Partially with Respect to $x$ and $z$** $$F_x = \\frac{\\partial}{\\partial x}[x^2 + y^2 + z^2 + xyz - 8] = 2x + yz$$$$F_z = \\frac{\\partial}{\\partial z}[x^2 + y^2 + z^2 + xyz - 8] = 2z + xy$$ **Step 3: Evaluate at the Given Point $(x, y, z) = (1, 1, 2)$** $$F_x(1, 1, 2) = 2(1) + (1)(2) = 2 + 2 = 4$$$$F_z(1, 1, 2) = 2(2) + (1)(1) = 4 + 1 = 5$$ **Step 4: Compute $z_x(1, 1)$** $$z_x(1, 1) = -\\frac{F_x(1, 1, 2)}{F_z(1, 1, 2)} = -\\frac{4}{5}$$"
+    },
+    {
+      "id": "PT2_7",
+      "term": "PT2",
+      "number": 7,
+      "section": "13.6",
+      "topic": "Directional Derivatives & Gradients",
+      "question": "For the surface $f(x, y) = x^2 + 2xy + 3y^2$, find the maximum directional derivative at the point $(1, -1)$:",
+      "choices": [
+        "$2\\sqrt{10}$",
+        "$4$",
+        "$10$",
+        "$2\\sqrt{5}$",
+        "$\\sqrt{20}$"
+      ],
+      "correct_answer": "B",
+      "solution": "The maximum directional derivative at $(1, -1)$ is $4$. **Step 1: Theorem for Maximum Directional Derivative** For any differentiable function $f$, the maximum value of the directional derivative $D_{\\mathbf{u}} f$ at a point $P$ occurs when $\\mathbf{u}$ has the direction of $\\nabla f(P)$, and its maximum value is:$$D_{\\mathbf{u}, \\max} f(P) = \\|\\nabla f(P)\\|$$ **Step 2: Calculate the Gradient Vector $\\nabla f(x, y)$** $$f_x(x, y) = 2x + 2y, \\quad f_y(x, y) = 2x + 6y$$$$\\nabla f(x, y) = \\langle 2x + 2y, 2x + 6y \\rangle$$ **Step 3: Evaluate at Point $(1, -1)$** $$f_x(1, -1) = 2(1) + 2(-1) = 2 - 2 = 0$$$$f_y(1, -1) = 2(1) + 6(-1) = 2 - 6 = -4$$$$\\nabla f(1, -1) = \\langle 0, -4 \\rangle$$ **Step 4: Compute the Length of the Gradient Vector** $$\\|\\nabla f(1, -1)\\| = \\sqrt{0^2 + (-4)^2} = \\sqrt{16} = 4$$"
+    },
+    {
+      "id": "PT2_8",
+      "term": "PT2",
+      "number": 8,
+      "section": "13.6",
+      "topic": "Gradient Vectors & Normal Lines",
+      "question": "At the point $P = (1, 2)$, a unit normal vector to the level curve $x^2 + xy + y^2 = 7$ pointing toward increasing values of $f(x, y) = x^2 + xy + y^2$ is:",
+      "choices": [
+        "$\\dfrac{\\langle 1, 2 \\rangle}{\\sqrt{5}}$",
+        "$\\dfrac{\\langle -4, -5 \\rangle}{\\sqrt{41}}$",
+        "$\\dfrac{\\langle 5, 4 \\rangle}{\\sqrt{41}}$",
+        "$\\dfrac{\\langle 3, 6 \\rangle}{\\sqrt{45}}$",
+        "$\\dfrac{\\langle 4, 5 \\rangle}{\\sqrt{41}}$"
+      ],
+      "correct_answer": "E",
+      "solution": "$\\mathbf{u} = \\dfrac{\\langle 4, 5 \\rangle}{\\sqrt{41}}$. **Step 1: Normal Property of the Gradient** For any smooth level curve $f(x, y) = c$, the gradient vector $\\nabla f(P)$ is perpendicular to the level curve at $P$ and points toward increasing values of $f$. **Step 2: Differentiate to Obtain the Gradient** With $f(x, y) = x^2 + xy + y^2$:$$f_x = 2x + y, \\quad f_y = x + 2y$$$$\\nabla f(x, y) = \\langle 2x + y, x + 2y \\rangle$$ **Step 3: Evaluate at Point $P = (1, 2)$** $$f_x(1, 2) = 2(1) + 2 = 4$$$$f_y(1, 2) = 1 + 2(2) = 5$$$$\\nabla f(1, 2) = \\langle 4, 5 \\rangle$$ **Step 4: Normalize to a Unit Vector** $$\\|\\nabla f(1, 2)\\| = \\sqrt{4^2 + 5^2} = \\sqrt{16 + 25} = \\sqrt{41}$$$$\\mathbf{u} = \\frac{\\nabla f(1, 2)}{\\|\\nabla f(1, 2)\\|} = \\frac{\\langle 4, 5 \\rangle}{\\sqrt{41}} = \\left\\langle \\frac{4}{\\sqrt{41}}, \\frac{5}{\\sqrt{41}} \\right\\rangle$$"
+    },
     {
       "id": "253_1",
       "term": "253",
@@ -3530,14 +4080,14 @@
     }
   ],
   "section_distribution": {
-    "13.1": 25,
-    "11.6": 13,
-    "11.5": 52,
-    "13.2": 17,
-    "13.5": 21,
-    "13.3": 44,
-    "13.4": 9,
-    "13.6": 13,
+    "11.5": 54,
+    "11.6": 15,
+    "13.1": 27,
+    "13.2": 19,
+    "13.3": 46,
+    "13.4": 11,
+    "13.5": 23,
+    "13.6": 15,
     "13.7": 6
   }
 }
