@@ -2,14 +2,13 @@ window.MATH201_EXAM_BANK = {
   "course": "MATH 201 - Calculus III",
   "exam": "Major Exam II",
   "coordinator": "Dr. Ibrahim Al-Rasasi",
-  "total_questions": 216,
+  "total_questions": 201,
   "terms_included": [
     "PT1",
     "PT2",
     "253",
     "252",
-    "251A",
-    "251B",
+    "251",
     "243",
     "242",
     "241",
@@ -1189,8 +1188,8 @@ window.MATH201_EXAM_BANK = {
       "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$1 √ 53$$</p>"
     },
     {
-      "id": "251A_1",
-      "term": "251A",
+      "id": "251_1",
+      "term": "251",
       "number": 1,
       "section": "11.5",
       "topic": "11.5 Planes in Space & Intersections",
@@ -1206,8 +1205,8 @@ window.MATH201_EXAM_BANK = {
       "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$It is parallel to the plane 8x -2y -6z = 10$$</p>"
     },
     {
-      "id": "251A_2",
-      "term": "251A",
+      "id": "251_2",
+      "term": "251",
       "number": 2,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
@@ -1223,8 +1222,8 @@ window.MATH201_EXAM_BANK = {
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$-4s2 sin(2t)$$</p>"
     },
     {
-      "id": "251A_3",
-      "term": "251A",
+      "id": "251_3",
+      "term": "251",
       "number": 3,
       "section": "13.5",
       "topic": "13.5 Multivariable Chain Rule",
@@ -1240,8 +1239,8 @@ window.MATH201_EXAM_BANK = {
       "solution": "<p><strong>1. Chain Rule / Implicit Differentiation:</strong> Using the multivariable chain rule or the implicit derivative formula: $$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}, \\quad \\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$</p><p><strong>2. Gradient Substitution:</strong> Computing partial derivatives with respect to the active variable and substituting the point coordinates.</p><p><strong>3. Conclusion:</strong> Simplifying the resulting fraction gives: $$-8 5$$</p>"
     },
     {
-      "id": "251A_4",
-      "term": "251A",
+      "id": "251_4",
+      "term": "251",
       "number": 4,
       "section": "13.1",
       "topic": "13.1 Multivariable Functions & Level Curves",
@@ -1257,8 +1256,8 @@ window.MATH201_EXAM_BANK = {
       "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$lying on or inside the ellipse x2 4 + y2 16 = 1$$</p>"
     },
     {
-      "id": "251A_5",
-      "term": "251A",
+      "id": "251_5",
+      "term": "251",
       "number": 5,
       "section": "11.5",
       "topic": "11.5 Lines in Space & Skew Lines",
@@ -1274,8 +1273,8 @@ window.MATH201_EXAM_BANK = {
       "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$8x + y -z = 0$$</p>"
     },
     {
-      "id": "251A_6",
-      "term": "251A",
+      "id": "251_6",
+      "term": "251",
       "number": 6,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
@@ -1291,8 +1290,8 @@ window.MATH201_EXAM_BANK = {
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$8$$</p>"
     },
     {
-      "id": "251A_7",
-      "term": "251A",
+      "id": "251_7",
+      "term": "251",
       "number": 7,
       "section": "11.5",
       "topic": "13.4 Differentials & Linear Approx",
@@ -1308,8 +1307,8 @@ window.MATH201_EXAM_BANK = {
       "solution": "<p><strong>1. Total Differential Formula:</strong> The linear approximation is given by: $$dz = f_x(x_0, y_0)\\,dx + f_y(x_0, y_0)\\,dy$$</p><p><strong>2. Partial Derivatives Evaluation:</strong> Evaluating $f_x$ and $f_y$ at the base point $(x_0, y_0)$ with deviations $dx = x - x_0$ and $dy = y - y_0$.</p><p><strong>3. Numerical Calculation:</strong> Summing the differentials yields the estimated value: $$0.2$$</p>"
     },
     {
-      "id": "251A_8",
-      "term": "251A",
+      "id": "251_8",
+      "term": "251",
       "number": 8,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
@@ -1325,8 +1324,8 @@ window.MATH201_EXAM_BANK = {
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$0$$</p>"
     },
     {
-      "id": "251A_9",
-      "term": "251A",
+      "id": "251_9",
+      "term": "251",
       "number": 9,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
@@ -1342,8 +1341,8 @@ window.MATH201_EXAM_BANK = {
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$2$$</p>"
     },
     {
-      "id": "251A_10",
-      "term": "251A",
+      "id": "251_10",
+      "term": "251",
       "number": 10,
       "section": "13.6",
       "topic": "13.6 Directional Derivatives & Gradients",
@@ -1359,8 +1358,8 @@ window.MATH201_EXAM_BANK = {
       "solution": "<p><strong>1. Gradient Vector $\\nabla f$:</strong> Computing the partial derivatives gives $\\nabla f = \\langle f_x, f_y, f_z \\rangle$.</p><p><strong>2. Unit Direction $\\vec{u}$:</strong> Normalizing the direction vector $\\vec{v}$ yields $\\vec{u} = \\frac{\\vec{v}}{\\|\\vec{v}\\|}$. The directional derivative is $D_{\\vec{u}} f = \\nabla f \\cdot \\vec{u}$.</p><p><strong>3. Maximum Rate of Change:</strong> The maximum rate of change is given by $\\|\\nabla f\\|$. Evaluating yields: $$√ 5$$</p>"
     },
     {
-      "id": "251A_11",
-      "term": "251A",
+      "id": "251_11",
+      "term": "251",
       "number": 11,
       "section": "13.1",
       "topic": "13.1 Multivariable Functions & Level Curves",
@@ -1376,8 +1375,8 @@ window.MATH201_EXAM_BANK = {
       "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$z2 = 4x2 + 4y2 + 1$$</p>"
     },
     {
-      "id": "251A_12",
-      "term": "251A",
+      "id": "251_12",
+      "term": "251",
       "number": 12,
       "section": "11.5",
       "topic": "11.5 Lines in Space & Skew Lines",
@@ -1393,8 +1392,8 @@ window.MATH201_EXAM_BANK = {
       "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$-28$$</p>"
     },
     {
-      "id": "251A_13",
-      "term": "251A",
+      "id": "251_13",
+      "term": "251",
       "number": 13,
       "section": "11.5",
       "topic": "11.5 Planes in Space & Intersections",
@@ -1410,8 +1409,8 @@ window.MATH201_EXAM_BANK = {
       "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$6$$</p>"
     },
     {
-      "id": "251A_14",
-      "term": "251A",
+      "id": "251_14",
+      "term": "251",
       "number": 14,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
@@ -1427,8 +1426,8 @@ window.MATH201_EXAM_BANK = {
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$g is differentiable at (0, 0)$$</p>"
     },
     {
-      "id": "251A_15",
-      "term": "251A",
+      "id": "251_15",
+      "term": "251",
       "number": 15,
       "section": "13.3",
       "topic": "13.3 Partial Derivatives",
@@ -1439,261 +1438,6 @@ window.MATH201_EXAM_BANK = {
         "The graph of $16x^2 - y^2 + 16z^2 = 4$ is a hyperboloid of one sheet",
         "The graph of $16x^2 - y + 16z^2 = 4$ is an elliptic paraboloid",
         "The graph of $16x^2 - y^2 - 16z^2 = 4$ is a hyperboloid of two sheets"
-      ],
-      "correct_answer": "A",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$The graph of 16x2 + y2 + 16z2 = 4 is a cylinder$$</p>"
-    },
-    {
-      "id": "251B_1",
-      "term": "251B",
-      "number": 1,
-      "section": "11.5",
-      "topic": "11.5 Planes in Space & Intersections",
-      "question": "Which one of the following statements is FALSE about the plane $3x - 2y + z = 6$?",
-      "choices": [
-        "It passes through the point $(1, 1, 5)$",
-        "It is parallel to the plane $6x - 4y - 2z = 10$",
-        "It intersects the $x$-axis at $(2, 0, 0)$",
-        "It has a normal vector $\\vec{n} = \\langle 3, -2, 1 \\rangle$",
-        "The point $(0, -3, 0)$ lies in the plane"
-      ],
-      "correct_answer": "B",
-      "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$It is parallel to the plane 6x -4y -2z = 10$$</p>"
-    },
-    {
-      "id": "251B_2",
-      "term": "251B",
-      "number": 2,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
-      "question": "If $w = 2x^2 - y^2, x = s\\cos t, y = s\\sin t$, then $\\frac{\\partial w}{\\partial t} =$",
-      "choices": [
-        "$-6s^2\\sin(2t)$",
-        "$-2s^2\\sin(2t)$",
-        "$-3s^2\\sin(2t)$",
-        "$-3s^2\\cos(2t)$",
-        "$-4t^2\\cos(2t)$"
-      ],
-      "correct_answer": "C",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$-3s2 sin(2t)$$</p>"
-    },
-    {
-      "id": "251B_3",
-      "term": "251B",
-      "number": 3,
-      "section": "13.5",
-      "topic": "13.5 Multivariable Chain Rule",
-      "question": "If $z$ is defined implicitly as a differentiable function of $x$ and $y$ by the equation $x\\ln y + y^2 z + z^2 = 6$, then $\\frac{\\partial z}{\\partial y}$ at the point $(6, 1, 2)$ is equal to",
-      "choices": [
-        "$-2$",
-        "$-\\frac{9}{4}$",
-        "$\\frac{9}{5}$",
-        "$-\\frac{5}{3}$",
-        "$\\frac{27}{19}$"
-      ],
-      "correct_answer": "A",
-      "solution": "<p><strong>1. Chain Rule / Implicit Differentiation:</strong> Using the multivariable chain rule or the implicit derivative formula: $$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}, \\quad \\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$</p><p><strong>2. Gradient Substitution:</strong> Computing partial derivatives with respect to the active variable and substituting the point coordinates.</p><p><strong>3. Conclusion:</strong> Simplifying the resulting fraction gives: $$-2$$</p>"
-    },
-    {
-      "id": "251B_4",
-      "term": "251B",
-      "number": 4,
-      "section": "13.1",
-      "topic": "13.1 Multivariable Functions & Level Curves",
-      "question": "The domain of the function $f(x, y) = \\sqrt{16 - x^2 - 4y^2}$ is the set of all points",
-      "choices": [
-        "lying on or inside the ellipse $\\frac{x^2}{16} + \\frac{y^2}{4} = 1$",
-        "lying on or outside the circle $x^2 + y^2 = 16$",
-        "lying on or inside the circle $x^2 + y^2 = 16$",
-        "lying on or inside the ellipse $\\frac{x^2}{16} + \\frac{y^2}{2} = 1$",
-        "lying outside the ellipse $\\frac{x^2}{4} + \\frac{y^2}{16} = 1$"
-      ],
-      "correct_answer": "A",
-      "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$lying on or inside the ellipse x2 16 + y2 4 = 1$$</p>"
-    },
-    {
-      "id": "251B_5",
-      "term": "251B",
-      "number": 5,
-      "section": "11.5",
-      "topic": "11.5 Lines in Space & Skew Lines",
-      "question": "An equation of the tangent plane to the surface $z = y e^{2xy}$ at the point $(0, 2, 2)$, is",
-      "choices": [
-        "$y - 8z = 0$",
-        "$x + y - 8z = 0$",
-        "$8x + y - z = 0$",
-        "$8x + y + z = 0$",
-        "$32x + y - z = 0$"
-      ],
-      "correct_answer": "C",
-      "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$8x + y -z = 0$$</p>"
-    },
-    {
-      "id": "251B_6",
-      "term": "251B",
-      "number": 6,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
-      "question": "If $f(x, y, z) = x^3 - 4xy + 3y^3 + x y^2 z^2$, then $f_{xyzz}(2, 2, 2) + f_{yzxz}(2, 2, 2) =$",
-      "choices": [
-        "$10$",
-        "$2$",
-        "$14$",
-        "$8$",
-        "$16$"
-      ],
-      "correct_answer": "E",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$16$$</p>"
-    },
-    {
-      "id": "251B_7",
-      "term": "251B",
-      "number": 7,
-      "section": "11.5",
-      "topic": "13.4 Differentials & Linear Approx",
-      "question": "Let $z = x^2 + y^2$. If $(x, y)$ changes from $(1, 1)$ to $(1.3, 0.9)$, then using differentials, the change in $z$ is approximately equal to",
-      "choices": [
-        "$0.4$",
-        "$-0.1$",
-        "$0.2$",
-        "$0.02$",
-        "$0.05$"
-      ],
-      "correct_answer": "A",
-      "solution": "<p><strong>1. Total Differential Formula:</strong> The linear approximation is given by: $$dz = f_x(x_0, y_0)\\,dx + f_y(x_0, y_0)\\,dy$$</p><p><strong>2. Partial Derivatives Evaluation:</strong> Evaluating $f_x$ and $f_y$ at the base point $(x_0, y_0)$ with deviations $dx = x - x_0$ and $dy = y - y_0$.</p><p><strong>3. Numerical Calculation:</strong> Summing the differentials yields the estimated value: $$0.4$$</p>"
-    },
-    {
-      "id": "251B_8",
-      "term": "251B",
-      "number": 8,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
-      "question": "$\\lim_{(x,y)\\to(0,0)} \\frac{4x^3}{2x^2 + 2y^2} =$",
-      "choices": [
-        "$\\frac{3}{2}$",
-        "$2$",
-        "$0$",
-        "DNE",
-        "$1$"
-      ],
-      "correct_answer": "C",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$0$$</p>"
-    },
-    {
-      "id": "251B_9",
-      "term": "251B",
-      "number": 9,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
-      "question": "If $z = \\ln(4x^2 + y^2)$, then $x\\frac{\\partial z}{\\partial x} + y\\frac{\\partial z}{\\partial y} =$",
-      "choices": [
-        "$0$",
-        "$z^2$",
-        "$2$",
-        "$-z$",
-        "$z$"
-      ],
-      "correct_answer": "C",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$2$$</p>"
-    },
-    {
-      "id": "251B_10",
-      "term": "251B",
-      "number": 10,
-      "section": "13.6",
-      "topic": "13.6 Directional Derivatives & Gradients",
-      "question": "The maximum value of the directional derivative of $f(x, y) = y^2 - x\\sqrt{y}$ at the point $(4, 4)$ is equal to",
-      "choices": [
-        "$3$",
-        "$\\sqrt{33}$",
-        "$7$",
-        "$\\sqrt{53}$",
-        "$4$"
-      ],
-      "correct_answer": "D",
-      "solution": "<p><strong>1. Gradient Vector $\\nabla f$:</strong> Computing the partial derivatives gives $\\nabla f = \\langle f_x, f_y, f_z \\rangle$.</p><p><strong>2. Unit Direction $\\vec{u}$:</strong> Normalizing the direction vector $\\vec{v}$ yields $\\vec{u} = \\frac{\\vec{v}}{\\|\\vec{v}\\|}$. The directional derivative is $D_{\\vec{u}} f = \\nabla f \\cdot \\vec{u}$.</p><p><strong>3. Maximum Rate of Change:</strong> The maximum rate of change is given by $\\|\\nabla f\\|$. Evaluating yields: $$√ 53$$</p>"
-    },
-    {
-      "id": "251B_11",
-      "term": "251B",
-      "number": 11,
-      "section": "13.1",
-      "topic": "13.1 Multivariable Functions & Level Curves",
-      "question": "An equation for the level surface of $f(x, y, z) = 4x^2 + 4y^2 - z^2$ that passes through the point $(0, 0, 3)$ is given by",
-      "choices": [
-        "$z^2 = 4x^2 + 4y^2 + 9$",
-        "$z^2 = 4x^2 + 4y^2 + 81$",
-        "$z^2 = x^2 + y^2 + 3$",
-        "$z^2 = x^2 + y^2 + 9$",
-        "$z^2 = 4x^2 + 4y^2$"
-      ],
-      "correct_answer": "A",
-      "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$z2 = 4x2 + 4y2 + 9$$</p>"
-    },
-    {
-      "id": "251B_12",
-      "term": "251B",
-      "number": 12,
-      "section": "11.5",
-      "topic": "11.5 Lines in Space & Skew Lines",
-      "question": "If $(a, b, c)$ is the point of intersection between the lines $L_1 : x = 1 + 2t, y = 1 - 3t, z = 2 - 5t$ and $L_2 : x = 9 - 3s, y = -10 + 4s, z = -17 + 7s$, then $a b c =$",
-      "choices": [
-        "$-16$",
-        "$-15$",
-        "$9$",
-        "$18$",
-        "$12$"
-      ],
-      "correct_answer": "D",
-      "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$18$$</p>"
-    },
-    {
-      "id": "251B_13",
-      "term": "251B",
-      "number": 13,
-      "section": "11.5",
-      "topic": "11.5 Planes in Space & Intersections",
-      "question": "If $ax + by + cz = 8$ is an equation for the plane passing through the points $P(2, 1, 0)$ and $Q(3, 0, 4)$ and is perpendicular to the $yz$-plane, then $a + b + c =$",
-      "choices": [
-        "$6$",
-        "$10$",
-        "$4$",
-        "$3$",
-        "$8$"
-      ],
-      "correct_answer": "B",
-      "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$10$$</p>"
-    },
-    {
-      "id": "251B_14",
-      "term": "251B",
-      "number": 14,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
-      "question": "Consider the unit vector $\\vec{u} = \\frac{1}{\\sqrt{2}}(\\vec{i} + \\vec{j})$ and the two functions $f(x, y) = \\begin{cases} \\frac{4xy}{x^2 + y^2} & (x, y) \\ne (0, 0) \\\\ 2 & (x, y) = (0, 0) \\end{cases}$ and $g(x, y) = \\begin{cases} \\frac{4xy}{x^2 + y^2} & (x, y) \\ne (0, 0) \\\\ 0 & (x, y) = (0, 0) \\end{cases}$. Which of the following is FALSE ?",
-      "choices": [
-        "$D_{\\vec{u}} f(0, 0) = 0$",
-        "$g$ is not differentiable at $(0, 0)$",
-        "$g_x(0, 0) = 0$",
-        "$f$ is differentiable at $(0, 0)$",
-        "$D_{\\vec{u}} g(0, 0)$ does not exist"
-      ],
-      "correct_answer": "D",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$f is differentiable at (0, 0)$$</p>"
-    },
-    {
-      "id": "251B_15",
-      "term": "251B",
-      "number": 15,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
-      "question": "Which one of the following statements is FALSE ?",
-      "choices": [
-        "The graph of $16x^2 + y^2 + 16z^2 = 4$ is a cylinder",
-        "The graph of $16x^2 - y^2 - 16z^2 = 4$ is a hyperboloid of two sheets",
-        "The graph of $16x^2 - y + 16z^2 = 4$ is an elliptic paraboloid",
-        "The graph of $16x^2 - y^2 + 16z^2 = 4$ is a hyperboloid of one sheet",
-        "The graph of $16x^2 - y^2 + 16z^2 = 0$ is an elliptic cone"
       ],
       "correct_answer": "A",
       "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$The graph of 16x2 + y2 + 16z2 = 4 is a cylinder$$</p>"
