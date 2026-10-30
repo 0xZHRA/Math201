@@ -4,6 +4,20 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script>
+    /* Theme Initialization: runs before first paint to prevent flashes */
+    (function () {
+        var t = 'light';
+        try {
+            var p = new URLSearchParams(window.location.search);
+            var q = p.get('theme') || p.get('paper');
+            if (q === 'dark' || q === 'light') {
+                t = q;
+            } else if (localStorage.getItem('math201_theme') === 'dark' || localStorage.getItem('math201_paper_theme') === 'dark') {
+                t = 'dark';
+            }
+        } catch (e) {}
+        document.documentElement.setAttribute('data-theme', t);
+    })();
     /* Instant Device Auth Gatekeeper Check */
     (function () {
         try {
@@ -21,7 +35,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="initKaTeXWhenReady()"></script>
 <style>
 /* ========================================================
-   STRICT CONTAINER & BORDER CONTAINMENT RULES
+   CONTAINER & BORDER CONTAINMENT RULES
    Ensures ZERO text or formula overflow across all viewports
    ======================================================== */
 *, *::before, *::after {
@@ -31,13 +45,11 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-/* Performance Optimization: content-visibility for cards */
 .section-card, .practice-card {
     content-visibility: auto;
     contain-intrinsic-size: 0 320px;
 }
 
-/* KaTeX horizontal scroll containment - never bleed outside card borders */
 .katex-display {
     overflow-x: auto !important;
     overflow-y: hidden !important;
@@ -51,7 +63,6 @@
     text-rendering: auto;
 }
 
-/* Text word-wrap & overflow protection */
 .body-text, .q-content, .ans-content, .sol-content, 
 .card-title, .practice-card-title, .exam-rationale-text, 
 .topic-sheet-title, .page-title, .page-desc {
@@ -61,7 +72,6 @@
     max-width: 100% !important;
 }
 
-/* Card and Box boundary confinement */
 .section-card, .practice-card {
     max-width: 100% !important;
     box-sizing: border-box !important;
@@ -77,7 +87,6 @@
     -webkit-overflow-scrolling: touch;
 }
 
-/* Header & Meta flex wrapping */
 .card-header, .practice-header {
     display: flex !important;
     flex-wrap: wrap !important;
@@ -97,13 +106,6 @@
     min-width: 0 !important;
 }
 
-.exam-rationale-box {
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    overflow-wrap: break-word !important;
-    word-break: break-word !important;
-}
-
 .teleport-strip {
     max-width: 100% !important;
     box-sizing: border-box !important;
@@ -111,15 +113,74 @@
     -webkit-overflow-scrolling: touch;
 }
 
+/* ========================================================
+   REFINED MONOCHROME & EDITORIAL THEME TOKENS
+   ======================================================== */
+:root,
+:root[data-theme="light"],
+[data-theme="light"] {
+    --bg-body: #f8f8f7;
+    --bg-card: #ffffff;
+    --bg-subtle: #f1f1ef;
+    --bg-elevated: #ffffff;
+    --bg-nav: rgba(248, 248, 247, 0.94);
+    --border-subtle: #e4e4e7;
+    --border-strong: #d4d4d8;
+    --text-primary: #18181b;
+    --text-secondary: #52525b;
+    --text-muted: #71717a;
+    --accent-primary: #18181b;
+    --accent-fg: #ffffff;
+    --accent-subtle: #f4f4f5;
+    --border-focus: #18181b;
+    --status-ok: #15803d;
+    --status-ok-bg: rgba(21, 128, 61, 0.08);
+    --status-ok-border: rgba(21, 128, 61, 0.3);
+    --status-err: #b91c1c;
+    --status-err-bg: rgba(185, 28, 28, 0.08);
+    --status-err-border: rgba(185, 28, 28, 0.3);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+:root[data-theme="dark"],
+[data-theme="dark"] {
+    --bg-body: #0a0a0b;
+    --bg-card: #121214;
+    --bg-subtle: #18181b;
+    --bg-elevated: #1c1c20;
+    --bg-nav: rgba(10, 10, 11, 0.94);
+    --border-subtle: #27272a;
+    --border-strong: #3f3f46;
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --accent-primary: #f4f4f5;
+    --accent-fg: #09090b;
+    --accent-subtle: #27272a;
+    --border-focus: #a1a1aa;
+    --status-ok: #22c55e;
+    --status-ok-bg: rgba(34, 197, 94, 0.1);
+    --status-ok-border: rgba(34, 197, 94, 0.35);
+    --status-err: #ef4444;
+    --status-err-bg: rgba(239, 68, 68, 0.1);
+    --status-err-border: rgba(239, 68, 68, 0.35);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
+    --shadow-lg: 0 10px 24px rgba(0, 0, 0, 0.5);
+}
+
 body {
-    background-color: #070709;
-    color: #e4e4e7;
+    background-color: var(--bg-body);
+    color: var(--text-primary);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 15px;
     line-height: 1.65;
     padding-bottom: 70px;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Minimalist Scrolling Progress Bar */
@@ -127,8 +188,8 @@ body {
     position: fixed;
     top: 0;
     inset-inline-start: 0;
-    height: 2.5px;
-    background: #38bdf8;
+    height: 2px;
+    background: var(--text-primary);
     width: 0%;
     z-index: 9999;
     pointer-events: none;
@@ -140,15 +201,16 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(9, 9, 13, 0.96);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid #1f1f2c;
-    padding: 10px 14px;
+    background: var(--bg-nav);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 10px 16px;
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .nav-inner-container {
-    max-width: 860px;
+    max-width: 900px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -165,9 +227,9 @@ body {
 }
 
 .brand-badge {
-    background: rgba(56, 189, 248, 0.12);
-    color: #38bdf8;
-    border: 1px solid rgba(56, 189, 248, 0.3);
+    background: var(--bg-subtle);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-subtle);
     font-size: 10.5px;
     font-weight: 800;
     padding: 2px 7px;
@@ -178,24 +240,24 @@ body {
 .brand-text {
     font-size: 14.5px;
     font-weight: 800;
-    color: #ffffff;
+    color: var(--text-primary);
     letter-spacing: 0.8px;
 }
 
-/* Prominent, Thumb-friendly Popup Topic Trigger (Single Unified Access) */
+/* Topic Selector Menu Trigger */
 .btn-topics-menu {
-    background: #151520;
-    border: 1px solid #2e2e42;
-    color: #f1f5f9;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
     font-size: 13.5px;
     font-weight: 700;
-    padding: 8px 14px;
-    border-radius: 12px;
+    padding: 7px 13px;
+    border-radius: 10px;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    min-height: 40px;
+    min-height: 38px;
     max-width: 250px;
     transition: all 0.15s ease;
     user-select: none;
@@ -207,497 +269,449 @@ body {
 }
 .btn-topics-menu .chevron {
     font-size: 10px;
-    color: #38bdf8;
+    color: var(--text-muted);
     flex-shrink: 0;
 }
 .btn-topics-menu:hover, .btn-topics-menu:active {
-    background: #1f2233;
-    border-color: #38bdf8;
-    box-shadow: 0 0 14px rgba(56, 189, 248, 0.25);
+    background: var(--bg-subtle);
+    border-color: var(--border-strong);
 }
 
-/* Tab Switch (Notes vs Practice vs Videos) */
+/* Nav Controls Group (Tabs + Theme) */
+.nav-right-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Tab Switch (Notes vs Practice vs Videos vs Exam Bank) */
 .tab-switch {
     display: flex;
-    background: #14141e;
-    border: 1px solid #28283a;
-    border-radius: 10px;
+    align-items: center;
+    gap: 3px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
     padding: 3px;
-    flex-shrink: 0;
-    gap: 2px;
+    border-radius: 9px;
 }
 
 .tab-btn {
     background: transparent;
     border: none;
-    color: #94a3b8;
-    font-size: 12.5px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    user-select: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.tab-btn:hover {
+    color: var(--text-primary);
+}
+.tab-btn.active {
+    background: var(--accent-primary);
+    color: var(--accent-fg);
+    box-shadow: var(--shadow-sm);
+}
+.exam-bank-badge {
+    font-size: 10px;
+    background: var(--border-subtle);
+    color: var(--text-secondary);
+    padding: 1px 5px;
+    border-radius: 4px;
     font-weight: 700;
-    padding: 7px 13px;
+}
+.tab-btn:hover .exam-bank-badge {
+    color: var(--text-primary);
+}
+.tab-btn.active .exam-bank-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--accent-fg);
+}
+
+/* Theme Toggle Button */
+.btn-theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
     border-radius: 8px;
-    min-height: 36px;
+    padding: 7px 11px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.15s ease;
     user-select: none;
 }
-.tab-btn.active {
-    background: #252538;
-    color: #ffffff;
+.btn-theme-toggle:hover {
+    background: var(--bg-subtle);
+    color: var(--text-primary);
+    border-color: var(--border-strong);
 }
+.btn-theme-toggle svg {
+    flex-shrink: 0;
+}
+[data-theme="light"] .btn-theme-toggle .icon-sun { display: none; }
+[data-theme="light"] .btn-theme-toggle .icon-moon { display: block; }
+[data-theme="dark"] .btn-theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .btn-theme-toggle .icon-moon { display: none; }
 
-/* Quick-Select Topic Bottom Sheet / Drawer */
+/* Popup Topic Selector Modal */
 .topic-modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
     z-index: 1000;
     display: none;
     align-items: flex-end;
     justify-content: center;
 }
-
+.topic-modal-overlay.open {
+    display: flex;
+}
 .topic-modal-sheet {
-    background: #101015;
-    border: 1px solid #262632;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-strong);
     border-radius: 16px 16px 0 0;
     width: 100%;
-    max-width: 640px;
-    max-height: 75vh;
+    max-width: 720px;
+    max-height: 82vh;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.5);
-    animation: slideUp 0.2s ease-out;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    animation: sheetSlideUp 0.22s ease-out;
 }
-
-@keyframes slideUp {
+@keyframes sheetSlideUp {
     from { transform: translateY(100%); }
     to { transform: translateY(0); }
 }
-
 .topic-sheet-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 18px;
-    border-bottom: 1px solid #1e1e28;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-subtle);
 }
-
 .topic-sheet-heading {
     font-size: 15px;
-    font-weight: 800;
-    color: #f1f5f9;
+    font-weight: 700;
+    color: var(--text-primary);
 }
-
 .topic-sheet-close {
-    background: transparent;
-    border: none;
-    color: #94a3b8;
-    font-size: 22px;
-    line-height: 1;
-    padding: 4px 8px;
-    cursor: pointer;
-}
-
-.topic-sheet-body {
-    overflow-y: auto;
-    padding: 8px 12px 24px;
-}
-
-.topic-sheet-item {
-    width: 100%;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    font-size: 16px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    background: #14141b;
-    border: 1px solid #20202c;
-    border-radius: 10px;
-    padding: 10px 14px;
-    margin-bottom: 8px;
-    text-align: start;
+    justify-content: center;
     cursor: pointer;
     transition: all 0.15s ease;
 }
-.topic-sheet-item:hover, .topic-sheet-item:active {
-    background: #1f2230;
-    border-color: #38bdf8;
+.topic-sheet-close:hover {
+    color: var(--text-primary);
+    border-color: var(--border-strong);
+}
+.topic-sheet-body {
+    padding: 12px 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    -webkit-overflow-scrolling: touch;
+}
+.topic-sheet-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 12px 14px;
+    cursor: pointer;
+    text-align: start;
+    transition: all 0.15s ease;
+    color: var(--text-primary);
+    width: 100%;
+}
+.topic-sheet-item:hover {
+    background: var(--bg-subtle);
+    border-color: var(--border-strong);
 }
 .topic-sheet-item.selected {
-    background: #172238;
-    border-color: #38bdf8;
-    box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
+    background: var(--bg-subtle);
+    border-color: var(--border-focus);
+    border-inline-start: 4px solid var(--accent-primary);
 }
-.topic-sheet-item.selected .topic-sheet-title {
-    color: #38bdf8;
-}
-
 .topic-sheet-num {
     font-size: 12px;
-    font-weight: 800;
-    color: #38bdf8;
-    background: rgba(56, 189, 248, 0.12);
-    padding: 4px 8px;
-    border-radius: 6px;
-    flex-shrink: 0;
-}
-
-.topic-sheet-pcount {
-    font-size: 11px;
     font-weight: 700;
-    color: #10b981;
-    background: rgba(16, 185, 129, 0.12);
-    padding: 3px 8px;
-    border-radius: 12px;
+    color: var(--text-muted);
+    font-family: ui-monospace, SFMono-Regular, monospace;
+    width: 22px;
     flex-shrink: 0;
-    margin-inline-start: auto;
 }
-
-.topic-sheet-meta {
-    flex: 1;
-    min-width: 0;
-}
-
 .topic-sheet-title {
     font-size: 14px;
-    font-weight: 700;
-    color: #ffffff;
+    font-weight: 600;
+    color: var(--text-primary);
     margin-bottom: 2px;
 }
-
 .topic-sheet-sub {
-    font-size: 11.5px;
-    color: #8e8e93;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+.topic-sheet-pcount {
+    font-size: 11px;
+    background: var(--bg-subtle);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-subtle);
+    padding: 2px 7px;
+    border-radius: 9999px;
+    margin-inline-start: auto;
+    flex-shrink: 0;
 }
 
 /* Main Document Content */
 .main-wrapper {
-    max-width: 820px;
+    max-width: 860px;
     margin: 0 auto;
-    padding: 18px 14px;
+    padding: 24px 16px;
 }
-
 .page-header {
-    margin-bottom: 22px;
-    border-bottom: 1px solid #1a1a24;
-    padding-bottom: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-subtle);
 }
-
 .page-meta-badge {
+    display: inline-block;
     font-size: 11px;
     font-weight: 800;
-    color: #38bdf8;
-    letter-spacing: 1px;
     text-transform: uppercase;
-    margin-bottom: 4px;
+    letter-spacing: 0.08em;
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    background: var(--bg-subtle);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-subtle);
 }
-.page-meta-practice {
-    color: #34d399;
-}
-.page-meta-videos {
-    color: #f43f5e;
-}
-
 .page-title {
-    font-size: 23px;
+    font-size: 26px;
     font-weight: 800;
-    color: #ffffff;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
     margin-bottom: 6px;
-    line-height: 1.3;
 }
-
 .page-desc {
-    font-size: 13.5px;
-    color: #94a3b8;
-    margin-bottom: 14px;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
 }
 
 /* Subsection / Problem Teleport Chips */
 .teleport-strip {
-    background: #0d0d13;
-    border: 1px solid #1c1c28;
-    border-radius: 10px;
-    padding: 8px 10px;
     display: flex;
     align-items: center;
     gap: 8px;
-    overflow-x: auto;
-    white-space: nowrap;
-    scrollbar-width: thin;
+    margin-top: 16px;
+    flex-wrap: wrap;
 }
-
 .teleport-label {
-    font-size: 11.5px;
-    font-weight: 700;
-    color: #71717a;
-    flex-shrink: 0;
-}
-
-.teleport-chips {
-    display: flex;
-    gap: 6px;
-}
-
-.teleport-chip {
-    background: #171722;
-    border: 1px solid #28283a;
-    color: #cbd5e1;
     font-size: 12px;
     font-weight: 600;
-    padding: 5px 10px;
-    border-radius: 7px;
-    cursor: pointer;
+    color: var(--text-muted);
     flex-shrink: 0;
+}
+.teleport-chips {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+.teleport-chip {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
     transition: all 0.15s ease;
 }
-.teleport-chip:hover, .teleport-chip:active {
-    background: #232336;
-    border-color: #38bdf8;
-    color: #38bdf8;
+.teleport-chip:hover {
+    background: var(--border-subtle);
+    color: var(--text-primary);
+    border-color: var(--border-strong);
 }
-.teleport-chip-ex {
-    border-color: #1f3d2e;
-    background: #0f1e16;
-    color: #6ee7b7;
-}
-.teleport-chip-ex:hover, .teleport-chip-ex:active {
-    background: #133322;
-    border-color: #10b981;
-    color: #a7f3d0;
+.teleport-chip.active {
+    background: var(--accent-primary);
+    color: var(--accent-fg);
+    border-color: var(--accent-primary);
 }
 
-/* Section Cards */
-.section-card {
-    background: #0f0f16;
-    border: 1px solid #1d1d2b;
-    border-radius: 14px;
-    padding: 18px 18px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+/* Section Cards & Practice Cards */
+.section-card, .practice-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-sm);
+    transition: border-color 0.15s ease;
 }
-
-.card-header {
-    margin-bottom: 12px;
+.card-header, .practice-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 14px;
 }
-
-.card-title {
-    font-size: 16px;
+.card-title, .practice-card-title {
+    font-size: 17px;
     font-weight: 700;
-    color: #f8fafc;
-    flex: 1 1 auto;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
 }
 
+/* Tag Pills */
 .tag-pill {
     font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
+    font-weight: 700;
     padding: 3px 8px;
-    border-radius: 6px;
-    flex-shrink: 0;
+    border-radius: 5px;
 }
-
-.tag-q {
-    background: rgba(56, 189, 248, 0.15);
-    color: #38bdf8;
-    border: 1px solid rgba(56, 189, 248, 0.3);
-}
-
 .tag-concept {
-    background: rgba(168, 85, 247, 0.15);
-    color: #c084fc;
-    border: 1px solid rgba(168, 85, 247, 0.3);
-}
-
-.body-text {
-    color: #cbd5e1;
-    font-size: 14.5px;
-    line-height: 1.65;
-}
-.body-text p {
-    margin-bottom: 10px;
-}
-.body-text p:last-child {
-    margin-bottom: 0;
-}
-
-/* Problem, Answer, Solution Boxes */
-.box-q {
-    background: #141724;
-    border-inline-start: 3.5px solid #38bdf8;
-    border-radius: 8px;
-    padding: 12px 14px;
-    margin-top: 14px;
-    margin-bottom: 12px;
-}
-
-.box-mini-label {
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: #38bdf8;
-    margin-bottom: 6px;
-}
-
-.q-content {
-    font-size: 14.5px;
-    color: #f1f5f9;
-}
-.q-content ol, .q-content ul {
-    padding-inline-start: 22px;
-    margin-top: 6px;
-}
-
-.box-ans {
-    background: #0f1c18;
-    border: 1px solid rgba(16, 185, 129, 0.3);
-    border-radius: 8px;
-    padding: 12px 14px;
-    margin-bottom: 12px;
-}
-
-.ans-mini-label {
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: #10b981;
-    margin-bottom: 6px;
-}
-
-.ans-content {
-    font-size: 14.5px;
-    font-weight: 600;
-    color: #a7f3d0;
-}
-
-.box-sol {
-    background: #11111a;
-    border: 1px solid #202030;
-    border-radius: 8px;
-    padding: 12px 14px;
-}
-
-.sol-mini-label {
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: #94a3b8;
-    margin-bottom: 6px;
-}
-
-.sol-content {
-    font-size: 14.5px;
-    color: #cbd5e1;
-}
-.sol-content p {
-    margin-bottom: 10px;
-}
-.sol-content p:last-child {
-    margin-bottom: 0;
-}
-
-.step-divider {
-    height: 1px;
-    background: #242436;
-    margin: 10px 0;
-}
-
-/* Practice Specific Styling */
-.practice-card {
-    border-color: #202836;
+    background: var(--bg-subtle);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-subtle);
 }
 .tag-ex-num {
-    background: rgba(56, 189, 248, 0.18);
-    color: #38bdf8;
-    border: 1px solid rgba(56, 189, 248, 0.35);
+    background: var(--bg-subtle);
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
 }
 .tag-diff {
     border: 1px solid transparent;
 }
 .diff-easy {
-    background: rgba(16, 185, 129, 0.15);
-    color: #34d399;
-    border-color: rgba(16, 185, 129, 0.3);
+    background: var(--status-ok-bg);
+    color: var(--status-ok);
+    border-color: var(--status-ok-border);
 }
 .diff-medium {
-    background: rgba(245, 158, 11, 0.15);
-    color: #fbbf24;
-    border-color: rgba(245, 158, 11, 0.3);
+    background: var(--bg-subtle);
+    color: var(--text-secondary);
+    border-color: var(--border-subtle);
 }
 .diff-hard {
-    background: rgba(239, 68, 68, 0.15);
-    color: #f87171;
-    border-color: rgba(239, 68, 68, 0.3);
+    background: var(--status-err-bg);
+    color: var(--status-err);
+    border-color: var(--status-err-border);
 }
 .practice-tag {
     font-size: 11px;
-    color: #818cf8;
-    background: rgba(99, 102, 241, 0.12);
-    border: 1px solid rgba(99, 102, 241, 0.25);
-    padding: 3px 8px;
-    border-radius: 6px;
-}
-.exam-badge-pill {
-    font-size: 11px;
-    font-weight: 700;
-    color: #fbbf24;
-    background: rgba(245, 158, 11, 0.12);
-    border: 1px solid rgba(245, 158, 11, 0.25);
-    padding: 3px 8px;
-    border-radius: 6px;
-    flex-shrink: 0;
-}
-.practice-card-title {
-    font-size: 16px;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 8px;
-}
-.exam-rationale-box {
-    background: #151a24;
-    border: 1px dashed #2b3a50;
-    border-radius: 8px;
-    padding: 8px 12px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    font-size: 12.5px;
-    color: #93c5fd;
-    line-height: 1.5;
-}
-.exam-rationale-icon {
-    flex-shrink: 0;
+    font-weight: 600;
+    background: var(--bg-subtle);
+    color: var(--text-muted);
+    border: 1px solid var(--border-subtle);
+    padding: 2px 7px;
+    border-radius: 4px;
 }
 
-/* Solution Accordion */
+/* Problem, Answer, Solution Boxes */
+.box-q {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    border-inline-start: 3px solid var(--border-strong);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+.box-ans {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    border-inline-start: 3px solid var(--status-ok);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+.box-sol {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+}
+.box-mini-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 800;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+.ans-mini-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 800;
+    color: var(--status-ok);
+    margin-bottom: 8px;
+}
+.ans-key-tag {
+    display: inline-block;
+    background: var(--status-ok-bg);
+    color: var(--status-ok);
+    border: 1px solid var(--status-ok-border);
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.sol-mini-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 800;
+    color: var(--text-muted);
+}
 .sol-accordion-trigger {
     width: 100%;
-    background: transparent;
-    border: none;
-    color: #cbd5e1;
     display: flex;
     align-items: center;
     gap: 8px;
+    background: transparent;
+    border: none;
     cursor: pointer;
     text-align: start;
-    user-select: none;
-    padding: 4px 0;
+    padding: 0;
+    color: var(--text-primary);
+    font-family: inherit;
 }
 .sol-chevron {
     display: inline-block;
+    color: var(--text-muted);
     transition: transform 0.2s ease;
-    font-size: 13px;
-    color: #38bdf8;
-}
-[dir="ltr"] .sol-chevron {
     transform: rotate(0deg);
+    flex-shrink: 0;
 }
 [dir="rtl"] .sol-chevron {
     transform: rotate(180deg);
@@ -705,485 +719,56 @@ body {
 .sol-chevron.rotate-open {
     transform: rotate(90deg) !important;
 }
-.sol-accordion-body {
+.sol-accordion-content {
     display: none;
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid #1f1f2e;
+    padding-top: 14px;
+    margin-top: 12px;
+    border-top: 1px solid var(--border-subtle);
 }
-.sol-accordion-body.open {
+.sol-accordion-content.open {
     display: block;
 }
-
-/* Videos Hub Grid & Cards */
-.video-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
+.sol-step {
+    background: var(--bg-card);
+    border-inline-start: 2px solid var(--border-strong);
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    border-radius: 0 6px 6px 0;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    border-inline-end: 1px solid var(--border-subtle);
 }
-@media (min-width: 680px) {
-    .video-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-.video-card {
-    background: #0e0e15;
-    border: 1px solid #1c1c28;
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-.video-card:hover {
-    border-color: #38bdf8;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    transform: translateY(-2px);
+.sol-step:last-child {
+    margin-bottom: 0;
 }
 
-.video-card-thumb-wrap {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #000000;
-    overflow: hidden;
-}
-
-.video-thumbnail {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
-}
-.video-card:hover .video-thumbnail {
-    transform: scale(1.03);
-}
-
-.video-play-btn {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.35);
-    transition: background 0.2s ease;
-}
-.video-play-btn svg {
-    background: #e11d48;
-    border-radius: 50%;
-    padding: 6px;
-    box-shadow: 0 0 16px rgba(225, 29, 72, 0.6);
-    transition: transform 0.2s ease;
-}
-.video-card:hover .video-play-btn svg {
-    transform: scale(1.15);
-}
-
-.video-card-content {
-    padding: 14px 16px 16px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.video-meta-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    margin-bottom: 6px;
-}
-
-.v-badge {
-    font-size: 10.5px;
-    font-weight: 800;
-    color: #38bdf8;
-    background: rgba(56, 189, 248, 0.12);
-    border: 1px solid rgba(56, 189, 248, 0.25);
-    padding: 2px 7px;
-    border-radius: 5px;
-    letter-spacing: 0.5px;
-}
-
-.v-inst {
-    font-size: 11.5px;
-    color: #94a3b8;
-}
-
-.video-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #ffffff;
-    line-height: 1.35;
-    margin-bottom: 6px;
-}
-
-.video-desc {
-    font-size: 12.5px;
-    color: #8e8e98;
-    line-height: 1.5;
-    margin-bottom: 14px;
-    flex: 1;
-}
-
-.video-card-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: auto;
-}
-
-.btn-watch-yt {
-    background: #e11d48;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 12.5px;
-    font-weight: 700;
-    padding: 8px 14px;
-    border-radius: 8px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.15s ease;
-}
-.btn-watch-yt:hover {
-    background: #be123c;
-    box-shadow: 0 0 12px rgba(225, 29, 72, 0.4);
-}
-
-.btn-yt-sub {
-    color: #94a3b8;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 8px 10px;
-    border-radius: 6px;
-    transition: color 0.15s ease;
-}
-.btn-yt-sub:hover {
-    color: #38bdf8;
-}
-
-.btn-page-top {
-    display: block;
-    width: 100%;
-    background: #12121a;
-    border: 1px solid #222232;
-    color: #94a3b8;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 12px;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: all 0.15s ease;
-}
-.btn-page-top:hover {
-    background: #1a1a26;
-    color: #f1f5f9;
-}
-
-/* Responsive rules */
-@media (max-width: 600px) {
-    .brand-text { font-size: 13px; }
-    .btn-topics-menu { max-width: 135px; font-size: 12px; padding: 6px 10px; }
-    .tab-btn { font-size: 11.5px; padding: 6px 9px; }
-    .page-title { font-size: 19px; }
-    .section-card { padding: 14px; }
-}
-
-/* ========================================================
-   MINIMALIST FLOATING ANCHORS (Ultra-light, fast, clean)
-   ======================================================== */
-.quick-anchors-wrap {
-    position: fixed;
-    bottom: 20px;
-    inset-inline-end: 20px;
-    z-index: 850;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 8px;
-}
-
-.quick-anchors-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #111118;
-    color: #e4e4e7;
-    border: 1px solid #272738;
-    border-radius: 9999px;
-    padding: 7px 13px;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
-    transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
-    user-select: none;
-}
-.quick-anchors-btn:hover {
-    background: #181824;
-    border-color: #6366f1;
-    color: #ffffff;
-    transform: translateY(-1px);
-}
-.quick-anchors-btn:active {
-    transform: scale(0.96);
-}
-.quick-anchors-btn svg {
-    flex-shrink: 0;
-    color: #818cf8;
-}
-
-.quick-anchors-popover {
-    display: none;
-    background: #0f0f17;
-    border: 1px solid #272738;
-    border-radius: 12px;
-    padding: 9px;
-    width: 270px;
-    max-width: calc(100vw - 36px);
-    max-height: 240px;
-    overflow-y: auto;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
-    scrollbar-width: thin;
-    animation: popoverFadeIn 0.12s ease-out;
-}
-.quick-anchors-popover.open {
-    display: block;
-}
-
-@keyframes popoverFadeIn {
-    0% { opacity: 0; transform: translateY(6px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-.quick-anchors-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-}
-
-.anchor-chip {
-    background: #161622;
-    color: #d4d4d8;
-    border: 1px solid #252538;
-    border-radius: 7px;
-    padding: 5px 9px;
-    font-size: 11.5px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
-    white-space: nowrap;
-    text-align: center;
-}
-.anchor-chip:hover {
-    background: #232338;
-    border-color: #6366f1;
-    color: #ffffff;
-}
-.anchor-chip:active {
-    transform: scale(0.95);
-}
-
-.anchor-chip-top {
-    background: rgba(99, 102, 241, 0.12);
-    border-color: rgba(99, 102, 241, 0.3);
-    color: #a5b4fc;
-}
-.anchor-chip-top:hover {
-    background: rgba(99, 102, 241, 0.25);
-    border-color: #6366f1;
-    color: #ffffff;
-}
-
-@keyframes pulseTargetCard {
-    0% {
-        outline: 2px solid #818cf8;
-        box-shadow: 0 0 16px rgba(99, 102, 241, 0.4);
-    }
-    100% {
-        outline: 2px solid transparent;
-        box-shadow: none;
-    }
-}
-.highlight-pulse {
-    animation: pulseTargetCard 1.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-@media (max-width: 480px) {
-    .quick-anchors-wrap {
-        bottom: 14px;
-        inset-inline-end: 14px;
-    }
-    .quick-anchors-btn {
-        padding: 6px 11px;
-        font-size: 11.5px;
-    }
-    .quick-anchors-popover {
-        width: 250px;
-    }
-}
-
-
-/* ========================================================
-   DEVICE GATEKEEPER
-   ======================================================== */
-html.auth-passed #deviceAuthGate {
-    display: none !important;
-}
-
-html:not(.auth-passed) body {
-    overflow: hidden !important;
-}
-
-.auth-gate-screen {
-    position: fixed;
-    inset: 0;
-    z-index: 9999999;
-    background: #070709;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-inline: 20px;
-    padding-block: 20px;
-    transition: opacity 0.22s ease;
-}
-
-.auth-gate-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    inline-size: 100%;
-    max-inline-size: 280px;
-}
-
-.auth-gate-form {
-    inline-size: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-}
-
-.auth-input-wrapper {
-    position: relative;
-    inline-size: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.auth-gate-input {
-    inline-size: 100%;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 12px;
-    padding-block: 14px;
-    padding-inline-start: 16px;
-    padding-inline-end: 46px;
-    color: #f8fafc;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.04em;
-    outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.auth-gate-input::placeholder {
-    color: #555c6d;
-    letter-spacing: normal;
-}
-
-.auth-gate-input:focus {
-    border-color: #38bdf8;
-    box-shadow: 0 0 18px rgba(56, 189, 248, 0.16);
-    background: rgba(255, 255, 255, 0.06);
-}
-
-.auth-gate-submit-btn {
-    position: absolute;
-    inset-inline-end: 8px;
-    inset-block-start: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    color: #64748b;
-    inline-size: 32px;
-    block-size: 32px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: color 0.15s ease, background 0.15s ease;
-}
-
-.auth-gate-submit-btn:hover {
-    color: #38bdf8;
-    background: rgba(56, 189, 248, 0.08);
-}
-
-.auth-gate-error {
-    font-size: 13px;
-    color: #f43f5e;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
-    display: none;
-}
-
-@keyframes authShake {
-    0%, 100% { transform: translateX(0); }
-    20%, 60% { transform: translateX(-6px); }
-    40%, 80% { transform: translateX(6px); }
-}
-
-.auth-shake {
-    animation: authShake 0.35s ease;
-    border-color: #f43f5e !important;
-    box-shadow: 0 0 14px rgba(244, 63, 94, 0.22) !important;
-}
-
-
-
-/* ========================================================
-   INTERACTIVE MULTIPLE-CHOICE PRACTICE TEST CARDS
-   ======================================================== */
+/* Practice Test Cards (Editorial) */
 .practice-test-banner {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 14px;
-    background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%);
-    border: 1px solid rgba(56, 189, 248, 0.25);
-    border-radius: 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
     padding: 14px 18px;
-    margin-bottom: 22px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 24px;
 }
 .pt-banner-left {
     display: flex;
     align-items: center;
     gap: 12px;
 }
-.pt-banner-icon {
-    font-size: 26px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 .pt-banner-title {
     font-size: 15px;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--text-primary);
     letter-spacing: -0.01em;
 }
 .pt-banner-sub {
-    font-size: 12px;
-    color: #94a3b8;
+    font-size: 13px;
+    color: var(--text-muted);
     margin-top: 2px;
 }
 .pt-banner-controls {
@@ -1195,56 +780,64 @@ html:not(.auth-passed) body {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
     border-radius: 8px;
     padding: 7px 12px;
-    color: #cbd5e1;
+    color: var(--text-secondary);
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.18s ease;
+    transition: all 0.15s ease;
 }
 .pt-mode-btn:hover {
-    background: rgba(56, 189, 248, 0.12);
-    border-color: rgba(56, 189, 248, 0.35);
-    color: #38bdf8;
+    background: var(--border-subtle);
+    color: var(--text-primary);
+    border-color: var(--border-strong);
 }
 .pt-mode-btn.active {
-    background: #0284c7;
-    border-color: #38bdf8;
-    color: #ffffff;
-    box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: var(--accent-fg);
 }
 .pt-badge {
     font-size: 10px;
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--border-subtle);
+    color: var(--text-secondary);
     padding: 1px 5px;
     border-radius: 4px;
     font-weight: 700;
 }
-
+.pt-mode-btn.active .pt-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--accent-fg);
+}
 .mc-practice-card {
-    background: #0b0f17;
-    border: 1px solid #1e293b;
-    border-radius: 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
     padding: 20px;
     margin-bottom: 28px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--shadow-sm);
+    transition: border-color 0.2s ease;
 }
 .mc-practice-card.status-correct {
-    border-color: rgba(16, 185, 129, 0.5) !important;
-    box-shadow: 0 0 18px rgba(16, 185, 129, 0.15) !important;
+    border-color: var(--status-ok) !important;
 }
 .mc-practice-card.status-incorrect {
-    border-color: rgba(244, 63, 94, 0.5) !important;
-    box-shadow: 0 0 18px rgba(244, 63, 94, 0.15) !important;
+    border-color: var(--status-err) !important;
 }
-
+.practice-rationale-note {
+    font-size: 13px;
+    color: var(--text-muted);
+    border-inline-start: 2px solid var(--border-strong);
+    padding-inline-start: 10px;
+    margin: 8px 0 16px 0;
+    line-height: 1.5;
+}
 .box-mc-choices {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid #1e293b;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
     border-radius: 10px;
     padding: 14px 16px;
     margin-top: 14px;
@@ -1255,7 +848,7 @@ html:not(.auth-passed) body {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-weight: 800;
-    color: #64748b;
+    color: var(--text-muted);
     margin-bottom: 10px;
 }
 .mc-choices-grid {
@@ -1269,19 +862,18 @@ html:not(.auth-passed) body {
     gap: 12px;
     width: 100%;
     text-align: start;
-    background: #111827;
-    border: 1px solid #1f2937;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
     border-radius: 8px;
     padding: 10px 14px;
-    color: #e2e8f0;
+    color: var(--text-primary);
     font-size: 14px;
     cursor: pointer;
     transition: all 0.15s ease;
 }
 .mc-choice-btn:hover:not(:disabled) {
-    background: #1e293b;
-    border-color: #38bdf8;
-    transform: translateX(2px);
+    background: var(--bg-subtle);
+    border-color: var(--border-strong);
 }
 .mc-choice-letter {
     display: flex;
@@ -1290,8 +882,9 @@ html:not(.auth-passed) body {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
-    color: #94a3b8;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
     font-weight: 700;
     font-size: 12px;
     flex-shrink: 0;
@@ -1302,54 +895,53 @@ html:not(.auth-passed) body {
 }
 .mc-choice-icon {
     flex-shrink: 0;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
 }
-
 .mc-choice-btn.selected-correct {
-    background: rgba(16, 185, 129, 0.18) !important;
-    border-color: #10b981 !important;
-    color: #ecfdf5 !important;
+    background: var(--status-ok-bg) !important;
+    border-color: var(--status-ok-border) !important;
+    color: var(--text-primary) !important;
 }
 .mc-choice-btn.selected-correct .mc-choice-letter {
-    background: #10b981 !important;
+    background: var(--status-ok) !important;
+    border-color: var(--status-ok) !important;
     color: #ffffff !important;
 }
 .mc-choice-btn.selected-correct .mc-choice-icon::after {
-    content: "✓ Correct";
-    color: #10b981;
+    content: "Correct";
+    color: var(--status-ok);
     font-weight: 700;
 }
-
 .mc-choice-btn.selected-incorrect {
-    background: rgba(244, 63, 94, 0.18) !important;
-    border-color: #f43f5e !important;
-    color: #fff1f2 !important;
+    background: var(--status-err-bg) !important;
+    border-color: var(--status-err-border) !important;
+    color: var(--text-primary) !important;
 }
 .mc-choice-btn.selected-incorrect .mc-choice-letter {
-    background: #f43f5e !important;
+    background: var(--status-err) !important;
+    border-color: var(--status-err) !important;
     color: #ffffff !important;
 }
 .mc-choice-btn.selected-incorrect .mc-choice-icon::after {
-    content: "✕ Incorrect";
-    color: #f43f5e;
+    content: "Incorrect";
+    color: var(--status-err);
     font-weight: 700;
 }
-
 .mc-choice-btn.reveal-correct {
-    border-color: #10b981 !important;
-    background: rgba(16, 185, 129, 0.08) !important;
+    border-color: var(--status-ok-border) !important;
+    background: var(--status-ok-bg) !important;
 }
 .mc-choice-btn.reveal-correct .mc-choice-letter {
-    background: rgba(16, 185, 129, 0.4) !important;
+    background: var(--status-ok) !important;
+    border-color: var(--status-ok) !important;
     color: #ffffff !important;
 }
 .mc-choice-btn.reveal-correct .mc-choice-icon::after {
-    content: "(Correct Answer)";
-    color: #10b981;
+    content: "(Correct)";
+    color: var(--status-ok);
     font-size: 11px;
 }
-
 .mc-feedback {
     margin-top: 10px;
     padding: 8px 12px;
@@ -1358,35 +950,293 @@ html:not(.auth-passed) body {
     font-weight: 600;
 }
 .mc-feedback.feedback-correct {
-    background: rgba(16, 185, 129, 0.15);
-    color: #10b981;
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    background: var(--status-ok-bg);
+    color: var(--status-ok);
+    border: 1px solid var(--status-ok-border);
 }
 .mc-feedback.feedback-incorrect {
-    background: rgba(244, 63, 94, 0.15);
-    color: #f43f5e;
-    border: 1px solid rgba(244, 63, 94, 0.3);
+    background: var(--status-err-bg);
+    color: var(--status-err);
+    border: 1px solid var(--status-err-border);
 }
 
-.sol-step {
-    background: rgba(255, 255, 255, 0.015);
-    border-inline-start: 3px solid #38bdf8;
-    padding: 10px 14px;
-    margin-bottom: 12px;
-    border-radius: 0 6px 6px 0;
+/* Videos Hub Grid & Cards */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
 }
-.ans-key-tag {
-    display: inline-block;
-    background: rgba(16, 185, 129, 0.2);
-    color: #10b981;
-    border: 1px solid rgba(16, 185, 129, 0.4);
-    padding: 2px 8px;
-    border-radius: 5px;
-    font-size: 12px;
+.video-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    box-shadow: var(--shadow-sm);
+}
+.video-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+}
+.video-card-thumb-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--bg-subtle);
+    overflow: hidden;
+}
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.video-card-content {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.video-title {
+    font-size: 14px;
     font-weight: 700;
-    margin-bottom: 8px;
+    color: var(--text-primary);
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+.video-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-bottom: 12px;
+    flex-grow: 1;
+}
+.video-card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+}
+.btn-watch-yt {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: var(--accent-primary);
+    color: var(--accent-fg);
+    border: 1px solid var(--accent-primary);
+    border-radius: 7px;
+    padding: 8px 12px;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+.btn-watch-yt:hover {
+    opacity: 0.9;
+}
+.btn-yt-sub {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: 7px;
+    padding: 8px 10px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.btn-yt-sub:hover {
+    background: var(--border-subtle);
+    color: var(--text-primary);
 }
 
+/* Bottom Navigation Row */
+.bottom-nav-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.nav-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 8px 16px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.nav-btn:hover {
+    background: var(--bg-subtle);
+    color: var(--text-primary);
+    border-color: var(--border-strong);
+}
+
+/* Floating Quick Anchors */
+.quick-anchors-wrap {
+    position: fixed;
+    bottom: 20px;
+    inset-inline-end: 20px;
+    z-index: 850;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+.quick-anchors-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 9999px;
+    padding: 7px 13px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: all 0.15s ease;
+}
+.quick-anchors-btn:hover {
+    background: var(--bg-subtle);
+    border-color: var(--border-strong);
+}
+.quick-anchors-popover {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 12px;
+    max-width: 280px;
+    max-height: 320px;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    -webkit-overflow-scrolling: touch;
+}
+.quick-anchors-popover.open {
+    display: flex;
+}
+.anchor-chip {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: start;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-decoration: none;
+}
+.anchor-chip:hover {
+    background: var(--border-subtle);
+    color: var(--text-primary);
+    border-color: var(--border-strong);
+}
+
+/* Device Gatekeeper Overlay */
+.auth-gate-screen {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-body);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: background-color 0.2s ease;
+}
+html.auth-passed .auth-gate-screen {
+    display: none !important;
+}
+.auth-gate-box {
+    width: 100%;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+.auth-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+.auth-gate-input {
+    width: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding-block: 14px;
+    padding-inline-start: 16px;
+    padding-inline-end: 46px;
+    color: var(--text-primary);
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.auth-gate-input:focus {
+    border-color: var(--border-focus);
+}
+.auth-gate-submit-btn {
+    position: absolute;
+    inset-inline-end: 8px;
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+.auth-gate-submit-btn:hover {
+    color: var(--text-primary);
+    background: var(--bg-subtle);
+}
+.auth-shake {
+    animation: shake 0.35s ease;
+    border-color: var(--status-err) !important;
+}
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-6px); }
+    40%, 80% { transform: translateX(6px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nav-inner-container {
+        flex-wrap: wrap;
+    }
+    .btn-topics-menu {
+        max-width: 180px;
+    }
+    .topic-modal-sheet {
+        max-height: 90vh;
+    }
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 </head>
 <body>
@@ -1433,11 +1283,19 @@ html:not(.auth-passed) body {
             <span class="chevron">&#9662;</span>
         </button>
         
-        <div class="tab-switch">
-            <button class="tab-btn active" id="btnNotes" onclick="switchTab('notes')">Notes</button>
-            <button class="tab-btn" id="btnPractice" onclick="switchTab('practice')">Practice</button>
-            <button class="tab-btn" id="btnVideos" onclick="switchTab('videos')">Videos</button>
-            <a href="exams.html" class="tab-btn" id="btnExamBank" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;"><span>Exam Bank</span><span style="font-size: 10px; background: rgba(56,189,248,0.2); color: #38bdf8; padding: 1px 5px; border-radius: 4px; font-weight: 800;">200 Qs</span></a>
+        <div class="nav-right-controls">
+            <div class="tab-switch">
+                <button class="tab-btn active" id="btnNotes" onclick="switchTab('notes')">Notes</button>
+                <button class="tab-btn" id="btnPractice" onclick="switchTab('practice')">Practice</button>
+                <button class="tab-btn" id="btnVideos" onclick="switchTab('videos')">Videos</button>
+                <a href="exams.html" class="tab-btn" id="btnExamBank"><span>Exam Bank</span><span class="exam-bank-badge">216 Qs</span></a>
+            </div>
+
+            <button class="btn-theme-toggle" id="btnThemeToggle" onclick="togglePortalTheme()" aria-label="Toggle Theme" title="Toggle Light/Dark Theme">
+                <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <span class="theme-text" id="themeToggleText">Theme</span>
+            </button>
         </div>
     </div>
 </nav>
@@ -2598,41 +2456,31 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
 
     <!-- Practice Problems View -->
     <div id="practiceView" style="display: none;">
-
-        <!-- Practice View Mode Switcher -->
-        <div class="practice-test-banner">
-            <div class="pt-banner-left">
-                <span class="pt-banner-icon">📝</span>
-                <div class="pt-banner-text">
-                    <div class="pt-banner-title">KFUPM Major 2 Official Practice Tests</div>
-                    <div class="pt-banner-sub">Complete with scrambled options, instant interactive grading, and step-by-step calculus derivations.</div>
+        <!-- Practice Topic 01 -->
+        <section class="topic-page" id="practice-v1-page">
+            <!-- Practice Test Mode Banner -->
+            <div class="practice-test-banner">
+                <div class="pt-banner-left">
+                    <div>
+                        <div class="pt-banner-title">Practice Test Mode &bull; Topic 01</div>
+                        <div class="pt-banner-sub">1 Multiple-Choice Practice Test Questions with Step-by-Step Derivations</div>
+                    </div>
+                </div>
+                <div class="pt-banner-controls">
+                    <button class="pt-mode-btn active" id="pt-btn-topic-v1" onclick="switchPracticeMode('topic', 'v1')">Topic Practice <span class="pt-badge">1 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test1-v1" onclick="switchPracticeMode('test1', 'v1')">Practice Test 1 <span class="pt-badge">8 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test2-v1" onclick="switchPracticeMode('test2', 'v1')">Practice Test 2 <span class="pt-badge">8 Qs</span></button>
                 </div>
             </div>
-            <div class="pt-banner-controls">
-                <button type="button" class="pt-mode-btn active" id="btnModeSection" onclick="switchPracticeMode('section')">
-                    <span>📌 By Topic Section</span>
-                </button>
-                <button type="button" class="pt-mode-btn" id="btnModeTest1" onclick="switchPracticeMode('test1')">
-                    <span>Test 1 (Sec 11.5–13.2)</span>
-                    <span class="pt-badge">8 Qs</span>
-                </button>
-                <button type="button" class="pt-mode-btn" id="btnModeTest2" onclick="switchPracticeMode('test2')">
-                    <span>Test 2 (Sec 13.3–13.6)</span>
-                    <span class="pt-badge">8 Qs</span>
-                </button>
-            </div>
-        </div>
 
-        <!-- Topic 01 Practice Page -->
-        <section class="topic-page" id="practice-page-v1" style="display: block;">
             <header class="page-header">
-                <div class="page-meta-badge page-meta-practice">PRACTICE TEST &bull; TOPIC 01 OF 12</div>
+                <div class="page-meta-badge page-meta-practice">PRACTICE &bull; TOPIC 01</div>
                 <h1 class="page-title">11.5 Lines in Space & Skew Lines</h1>
-                <p class="page-desc">Practice Test Questions &bull; Section 11.5 Lines &bull; 1 Question</p>
+                <p class="page-desc">Practice Test Questions &bull; Section 11.5 Lines</p>
                 <div class="teleport-strip">
                     <span class="teleport-label">Jump to question:</span>
                     <div class="teleport-chips">
-                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v1_PT1_Q1')">Q1 (Practice Test 1)</button>
+                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v1_PT1_Q1')">Test 1 Q1</button>
                     </div>
                 </div>
             </header>
@@ -2646,12 +2494,10 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <span class="tag-pill tag-diff diff-medium">Medium</span>
                 <span class="practice-tag">11.5 Lines & Planes</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Intersection of a Line and a Plane in Space</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">High KFUPM Exam frequency — finding the unique intersection point of a line and a plane by substituting parametric line equations into the Cartesian plane equation.</span>
+        <div class="practice-rationale-note">
+            <em>High KFUPM Exam frequency — finding the unique intersection point of a line and a plane by substituting parametric line equations into the Cartesian plane equation.</em>
         </div>
 
         <div class="box-q">
@@ -2662,7 +2508,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="v1_PT1_Q1" data-letter="A" data-correct="A" onclick="handlePracticeChoiceClick('v1_PT1_Q1', 'A', 'A')">
                     <span class="mc-choice-letter">A</span>
@@ -2703,7 +2549,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-v1_PT1_Q1" onclick="togglePracticeSol('v1_PT1_Q1', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-v1_PT1_Q1" style="max-height: none;">
@@ -2729,16 +2575,31 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <button class="nav-btn nav-btn-outline" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">&uarr; Back to top of Topic 01</button>
             </div>
         </section>
-        <!-- Topic 02 Practice Page -->
-        <section class="topic-page" id="practice-page-v2" style="display: none;">
+        <!-- Practice Topic 02 -->
+        <section class="topic-page" id="practice-v2-page" style="display: none;">
+            <!-- Practice Test Mode Banner -->
+            <div class="practice-test-banner">
+                <div class="pt-banner-left">
+                    <div>
+                        <div class="pt-banner-title">Practice Test Mode &bull; Topic 02</div>
+                        <div class="pt-banner-sub">1 Multiple-Choice Practice Test Questions with Step-by-Step Derivations</div>
+                    </div>
+                </div>
+                <div class="pt-banner-controls">
+                    <button class="pt-mode-btn active" id="pt-btn-topic-v2" onclick="switchPracticeMode('topic', 'v2')">Topic Practice <span class="pt-badge">1 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test1-v2" onclick="switchPracticeMode('test1', 'v2')">Practice Test 1 <span class="pt-badge">8 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test2-v2" onclick="switchPracticeMode('test2', 'v2')">Practice Test 2 <span class="pt-badge">8 Qs</span></button>
+                </div>
+            </div>
+
             <header class="page-header">
-                <div class="page-meta-badge page-meta-practice">PRACTICE TEST &bull; TOPIC 02 OF 12</div>
+                <div class="page-meta-badge page-meta-practice">PRACTICE &bull; TOPIC 02</div>
                 <h1 class="page-title">11.5 Planes in Space</h1>
-                <p class="page-desc">Practice Test Questions &bull; Section 11.5 Planes &bull; 1 Question</p>
+                <p class="page-desc">Practice Test Questions &bull; Section 11.5 Planes</p>
                 <div class="teleport-strip">
                     <span class="teleport-label">Jump to question:</span>
                     <div class="teleport-chips">
-                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v2_PT1_Q1')">Q1 (Practice Test 1)</button>
+                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v2_PT1_Q1')">Test 1 Q1</button>
                     </div>
                 </div>
             </header>
@@ -2752,12 +2613,10 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <span class="tag-pill tag-diff diff-medium">Medium</span>
                 <span class="practice-tag">11.5 Lines & Planes</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Intersection of a Line and a Plane in Space</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">High KFUPM Exam frequency — finding the unique intersection point of a line and a plane by substituting parametric line equations into the Cartesian plane equation.</span>
+        <div class="practice-rationale-note">
+            <em>High KFUPM Exam frequency — finding the unique intersection point of a line and a plane by substituting parametric line equations into the Cartesian plane equation.</em>
         </div>
 
         <div class="box-q">
@@ -2768,7 +2627,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="v2_PT1_Q1" data-letter="A" data-correct="A" onclick="handlePracticeChoiceClick('v2_PT1_Q1', 'A', 'A')">
                     <span class="mc-choice-letter">A</span>
@@ -2809,7 +2668,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-v2_PT1_Q1" onclick="togglePracticeSol('v2_PT1_Q1', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-v2_PT1_Q1" style="max-height: none;">
@@ -2835,16 +2694,31 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <button class="nav-btn nav-btn-outline" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">&uarr; Back to top of Topic 02</button>
             </div>
         </section>
-        <!-- Topic 03 Practice Page -->
-        <section class="topic-page" id="practice-page-v3" style="display: none;">
+        <!-- Practice Topic 03 -->
+        <section class="topic-page" id="practice-v3-page" style="display: none;">
+            <!-- Practice Test Mode Banner -->
+            <div class="practice-test-banner">
+                <div class="pt-banner-left">
+                    <div>
+                        <div class="pt-banner-title">Practice Test Mode &bull; Topic 03</div>
+                        <div class="pt-banner-sub">1 Multiple-Choice Practice Test Questions with Step-by-Step Derivations</div>
+                    </div>
+                </div>
+                <div class="pt-banner-controls">
+                    <button class="pt-mode-btn active" id="pt-btn-topic-v3" onclick="switchPracticeMode('topic', 'v3')">Topic Practice <span class="pt-badge">1 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test1-v3" onclick="switchPracticeMode('test1', 'v3')">Practice Test 1 <span class="pt-badge">8 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test2-v3" onclick="switchPracticeMode('test2', 'v3')">Practice Test 2 <span class="pt-badge">8 Qs</span></button>
+                </div>
+            </div>
+
             <header class="page-header">
-                <div class="page-meta-badge page-meta-practice">PRACTICE TEST &bull; TOPIC 03 OF 12</div>
+                <div class="page-meta-badge page-meta-practice">PRACTICE &bull; TOPIC 03</div>
                 <h1 class="page-title">11.5 Distances in Space</h1>
-                <p class="page-desc">Practice Test Questions &bull; Section 11.5 Distances &bull; 1 Question</p>
+                <p class="page-desc">Practice Test Questions &bull; Section 11.5 Distances</p>
                 <div class="teleport-strip">
                     <span class="teleport-label">Jump to question:</span>
                     <div class="teleport-chips">
-                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v3_PT1_Q2')">Q2 (Practice Test 1)</button>
+                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v3_PT1_Q2')">Test 1 Q2</button>
                     </div>
                 </div>
             </header>
@@ -2858,12 +2732,10 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <span class="tag-pill tag-diff diff-medium">Easy-Medium</span>
                 <span class="practice-tag">11.5 Distances</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Perpendicular Distance from a Point to a Plane</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Core exam standard — applying the scalar projection distance formula from a known point $P$ to a plane $Ax + By + Cz = d$.</span>
+        <div class="practice-rationale-note">
+            <em>Core exam standard — applying the scalar projection distance formula from a known point $P$ to a plane $Ax + By + Cz = d$.</em>
         </div>
 
         <div class="box-q">
@@ -2874,7 +2746,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="v3_PT1_Q2" data-letter="A" data-correct="D" onclick="handlePracticeChoiceClick('v3_PT1_Q2', 'A', 'D')">
                     <span class="mc-choice-letter">A</span>
@@ -2915,7 +2787,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-v3_PT1_Q2" onclick="togglePracticeSol('v3_PT1_Q2', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-v3_PT1_Q2" style="max-height: none;">
@@ -2941,16 +2813,31 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <button class="nav-btn nav-btn-outline" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">&uarr; Back to top of Topic 03</button>
             </div>
         </section>
-        <!-- Topic 04 Practice Page -->
-        <section class="topic-page" id="practice-page-v4" style="display: none;">
+        <!-- Practice Topic 04 -->
+        <section class="topic-page" id="practice-v4-page" style="display: none;">
+            <!-- Practice Test Mode Banner -->
+            <div class="practice-test-banner">
+                <div class="pt-banner-left">
+                    <div>
+                        <div class="pt-banner-title">Practice Test Mode &bull; Topic 04</div>
+                        <div class="pt-banner-sub">1 Multiple-Choice Practice Test Questions with Step-by-Step Derivations</div>
+                    </div>
+                </div>
+                <div class="pt-banner-controls">
+                    <button class="pt-mode-btn active" id="pt-btn-topic-v4" onclick="switchPracticeMode('topic', 'v4')">Topic Practice <span class="pt-badge">1 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test1-v4" onclick="switchPracticeMode('test1', 'v4')">Practice Test 1 <span class="pt-badge">8 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test2-v4" onclick="switchPracticeMode('test2', 'v4')">Practice Test 2 <span class="pt-badge">8 Qs</span></button>
+                </div>
+            </div>
+
             <header class="page-header">
-                <div class="page-meta-badge page-meta-practice">PRACTICE TEST &bull; TOPIC 04 OF 12</div>
+                <div class="page-meta-badge page-meta-practice">PRACTICE &bull; TOPIC 04</div>
                 <h1 class="page-title">11.6 Cylinders & Quadric Surfaces</h1>
-                <p class="page-desc">Practice Test Questions &bull; Section 11.6 Identification &bull; 1 Question</p>
+                <p class="page-desc">Practice Test Questions &bull; Section 11.6 Identification</p>
                 <div class="teleport-strip">
                     <span class="teleport-label">Jump to question:</span>
                     <div class="teleport-chips">
-                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v4_PT1_Q3')">Q3 (Practice Test 1)</button>
+                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v4_PT1_Q3')">Test 1 Q3</button>
                     </div>
                 </div>
             </header>
@@ -2964,12 +2851,10 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <span class="tag-pill tag-diff diff-medium">Easy</span>
                 <span class="practice-tag">11.6 Quadric Surfaces</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Identification of Quadric Surfaces</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Foundational surface identification — classifying standard quadrics based on signs and traces.</span>
+        <div class="practice-rationale-note">
+            <em>Foundational surface identification — classifying standard quadrics based on signs and traces.</em>
         </div>
 
         <div class="box-q">
@@ -2980,7 +2865,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="v4_PT1_Q3" data-letter="A" data-correct="E" onclick="handlePracticeChoiceClick('v4_PT1_Q3', 'A', 'E')">
                     <span class="mc-choice-letter">A</span>
@@ -3021,7 +2906,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-v4_PT1_Q3" onclick="togglePracticeSol('v4_PT1_Q3', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-v4_PT1_Q3" style="max-height: none;">
@@ -3044,16 +2929,31 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <button class="nav-btn nav-btn-outline" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">&uarr; Back to top of Topic 04</button>
             </div>
         </section>
-        <!-- Topic 05 Practice Page -->
-        <section class="topic-page" id="practice-page-v5" style="display: none;">
+        <!-- Practice Topic 05 -->
+        <section class="topic-page" id="practice-v5-page" style="display: none;">
+            <!-- Practice Test Mode Banner -->
+            <div class="practice-test-banner">
+                <div class="pt-banner-left">
+                    <div>
+                        <div class="pt-banner-title">Practice Test Mode &bull; Topic 05</div>
+                        <div class="pt-banner-sub">1 Multiple-Choice Practice Test Questions with Step-by-Step Derivations</div>
+                    </div>
+                </div>
+                <div class="pt-banner-controls">
+                    <button class="pt-mode-btn active" id="pt-btn-topic-v5" onclick="switchPracticeMode('topic', 'v5')">Topic Practice <span class="pt-badge">1 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test1-v5" onclick="switchPracticeMode('test1', 'v5')">Practice Test 1 <span class="pt-badge">8 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test2-v5" onclick="switchPracticeMode('test2', 'v5')">Practice Test 2 <span class="pt-badge">8 Qs</span></button>
+                </div>
+            </div>
+
             <header class="page-header">
-                <div class="page-meta-badge page-meta-practice">PRACTICE TEST &bull; TOPIC 05 OF 12</div>
+                <div class="page-meta-badge page-meta-practice">PRACTICE &bull; TOPIC 05</div>
                 <h1 class="page-title">11.6 Quadric Surfaces & Traces</h1>
-                <p class="page-desc">Practice Test Questions &bull; Section 11.6 Traces & Intersections &bull; 1 Question</p>
+                <p class="page-desc">Practice Test Questions &bull; Section 11.6 Traces & Intersections</p>
                 <div class="teleport-strip">
                     <span class="teleport-label">Jump to question:</span>
                     <div class="teleport-chips">
-                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v5_PT1_Q4')">Q4 (Practice Test 1)</button>
+                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v5_PT1_Q4')">Test 1 Q4</button>
                     </div>
                 </div>
             </header>
@@ -3067,12 +2967,10 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <span class="tag-pill tag-diff diff-medium">Medium</span>
                 <span class="practice-tag">11.6 Surface Traces</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Intersection of a Saddle Surface with a Vertical Plane</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Tests spatial curve intersections — finding the 3D curve where a plane cuts through a quadric surface.</span>
+        <div class="practice-rationale-note">
+            <em>Tests spatial curve intersections — finding the 3D curve where a plane cuts through a quadric surface.</em>
         </div>
 
         <div class="box-q">
@@ -3083,7 +2981,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="v5_PT1_Q4" data-letter="A" data-correct="B" onclick="handlePracticeChoiceClick('v5_PT1_Q4', 'A', 'B')">
                     <span class="mc-choice-letter">A</span>
@@ -3124,7 +3022,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-v5_PT1_Q4" onclick="togglePracticeSol('v5_PT1_Q4', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-v5_PT1_Q4" style="max-height: none;">
@@ -3150,16 +3048,31 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <button class="nav-btn nav-btn-outline" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">&uarr; Back to top of Topic 05</button>
             </div>
         </section>
-        <!-- Topic 06 Practice Page -->
-        <section class="topic-page" id="practice-page-v6" style="display: none;">
+        <!-- Practice Topic 06 -->
+        <section class="topic-page" id="practice-v6-page" style="display: none;">
+            <!-- Practice Test Mode Banner -->
+            <div class="practice-test-banner">
+                <div class="pt-banner-left">
+                    <div>
+                        <div class="pt-banner-title">Practice Test Mode &bull; Topic 06</div>
+                        <div class="pt-banner-sub">2 Multiple-Choice Practice Test Questions with Step-by-Step Derivations</div>
+                    </div>
+                </div>
+                <div class="pt-banner-controls">
+                    <button class="pt-mode-btn active" id="pt-btn-topic-v6" onclick="switchPracticeMode('topic', 'v6')">Topic Practice <span class="pt-badge">2 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test1-v6" onclick="switchPracticeMode('test1', 'v6')">Practice Test 1 <span class="pt-badge">8 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test2-v6" onclick="switchPracticeMode('test2', 'v6')">Practice Test 2 <span class="pt-badge">8 Qs</span></button>
+                </div>
+            </div>
+
             <header class="page-header">
-                <div class="page-meta-badge page-meta-practice">PRACTICE TEST &bull; TOPIC 06 OF 12</div>
+                <div class="page-meta-badge page-meta-practice">PRACTICE &bull; TOPIC 06</div>
                 <h1 class="page-title">13.1 Functions of Several Variables</h1>
-                <p class="page-desc">Practice Test Questions &bull; Section 13.1 Domains & Level Curves &bull; 2 Questions</p>
+                <p class="page-desc">Practice Test Questions &bull; Section 13.1 Domains & Level Curves</p>
                 <div class="teleport-strip">
                     <span class="teleport-label">Jump to question:</span>
                     <div class="teleport-chips">
-                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v6_PT1_Q5')">Q5 (Practice Test 1)</button><button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v6_PT1_Q6')">Q6 (Practice Test 1)</button>
+                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v6_PT1_Q5')">Test 1 Q5</button><button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v6_PT1_Q6')">Test 1 Q6</button>
                     </div>
                 </div>
             </header>
@@ -3173,12 +3086,10 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <span class="tag-pill tag-diff diff-medium">Easy-Medium</span>
                 <span class="practice-tag">13.1 Functions & Domains</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Natural Domain of a Rational Radical Function</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">High exam relevance — resolving simultaneous radical non-negativity and denominator zero exclusions.</span>
+        <div class="practice-rationale-note">
+            <em>High exam relevance — resolving simultaneous radical non-negativity and denominator zero exclusions.</em>
         </div>
 
         <div class="box-q">
@@ -3189,7 +3100,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="v6_PT1_Q5" data-letter="A" data-correct="E" onclick="handlePracticeChoiceClick('v6_PT1_Q5', 'A', 'E')">
                     <span class="mc-choice-letter">A</span>
@@ -3230,7 +3141,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-v6_PT1_Q5" onclick="togglePracticeSol('v6_PT1_Q5', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-v6_PT1_Q5" style="max-height: none;">
@@ -3256,12 +3167,10 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <span class="tag-pill tag-diff diff-medium">Easy</span>
                 <span class="practice-tag">13.1 Level Curves</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Level Curve of a Logarithmic Function</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Standard KFUPM question — setting $f(x, y) = c$ and using algebraic exponentiation to identify the curve.</span>
+        <div class="practice-rationale-note">
+            <em>Standard KFUPM question — setting $f(x, y) = c$ and using algebraic exponentiation to identify the curve.</em>
         </div>
 
         <div class="box-q">
@@ -3272,7 +3181,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="v6_PT1_Q6" data-letter="A" data-correct="D" onclick="handlePracticeChoiceClick('v6_PT1_Q6', 'A', 'D')">
                     <span class="mc-choice-letter">A</span>
@@ -3313,7 +3222,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-v6_PT1_Q6" onclick="togglePracticeSol('v6_PT1_Q6', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-v6_PT1_Q6" style="max-height: none;">
@@ -3336,16 +3245,31 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <button class="nav-btn nav-btn-outline" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">&uarr; Back to top of Topic 06</button>
             </div>
         </section>
-        <!-- Topic 07 Practice Page -->
-        <section class="topic-page" id="practice-page-v7" style="display: none;">
+        <!-- Practice Topic 07 -->
+        <section class="topic-page" id="practice-v7-page" style="display: none;">
+            <!-- Practice Test Mode Banner -->
+            <div class="practice-test-banner">
+                <div class="pt-banner-left">
+                    <div>
+                        <div class="pt-banner-title">Practice Test Mode &bull; Topic 07</div>
+                        <div class="pt-banner-sub">2 Multiple-Choice Practice Test Questions with Step-by-Step Derivations</div>
+                    </div>
+                </div>
+                <div class="pt-banner-controls">
+                    <button class="pt-mode-btn active" id="pt-btn-topic-v7" onclick="switchPracticeMode('topic', 'v7')">Topic Practice <span class="pt-badge">2 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test1-v7" onclick="switchPracticeMode('test1', 'v7')">Practice Test 1 <span class="pt-badge">8 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test2-v7" onclick="switchPracticeMode('test2', 'v7')">Practice Test 2 <span class="pt-badge">8 Qs</span></button>
+                </div>
+            </div>
+
             <header class="page-header">
-                <div class="page-meta-badge page-meta-practice">PRACTICE TEST &bull; TOPIC 07 OF 12</div>
+                <div class="page-meta-badge page-meta-practice">PRACTICE &bull; TOPIC 07</div>
                 <h1 class="page-title">13.2 Multivariable Limits & Continuity</h1>
-                <p class="page-desc">Practice Test Questions &bull; Section 13.2 Squeeze Theorem & Two-Path Test &bull; 2 Questions</p>
+                <p class="page-desc">Practice Test Questions &bull; Section 13.2 Limits & Two-Path Tests</p>
                 <div class="teleport-strip">
                     <span class="teleport-label">Jump to question:</span>
                     <div class="teleport-chips">
-                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v7_PT1_Q7')">Q7 (Practice Test 1)</button><button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v7_PT1_Q8')">Q8 (Practice Test 1)</button>
+                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v7_PT1_Q7')">Test 1 Q7</button><button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v7_PT1_Q8')">Test 1 Q8</button>
                     </div>
                 </div>
             </header>
@@ -3359,12 +3283,10 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <span class="tag-pill tag-diff diff-medium">Medium</span>
                 <span class="practice-tag">13.2 Limits & Continuity</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Evaluating Limits via Polar Coordinates & Bounding</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Crucial limit evaluation skill — applying polar substitution and Squeeze Theorem to prove a limit equals 0.</span>
+        <div class="practice-rationale-note">
+            <em>Crucial limit evaluation skill — applying polar substitution and Squeeze Theorem to prove a limit equals 0.</em>
         </div>
 
         <div class="box-q">
@@ -3375,7 +3297,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="v7_PT1_Q7" data-letter="A" data-correct="D" onclick="handlePracticeChoiceClick('v7_PT1_Q7', 'A', 'D')">
                     <span class="mc-choice-letter">A</span>
@@ -3416,7 +3338,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-v7_PT1_Q7" onclick="togglePracticeSol('v7_PT1_Q7', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-v7_PT1_Q7" style="max-height: none;">
@@ -3439,12 +3361,10 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <span class="tag-pill tag-diff diff-medium">Medium-Hard</span>
                 <span class="practice-tag">13.2 Two-Path Test</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Proving Non-Existence of a Limit Along Degree-Balanced Paths</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Classic KFUPM trap — straight lines yield 0, but parabolic paths $y = kx^2$ expose non-existence.</span>
+        <div class="practice-rationale-note">
+            <em>Classic KFUPM trap — straight lines yield 0, but parabolic paths $y = kx^2$ expose non-existence.</em>
         </div>
 
         <div class="box-q">
@@ -3455,7 +3375,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="v7_PT1_Q8" data-letter="A" data-correct="A" onclick="handlePracticeChoiceClick('v7_PT1_Q8', 'A', 'A')">
                     <span class="mc-choice-letter">A</span>
@@ -3496,7 +3416,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-v7_PT1_Q8" onclick="togglePracticeSol('v7_PT1_Q8', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-v7_PT1_Q8" style="max-height: none;">
@@ -3519,16 +3439,31 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <button class="nav-btn nav-btn-outline" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">&uarr; Back to top of Topic 07</button>
             </div>
         </section>
-        <!-- Topic 08 Practice Page -->
-        <section class="topic-page" id="practice-page-v8" style="display: none;">
+        <!-- Practice Topic 08 -->
+        <section class="topic-page" id="practice-v8-page" style="display: none;">
+            <!-- Practice Test Mode Banner -->
+            <div class="practice-test-banner">
+                <div class="pt-banner-left">
+                    <div>
+                        <div class="pt-banner-title">Practice Test Mode &bull; Topic 08</div>
+                        <div class="pt-banner-sub">2 Multiple-Choice Practice Test Questions with Step-by-Step Derivations</div>
+                    </div>
+                </div>
+                <div class="pt-banner-controls">
+                    <button class="pt-mode-btn active" id="pt-btn-topic-v8" onclick="switchPracticeMode('topic', 'v8')">Topic Practice <span class="pt-badge">2 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test1-v8" onclick="switchPracticeMode('test1', 'v8')">Practice Test 1 <span class="pt-badge">8 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test2-v8" onclick="switchPracticeMode('test2', 'v8')">Practice Test 2 <span class="pt-badge">8 Qs</span></button>
+                </div>
+            </div>
+
             <header class="page-header">
-                <div class="page-meta-badge page-meta-practice">PRACTICE TEST &bull; TOPIC 08 OF 12</div>
+                <div class="page-meta-badge page-meta-practice">PRACTICE &bull; TOPIC 08</div>
                 <h1 class="page-title">13.3 Partial Derivatives</h1>
-                <p class="page-desc">Practice Test Questions &bull; Section 13.3 Mixed & Higher-Order Partials &bull; 2 Questions</p>
+                <p class="page-desc">Practice Test Questions &bull; Section 13.3 First/Second-Order & Implicit</p>
                 <div class="teleport-strip">
                     <span class="teleport-label">Jump to question:</span>
                     <div class="teleport-chips">
-                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v8_PT2_Q1')">Q1 (Practice Test 2)</button><button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v8_PT2_Q2')">Q2 (Practice Test 2)</button>
+                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v8_PT2_Q1')">Test 2 Q1</button><button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v8_PT2_Q2')">Test 2 Q2</button>
                     </div>
                 </div>
             </header>
@@ -3542,12 +3477,10 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <span class="tag-pill tag-diff diff-medium">Medium</span>
                 <span class="practice-tag">13.3 Mixed Partials</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Computing Mixed Second-Order Partial Derivatives</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Direct calculation testing Product Rule and Clairaut's Theorem $f_{xy} = f_{yx}$.</span>
+        <div class="practice-rationale-note">
+            <em>Direct calculation testing Product Rule and Clairaut's Theorem $f_{xy} = f_{yx}$.</em>
         </div>
 
         <div class="box-q">
@@ -3558,7 +3491,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="v8_PT2_Q1" data-letter="A" data-correct="D" onclick="handlePracticeChoiceClick('v8_PT2_Q1', 'A', 'D')">
                     <span class="mc-choice-letter">A</span>
@@ -3599,7 +3532,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-v8_PT2_Q1" onclick="togglePracticeSol('v8_PT2_Q1', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-v8_PT2_Q1" style="max-height: none;">
@@ -3625,12 +3558,10 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <span class="tag-pill tag-diff diff-medium">Easy-Medium</span>
                 <span class="practice-tag">13.3 Higher Partials</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Third-Order Successive Partial Differentiation</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Tests systematic partial differentiation across multiple variables $f_{xxy}$.</span>
+        <div class="practice-rationale-note">
+            <em>Tests systematic partial differentiation across multiple variables $f_{xxy}$.</em>
         </div>
 
         <div class="box-q">
@@ -3641,7 +3572,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="v8_PT2_Q2" data-letter="A" data-correct="A" onclick="handlePracticeChoiceClick('v8_PT2_Q2', 'A', 'A')">
                     <span class="mc-choice-letter">A</span>
@@ -3682,7 +3613,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-v8_PT2_Q2" onclick="togglePracticeSol('v8_PT2_Q2', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-v8_PT2_Q2" style="max-height: none;">
@@ -3708,16 +3639,31 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <button class="nav-btn nav-btn-outline" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">&uarr; Back to top of Topic 08</button>
             </div>
         </section>
-        <!-- Topic 09 Practice Page -->
-        <section class="topic-page" id="practice-page-v9" style="display: none;">
+        <!-- Practice Topic 09 -->
+        <section class="topic-page" id="practice-v9-page" style="display: none;">
+            <!-- Practice Test Mode Banner -->
+            <div class="practice-test-banner">
+                <div class="pt-banner-left">
+                    <div>
+                        <div class="pt-banner-title">Practice Test Mode &bull; Topic 09</div>
+                        <div class="pt-banner-sub">2 Multiple-Choice Practice Test Questions with Step-by-Step Derivations</div>
+                    </div>
+                </div>
+                <div class="pt-banner-controls">
+                    <button class="pt-mode-btn active" id="pt-btn-topic-v9" onclick="switchPracticeMode('topic', 'v9')">Topic Practice <span class="pt-badge">2 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test1-v9" onclick="switchPracticeMode('test1', 'v9')">Practice Test 1 <span class="pt-badge">8 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test2-v9" onclick="switchPracticeMode('test2', 'v9')">Practice Test 2 <span class="pt-badge">8 Qs</span></button>
+                </div>
+            </div>
+
             <header class="page-header">
-                <div class="page-meta-badge page-meta-practice">PRACTICE TEST &bull; TOPIC 09 OF 12</div>
-                <h1 class="page-title">13.4 Differentials & Linearization</h1>
-                <p class="page-desc">Practice Test Questions &bull; Section 13.4 Linear Approximation & Error &bull; 2 Questions</p>
+                <div class="page-meta-badge page-meta-practice">PRACTICE &bull; TOPIC 09</div>
+                <h1 class="page-title">13.4 Differentiability, Differentials & Local Linearity</h1>
+                <p class="page-desc">Practice Test Questions &bull; Section 13.4 Tangent Approximations</p>
                 <div class="teleport-strip">
                     <span class="teleport-label">Jump to question:</span>
                     <div class="teleport-chips">
-                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v9_PT2_Q3')">Q3 (Practice Test 2)</button><button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v9_PT2_Q4')">Q4 (Practice Test 2)</button>
+                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v9_PT2_Q3')">Test 2 Q3</button><button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v9_PT2_Q4')">Test 2 Q4</button>
                     </div>
                 </div>
             </header>
@@ -3731,12 +3677,10 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <span class="tag-pill tag-diff diff-medium">Medium</span>
                 <span class="practice-tag">13.4 Linearization</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Local Linearization of a Multivariable Radical Function</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Core applied calculus — building the tangent plane approximation $L(x, y)$ to estimate function values nearby.</span>
+        <div class="practice-rationale-note">
+            <em>Core applied calculus — building the tangent plane approximation $L(x, y)$ to estimate function values nearby.</em>
         </div>
 
         <div class="box-q">
@@ -3747,7 +3691,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="v9_PT2_Q3" data-letter="A" data-correct="D" onclick="handlePracticeChoiceClick('v9_PT2_Q3', 'A', 'D')">
                     <span class="mc-choice-letter">A</span>
@@ -3788,7 +3732,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-v9_PT2_Q3" onclick="togglePracticeSol('v9_PT2_Q3', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-v9_PT2_Q3" style="max-height: none;">
@@ -3817,12 +3761,10 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <span class="tag-pill tag-diff diff-medium">Easy-Medium</span>
                 <span class="practice-tag">13.4 Total Differentials</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Estimating Percentage Volume Increase Using Differentials</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">High exam frequency — using logarithmic/differential relations $rac{dV}{V} = rac{dx}{x} + rac{dy}{y} + rac{dz}{z}$.</span>
+        <div class="practice-rationale-note">
+            <em>High exam frequency — using logarithmic/differential relations $rac{dV}{V} = rac{dx}{x} + rac{dy}{y} + rac{dz}{z}$.</em>
         </div>
 
         <div class="box-q">
@@ -3833,7 +3775,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="v9_PT2_Q4" data-letter="A" data-correct="D" onclick="handlePracticeChoiceClick('v9_PT2_Q4', 'A', 'D')">
                     <span class="mc-choice-letter">A</span>
@@ -3874,7 +3816,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-v9_PT2_Q4" onclick="togglePracticeSol('v9_PT2_Q4', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-v9_PT2_Q4" style="max-height: none;">
@@ -3897,16 +3839,31 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <button class="nav-btn nav-btn-outline" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">&uarr; Back to top of Topic 09</button>
             </div>
         </section>
-        <!-- Topic 10 Practice Page -->
-        <section class="topic-page" id="practice-page-v10" style="display: none;">
+        <!-- Practice Topic 10 -->
+        <section class="topic-page" id="practice-v10-page" style="display: none;">
+            <!-- Practice Test Mode Banner -->
+            <div class="practice-test-banner">
+                <div class="pt-banner-left">
+                    <div>
+                        <div class="pt-banner-title">Practice Test Mode &bull; Topic 10</div>
+                        <div class="pt-banner-sub">2 Multiple-Choice Practice Test Questions with Step-by-Step Derivations</div>
+                    </div>
+                </div>
+                <div class="pt-banner-controls">
+                    <button class="pt-mode-btn active" id="pt-btn-topic-v10" onclick="switchPracticeMode('topic', 'v10')">Topic Practice <span class="pt-badge">2 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test1-v10" onclick="switchPracticeMode('test1', 'v10')">Practice Test 1 <span class="pt-badge">8 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test2-v10" onclick="switchPracticeMode('test2', 'v10')">Practice Test 2 <span class="pt-badge">8 Qs</span></button>
+                </div>
+            </div>
+
             <header class="page-header">
-                <div class="page-meta-badge page-meta-practice">PRACTICE TEST &bull; TOPIC 10 OF 12</div>
-                <h1 class="page-title">13.5 Chain Rule & Implicit Differentiation</h1>
-                <p class="page-desc">Practice Test Questions &bull; Section 13.5 Chain Rule & Implicit Form &bull; 2 Questions</p>
+                <div class="page-meta-badge page-meta-practice">PRACTICE &bull; TOPIC 10</div>
+                <h1 class="page-title">13.5 Chain Rule for Several Variables</h1>
+                <p class="page-desc">Practice Test Questions &bull; Section 13.5 Intermediate Variables & Trees</p>
                 <div class="teleport-strip">
                     <span class="teleport-label">Jump to question:</span>
                     <div class="teleport-chips">
-                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v10_PT2_Q5')">Q5 (Practice Test 2)</button><button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v10_PT2_Q6')">Q6 (Practice Test 2)</button>
+                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v10_PT2_Q5')">Test 2 Q5</button><button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v10_PT2_Q6')">Test 2 Q6</button>
                     </div>
                 </div>
             </header>
@@ -3920,12 +3877,10 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <span class="tag-pill tag-diff diff-medium">Medium</span>
                 <span class="practice-tag">13.5 Chain Rule</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Applying the Chain Rule with Multiple Independent Variables</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Core multivariable derivative test — applying tree diagrams $rac{\partial z}{\partial t} = rac{\partial z}{\partial x} rac{\partial x}{\partial t} + rac{\partial z}{\partial y} rac{\partial y}{\partial t}$.</span>
+        <div class="practice-rationale-note">
+            <em>Core multivariable derivative test — applying tree diagrams $rac{\partial z}{\partial t} = rac{\partial z}{\partial x} rac{\partial x}{\partial t} + rac{\partial z}{\partial y} rac{\partial y}{\partial t}$.</em>
         </div>
 
         <div class="box-q">
@@ -3936,7 +3891,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="v10_PT2_Q5" data-letter="A" data-correct="A" onclick="handlePracticeChoiceClick('v10_PT2_Q5', 'A', 'A')">
                     <span class="mc-choice-letter">A</span>
@@ -3977,7 +3932,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-v10_PT2_Q5" onclick="togglePracticeSol('v10_PT2_Q5', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-v10_PT2_Q5" style="max-height: none;">
@@ -4006,12 +3961,10 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <span class="tag-pill tag-diff diff-medium">Medium</span>
                 <span class="practice-tag">13.5 Implicit Differentiation</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Implicit Partial Differentiation of a Surface</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Standard KFUPM problem — using $z_x = -rac{F_x}{F_z}$ for equations of the form $F(x, y, z) = 0$.</span>
+        <div class="practice-rationale-note">
+            <em>Standard KFUPM problem — using $z_x = -rac{F_x}{F_z}$ for equations of the form $F(x, y, z) = 0$.</em>
         </div>
 
         <div class="box-q">
@@ -4022,7 +3975,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="v10_PT2_Q6" data-letter="A" data-correct="D" onclick="handlePracticeChoiceClick('v10_PT2_Q6', 'A', 'D')">
                     <span class="mc-choice-letter">A</span>
@@ -4063,7 +4016,7 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-v10_PT2_Q6" onclick="togglePracticeSol('v10_PT2_Q6', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-v10_PT2_Q6" style="max-height: none;">
@@ -4089,16 +4042,31 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <button class="nav-btn nav-btn-outline" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">&uarr; Back to top of Topic 10</button>
             </div>
         </section>
-        <!-- Topic 11 Practice Page -->
-        <section class="topic-page" id="practice-page-v11" style="display: none;">
+        <!-- Practice Topic 11 -->
+        <section class="topic-page" id="practice-v11-page" style="display: none;">
+            <!-- Practice Test Mode Banner -->
+            <div class="practice-test-banner">
+                <div class="pt-banner-left">
+                    <div>
+                        <div class="pt-banner-title">Practice Test Mode &bull; Topic 11</div>
+                        <div class="pt-banner-sub">2 Multiple-Choice Practice Test Questions with Step-by-Step Derivations</div>
+                    </div>
+                </div>
+                <div class="pt-banner-controls">
+                    <button class="pt-mode-btn active" id="pt-btn-topic-v11" onclick="switchPracticeMode('topic', 'v11')">Topic Practice <span class="pt-badge">2 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test1-v11" onclick="switchPracticeMode('test1', 'v11')">Practice Test 1 <span class="pt-badge">8 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test2-v11" onclick="switchPracticeMode('test2', 'v11')">Practice Test 2 <span class="pt-badge">8 Qs</span></button>
+                </div>
+            </div>
+
             <header class="page-header">
-                <div class="page-meta-badge page-meta-practice">PRACTICE TEST &bull; TOPIC 11 OF 12</div>
-                <h1 class="page-title">13.6 Directional Derivatives & Gradients</h1>
-                <p class="page-desc">Practice Test Questions &bull; Section 13.6 Max Directional Derivative &bull; 2 Questions</p>
+                <div class="page-meta-badge page-meta-practice">PRACTICE &bull; TOPIC 11</div>
+                <h1 class="page-title">13.6 Directional Derivatives & Gradient Vectors</h1>
+                <p class="page-desc">Practice Test Questions &bull; Section 13.6 Rates of Change & Max Steepness</p>
                 <div class="teleport-strip">
                     <span class="teleport-label">Jump to question:</span>
                     <div class="teleport-chips">
-                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v11_PT2_Q7')">Q7 (Practice Test 2)</button><button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v11_PT2_Q8')">Q8 (Practice Test 2)</button>
+                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v11_PT2_Q7')">Test 2 Q7</button><button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v11_PT2_Q8')">Test 2 Q8</button>
                     </div>
                 </div>
             </header>
@@ -4112,13 +4080,11 @@ $$\cos\theta = \frac{5}{3\sqrt{3}} \implies \theta = \cos^{-1}\!\left(\frac{5}{3
                 <span class="tag-pill tag-diff diff-medium">Easy-Medium</span>
                 <span class="practice-tag">13.6 Directional Derivatives</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Finding the Maximum Directional Derivative via Gradient Magnitude</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">High frequency concept — the maximum rate of change at point $P$ is equal to $\|
-abla f(P)\|$.</span>
+        <div class="practice-rationale-note">
+            <em>High frequency concept — the maximum rate of change at point $P$ is equal to $\|
+abla f(P)\|$.</em>
         </div>
 
         <div class="box-q">
@@ -4129,7 +4095,7 @@ abla f(P)\|$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="v11_PT2_Q7" data-letter="A" data-correct="B" onclick="handlePracticeChoiceClick('v11_PT2_Q7', 'A', 'B')">
                     <span class="mc-choice-letter">A</span>
@@ -4170,7 +4136,7 @@ abla f(P)\|$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-v11_PT2_Q7" onclick="togglePracticeSol('v11_PT2_Q7', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-v11_PT2_Q7" style="max-height: none;">
@@ -4199,13 +4165,11 @@ abla f(P)\|$.</span>
                 <span class="tag-pill tag-diff diff-medium">Medium</span>
                 <span class="practice-tag">13.6 / 13.7 Normal Vectors</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Finding a Unit Normal Vector to a Level Curve</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Key concept bridging 13.6 and 13.7 — the gradient vector $
-abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
+        <div class="practice-rationale-note">
+            <em>Key concept bridging 13.6 and 13.7 — the gradient vector $
+abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</em>
         </div>
 
         <div class="box-q">
@@ -4216,7 +4180,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="v11_PT2_Q8" data-letter="A" data-correct="E" onclick="handlePracticeChoiceClick('v11_PT2_Q8', 'A', 'E')">
                     <span class="mc-choice-letter">A</span>
@@ -4257,7 +4221,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-v11_PT2_Q8" onclick="togglePracticeSol('v11_PT2_Q8', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-v11_PT2_Q8" style="max-height: none;">
@@ -4283,16 +4247,31 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
                 <button class="nav-btn nav-btn-outline" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">&uarr; Back to top of Topic 11</button>
             </div>
         </section>
-        <!-- Topic 12 Practice Page -->
-        <section class="topic-page" id="practice-page-v12" style="display: none;">
+        <!-- Practice Topic 12 -->
+        <section class="topic-page" id="practice-v12-page" style="display: none;">
+            <!-- Practice Test Mode Banner -->
+            <div class="practice-test-banner">
+                <div class="pt-banner-left">
+                    <div>
+                        <div class="pt-banner-title">Practice Test Mode &bull; Topic 12</div>
+                        <div class="pt-banner-sub">1 Multiple-Choice Practice Test Questions with Step-by-Step Derivations</div>
+                    </div>
+                </div>
+                <div class="pt-banner-controls">
+                    <button class="pt-mode-btn active" id="pt-btn-topic-v12" onclick="switchPracticeMode('topic', 'v12')">Topic Practice <span class="pt-badge">1 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test1-v12" onclick="switchPracticeMode('test1', 'v12')">Practice Test 1 <span class="pt-badge">8 Qs</span></button>
+                    <button class="pt-mode-btn" id="pt-btn-test2-v12" onclick="switchPracticeMode('test2', 'v12')">Practice Test 2 <span class="pt-badge">8 Qs</span></button>
+                </div>
+            </div>
+
             <header class="page-header">
-                <div class="page-meta-badge page-meta-practice">PRACTICE TEST &bull; TOPIC 12 OF 12</div>
-                <h1 class="page-title">13.7 Tangent Planes & Normal Lines</h1>
-                <p class="page-desc">Practice Test Questions &bull; Section 13.7 Level Surface Normals &bull; 1 Question</p>
+                <div class="page-meta-badge page-meta-practice">PRACTICE &bull; TOPIC 12</div>
+                <h1 class="page-title">13.6 Tangent Planes & Normal Lines to Surfaces</h1>
+                <p class="page-desc">Practice Test Questions &bull; Section 13.6 Gradient Orthogonality</p>
                 <div class="teleport-strip">
                     <span class="teleport-label">Jump to question:</span>
                     <div class="teleport-chips">
-                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v12_PT2_Q8')">Q8 (Practice Test 2)</button>
+                        <button class="teleport-chip teleport-chip-ex" onclick="teleportTo('card-v12_PT2_Q8')">Test 2 Q8</button>
                     </div>
                 </div>
             </header>
@@ -4306,13 +4285,11 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
                 <span class="tag-pill tag-diff diff-medium">Medium</span>
                 <span class="practice-tag">13.6 / 13.7 Normal Vectors</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Finding a Unit Normal Vector to a Level Curve</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Key concept bridging 13.6 and 13.7 — the gradient vector $
-abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
+        <div class="practice-rationale-note">
+            <em>Key concept bridging 13.6 and 13.7 — the gradient vector $
+abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</em>
         </div>
 
         <div class="box-q">
@@ -4323,7 +4300,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="v12_PT2_Q8" data-letter="A" data-correct="E" onclick="handlePracticeChoiceClick('v12_PT2_Q8', 'A', 'E')">
                     <span class="mc-choice-letter">A</span>
@@ -4364,7 +4341,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-v12_PT2_Q8" onclick="togglePracticeSol('v12_PT2_Q8', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-v12_PT2_Q8" style="max-height: none;">
@@ -4393,9 +4370,9 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         <!-- Dedicated Practice Test 1 View -->
         <section class="topic-page" id="practice-test1-page" style="display: none;">
             <header class="page-header">
-                <div class="page-meta-badge page-meta-practice" style="background: rgba(16,185,129,0.18); color: #10b981; border-color: rgba(16,185,129,0.35);">OFFICIAL PRACTICE TEST 1 &bull; 8 QUESTIONS</div>
-                <h1 class="page-title">MATH 201 — Practice Test 1</h1>
-                <p class="page-desc">Sections 11.5–11.6 and 13.1–13.2 &bull; Lines, Planes, Quadrics, Domains & Limits</p>
+                <div class="page-meta-badge page-meta-practice">PRACTICE TEST 1 &bull; 8 QUESTIONS</div>
+                <h1 class="page-title">MATH 201 &mdash; Practice Test 1</h1>
+                <p class="page-desc">Sections 11.5&ndash;11.6 and 13.1&ndash;13.2 &bull; Lines, Planes, Quadrics, Domains & Limits</p>
                 <div class="teleport-strip">
                     <span class="teleport-label">Jump to question:</span>
                     <div class="teleport-chips">
@@ -4413,12 +4390,10 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
                 <span class="tag-pill tag-diff diff-medium">Medium</span>
                 <span class="practice-tag">11.5 Lines & Planes</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Intersection of a Line and a Plane in Space</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">High KFUPM Exam frequency — finding the unique intersection point of a line and a plane by substituting parametric line equations into the Cartesian plane equation.</span>
+        <div class="practice-rationale-note">
+            <em>High KFUPM Exam frequency — finding the unique intersection point of a line and a plane by substituting parametric line equations into the Cartesian plane equation.</em>
         </div>
 
         <div class="box-q">
@@ -4429,7 +4404,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="full_t1_PT1_Q1" data-letter="A" data-correct="A" onclick="handlePracticeChoiceClick('full_t1_PT1_Q1', 'A', 'A')">
                     <span class="mc-choice-letter">A</span>
@@ -4470,7 +4445,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-full_t1_PT1_Q1" onclick="togglePracticeSol('full_t1_PT1_Q1', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-full_t1_PT1_Q1" style="max-height: none;">
@@ -4499,12 +4474,10 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
                 <span class="tag-pill tag-diff diff-medium">Easy-Medium</span>
                 <span class="practice-tag">11.5 Distances</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Perpendicular Distance from a Point to a Plane</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Core exam standard — applying the scalar projection distance formula from a known point $P$ to a plane $Ax + By + Cz = d$.</span>
+        <div class="practice-rationale-note">
+            <em>Core exam standard — applying the scalar projection distance formula from a known point $P$ to a plane $Ax + By + Cz = d$.</em>
         </div>
 
         <div class="box-q">
@@ -4515,7 +4488,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="full_t1_PT1_Q2" data-letter="A" data-correct="D" onclick="handlePracticeChoiceClick('full_t1_PT1_Q2', 'A', 'D')">
                     <span class="mc-choice-letter">A</span>
@@ -4556,7 +4529,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-full_t1_PT1_Q2" onclick="togglePracticeSol('full_t1_PT1_Q2', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-full_t1_PT1_Q2" style="max-height: none;">
@@ -4585,12 +4558,10 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
                 <span class="tag-pill tag-diff diff-medium">Easy</span>
                 <span class="practice-tag">11.6 Quadric Surfaces</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Identification of Quadric Surfaces</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Foundational surface identification — classifying standard quadrics based on signs and traces.</span>
+        <div class="practice-rationale-note">
+            <em>Foundational surface identification — classifying standard quadrics based on signs and traces.</em>
         </div>
 
         <div class="box-q">
@@ -4601,7 +4572,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="full_t1_PT1_Q3" data-letter="A" data-correct="E" onclick="handlePracticeChoiceClick('full_t1_PT1_Q3', 'A', 'E')">
                     <span class="mc-choice-letter">A</span>
@@ -4642,7 +4613,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-full_t1_PT1_Q3" onclick="togglePracticeSol('full_t1_PT1_Q3', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-full_t1_PT1_Q3" style="max-height: none;">
@@ -4668,12 +4639,10 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
                 <span class="tag-pill tag-diff diff-medium">Medium</span>
                 <span class="practice-tag">11.6 Surface Traces</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Intersection of a Saddle Surface with a Vertical Plane</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Tests spatial curve intersections — finding the 3D curve where a plane cuts through a quadric surface.</span>
+        <div class="practice-rationale-note">
+            <em>Tests spatial curve intersections — finding the 3D curve where a plane cuts through a quadric surface.</em>
         </div>
 
         <div class="box-q">
@@ -4684,7 +4653,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="full_t1_PT1_Q4" data-letter="A" data-correct="B" onclick="handlePracticeChoiceClick('full_t1_PT1_Q4', 'A', 'B')">
                     <span class="mc-choice-letter">A</span>
@@ -4725,7 +4694,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-full_t1_PT1_Q4" onclick="togglePracticeSol('full_t1_PT1_Q4', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-full_t1_PT1_Q4" style="max-height: none;">
@@ -4754,12 +4723,10 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
                 <span class="tag-pill tag-diff diff-medium">Easy-Medium</span>
                 <span class="practice-tag">13.1 Functions & Domains</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Natural Domain of a Rational Radical Function</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">High exam relevance — resolving simultaneous radical non-negativity and denominator zero exclusions.</span>
+        <div class="practice-rationale-note">
+            <em>High exam relevance — resolving simultaneous radical non-negativity and denominator zero exclusions.</em>
         </div>
 
         <div class="box-q">
@@ -4770,7 +4737,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="full_t1_PT1_Q5" data-letter="A" data-correct="E" onclick="handlePracticeChoiceClick('full_t1_PT1_Q5', 'A', 'E')">
                     <span class="mc-choice-letter">A</span>
@@ -4811,7 +4778,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-full_t1_PT1_Q5" onclick="togglePracticeSol('full_t1_PT1_Q5', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-full_t1_PT1_Q5" style="max-height: none;">
@@ -4837,12 +4804,10 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
                 <span class="tag-pill tag-diff diff-medium">Easy</span>
                 <span class="practice-tag">13.1 Level Curves</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Level Curve of a Logarithmic Function</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Standard KFUPM question — setting $f(x, y) = c$ and using algebraic exponentiation to identify the curve.</span>
+        <div class="practice-rationale-note">
+            <em>Standard KFUPM question — setting $f(x, y) = c$ and using algebraic exponentiation to identify the curve.</em>
         </div>
 
         <div class="box-q">
@@ -4853,7 +4818,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="full_t1_PT1_Q6" data-letter="A" data-correct="D" onclick="handlePracticeChoiceClick('full_t1_PT1_Q6', 'A', 'D')">
                     <span class="mc-choice-letter">A</span>
@@ -4894,7 +4859,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-full_t1_PT1_Q6" onclick="togglePracticeSol('full_t1_PT1_Q6', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-full_t1_PT1_Q6" style="max-height: none;">
@@ -4920,12 +4885,10 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
                 <span class="tag-pill tag-diff diff-medium">Medium</span>
                 <span class="practice-tag">13.2 Limits & Continuity</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Evaluating Limits via Polar Coordinates & Bounding</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Crucial limit evaluation skill — applying polar substitution and Squeeze Theorem to prove a limit equals 0.</span>
+        <div class="practice-rationale-note">
+            <em>Crucial limit evaluation skill — applying polar substitution and Squeeze Theorem to prove a limit equals 0.</em>
         </div>
 
         <div class="box-q">
@@ -4936,7 +4899,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="full_t1_PT1_Q7" data-letter="A" data-correct="D" onclick="handlePracticeChoiceClick('full_t1_PT1_Q7', 'A', 'D')">
                     <span class="mc-choice-letter">A</span>
@@ -4977,7 +4940,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-full_t1_PT1_Q7" onclick="togglePracticeSol('full_t1_PT1_Q7', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-full_t1_PT1_Q7" style="max-height: none;">
@@ -5000,12 +4963,10 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
                 <span class="tag-pill tag-diff diff-medium">Medium-Hard</span>
                 <span class="practice-tag">13.2 Two-Path Test</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Proving Non-Existence of a Limit Along Degree-Balanced Paths</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Classic KFUPM trap — straight lines yield 0, but parabolic paths $y = kx^2$ expose non-existence.</span>
+        <div class="practice-rationale-note">
+            <em>Classic KFUPM trap — straight lines yield 0, but parabolic paths $y = kx^2$ expose non-existence.</em>
         </div>
 
         <div class="box-q">
@@ -5016,7 +4977,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="full_t1_PT1_Q8" data-letter="A" data-correct="A" onclick="handlePracticeChoiceClick('full_t1_PT1_Q8', 'A', 'A')">
                     <span class="mc-choice-letter">A</span>
@@ -5057,7 +5018,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-full_t1_PT1_Q8" onclick="togglePracticeSol('full_t1_PT1_Q8', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-full_t1_PT1_Q8" style="max-height: none;">
@@ -5083,9 +5044,9 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         <!-- Dedicated Practice Test 2 View -->
         <section class="topic-page" id="practice-test2-page" style="display: none;">
             <header class="page-header">
-                <div class="page-meta-badge page-meta-practice" style="background: rgba(139,92,246,0.18); color: #a78bfa; border-color: rgba(139,92,246,0.35);">OFFICIAL PRACTICE TEST 2 &bull; 8 QUESTIONS</div>
-                <h1 class="page-title">MATH 201 — Practice Test 2</h1>
-                <p class="page-desc">Sections 13.3–13.6 &bull; Partial Derivatives, Differentials, Chain Rule & Gradients</p>
+                <div class="page-meta-badge page-meta-practice">PRACTICE TEST 2 &bull; 8 QUESTIONS</div>
+                <h1 class="page-title">MATH 201 &mdash; Practice Test 2</h1>
+                <p class="page-desc">Sections 13.3&ndash;13.6 &bull; Partial Derivatives, Differentials, Chain Rule & Gradients</p>
                 <div class="teleport-strip">
                     <span class="teleport-label">Jump to question:</span>
                     <div class="teleport-chips">
@@ -5103,12 +5064,10 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
                 <span class="tag-pill tag-diff diff-medium">Medium</span>
                 <span class="practice-tag">13.3 Mixed Partials</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Computing Mixed Second-Order Partial Derivatives</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Direct calculation testing Product Rule and Clairaut's Theorem $f_{xy} = f_{yx}$.</span>
+        <div class="practice-rationale-note">
+            <em>Direct calculation testing Product Rule and Clairaut's Theorem $f_{xy} = f_{yx}$.</em>
         </div>
 
         <div class="box-q">
@@ -5119,7 +5078,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="full_t2_PT2_Q1" data-letter="A" data-correct="D" onclick="handlePracticeChoiceClick('full_t2_PT2_Q1', 'A', 'D')">
                     <span class="mc-choice-letter">A</span>
@@ -5160,7 +5119,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-full_t2_PT2_Q1" onclick="togglePracticeSol('full_t2_PT2_Q1', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-full_t2_PT2_Q1" style="max-height: none;">
@@ -5186,12 +5145,10 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
                 <span class="tag-pill tag-diff diff-medium">Easy-Medium</span>
                 <span class="practice-tag">13.3 Higher Partials</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Third-Order Successive Partial Differentiation</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Tests systematic partial differentiation across multiple variables $f_{xxy}$.</span>
+        <div class="practice-rationale-note">
+            <em>Tests systematic partial differentiation across multiple variables $f_{xxy}$.</em>
         </div>
 
         <div class="box-q">
@@ -5202,7 +5159,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="full_t2_PT2_Q2" data-letter="A" data-correct="A" onclick="handlePracticeChoiceClick('full_t2_PT2_Q2', 'A', 'A')">
                     <span class="mc-choice-letter">A</span>
@@ -5243,7 +5200,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-full_t2_PT2_Q2" onclick="togglePracticeSol('full_t2_PT2_Q2', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-full_t2_PT2_Q2" style="max-height: none;">
@@ -5272,12 +5229,10 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
                 <span class="tag-pill tag-diff diff-medium">Medium</span>
                 <span class="practice-tag">13.4 Linearization</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Local Linearization of a Multivariable Radical Function</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Core applied calculus — building the tangent plane approximation $L(x, y)$ to estimate function values nearby.</span>
+        <div class="practice-rationale-note">
+            <em>Core applied calculus — building the tangent plane approximation $L(x, y)$ to estimate function values nearby.</em>
         </div>
 
         <div class="box-q">
@@ -5288,7 +5243,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="full_t2_PT2_Q3" data-letter="A" data-correct="D" onclick="handlePracticeChoiceClick('full_t2_PT2_Q3', 'A', 'D')">
                     <span class="mc-choice-letter">A</span>
@@ -5329,7 +5284,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-full_t2_PT2_Q3" onclick="togglePracticeSol('full_t2_PT2_Q3', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-full_t2_PT2_Q3" style="max-height: none;">
@@ -5358,12 +5313,10 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
                 <span class="tag-pill tag-diff diff-medium">Easy-Medium</span>
                 <span class="practice-tag">13.4 Total Differentials</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Estimating Percentage Volume Increase Using Differentials</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">High exam frequency — using logarithmic/differential relations $rac{dV}{V} = rac{dx}{x} + rac{dy}{y} + rac{dz}{z}$.</span>
+        <div class="practice-rationale-note">
+            <em>High exam frequency — using logarithmic/differential relations $rac{dV}{V} = rac{dx}{x} + rac{dy}{y} + rac{dz}{z}$.</em>
         </div>
 
         <div class="box-q">
@@ -5374,7 +5327,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="full_t2_PT2_Q4" data-letter="A" data-correct="D" onclick="handlePracticeChoiceClick('full_t2_PT2_Q4', 'A', 'D')">
                     <span class="mc-choice-letter">A</span>
@@ -5415,7 +5368,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-full_t2_PT2_Q4" onclick="togglePracticeSol('full_t2_PT2_Q4', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-full_t2_PT2_Q4" style="max-height: none;">
@@ -5441,12 +5394,10 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
                 <span class="tag-pill tag-diff diff-medium">Medium</span>
                 <span class="practice-tag">13.5 Chain Rule</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Applying the Chain Rule with Multiple Independent Variables</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Core multivariable derivative test — applying tree diagrams $rac{\partial z}{\partial t} = rac{\partial z}{\partial x} rac{\partial x}{\partial t} + rac{\partial z}{\partial y} rac{\partial y}{\partial t}$.</span>
+        <div class="practice-rationale-note">
+            <em>Core multivariable derivative test — applying tree diagrams $rac{\partial z}{\partial t} = rac{\partial z}{\partial x} rac{\partial x}{\partial t} + rac{\partial z}{\partial y} rac{\partial y}{\partial t}$.</em>
         </div>
 
         <div class="box-q">
@@ -5457,7 +5408,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="full_t2_PT2_Q5" data-letter="A" data-correct="A" onclick="handlePracticeChoiceClick('full_t2_PT2_Q5', 'A', 'A')">
                     <span class="mc-choice-letter">A</span>
@@ -5498,7 +5449,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-full_t2_PT2_Q5" onclick="togglePracticeSol('full_t2_PT2_Q5', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-full_t2_PT2_Q5" style="max-height: none;">
@@ -5527,12 +5478,10 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
                 <span class="tag-pill tag-diff diff-medium">Medium</span>
                 <span class="practice-tag">13.5 Implicit Differentiation</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Implicit Partial Differentiation of a Surface</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Standard KFUPM problem — using $z_x = -rac{F_x}{F_z}$ for equations of the form $F(x, y, z) = 0$.</span>
+        <div class="practice-rationale-note">
+            <em>Standard KFUPM problem — using $z_x = -rac{F_x}{F_z}$ for equations of the form $F(x, y, z) = 0$.</em>
         </div>
 
         <div class="box-q">
@@ -5543,7 +5492,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="full_t2_PT2_Q6" data-letter="A" data-correct="D" onclick="handlePracticeChoiceClick('full_t2_PT2_Q6', 'A', 'D')">
                     <span class="mc-choice-letter">A</span>
@@ -5584,7 +5533,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-full_t2_PT2_Q6" onclick="togglePracticeSol('full_t2_PT2_Q6', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-full_t2_PT2_Q6" style="max-height: none;">
@@ -5613,13 +5562,11 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
                 <span class="tag-pill tag-diff diff-medium">Easy-Medium</span>
                 <span class="practice-tag">13.6 Directional Derivatives</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Finding the Maximum Directional Derivative via Gradient Magnitude</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">High frequency concept — the maximum rate of change at point $P$ is equal to $\|
-abla f(P)\|$.</span>
+        <div class="practice-rationale-note">
+            <em>High frequency concept — the maximum rate of change at point $P$ is equal to $\|
+abla f(P)\|$.</em>
         </div>
 
         <div class="box-q">
@@ -5630,7 +5577,7 @@ abla f(P)\|$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="full_t2_PT2_Q7" data-letter="A" data-correct="B" onclick="handlePracticeChoiceClick('full_t2_PT2_Q7', 'A', 'B')">
                     <span class="mc-choice-letter">A</span>
@@ -5671,7 +5618,7 @@ abla f(P)\|$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-full_t2_PT2_Q7" onclick="togglePracticeSol('full_t2_PT2_Q7', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-full_t2_PT2_Q7" style="max-height: none;">
@@ -5700,13 +5647,11 @@ abla f(P)\|$.</span>
                 <span class="tag-pill tag-diff diff-medium">Medium</span>
                 <span class="practice-tag">13.6 / 13.7 Normal Vectors</span>
             </div>
-            <div class="exam-badge-pill">★ KFUPM Practice Test</div>
         </div>
         <h3 class="practice-card-title">Finding a Unit Normal Vector to a Level Curve</h3>
-        <div class="exam-rationale-box">
-            <span class="exam-rationale-icon">🎯</span>
-            <span class="exam-rationale-text">Key concept bridging 13.6 and 13.7 — the gradient vector $
-abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
+        <div class="practice-rationale-note">
+            <em>Key concept bridging 13.6 and 13.7 — the gradient vector $
+abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</em>
         </div>
 
         <div class="box-q">
@@ -5717,7 +5662,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
         </div>
 
         <div class="box-mc-choices">
-            <div class="mc-choices-label">Select Your Answer:</div>
+            <div class="mc-choices-label">Select Option:</div>
             <div class="mc-choices-grid">
                 <button type="button" class="mc-choice-btn" data-qid="full_t2_PT2_Q8" data-letter="A" data-correct="E" onclick="handlePracticeChoiceClick('full_t2_PT2_Q8', 'A', 'E')">
                     <span class="mc-choice-letter">A</span>
@@ -5758,7 +5703,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</span>
 
         <div class="box-sol">
             <button class="sol-accordion-trigger open" id="trigger-full_t2_PT2_Q8" onclick="togglePracticeSol('full_t2_PT2_Q8', this)">
-                <span class="sol-chevron rotate-open">▸</span>
+                <svg class="sol-chevron rotate-open" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 <span class="sol-mini-label" style="margin-bottom: 0;">Step-by-Step Calculus Derivation & Explanation</span>
             </button>
             <div class="sol-accordion-content open" id="sol-full_t2_PT2_Q8" style="max-height: none;">
@@ -6739,7 +6684,33 @@ function queueBackgroundMathPrecache() {
     }
 }
 
+function applyPortalTheme(theme) {
+    const dark = (theme === 'dark');
+    const val = dark ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', val);
+    const btn = document.getElementById('btnThemeToggle');
+    if (btn) {
+        btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+        btn.title = dark ? 'Switch to Light Theme' : 'Switch to Dark Theme';
+    }
+    const label = document.getElementById('themeToggleText');
+    if (label) {
+        label.textContent = dark ? 'Dark' : 'Light';
+    }
+}
+
+function togglePortalTheme() {
+    const current = document.documentElement.getAttribute('data-theme') || 'light';
+    const next = (current === 'dark') ? 'light' : 'dark';
+    applyPortalTheme(next);
+    try {
+        localStorage.setItem('math201_theme', next);
+        localStorage.setItem('math201_paper_theme', next);
+    } catch(e) {}
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    applyPortalTheme(document.documentElement.getAttribute("data-theme") || "light");
     // 1. Load cached state from localStorage first
     try {
         const cached = localStorage.getItem("math201_portal_state_v5");

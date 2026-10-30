@@ -12,19 +12,20 @@
                 }
             } catch (e) {}
         })();
-        /* Exam-paper theme: set before first paint to avoid a light/dark flash */
+        /* Synchronized Theme initialization: sets data-theme and data-paper before first paint */
         (function () {
             var t = 'light';
             try {
                 var p = new URLSearchParams(window.location.search);
-                var q = p.get('paper') || p.get('theme');
+                var q = p.get('theme') || p.get('paper');
                 if (q === 'dark' || q === 'light') {
                     t = q;
-                } else if (localStorage.getItem('math201_paper_theme') === 'dark') {
+                } else if (localStorage.getItem('math201_theme') === 'dark' || localStorage.getItem('math201_paper_theme') === 'dark') {
                     t = 'dark';
                 }
             } catch (e) {}
             document.documentElement.setAttribute('data-paper', t);
+            document.documentElement.setAttribute('data-theme', t);
         })();
     </script>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
@@ -49,60 +50,34 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        :root {
-            --bg-base: #070709;
-            --bg-card: #0e1017;
-            --bg-surface: #141722;
-            --bg-surface-hover: #1c2030;
-            --border-dim: #1e2333;
-            --border-bright: #2d354d;
-            --accent-sky: #38bdf8;
-            --accent-sky-dark: #0284c7;
-            --accent-glow: rgba(56, 189, 248, 0.15);
-            --color-correct: #10b981;
-            --bg-correct: rgba(16, 185, 129, 0.12);
-            --border-correct: #059669;
-            --color-incorrect: #f43f5e;
-            --bg-incorrect: rgba(244, 63, 94, 0.12);
-            --border-incorrect: #e11d48;
-            --color-amber: #f59e0b;
-            --bg-amber: rgba(245, 158, 11, 0.12);
-            --text-main: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
+        :root,
+        :root[data-paper="light"],
+        :root[data-theme="light"],
+        [data-theme="light"] {
+            --bg-base: #f4f4f2;
+            --bg-card: #ffffff;
+            --bg-surface: #f1f1ef;
+            --bg-surface-hover: #e4e4e7;
+            --border-dim: #e4e4e7;
+            --border-bright: #d4d4d8;
+            --accent-sky: #18181b;
+            --accent-sky-dark: #27272a;
+            --accent-glow: transparent;
+            --color-correct: #15803d;
+            --bg-correct: rgba(21, 128, 61, 0.08);
+            --border-correct: rgba(21, 128, 61, 0.3);
+            --color-incorrect: #b91c1c;
+            --bg-incorrect: rgba(185, 28, 28, 0.08);
+            --border-incorrect: rgba(185, 28, 28, 0.3);
+            --color-amber: #b45309;
+            --bg-amber: rgba(180, 83, 9, 0.08);
+            --text-main: #18181b;
+            --text-secondary: #52525b;
+            --text-muted: #71717a;
             --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
             --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        }
 
-        /* ========================================================
-           EXAM PAPER THEME (independent of the dark app chrome)
-           Light = warm white paper / black ink / blue pen.
-           Dark  = charcoal paper / soft off-white ink / light-blue pen.
-           ======================================================== */
-        @font-face {
-            font-family: "CMU Serif";
-            font-style: normal;
-            font-weight: 400 500;
-            font-display: swap;
-            src: local("CMU Serif"), local("CMUSerif-Roman"), url("https://cdn.jsdelivr.net/npm/computer-modern@0.1.2/fonts/cmu-serif-500-roman.woff2") format("woff2");
-        }
-        @font-face {
-            font-family: "CMU Serif";
-            font-style: italic;
-            font-weight: 400 500;
-            font-display: swap;
-            src: local("CMU Serif Italic"), local("CMUSerif-Italic"), url("https://cdn.jsdelivr.net/npm/computer-modern@0.1.2/fonts/cmu-serif-500-italic.woff2") format("woff2");
-        }
-        @font-face {
-            font-family: "CMU Serif";
-            font-style: normal;
-            font-weight: 600 800;
-            font-display: swap;
-            src: local("CMU Serif Bold"), local("CMUSerif-Bold"), url("https://cdn.jsdelivr.net/npm/computer-modern@0.1.2/fonts/cmu-serif-700-roman.woff2") format("woff2");
-        }
-
-        :root,
-        :root[data-paper="light"] {
+            /* Paper Sheet Variables (Light Desk) */
             --font-paper: "Latin Modern Roman", "CMU Serif", "Computer Modern Serif", "Latin Modern", "Times New Roman", Georgia, serif;
             --font-pen: "Segoe Print", "Bradley Hand", "Noteworthy", "Lucida Handwriting", "Latin Modern Roman", "CMU Serif", Georgia, serif;
             --paper-bg: #fdfcf9;
@@ -111,25 +86,50 @@
             --paper-rule: rgba(17, 17, 17, 0.55);
             --paper-rule-faint: rgba(17, 17, 17, 0.2);
             --paper-hover: rgba(17, 17, 17, 0.05);
-            --paper-edge: rgba(0, 0, 0, 0.1);
-            --paper-shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 16px 44px rgba(0, 0, 0, 0.55);
+            --paper-edge: rgba(0, 0, 0, 0.08);
+            --paper-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.06);
             --paper-blue: #1d4ed8;
             --paper-green: #15803d;
             --paper-red: #c81e1e;
             --paper-amber: #b45309;
         }
-        :root[data-paper="dark"] {
-            --paper-bg: #1a1c23;
+
+        :root[data-paper="dark"],
+        :root[data-theme="dark"],
+        [data-theme="dark"] {
+            --bg-base: #0a0a0b;
+            --bg-card: #121214;
+            --bg-surface: #18181b;
+            --bg-surface-hover: #27272a;
+            --border-dim: #27272a;
+            --border-bright: #3f3f46;
+            --accent-sky: #f4f4f5;
+            --accent-sky-dark: #e4e4e7;
+            --accent-glow: transparent;
+            --color-correct: #22c55e;
+            --bg-correct: rgba(34, 197, 94, 0.1);
+            --border-correct: rgba(34, 197, 94, 0.35);
+            --color-incorrect: #ef4444;
+            --bg-incorrect: rgba(239, 68, 68, 0.1);
+            --border-incorrect: rgba(239, 68, 68, 0.35);
+            --color-amber: #f59e0b;
+            --bg-amber: rgba(245, 158, 11, 0.12);
+            --text-main: #f4f4f5;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+
+            /* Paper Sheet Variables (Dark Desk) */
+            --paper-bg: #141416;
             --paper-ink: #e7e5df;
             --paper-ink-soft: #a29f97;
             --paper-rule: rgba(231, 229, 223, 0.5);
             --paper-rule-faint: rgba(231, 229, 223, 0.18);
             --paper-hover: rgba(231, 229, 223, 0.06);
-            --paper-edge: rgba(255, 255, 255, 0.09);
-            --paper-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 16px 44px rgba(0, 0, 0, 0.7);
+            --paper-edge: rgba(255, 255, 255, 0.08);
+            --paper-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.6);
             --paper-blue: #7cb7ff;
             --paper-green: #4ade80;
-            --paper-red: #ff7b7b;
+            --paper-red: #f87171;
             --paper-amber: #fbbf24;
         }
 
@@ -200,8 +200,8 @@
         }
 
         .nav-badge-pill {
-            background: rgba(56, 189, 248, 0.12);
-            color: var(--accent-sky);
+            background: var(--bg-surface);
+            color: var(--text-secondary);
             font-family: var(--font-mono);
             font-size: 11px;
             font-weight: 800;
@@ -209,13 +209,13 @@
             padding-block: 3px;
             padding-inline: 8px;
             border-radius: 6px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
+            border: 1px solid var(--border-dim);
         }
 
         .nav-title {
             font-size: 15px;
             font-weight: 700;
-            color: #ffffff;
+            color: var(--text-main);
             letter-spacing: -0.2px;
         }
 
@@ -235,7 +235,7 @@
             transition: all 0.15s ease;
         }
         .nav-back-link:hover {
-            color: #ffffff;
+            color: var(--text-main);
             border-color: var(--border-bright);
             background: var(--bg-surface-hover);
         }
@@ -280,7 +280,7 @@
         }
         .btn-scratchpad-toggle:hover {
             border-color: var(--accent-sky);
-            box-shadow: 0 0 12px var(--accent-glow);
+            box-shadow: none;
             color: #ffffff;
         }
         .btn-scratchpad-toggle svg {
@@ -331,13 +331,12 @@
             user-select: none;
         }
         .tab-button:hover {
-            color: #ffffff;
+            color: var(--text-main);
         }
         .tab-button.active {
-            background: var(--bg-surface-hover);
-            color: #ffffff;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.4);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: var(--accent-sky);
+            color: var(--bg-base);
+            border: 1px solid var(--accent-sky);
         }
         .tab-button .badge {
             font-size: 11px;
@@ -345,8 +344,20 @@
             padding-block: 1px;
             padding-inline: 5px;
             border-radius: 4px;
-            background: rgba(56, 189, 248, 0.15);
-            color: var(--accent-sky);
+            background: var(--bg-surface-hover);
+            color: var(--text-secondary);
+        }
+        .tab-button.active .badge {
+            background: rgba(255, 255, 255, 0.25);
+            color: var(--bg-base);
+        }
+        :root[data-theme="light"] .tab-button.active .badge {
+            background: rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+        }
+        :root[data-theme="dark"] .tab-button.active .badge {
+            background: rgba(0, 0, 0, 0.3);
+            color: #09090b;
         }
 
         /* ========================================================
@@ -408,7 +419,7 @@
         .stat-value {
             font-size: 22px;
             font-weight: 800;
-            color: #ffffff;
+            color: var(--text-main);
             font-family: var(--font-mono);
         }
         .stat-subtext {
@@ -487,7 +498,7 @@
         }
         .select-input:focus {
             border-color: var(--accent-sky);
-            box-shadow: 0 0 10px var(--accent-glow);
+            box-shadow: none;
         }
 
         .search-input-wrapper {
@@ -509,7 +520,7 @@
         }
         .search-input:focus {
             border-color: var(--accent-sky);
-            box-shadow: 0 0 10px var(--accent-glow);
+            box-shadow: none;
         }
         .search-icon {
             position: absolute;
@@ -541,11 +552,11 @@
             transition: all 0.15s ease;
         }
         .status-pill-btn:hover {
-            color: #ffffff;
+            color: var(--text-main);
         }
         .status-pill-btn.active {
-            background: #252b3d;
-            color: #ffffff;
+            background: var(--accent-sky);
+            color: var(--bg-base);
         }
 
         .filter-meta-bar {
@@ -605,7 +616,7 @@
         }
         .page-btn.active {
             background: var(--accent-sky);
-            color: #070709;
+            color: var(--bg-base);
             border-color: var(--accent-sky);
             font-weight: 800;
         }
@@ -1020,7 +1031,7 @@
         .sim-hero-title {
             font-size: 24px;
             font-weight: 800;
-            color: #ffffff;
+            color: var(--text-main);
             margin-bottom: 6px;
         }
         .sim-hero-desc {
@@ -1048,12 +1059,12 @@
         }
         .sim-option-card.selected {
             border-color: var(--accent-sky);
-            background: rgba(56, 189, 248, 0.08);
+            background: var(--bg-surface-hover);
         }
         .sim-option-num {
             font-size: 28px;
             font-weight: 800;
-            color: #ffffff;
+            color: var(--text-main);
             font-family: var(--font-mono);
         }
         .sim-option-time {
@@ -1069,9 +1080,9 @@
         }
 
         .btn-start-exam {
-            background: linear-gradient(135deg, #0284c7, #38bdf8);
-            border: none;
-            color: #070709;
+            background: var(--text-main);
+            border: 1px solid var(--text-main);
+            color: var(--bg-card);
             font-family: var(--font-sans);
             font-size: 16px;
             font-weight: 800;
@@ -1079,11 +1090,11 @@
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 18px rgba(56, 189, 248, 0.35);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
         }
         .btn-start-exam:hover {
             transform: translateY(-1px);
-            box-shadow: 0 6px 24px rgba(56, 189, 248, 0.5);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         /* Active Test Mode Layout */
@@ -1114,14 +1125,14 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #1a1e2c;
+            background: var(--bg-surface);
             border: 1px solid var(--border-bright);
             padding: 6px 14px;
             border-radius: 8px;
             font-family: var(--font-mono);
             font-size: 18px;
             font-weight: 800;
-            color: #ffffff;
+            color: var(--text-main);
         }
         .sim-timer-pill.urgent {
             color: var(--color-incorrect);
@@ -1130,9 +1141,8 @@
             animation: pulse-red 1.5s infinite;
         }
         @keyframes pulse-red {
-            0% { box-shadow: 0 0 0 rgba(244, 63, 94, 0.4); }
-            50% { box-shadow: 0 0 14px rgba(244, 63, 94, 0.8); }
-            100% { box-shadow: 0 0 0 rgba(244, 63, 94, 0.4); }
+            0%, 100% { opacity: 1; border-color: var(--border-incorrect); }
+            50% { opacity: 0.7; border-color: var(--color-incorrect); }
         }
 
         .btn-sim-submit {
@@ -1149,7 +1159,7 @@
         }
         .btn-sim-submit:hover {
             background: #34d399;
-            box-shadow: 0 0 14px rgba(16, 185, 129, 0.4);
+            opacity: 0.9;
         }
 
         .sim-palette-grid {
@@ -1180,11 +1190,11 @@
         }
         .palette-btn.current {
             border-color: var(--accent-sky);
-            box-shadow: 0 0 8px var(--accent-glow);
+            box-shadow: none;
             color: #ffffff;
         }
         .palette-btn.answered {
-            background: rgba(56, 189, 248, 0.18);
+            background: var(--bg-hover);
             border-color: var(--accent-sky);
             color: var(--accent-sky);
         }
@@ -1307,9 +1317,9 @@
         }
 
         .btn-print-action {
-            background: linear-gradient(135deg, #0284c7, #38bdf8);
-            border: none;
-            color: #070709;
+            background: var(--text-main);
+            border: 1px solid var(--text-main);
+            color: var(--bg-card);
             font-size: 14px;
             font-weight: 800;
             padding-block: 10px;
@@ -1322,7 +1332,7 @@
             gap: 8px;
         }
         .btn-print-action:hover {
-            box-shadow: 0 4px 18px rgba(56, 189, 248, 0.4);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
         }
 
         /* Print Container Preview on Screen */
@@ -1503,7 +1513,7 @@
         }
 
         .scratchpad-topbar {
-            background: #141724;
+            background: var(--bg-surface);
             border-bottom: 1px solid var(--border-dim);
             padding: 10px 16px;
             display: flex;
@@ -1521,7 +1531,7 @@
         }
 
         .tool-icon-btn {
-            background: #1b2030;
+            background: var(--bg-card);
             border: 1px solid var(--border-dim);
             color: var(--text-secondary);
             width: 36px;
@@ -1534,12 +1544,12 @@
             transition: all 0.15s ease;
         }
         .tool-icon-btn:hover {
-            color: #ffffff;
+            color: var(--text-main);
             border-color: var(--border-bright);
         }
         .tool-icon-btn.active {
             background: var(--accent-sky);
-            color: #070709;
+            color: var(--bg-base);
             border-color: var(--accent-sky);
         }
 
@@ -1555,14 +1565,14 @@
             transform: scale(1.15);
         }
         .color-dot-btn.active {
-            border-color: #ffffff;
-            box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+            border-color: var(--text-main);
+            box-shadow: none;
         }
 
         .scratchpad-body {
             flex: 1;
             position: relative;
-            background: #07080d;
+            background: var(--bg-base);
             cursor: crosshair;
             overflow: hidden;
         }
@@ -1744,9 +1754,8 @@
         }
 
         .auth-gate-input:focus {
-            border-color: #38bdf8;
-            box-shadow: 0 0 18px rgba(56, 189, 248, 0.16);
-            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--accent-sky);
+            background: var(--bg-card);
         }
 
         .auth-gate-submit-btn {
@@ -1768,8 +1777,8 @@
         }
 
         .auth-gate-submit-btn:hover {
-            color: #38bdf8;
-            background: rgba(56, 189, 248, 0.08);
+            color: var(--text-main);
+            background: var(--bg-surface-hover);
         }
 
         .auth-gate-error {
@@ -1788,7 +1797,7 @@
         .auth-shake {
             animation: authShake 0.35s ease;
             border-color: #f43f5e !important;
-            box-shadow: 0 0 14px rgba(244, 63, 94, 0.22) !important;
+            box-shadow: none !important;
         }
 
     </style>
@@ -1990,7 +1999,7 @@
                         <div class="status-pills">
                             <button class="status-pill-btn active" data-status="ALL" onclick="setStatusFilter('ALL')">All</button>
                             <button class="status-pill-btn" data-status="UNATTEMPTED" onclick="setStatusFilter('UNATTEMPTED')">Unattempted</button>
-                            <button class="status-pill-btn" data-status="BOOKMARKED" onclick="setStatusFilter('BOOKMARKED')">★ Bookmarked</button>
+                            <button class="status-pill-btn" data-status="BOOKMARKED" onclick="setStatusFilter('BOOKMARKED')">Bookmarked</button>
                             <button class="status-pill-btn" data-status="CORRECT" onclick="setStatusFilter('CORRECT')">Correct</button>
                             <button class="status-pill-btn" data-status="INCORRECT" onclick="setStatusFilter('INCORRECT')">Incorrect</button>
                         </div>
@@ -2165,13 +2174,13 @@
 
                     <!-- Topic / Section Breakdown -->
                     <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <h3 style="font-size: 15px; font-weight: 700; color: #ffffff;">Performance by Calculus Section:</h3>
+                        <h3 style="font-size: 15px; font-weight: 700; color: var(--text-main);">Performance by Calculus Section:</h3>
                         <div class="section-breakdown-grid" id="simSectionBreakdown"></div>
                     </div>
 
                     <!-- Question-by-Question Diagnostic Review -->
                     <div style="display: flex; flex-direction: column; gap: 14px;">
-                        <h3 style="font-size: 15px; font-weight: 700; color: #ffffff;">Detailed Question-by-Question Review:</h3>
+                        <h3 style="font-size: 15px; font-weight: 700; color: var(--text-main);">Detailed Question-by-Question Review:</h3>
                         <div class="questions-list paper-sheet" id="simReviewQuestionsList"></div>
                     </div>
                 </div>
@@ -2288,7 +2297,7 @@
 
                     <!-- Color Presets -->
                     <div style="display: flex; align-items: center; gap: 6px; margin-inline: 4px;">
-                        <button class="color-dot-btn active" style="background: #38bdf8;" onclick="setSpColor('#38bdf8', this)"></button>
+                        <button class="color-dot-btn active" style="background: #2563eb;" onclick="setSpColor('#2563eb', this)"></button>
                         <button class="color-dot-btn" style="background: #facc15;" onclick="setSpColor('#facc15', this)"></button>
                         <button class="color-dot-btn" style="background: #f43f5e;" onclick="setSpColor('#f43f5e', this)"></button>
                         <button class="color-dot-btn" style="background: #ffffff;" onclick="setSpColor('#ffffff', this)"></button>
@@ -2392,28 +2401,38 @@
         }
 
         function applyPaperTheme(theme) {
-            const dark = theme === 'dark';
+            const dark = (theme === 'dark');
             document.documentElement.setAttribute('data-paper', dark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
             const btn = document.getElementById('btnPaperTheme');
-            if (!btn) return;
-            btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
-            btn.title = dark ? 'Switch exam paper to light mode' : 'Switch exam paper to dark mode';
+            if (btn) {
+                btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+                btn.title = dark ? 'Switch to light theme' : 'Switch to dark theme';
+            }
             const label = document.getElementById('paperThemeLabel');
-            if (label) label.textContent = dark ? 'Paper: Dark' : 'Paper: Light';
+            if (label) label.textContent = dark ? 'Theme: Dark' : 'Theme: Light';
         }
 
         function togglePaperTheme() {
-            const next = document.documentElement.getAttribute('data-paper') === 'dark' ? 'light' : 'dark';
+            const current = document.documentElement.getAttribute('data-paper') || 'light';
+            const next = (current === 'dark') ? 'light' : 'dark';
             applyPaperTheme(next);
-            try { localStorage.setItem(PAPER_THEME_KEY, next); } catch(e) {}
+            try {
+                localStorage.setItem('math201_paper_theme', next);
+                localStorage.setItem('math201_theme', next);
+            } catch(e) {}
         }
 
         function initPaperTheme() {
-            var current = document.documentElement.getAttribute('data-paper') || 'light';
+            var current = 'light';
             try {
                 var p = new URLSearchParams(window.location.search);
-                var q = p.get('paper') || p.get('theme');
-                if (q === 'dark' || q === 'light') current = q;
+                var q = p.get('theme') || p.get('paper');
+                if (q === 'dark' || q === 'light') {
+                    current = q;
+                } else if (localStorage.getItem('math201_theme') === 'dark' || localStorage.getItem('math201_paper_theme') === 'dark') {
+                    current = 'dark';
+                }
             } catch (e) {}
             applyPaperTheme(current);
         }
@@ -3079,7 +3098,7 @@
                 secHtml += `
                     <div class="sec-stat-row">
                         <div class="sec-stat-meta">
-                            <span style="font-weight: 700; color: #ffffff;">Section ${sec}</span>
+                            <span style="font-weight: 700; color: var(--text-main);">Section ${sec}</span>
                             <span style="font-family: var(--font-mono); color: var(--accent-sky);">${data.correct}/${data.total} (${secPct}%)</span>
                         </div>
                         <div class="sec-progress-bar">
@@ -3253,7 +3272,7 @@
         let spCanvas, spCtx;
         let spDrawing = false;
         let spTool = 'pen';
-        let spColor = '#38bdf8';
+        let spColor = '#2563eb';
         let spSize = 4;
 
         function initScratchpad() {

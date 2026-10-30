@@ -4,6 +4,30 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Math 201</title>
+    <script>
+        (function() {
+            var t = 'light';
+            try {
+                var p = new URLSearchParams(window.location.search);
+                var q = p.get('theme') || p.get('paper');
+                if (q === 'dark' || q === 'light') {
+                    t = q;
+                } else if (localStorage.getItem('math201_theme') === 'dark' || localStorage.getItem('math201_paper_theme') === 'dark') {
+                    t = 'dark';
+                }
+            } catch(e) {}
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+        (function() {
+            try {
+                if (localStorage.getItem('math201_device_auth') === 'pass') {
+                    var params = new URLSearchParams(window.location.search);
+                    var dest = params.get('dest') || 'index.html';
+                    window.location.replace(dest);
+                }
+            } catch(e) {}
+        })();
+    </script>
     <style>
         *, *::before, *::after {
             box-sizing: border-box;
@@ -11,9 +35,40 @@
             padding: 0;
             -webkit-tap-highlight-color: transparent;
         }
+        :root,
+        :root[data-theme="light"],
+        [data-theme="light"] {
+            --bg-body: #f8f8f7;
+            --bg-card: #ffffff;
+            --bg-subtle: #f1f1ef;
+            --border-subtle: #e4e4e7;
+            --border-strong: #d4d4d8;
+            --text-primary: #18181b;
+            --text-secondary: #52525b;
+            --text-muted: #71717a;
+            --border-focus: #18181b;
+            --status-err: #b91c1c;
+            --status-err-bg: rgba(185, 28, 28, 0.08);
+            --status-err-border: rgba(185, 28, 28, 0.3);
+        }
+        :root[data-theme="dark"],
+        [data-theme="dark"] {
+            --bg-body: #0a0a0b;
+            --bg-card: #121214;
+            --bg-subtle: #18181b;
+            --border-subtle: #27272a;
+            --border-strong: #3f3f46;
+            --text-primary: #f4f4f5;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --border-focus: #a1a1aa;
+            --status-err: #ef4444;
+            --status-err-bg: rgba(239, 68, 68, 0.1);
+            --status-err-border: rgba(239, 68, 68, 0.35);
+        }
         body {
-            background-color: #070709;
-            color: #f8fafc;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
             min-height: 100vh;
             display: flex;
@@ -21,6 +76,7 @@
             justify-content: center;
             padding-inline: 20px;
             padding-block: 20px;
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
         .gate-form {
             inline-size: 100%;
@@ -36,26 +92,25 @@
         }
         .gate-input {
             inline-size: 100%;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
             border-radius: 12px;
             padding-block: 14px;
             padding-inline-start: 16px;
             padding-inline-end: 46px;
-            color: #ffffff;
+            color: var(--text-primary);
             font-size: 16px;
             letter-spacing: 0.04em;
             outline: none;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            transition: border-color 0.15s ease, background-color 0.15s ease;
         }
         .gate-input::placeholder {
-            color: #555c6d;
+            color: var(--text-muted);
             letter-spacing: normal;
         }
         .gate-input:focus {
-            border-color: #38bdf8;
-            box-shadow: 0 0 18px rgba(56, 189, 248, 0.16);
-            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--border-focus);
+            background: var(--bg-card);
         }
         .gate-submit {
             position: absolute;
@@ -64,7 +119,7 @@
             transform: translateY(-50%);
             background: transparent;
             border: none;
-            color: #64748b;
+            color: var(--text-muted);
             inline-size: 32px;
             block-size: 32px;
             border-radius: 8px;
@@ -72,15 +127,15 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: color 0.15s ease, background 0.15s ease;
+            transition: color 0.15s ease, background-color 0.15s ease;
         }
         .gate-submit:hover {
-            color: #38bdf8;
-            background: rgba(56, 189, 248, 0.08);
+            color: var(--text-primary);
+            background: var(--bg-subtle);
         }
         .gate-error {
             font-size: 13px;
-            color: #f43f5e;
+            color: var(--status-err);
             display: none;
         }
         @keyframes shake {
@@ -90,22 +145,9 @@
         }
         .shake {
             animation: shake 0.35s ease;
-            border-color: #f43f5e !important;
-            box-shadow: 0 0 14px rgba(244, 63, 94, 0.22) !important;
+            border-color: var(--status-err) !important;
         }
     </style>
-    <script>
-        // If device already has auth, redirect straight to index.html
-        (function() {
-            try {
-                if (localStorage.getItem('math201_device_auth') === 'pass') {
-                    var params = new URLSearchParams(window.location.search);
-                    var dest = params.get('dest') || 'index.html';
-                    window.location.replace(dest);
-                }
-            } catch(e) {}
-        })();
-    </script>
 </head>
 <body>
     <form class="gate-form" onsubmit="handleLogin(event)" autocomplete="off">
@@ -128,7 +170,6 @@
                 </svg>
             </button>
         </div>
-        
     </form>
 
     <script>
@@ -151,4 +192,4 @@
         }
     </script>
 </body>
-</html>
+</html>\n
