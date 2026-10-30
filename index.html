@@ -1635,145 +1635,321 @@ html.auth-passed .auth-gate-screen {
     font-weight: 700;
     color: var(--paper-ink);
 }
-.paper-q-block {
+/* Question block (whitespace + faint dotted rule instead of dashboard cards) */
+.paper-sheet .q-card {
     position: relative;
-    padding-block: 20px 22px;
-    border-block-end: 1px dashed var(--paper-rule-faint);
+    padding-block: 20px 14px;
+    background: transparent;
 }
-.paper-q-block:last-child {
-    border-block-end: none;
+.paper-sheet .q-card + .q-card {
+    border-block-start: 1px dotted var(--paper-rule-faint);
 }
-.paper-q-header {
+
+.q-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-block-end: 6px;
+    font-size: 12.5px;
+    line-height: 1.3;
+    color: var(--paper-ink-soft);
+}
+
+.q-meta-badges {
     display: flex;
     align-items: baseline;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2px 10px;
+    min-inline-size: 0;
+}
+.badge-term,
+.badge-section,
+.badge-topic {
+    padding: 0;
+    border: 0;
+    background: none;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 400;
+    color: inherit;
+}
+.badge-term {
+    font-variant: small-caps;
+    letter-spacing: 0.04em;
+}
+.badge-section::before,
+.badge-topic:not(:empty)::before {
+    content: "•";
+    margin-inline-end: 8px;
+}
+
+.q-header-actions {
+    display: flex;
+    align-items: center;
     gap: 8px;
-    margin-block-end: 4px;
+    flex-shrink: 0;
 }
-.paper-q-meta-line {
-    font-size: 12.5px;
-    color: var(--paper-ink-soft);
-}
-.paper-q-tools {
+
+.btn-star {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-size: 13px;
-}
-.paper-bookmark-btn {
+    justify-content: center;
+    inline-size: 30px;
+    block-size: 30px;
+    border: 1px solid transparent;
+    border-radius: 50%;
     background: transparent;
-    border: none;
-    cursor: pointer;
     color: var(--paper-ink-soft);
-    font-size: 15px;
-    line-height: 1;
-    padding: 2px 4px;
-    border-radius: 4px;
-    transition: color 0.15s ease;
+    cursor: pointer;
+    transition: color 0.15s ease, background-color 0.15s ease;
 }
-.paper-bookmark-btn.bookmarked {
-    color: #eab308;
+.btn-star:hover {
+    color: var(--paper-amber);
+    background: var(--paper-hover);
 }
-.paper-q-row {
+.btn-star.bookmarked {
+    color: var(--paper-amber);
+}
+
+/* Hanging-indent stem: bold number column + text, like the LaTeX PDF */
+.q-body-text {
     display: grid;
-    grid-template-columns: var(--paper-indent) minmax(0, 1fr);
+    grid-template-columns: var(--paper-indent, 2.4em) minmax(0, 1fr);
     align-items: baseline;
-    margin-block-start: 4px;
+    margin-block-end: 14px;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--paper-ink);
 }
-.paper-q-num {
+.q-num {
     font-weight: 700;
-    color: var(--paper-ink);
+    font-variant-numeric: lining-nums;
+    padding-inline-end: 6px;
 }
-.paper-q-text {
+.q-stem {
     min-inline-size: 0;
-    color: var(--paper-ink);
-    line-height: 1.6;
+    overflow-wrap: break-word;
 }
-.paper-choices-grid {
+
+/* KaTeX follows the ink colour; display-style fractions keep line rhythm */
+.paper-sheet .katex {
+    font-size: 1.05em;
+}
+.q-stem .katex,
+.choice-text .katex {
+    line-height: 1.4;
+}
+.paper-sheet .katex-display {
+    margin-block: 0.6em;
+    padding-block: 0.2em;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* 5 choices: 2-column grid matching KFUPM printed exams, collapsing to 1 column on mobile */
+.choices-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 6px 18px;
-    margin-block-start: 10px;
-    margin-inline-start: var(--paper-indent);
-    font-size: 16px;
+    gap: 0.35em 28px;
+    margin-block-end: 16px;
+    margin-inline-start: var(--paper-indent, 2.1em);
 }
-@media (max-width: 600px) {
-    .paper-choices-grid {
+
+@media (max-width: 640px) {
+    .choices-grid {
         grid-template-columns: minmax(0, 1fr);
     }
 }
-.paper-choice-item {
+
+.choice-btn {
     display: flex;
     align-items: baseline;
-    gap: 0.5em;
-    padding: 6px 10px;
+    inline-size: 100%;
+    padding-block: 0.28em;
+    padding-inline: 4px;
+    border: 0;
     border-radius: 4px;
-    cursor: pointer;
-    border: 1px solid transparent;
-    transition: background-color 0.12s ease;
-    color: var(--paper-ink);
-    text-align: start;
     background: transparent;
+    color: var(--paper-ink);
+    font-family: var(--font-paper, "Latin Modern Roman", "CMU Serif", Georgia, serif);
+    font-size: 17px;
+    line-height: 1.5;
+    text-align: start;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    transition: background-color 0.12s ease;
+}
+div.choice-btn {
+    cursor: default;
+}
+.choice-btn:hover:not(.disabled) {
+    background: var(--paper-hover);
+}
+.choice-btn:focus-visible {
+    outline: 2px solid var(--paper-blue);
+    outline-offset: 2px;
+}
+
+.choice-letter {
+    flex: none;
+    display: inline-block;
+    min-inline-size: 2.1em;
+    margin-inline-end: 0.5em;
+    padding-block: 0.02em;
+    padding-inline: 0.25em;
+    border: 2px solid transparent;
+    border-radius: 52% 48% 55% 45% / 58% 50% 50% 42%;
+    background: none;
+    color: inherit;
     font-family: inherit;
     font-size: inherit;
-    width: 100%;
+    font-weight: 400;
+    line-height: 1.25;
+    text-align: center;
+    text-transform: lowercase;
+    transition: border-color 0.15s ease, transform 0.15s ease;
 }
-.paper-choice-item:hover {
-    background: var(--paper-hover);
+.choice-letter::before { content: "("; }
+.choice-letter::after { content: ")"; }
+
+.choice-text {
+    position: relative;
+    flex: 0 1 auto;
+    min-inline-size: 0;
+    overflow-wrap: break-word;
 }
-.paper-choice-item.selected-correct {
-    background: rgba(21, 128, 61, 0.12);
-    border-color: rgba(21, 128, 61, 0.4);
+
+/* Ink-mark states: green circle = right, red circle + strike = wrong, green circle + underline = right answer revealed */
+.choice-btn.selected-correct .choice-letter,
+.choice-btn.reveal-correct .choice-letter {
+    border-color: var(--paper-green);
+    transform: rotate(-2deg);
 }
-.paper-choice-item.selected-incorrect {
-    background: rgba(185, 28, 28, 0.12);
-    border-color: rgba(185, 28, 28, 0.4);
+.choice-btn.selected-incorrect .choice-letter {
+    border-color: var(--paper-red);
+    border-radius: 47% 53% 44% 56% / 52% 46% 54% 48%;
+    transform: rotate(2deg);
 }
-.paper-choice-item.reveal-correct {
-    background: rgba(21, 128, 61, 0.08);
-    border-color: rgba(21, 128, 61, 0.3);
+.choice-btn.selected-incorrect .choice-text::after {
+    content: "";
+    position: absolute;
+    inset-inline: -0.12em;
+    inset-block-start: 52%;
+    border-block-start: 2px solid var(--paper-red);
+    transform: rotate(-0.8deg);
+    pointer-events: none;
 }
-.paper-choice-letter {
-    font-weight: 600;
-    flex-shrink: 0;
+.choice-btn.reveal-correct .choice-text::after {
+    content: "";
+    position: absolute;
+    inset-inline: -0.08em;
+    inset-block-end: -0.04em;
+    border-block-end: 2px solid var(--paper-green);
+    border-radius: 2px;
+    transform: rotate(-0.5deg);
+    pointer-events: none;
 }
-.paper-choice-text {
-    flex-grow: 1;
+#simChoicesContainer .choice-btn.selected-correct .choice-letter {
+    border-color: var(--paper-blue);
 }
-.paper-sol-accordion-trigger {
+
+/* Collapsible Solution Accordion — blue-ink pen annotation */
+.accordion-box {
+    margin-block-start: 8px;
+    margin-inline-start: var(--paper-indent);
+    padding-inline-start: 1em;
+    border-inline-start: 2px dashed var(--paper-blue);
     background: transparent;
-    border: none;
+    color: var(--paper-blue);
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-block: 6px;
     cursor: pointer;
+    user-select: none;
+    transition: opacity 0.15s ease;
+}
+.accordion-header:hover {
+    opacity: 0.85;
+}
+
+.accordion-title-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--paper-blue);
+}
+.accordion-answer {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--paper-blue);
+}
+
+.accordion-chevron {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    color: var(--paper-ink-soft);
-    font-family: inherit;
-    font-size: 13.5px;
-    margin-block-start: 12px;
-    margin-inline-start: var(--paper-indent);
-    padding: 4px 6px;
-    border-radius: 4px;
-    transition: all 0.15s ease;
+    justify-content: center;
+    transform: rotate(0deg);
+    transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--paper-blue);
 }
-.paper-sol-accordion-trigger:hover {
-    color: var(--paper-ink);
-    background: var(--paper-hover);
+[dir="rtl"] .accordion-chevron {
+    transform: rotate(180deg);
 }
-.paper-sol-box {
-    display: none;
-    margin-block-start: 10px;
-    margin-inline-start: var(--paper-indent);
-    padding: 14px 18px;
-    border-inline-start: 2px solid var(--paper-rule);
-    background: var(--paper-hover);
-    border-radius: 0 6px 6px 0;
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--paper-ink);
+.accordion-box.open .accordion-chevron,
+[dir="rtl"] .accordion-box.open .accordion-chevron {
+    transform: rotate(90deg);
 }
-.paper-sol-box.open {
-    display: block;
+
+.accordion-content {
+    display: none !important;
+    padding-block: 8px 12px;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--paper-blue);
+    overflow-x: auto;
+}
+.accordion-box.open .accordion-content {
+    display: block !important;
+}
+
+.solution-inner p {
+    margin-block-end: 10px;
+}
+.solution-inner p:last-child {
+    margin-block-end: 0;
+}
+.solution-inner strong {
+    font-weight: 700;
+    color: inherit;
+}
+
+.q-review-status {
+    font-size: 13px;
+    font-weight: 700;
+}
+.q-review-status.ok { color: var(--paper-green); }
+.q-review-status.bad { color: var(--paper-red); }
+
+@media (max-width: 600px) {
+    .paper-sheet {
+        --paper-indent: 1.7em;
+        padding-block: 18px 26px;
+        padding-inline: 16px;
+        font-size: 16px;
+    }
+    .q-body-text { font-size: 16.5px; }
+    .choice-btn { font-size: 16px; }
+    .choice-letter { min-inline-size: 1.9em; margin-inline-end: 0.35em; }
 }
 
 /* Simulator Components */
@@ -1968,6 +2144,41 @@ html.auth-passed .auth-gate-screen {
     border: 1px solid var(--paper-rule);
     padding: 6px 10px;
     text-align: center;
+}
+
+.print-question-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-block-end: 22px;
+    padding-block-end: 16px;
+    border-block-end: 1px dotted var(--paper-rule-faint);
+}
+.print-q-meta {
+    font-size: 12px;
+    color: var(--paper-ink-soft);
+    margin-block-end: 4px;
+    font-variant: small-caps;
+}
+.print-q-row {
+    display: grid;
+    grid-template-columns: var(--paper-indent, 2.2em) minmax(0, 1fr);
+    align-items: baseline;
+    font-size: 16.5px;
+    line-height: 1.55;
+    margin-block-end: 10px;
+}
+.print-choices-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.3em 24px;
+    margin-inline-start: var(--paper-indent, 2.2em);
+    font-size: 15.5px;
+}
+.print-choice-col {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    line-height: 1.45;
 }
 
 /* Scratchpad Overlay Modal */
