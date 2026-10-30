@@ -1518,6 +1518,204 @@ html.auth-passed .auth-gate-screen {
 }
 
 .bank-view-panel {
+    display: none !important;
+}
+.bank-view-panel.active {
+    display: block !important;
+}
+
+/* Enhanced Terms & Chapter Multi-Filtering Toolbar */
+.bank-view-panel {
+    display: none !important;
+}
+.bank-view-panel.active {
+    display: block !important;
+}
+.filter-console-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-block-end: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.filter-console-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.filter-row-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.filter-row-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.filter-row-title {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.filter-badge-count {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 12px;
+    background: var(--bg-subtle);
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+}
+.filter-presets-wrap {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.filter-preset-btn {
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.filter-preset-btn:hover {
+    background: var(--bg-subtle);
+    color: var(--text-primary);
+    border-color: var(--border-strong);
+}
+.filter-preset-btn.active {
+    background: var(--text-primary);
+    color: var(--bg-card);
+    border-color: var(--text-primary);
+}
+.filter-preset-btn.btn-clear {
+    color: var(--text-muted);
+}
+.filter-preset-btn.btn-clear:hover {
+    color: #ef4444;
+    border-color: #ef4444;
+}
+.filter-chips-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+.filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    user-select: none;
+}
+.filter-chip:hover {
+    border-color: var(--border-strong);
+    color: var(--text-primary);
+}
+.filter-chip.active {
+    background: var(--paper-ink, #18181b);
+    color: var(--bg-paper, #ffffff);
+    border-color: var(--paper-ink, #18181b);
+}
+[data-theme="dark"] .filter-chip.active {
+    background: #e4e4e7;
+    color: #18181b;
+    border-color: #e4e4e7;
+}
+.filter-chip .chip-sub {
+    font-size: 10.5px;
+    opacity: 0.75;
+}
+.chapter-toggle-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 12.5px;
+    font-weight: 700;
+    cursor: pointer;
+    background: var(--bg-subtle);
+    color: var(--text-secondary);
+    transition: all 0.15s ease;
+}
+.chapter-toggle-pill.active {
+    background: var(--text-primary);
+    color: var(--bg-card);
+    border-color: var(--text-primary);
+}
+.section-group-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-inline-end: 2px;
+    padding-inline: 4px;
+}
+.section-group-divider {
+    inline-size: 1px;
+    block-size: 20px;
+    background: var(--border-subtle);
+    margin-inline: 6px;
+}
+.filter-summary-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-block-start: 10px;
+    border-block-start: 1px solid var(--border-subtle);
+}
+.filter-summary-left {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.btn-reset-filters {
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 3px 9px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.btn-reset-filters:hover {
+    color: var(--text-primary);
+    background: var(--bg-subtle);
+    border-color: var(--border-strong);
+}
+.filter-applied-tag {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+.bank-view-panel-orig {
     display: none;
 }
 .bank-view-panel.active {
@@ -1908,6 +2106,18 @@ html.auth-passed .auth-gate-screen {
     font-variant-numeric: lining-nums;
     padding-inline-end: 6px;
 }
+
+.q-stem-item {
+    display: block;
+    margin-block: 5px;
+    padding-inline-start: 16px;
+    font-weight: 500;
+}
+.q-stem-line {
+    display: block;
+    margin-block-start: 8px;
+}
+
 .q-stem {
     min-inline-size: 0;
     overflow-wrap: break-word;
@@ -7440,7 +7650,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</em>
 
         
 
-<section class="view-panel active" id="viewPractice">
+<section class="bank-view-panel active" id="viewPractice">
             <!-- Progress Summary Widget -->
             <div class="progress-widget">
                 <div class="stat-card sky">
@@ -7466,79 +7676,88 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</em>
             </div>
 
             <!-- Filter & Search Toolbar -->
-            <div class="filter-section">
-                <div class="filter-row">
-                    <!-- Term Filter -->
-                    <div class="filter-group">
-                        <span class="filter-label">Term:</span>
-                        <select class="select-input" id="filterTerm" onchange="handleFilterChange()">
-                        <option value="PT1">Practice Test 1 (Sec 11.5–13.2) &bull; 8 Qs</option>
-                        <option value="PT2">Practice Test 2 (Sec 13.3–13.6) &bull; 8 Qs</option>
-                            <option value="ALL">All Terms (12 Terms)</option>
-                            <option value="253">Term 253 (15 Qs)</option>
-                            <option value="252">Term 252 (15 Qs)</option>
-                            <option value="251A">Term 251A (15 Qs)</option>
-                            <option value="251B">Term 251B (15 Qs)</option>
-                            <option value="243">Term 243 (15 Qs)</option>
-                            <option value="242">Term 242 (15 Qs)</option>
-                            <option value="241">Term 241 (15 Qs)</option>
-                            <option value="233">Term 233 (15 Qs)</option>
-                            <option value="232">Term 232 (20 Qs)</option>
-                            <option value="231">Term 231 (20 Qs)</option>
-                            <option value="223">Term 223 (20 Qs)</option>
-                            <option value="221">Term 221 (20 Qs)</option>
-                        </select>
-                    </div>
-
-                    <!-- Section Filter -->
-                    <div class="filter-group">
-                        <span class="filter-label">Section:</span>
-                        <select class="select-input" id="filterSection" onchange="handleFilterChange()">
-                            <option value="ALL">All Sections (11.5 - 13.8)</option>
-                            <option value="11.5">11.5 Lines & Planes in Space</option>
-                            <option value="11.6">11.6 Quadric Surfaces & Cylinders</option>
-                            <option value="13.1">13.1 Functions & Level Curves</option>
-                            <option value="13.2">13.2 Limits & Continuity</option>
-                            <option value="13.3">13.3 Partial Derivatives</option>
-                            <option value="13.4">13.4 Differentials & Linear Approx</option>
-                            <option value="13.5">13.5 Multivariable Chain Rule</option>
-                            <option value="13.6">13.6 Directional Derivatives & Gradients</option>
-                            <option value="13.7">13.7 Tangent Planes & Normal Lines</option>
-                        </select>
-                    </div>
-
-                    <!-- Status Filter -->
-                    <div class="filter-group">
-                        <span class="filter-label">Status:</span>
+            <div class="filter-console-card">
+                <!-- Row 1: Status Filter & Search -->
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                        <span style="font-size: 12px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">Status:</span>
                         <div class="status-pills">
-                            <button class="status-pill-btn active" data-status="ALL" onclick="setStatusFilter('ALL')">All</button>
-                            <button class="status-pill-btn" data-status="UNATTEMPTED" onclick="setStatusFilter('UNATTEMPTED')">Unattempted</button>
-                            <button class="status-pill-btn" data-status="BOOKMARKED" onclick="setStatusFilter('BOOKMARKED')">Bookmarked</button>
-                            <button class="status-pill-btn" data-status="CORRECT" onclick="setStatusFilter('CORRECT')">Correct</button>
-                            <button class="status-pill-btn" data-status="INCORRECT" onclick="setStatusFilter('INCORRECT')">Incorrect</button>
+                            <button type="button" class="status-pill-btn active" data-status="ALL" onclick="setStatusFilter('ALL')">All</button>
+                            <button type="button" class="status-pill-btn" data-status="UNATTEMPTED" onclick="setStatusFilter('UNATTEMPTED')">Unattempted</button>
+                            <button type="button" class="status-pill-btn" data-status="BOOKMARKED" onclick="setStatusFilter('BOOKMARKED')">Bookmarked</button>
+                            <button type="button" class="status-pill-btn" data-status="CORRECT" onclick="setStatusFilter('CORRECT')">Correct</button>
+                            <button type="button" class="status-pill-btn" data-status="INCORRECT" onclick="setStatusFilter('INCORRECT')">Incorrect</button>
                         </div>
                     </div>
 
-                    <!-- Search Input -->
-                    <div class="search-input-wrapper">
+                    <div class="search-input-wrapper" style="min-inline-size: 260px; max-inline-size: 380px; flex: 1;">
                         <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="11" cy="11" r="8"></circle>
                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                         </svg>
-                        <input type="text" class="search-input" id="searchInput" placeholder="Search calculus formulas, topics, terms..." oninput="handleSearchInput()" />
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search formulas, topics, IDs..." oninput="handleSearchInput()" />
                     </div>
                 </div>
 
-                <div class="filter-meta-bar">
-                    <span id="filterStatsCount">Showing 200 of 200 questions</span>
+                <!-- Row 2: Chapters & Sections (Multi-Select) -->
+                <div class="filter-console-row">
+                    <div class="filter-row-header">
+                        <div class="filter-row-title-wrap">
+                            <span class="filter-row-title">Chapters &amp; Sections (Multi-Select):</span>
+                            <span class="filter-badge-count" id="sectionsSelectedBadge">9 of 9 Sections</span>
+                        </div>
+                        <div class="filter-presets-wrap">
+                            <button type="button" class="filter-preset-btn active" id="presetSecAll" onclick="setSectionPreset('ALL')">All Sections (9)</button>
+                            <button type="button" class="filter-preset-btn" id="presetCh11" onclick="setSectionPreset('CH11')">Ch 11 Only (2)</button>
+                            <button type="button" class="filter-preset-btn" id="presetCh13" onclick="setSectionPreset('CH13')">Ch 13 Only (7)</button>
+                            <button type="button" class="filter-preset-btn btn-clear" onclick="setSectionPreset('CLEAR')">Clear Sections</button>
+                        </div>
+                    </div>
+                    <div class="filter-chips-wrap" id="sectionsChipsContainer">
+                        <!-- Populated dynamically by JS -->
+                    </div>
+                </div>
+
+                <!-- Row 3: Old Exams & Practice Tests (Multi-Select) -->
+                <div class="filter-console-row">
+                    <div class="filter-row-header">
+                        <div class="filter-row-title-wrap">
+                            <span class="filter-row-title">Old Exams &amp; Practice Tests (Multi-Select):</span>
+                            <span class="filter-badge-count" id="termsSelectedBadge">14 of 14 Exams</span>
+                        </div>
+                        <div class="filter-presets-wrap">
+                            <button type="button" class="filter-preset-btn active" id="presetTermAll" onclick="setTermPreset('ALL')">All Terms (14)</button>
+                            <button type="button" class="filter-preset-btn" id="presetPT" onclick="setTermPreset('PT')">Practice Tests (2)</button>
+                            <button type="button" class="filter-preset-btn" id="preset25x" onclick="setTermPreset('25x')">25x (4)</button>
+                            <button type="button" class="filter-preset-btn" id="preset24x" onclick="setTermPreset('24x')">24x (3)</button>
+                            <button type="button" class="filter-preset-btn" id="preset23x" onclick="setTermPreset('23x')">23x (3)</button>
+                            <button type="button" class="filter-preset-btn" id="preset22x" onclick="setTermPreset('22x')">22x (2)</button>
+                            <button type="button" class="filter-preset-btn" id="presetUserRange" onclick="setTermPreset('221_223_242')">221&ndash;223 &amp; 242</button>
+                            <button type="button" class="filter-preset-btn btn-clear" onclick="setTermPreset('CLEAR')">Clear Exams</button>
+                        </div>
+                    </div>
+                    <div class="filter-chips-wrap" id="termsChipsGrid">
+                        <!-- Populated dynamically by JS -->
+                    </div>
+                </div>
+
+                <!-- Row 4: Summary Bar & Controls -->
+                <div class="filter-summary-row">
+                    <div class="filter-summary-left">
+                        <span id="filterStatsCount" style="font-weight: 700; color: var(--text-primary); font-size: 13px;">Showing 216 of 216 questions</span>
+                        <span class="filter-applied-tag" id="filterTagsSummary"></span>
+                        <button type="button" class="btn-reset-filters" id="btnClearAllFilters" onclick="resetAllFilters()" style="display: none;">
+                            Reset All Filters
+                        </button>
+                    </div>
                     <div style="display: flex; align-items: center; gap: 8px;">
-                        <span>Per page:</span>
+                        <span style="font-size: 12.5px; color: var(--text-secondary);">Per page:</span>
                         <select class="select-input" id="pageSizeSelect" style="padding-block: 3px; padding-inline: 8px;" onchange="changePageSize()">
                             <option value="15">15</option>
                             <option value="25" selected>25</option>
                             <option value="50">50</option>
                             <option value="100">100</option>
-                            <option value="ALL">All (200)</option>
+                            <option value="ALL">All</option>
                         </select>
                     </div>
                 </div>
@@ -7557,7 +7776,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</em>
         <!-- ==========================================
              VIEW 2: MOCK SIMULATOR
              ========================================== -->
-        <section class="view-panel" id="viewSimulator">
+        <section class="bank-view-panel" id="viewSimulator">
             <!-- Setup Screen -->
             <div id="simSetupContainer">
                 <div class="simulator-setup-card">
@@ -7704,7 +7923,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</em>
         <!-- ==========================================
              VIEW 3: PRINTABLE MOCK EXAM
              ========================================== -->
-        <section class="view-panel" id="viewPrint">
+        <section class="bank-view-panel" id="viewPrint">
             <div class="print-config-bar">
                 <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
                     <div class="filter-group">
@@ -8849,6 +9068,26 @@ function initExamBank() {
         }
 
         /* LaTeX-PDF look: inline $...$ becomes display-style (stacked fractions); $$...$$ untouched */
+        
+        function formatQuestionStem(stem) {
+            if (!stem) return '';
+            let text = stem;
+            text = text.replace(/([:?])\s*(\([I|V|X]+\)|[I|V|X]+\.)\s+/g, '$1\n$2 ');
+            text = text.replace(/\s+(\([I|V|X]+\)|(?:I|II|III|IV|V|VI)\.)\s+/g, '\n$1 ');
+            text = text.replace(/\n\s*(\n)+/g, '\n');
+
+            const lines = text.split('\n');
+            if (lines.length <= 1) return text;
+
+            return lines.map((line, idx) => {
+                const trimmed = line.trim();
+                if (/^(\([I|V|X]+\)|(?:I|II|III|IV|V|VI)\.)/.test(trimmed)) {
+                    return `<div class="q-stem-item">${trimmed}</div>`;
+                }
+                return (idx > 0 ? `<div class="q-stem-line">${trimmed}</div>` : `<div>${trimmed}</div>`);
+            }).join('');
+        }
+
         function paperMath(text) {
             const src = ensureMathDelimiters(text);
             return src.indexOf('$') === -1 ? src : src.replace(PAPER_MATH_RE, paperMathReplace);
@@ -8907,29 +9146,325 @@ function initExamBank() {
         /* Mode Tab Navigation */
         function switchBankTab(tabKey) {
             document.querySelectorAll('.mode-tab-button').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.bank-view-panel').forEach(panel => panel.classList.remove('active'));
+            document.querySelectorAll('.bank-view-panel').forEach(panel => {
+                panel.classList.remove('active');
+                panel.style.display = 'none';
+            });
 
             if (tabKey === 'practice') {
-                document.getElementById('tabPractice').classList.add('active');
-                document.getElementById('viewPractice').classList.add('active');
+                const btn = document.getElementById('tabPractice');
+                const view = document.getElementById('viewPractice');
+                if (btn) btn.classList.add('active');
+                if (view) {
+                    view.classList.add('active');
+                    view.style.display = 'block';
+                }
                 renderPracticeView();
             } else if (tabKey === 'simulator') {
-                document.getElementById('tabSimulator').classList.add('active');
-                document.getElementById('viewSimulator').classList.add('active');
+                const btn = document.getElementById('tabSimulator');
+                const view = document.getElementById('viewSimulator');
+                if (btn) btn.classList.add('active');
+                if (view) {
+                    view.classList.add('active');
+                    view.style.display = 'block';
+                }
+                const setup = document.getElementById('simSetupContainer');
+                const active = document.getElementById('simActiveContainer');
+                const results = document.getElementById('simResultsContainer');
+                if (setup) setup.style.display = 'block';
+                if (active) active.style.display = 'none';
+                if (results) results.style.display = 'none';
             } else if (tabKey === 'print') {
-                document.getElementById('tabPrint').classList.add('active');
-                document.getElementById('viewPrint').classList.add('active');
+                const btn = document.getElementById('tabPrint');
+                const view = document.getElementById('viewPrint');
+                if (btn) btn.classList.add('active');
+                if (view) {
+                    view.classList.add('active');
+                    view.style.display = 'block';
+                }
                 generatePrintLayout();
             }
         }
 
         /* ========================================================
-           PRACTICE MODE: FILTERING & RENDERING
+           PRACTICE MODE: EXTENSIVE MULTI-FILTERING & RENDERING
            ======================================================== */
-        function handleFilterChange() {
-            APP.term = document.getElementById('filterTerm').value;
-            APP.section = document.getElementById('filterSection').value;
+        const ALL_EXAM_TERMS = ["PT1", "PT2", "253", "252", "251A", "251B", "243", "242", "241", "233", "232", "231", "223", "221"];
+        const ALL_EXAM_SECTIONS = [
+            { sec: '11.5', ch: '11', title: '11.5 Lines & Planes' },
+            { sec: '11.6', ch: '11', title: '11.6 Quadric Surfaces' },
+            { sec: '13.1', ch: '13', title: '13.1 Level Curves' },
+            { sec: '13.2', ch: '13', title: '13.2 Limits & Cont.' },
+            { sec: '13.3', ch: '13', title: '13.3 Partials' },
+            { sec: '13.4', ch: '13', title: '13.4 Differentials' },
+            { sec: '13.5', ch: '13', title: '13.5 Chain Rule' },
+            { sec: '13.6', ch: '13', title: '13.6 Gradients' },
+            { sec: '13.7', ch: '13', title: '13.7 Tangents' }
+        ];
+
+        function initFilterState() {
+            if (!APP.selectedTerms) {
+                APP.selectedTerms = new Set(ALL_EXAM_TERMS);
+            }
+            if (!APP.selectedSections) {
+                APP.selectedSections = new Set(ALL_EXAM_SECTIONS.map(s => s.sec));
+            }
+            if (!APP.status) APP.status = 'ALL';
+            if (!APP.search) APP.search = '';
+
+            renderSectionChips();
+            renderTermChips();
+        }
+
+        function renderSectionChips() {
+            const container = document.getElementById('sectionsChipsContainer');
+            if (!container) return;
+
+            const counts = {};
+            ALL_EXAM_SECTIONS.forEach(s => counts[s.sec] = 0);
+            (APP.questions || []).forEach(q => {
+                if (counts[q.section] !== undefined) counts[q.section]++;
+            });
+
+            let ch11Count = 0;
+            let ch13Count = 0;
+            let ch11Active = 0;
+            let ch13Active = 0;
+            ALL_EXAM_SECTIONS.forEach(s => {
+                const count = counts[s.sec] || 0;
+                const active = APP.selectedSections.has(s.sec);
+                if (s.ch === '11') {
+                    ch11Count += count;
+                    if (active) ch11Active++;
+                } else if (s.ch === '13') {
+                    ch13Count += count;
+                    if (active) ch13Active++;
+                }
+            });
+
+            let html = '';
+
+            // Chapter 11 Quick Pill
+            const isCh11Full = (ch11Active === 2);
+            html += `
+                <button type="button" class="chapter-toggle-pill ${isCh11Full ? 'active' : ''}" 
+                        onclick="toggleChapterMulti('11', event)" title="Toggle all Chapter 11 sections">
+                    <span>Chapter 11</span>
+                    <span class="chip-sub">(${ch11Count})</span>
+                </button>
+            `;
+
+            // Chapter 11 individual section chips
+            ALL_EXAM_SECTIONS.filter(s => s.ch === '11').forEach(s => {
+                const active = APP.selectedSections.has(s.sec);
+                const count = counts[s.sec] || 0;
+                html += `
+                    <button type="button" class="filter-chip ${active ? 'active' : ''}" 
+                            data-sec="${s.sec}" 
+                            onclick="toggleSectionChip('${s.sec}', event)"
+                            title="Section ${s.sec} (${count} Questions)">
+                        <span>${s.title}</span>
+                        <span class="chip-sub">(${count})</span>
+                    </button>
+                `;
+            });
+
+            html += '<div class="section-group-divider"></div>';
+
+            // Chapter 13 Quick Pill
+            const isCh13Full = (ch13Active === 7);
+            html += `
+                <button type="button" class="chapter-toggle-pill ${isCh13Full ? 'active' : ''}" 
+                        onclick="toggleChapterMulti('13', event)" title="Toggle all Chapter 13 sections">
+                    <span>Chapter 13</span>
+                    <span class="chip-sub">(${ch13Count})</span>
+                </button>
+            `;
+
+            // Chapter 13 individual section chips
+            ALL_EXAM_SECTIONS.filter(s => s.ch === '13').forEach(s => {
+                const active = APP.selectedSections.has(s.sec);
+                const count = counts[s.sec] || 0;
+                html += `
+                    <button type="button" class="filter-chip ${active ? 'active' : ''}" 
+                            data-sec="${s.sec}" 
+                            onclick="toggleSectionChip('${s.sec}', event)"
+                            title="Section ${s.sec} (${count} Questions)">
+                        <span>${s.title}</span>
+                        <span class="chip-sub">(${count})</span>
+                    </button>
+                `;
+            });
+
+            container.innerHTML = html;
+            updateSectionsBadge();
+        }
+
+        function updateSectionsBadge() {
+            const badge = document.getElementById('sectionsSelectedBadge');
+            if (!badge) return;
+            const count = APP.selectedSections.size;
+            if (count === ALL_EXAM_SECTIONS.length) {
+                badge.textContent = 'All 9 Sections Selected';
+            } else if (count === 0) {
+                badge.textContent = 'None Selected (0)';
+            } else {
+                badge.textContent = `${count} of 9 Selected`;
+            }
+
+            document.querySelectorAll('#presetSecAll, #presetCh11, #presetCh13').forEach(p => p.classList.remove('active'));
+            if (count === ALL_EXAM_SECTIONS.length) {
+                const p = document.getElementById('presetSecAll');
+                if (p) p.classList.add('active');
+            } else if (count === 2 && APP.selectedSections.has('11.5') && APP.selectedSections.has('11.6')) {
+                const p = document.getElementById('presetCh11');
+                if (p) p.classList.add('active');
+            } else if (count === 7 && !APP.selectedSections.has('11.5') && !APP.selectedSections.has('11.6')) {
+                const p = document.getElementById('presetCh13');
+                if (p) p.classList.add('active');
+            }
+        }
+
+        function toggleChapterMulti(chap, e) {
+            const chapSecs = ALL_EXAM_SECTIONS.filter(s => s.ch === chap).map(s => s.sec);
+            const allInChapActive = chapSecs.every(sec => APP.selectedSections.has(sec));
+
+            if (allInChapActive) {
+                chapSecs.forEach(sec => APP.selectedSections.delete(sec));
+            } else {
+                chapSecs.forEach(sec => APP.selectedSections.add(sec));
+            }
+
             APP.page = 1;
+            renderSectionChips();
+            applyFilters();
+            renderPracticeView();
+        }
+
+        function toggleSectionChip(sec, e) {
+            if (APP.selectedSections.size === ALL_EXAM_SECTIONS.length && !e.shiftKey && !e.ctrlKey && !e.metaKey) {
+                APP.selectedSections = new Set([sec]);
+            } else {
+                if (APP.selectedSections.has(sec)) {
+                    APP.selectedSections.delete(sec);
+                } else {
+                    APP.selectedSections.add(sec);
+                }
+            }
+
+            APP.page = 1;
+            renderSectionChips();
+            applyFilters();
+            renderPracticeView();
+        }
+
+        function setSectionPreset(presetKey) {
+            if (presetKey === 'ALL') {
+                APP.selectedSections = new Set(ALL_EXAM_SECTIONS.map(s => s.sec));
+            } else if (presetKey === 'CH11') {
+                APP.selectedSections = new Set(['11.5', '11.6']);
+            } else if (presetKey === 'CH13') {
+                APP.selectedSections = new Set(['13.1', '13.2', '13.3', '13.4', '13.5', '13.6', '13.7']);
+            } else if (presetKey === 'CLEAR') {
+                APP.selectedSections = new Set();
+            }
+
+            APP.page = 1;
+            renderSectionChips();
+            applyFilters();
+            renderPracticeView();
+        }
+
+        function renderTermChips() {
+            const grid = document.getElementById('termsChipsGrid');
+            if (!grid) return;
+
+            const counts = {};
+            ALL_EXAM_TERMS.forEach(t => counts[t] = 0);
+            (APP.questions || []).forEach(q => {
+                if (counts[q.term] !== undefined) counts[q.term]++;
+            });
+
+            let html = '';
+            ALL_EXAM_TERMS.forEach(term => {
+                const isActive = APP.selectedTerms.has(term);
+                const count = counts[term] || 0;
+                const label = term.startsWith('PT') ? (term === 'PT1' ? 'Practice Test 1' : 'Practice Test 2') : `Term ${term}`;
+                html += `
+                    <button type="button" class="filter-chip ${isActive ? 'active' : ''}" 
+                            id="chipTerm_${term}" 
+                            data-term="${term}" 
+                            onclick="toggleTermChip('${term}', event)"
+                            title="${label} (${count} Questions)">
+                        <span>${term}</span>
+                        <span class="chip-sub">(${count})</span>
+                    </button>
+                `;
+            });
+            grid.innerHTML = html;
+            updateTermsBadge();
+        }
+
+        function updateTermsBadge() {
+            const badge = document.getElementById('termsSelectedBadge');
+            if (!badge) return;
+            const count = APP.selectedTerms.size;
+            if (count === ALL_EXAM_TERMS.length) {
+                badge.textContent = 'All 14 Exams Selected';
+            } else if (count === 0) {
+                badge.textContent = 'None Selected (0)';
+            } else {
+                badge.textContent = `${count} of 14 Selected`;
+            }
+
+            document.querySelectorAll('#presetTermAll, #presetPT, #preset25x, #preset24x, #preset23x, #preset22x, #presetUserRange').forEach(p => p.classList.remove('active'));
+            if (count === ALL_EXAM_TERMS.length) {
+                const p = document.getElementById('presetTermAll');
+                if (p) p.classList.add('active');
+            } else if (count === 3 && APP.selectedTerms.has('221') && APP.selectedTerms.has('223') && APP.selectedTerms.has('242')) {
+                const p = document.getElementById('presetUserRange');
+                if (p) p.classList.add('active');
+            }
+        }
+
+        function toggleTermChip(term, e) {
+            if (APP.selectedTerms.size === ALL_EXAM_TERMS.length && !e.shiftKey && !e.ctrlKey && !e.metaKey) {
+                APP.selectedTerms = new Set([term]);
+            } else {
+                if (APP.selectedTerms.has(term)) {
+                    APP.selectedTerms.delete(term);
+                } else {
+                    APP.selectedTerms.add(term);
+                }
+            }
+
+            APP.page = 1;
+            renderTermChips();
+            applyFilters();
+            renderPracticeView();
+        }
+
+        function setTermPreset(presetKey) {
+            if (presetKey === 'ALL') {
+                APP.selectedTerms = new Set(ALL_EXAM_TERMS);
+            } else if (presetKey === 'PT') {
+                APP.selectedTerms = new Set(['PT1', 'PT2']);
+            } else if (presetKey === '25x') {
+                APP.selectedTerms = new Set(['253', '252', '251A', '251B']);
+            } else if (presetKey === '24x') {
+                APP.selectedTerms = new Set(['243', '242', '241']);
+            } else if (presetKey === '23x') {
+                APP.selectedTerms = new Set(['233', '232', '231']);
+            } else if (presetKey === '22x') {
+                APP.selectedTerms = new Set(['223', '221']);
+            } else if (presetKey === '221_223_242') {
+                APP.selectedTerms = new Set(['221', '223', '242']);
+            } else if (presetKey === 'CLEAR') {
+                APP.selectedTerms = new Set();
+            }
+
+            APP.page = 1;
+            renderTermChips();
             applyFilters();
             renderPracticeView();
         }
@@ -8962,15 +9497,38 @@ function initExamBank() {
             renderPracticeView();
         }
 
+        function resetAllFilters() {
+            APP.selectedSections = new Set(ALL_EXAM_SECTIONS.map(s => s.sec));
+            APP.selectedTerms = new Set(ALL_EXAM_TERMS);
+            APP.status = 'ALL';
+            APP.search = '';
+
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) searchInput.value = '';
+
+            document.querySelectorAll('.status-pill-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.status === 'ALL');
+            });
+
+            APP.page = 1;
+            renderSectionChips();
+            renderTermChips();
+            applyFilters();
+            renderPracticeView();
+        }
+
         function applyFilters() {
+            if (!APP.selectedTerms) APP.selectedTerms = new Set(ALL_EXAM_TERMS);
+            if (!APP.selectedSections) APP.selectedSections = new Set(ALL_EXAM_SECTIONS.map(s => s.sec));
+
             APP.filtered = APP.questions.filter(q => {
-                // Term Filter
-                if (APP.term !== 'ALL' && q.term !== APP.term) return false;
+                // 1. Multi-Term Filter
+                if (!APP.selectedTerms.has(q.term)) return false;
 
-                // Section Filter
-                if (APP.section !== 'ALL' && q.section !== APP.section) return false;
+                // 2. Multi-Section Filter
+                if (!APP.selectedSections.has(q.section)) return false;
 
-                // Status Filter
+                // 3. Status Filter
                 const qProg = APP.progress[q.id];
                 const isBookmarked = APP.bookmarks.has(q.id);
 
@@ -8979,22 +9537,54 @@ function initExamBank() {
                 if (APP.status === 'CORRECT' && (!qProg || !qProg.correct)) return false;
                 if (APP.status === 'INCORRECT' && (!qProg || qProg.correct)) return false;
 
-                // Search Filter
+                // 4. Search Filter
                 if (APP.search) {
-                    const matchQ = q.question.toLowerCase().includes(APP.search);
-                    const matchTopic = (q.topic || '').toLowerCase().includes(APP.search);
-                    const matchId = q.id.toLowerCase().includes(APP.search);
-                    const matchChoices = (q.choices || []).some(c => c.toLowerCase().includes(APP.search));
-                    if (!matchQ && !matchTopic && !matchId && !matchChoices) return false;
+                    const s = APP.search;
+                    const matchQ = q.question.toLowerCase().includes(s);
+                    const matchTopic = (q.topic || '').toLowerCase().includes(s);
+                    const matchId = q.id.toLowerCase().includes(s);
+                    const matchTerm = q.term.toLowerCase().includes(s);
+                    const matchSec = q.section.toLowerCase().includes(s);
+                    const matchChoices = (q.choices || []).some(c => c.toLowerCase().includes(s));
+                    if (!matchQ && !matchTopic && !matchId && !matchTerm && !matchSec && !matchChoices) return false;
                 }
 
                 return true;
             });
 
-            // Update stats chip
             const countEl = document.getElementById('filterStatsCount');
             if (countEl) {
                 countEl.textContent = `Showing ${APP.filtered.length} of ${APP.questions.length} questions`;
+            }
+
+            const summaryEl = document.getElementById('filterTagsSummary');
+            const resetBtn = document.getElementById('btnClearAllFilters');
+            const isFiltered = (
+                APP.selectedTerms.size !== ALL_EXAM_TERMS.length ||
+                APP.selectedSections.size !== ALL_EXAM_SECTIONS.length ||
+                APP.status !== 'ALL' ||
+                Boolean(APP.search)
+            );
+
+            if (summaryEl) {
+                if (isFiltered) {
+                    const tags = [];
+                    if (APP.selectedSections.size !== ALL_EXAM_SECTIONS.length) {
+                        tags.push(`${APP.selectedSections.size} Secs`);
+                    }
+                    if (APP.selectedTerms.size !== ALL_EXAM_TERMS.length) {
+                        tags.push(`${APP.selectedTerms.size} Exams`);
+                    }
+                    if (APP.status !== 'ALL') tags.push(APP.status);
+                    if (APP.search) tags.push(`"${APP.search}"`);
+                    summaryEl.textContent = `[Filtered by: ${tags.join(' • ')}]`;
+                } else {
+                    summaryEl.textContent = '';
+                }
+            }
+
+            if (resetBtn) {
+                resetBtn.style.display = isFiltered ? 'inline-block' : 'none';
             }
         }
 
@@ -9084,7 +9674,7 @@ function initExamBank() {
                             </div>
                         </div>
 
-                        <div class="q-body-text"><span class="q-num">${q.number}.&nbsp;</span><span class="q-stem">${paperMath(q.question)}</span></div>
+                        <div class="q-body-text"><span class="q-num">${q.number}.&nbsp;</span><span class="q-stem">${paperMath(formatQuestionStem(q.question))}</span></div>
 
                         <div class="choices-grid">
                             ${choicesHtml}
@@ -9408,7 +9998,7 @@ function initExamBank() {
 
             // Question body
             const bodyEl = document.getElementById('simQuestionBody');
-            bodyEl.innerHTML = `<span class="q-num">${APP.sim.currentIndex + 1}.</span><span class="q-stem">${paperMath(q.question)}</span>`;
+            bodyEl.innerHTML = `<span class="q-num">${APP.sim.currentIndex + 1}.</span><span class="q-stem">${paperMath(formatQuestionStem(q.question))}</span>`;
             const pageNoEl = document.getElementById('simPageNo');
             if (pageNoEl) pageNoEl.textContent = `Page ${APP.sim.currentIndex + 1} of ${APP.sim.questions.length}`;
 
@@ -9605,7 +10195,7 @@ function initExamBank() {
                             </span>
                         </div>
 
-                        <div class="q-body-text"><span class="q-num">${idx + 1}.</span><span class="q-stem">${paperMath(q.question)}</span></div>
+                        <div class="q-body-text"><span class="q-num">${idx + 1}.</span><span class="q-stem">${paperMath(formatQuestionStem(q.question))}</span></div>
 
                         <div class="choices-grid">
                             ${choicesHtml}
@@ -9675,7 +10265,7 @@ function initExamBank() {
                 qHtml += `
                     <div class="print-question-item">
                         <div class="print-q-meta">[Term ${q.term} • Sec ${q.section} • ${q.topic || ''}]</div>
-                        <div class="print-q-row"><span class="q-num">${idx + 1}.</span><span class="q-stem">${paperMath(q.question)}</span></div>
+                        <div class="print-q-row"><span class="q-num">${idx + 1}.</span><span class="q-stem">${paperMath(formatQuestionStem(q.question))}</span></div>
                         <div class="print-choices-grid">
                             ${choicesHtml}
                         </div>
