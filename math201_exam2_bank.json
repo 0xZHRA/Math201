@@ -1882,7 +1882,7 @@
         "-0.2"
       ],
       "correct_answer": "A",
-      "solution": "Here $x = 2, y = 1$, $dx = 0.1$, and $dy = 0.05$. The differential is $dz = (2x)dx + (2y)dy = 2(2)(0.1) + 2(1)(0.05) = 0.4 + 0.1 = 0.5$."
+      "solution": "<p><strong>Step 1: Compute first-order partial derivatives of $z = x^2 + y^2$.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial x} = 2x, \\qquad \\frac{\\partial z}{\\partial y} = 2y$$</p>\n<p><strong>Step 2: Identify the base point and differentials.</strong></p>\n<p>Given initial point $(x_0, y_0) = (2, 1)$ and final point $(2.1, 1.05)$:\n$$dx = \\Delta x = 2.1 - 2 = 0.1$$\n$$dy = \\Delta y = 1.05 - 1 = 0.05$$</p>\n<p><strong>Step 3: Evaluate the total differential $dz$.</strong></p>\n<p>$$dz = \\frac{\\partial z}{\\partial x}\\,dx + \\frac{\\partial z}{\\partial y}\\,dy = 2(2)(0.1) + 2(1)(0.05) = 0.4 + 0.1 = 0.5$$\nThis matches the correct choice.</p>"
     },
     {
       "id": "242_12",
@@ -2035,7 +2035,7 @@
         "$\\infty$"
       ],
       "correct_answer": "A",
-      "solution": "<p><strong>Step 1: Convert to polar coordinates with $r^2 = x^2 + y^2$.</strong></p><p>$$\\lim_{r \\to 0^+} r^2 \\ln(r^2) = \\lim_{u \\to 0^+} u \\ln u = 0$$</p>"
+      "solution": "<p><strong>Step 1: Convert to polar coordinates.</strong></p>\n<p>Let $x = r\\cos\\theta$ and $y = r\\sin\\theta$, so $x^2 + y^2 = r^2$. As $(x, y) \\to (0, 0)$, $r \\to 0^+$.\n$$\\lim_{(x,y)\\to(0,0)} (x^2 + y^2)\\ln(x^2 + y^2) = \\lim_{r \\to 0^+} r^2 \\ln(r^2)$$</p>\n<p><strong>Step 2: Apply L'H&ocirc;pital's Rule to the indeterminate form $0 \\cdot (-\\infty)$.</strong></p>\n<p>Let $u = r^2 \\to 0^+$:\n$$\\lim_{u \\to 0^+} u \\ln u = \\lim_{u \\to 0^+} \\frac{\\ln u}{1/u} = \\lim_{u \\to 0^+} \\frac{1/u}{-1/u^2} = \\lim_{u \\to 0^+} (-u) = 0$$</p>\n<p><strong>Step 3: Conclusion.</strong></p>\n<p>The limit exists and equals $0$.</p>"
     },
     {
       "id": "241_6",
@@ -2290,7 +2290,7 @@
         "$\\{(x, y) : y > x - 1\\}$"
       ],
       "correct_answer": "A",
-      "solution": "The argument of the natural logarithm must be strictly positive: $y - x + 2 > 0 \\iff y > x - 2$. Thus the domain is $\\{(x, y) : y > x - 2\\}$."
+      "solution": "<p><strong>Step 1: Set up the domain inequality for the logarithmic argument.</strong></p>\n<p>The natural logarithm function $\\ln(u)$ is defined only when its argument is strictly positive.\n$$y - x + 2 > 0$$</p>\n<p><strong>Step 2: Solve for $y$ in terms of $x$.</strong></p>\n<p>$$y > x - 2$$</p>\n<p><strong>Step 3: Geometric interpretation.</strong></p>\n<p>The boundary is the dashed line $y = x - 2$. The domain consists of all points in the $xy$-plane lying strictly above this boundary line:\n$$\\text{Domain} = \\{(x, y) : y > x - 2\\}$$</p>"
     },
     {
       "id": "233_6",
@@ -2868,7 +2868,7 @@
         "$-2$"
       ],
       "correct_answer": "B",
-      "solution": "<p><strong>Step 1: Substitute $u = -(x^2 + y^2) \\to 0$.</strong></p><p>$$\\lim_{u \\to 0} \\frac{e^u - 1}{-u} = -\\lim_{u \\to 0} \\frac{e^u - 1}{u} = -1$$</p>"
+      "solution": "<p><strong>Step 1: Convert to polar coordinates or substitute $u = x^2 + y^2$.</strong></p>\n<p>Let $u = x^2 + y^2$. As $(x, y) \\to (0, 0)$, $u \\to 0^+$:\n$$\\lim_{(x,y)\\to(0,0)} \\frac{e^{-(x^2+y^2)} - 1}{x^2 + y^2} = \\lim_{u \\to 0^+} \\frac{e^{-u} - 1}{u}$$</p>\n<p><strong>Step 2: Evaluate using L'H&ocirc;pital's Rule (0/0 indeterminate form).</strong></p>\n<p>Differentiating numerator and denominator with respect to $u$:\n$$\\lim_{u \\to 0^+} \\frac{\\frac{d}{du}(e^{-u} - 1)}{\\frac{d}{du}(u)} = \\lim_{u \\to 0^+} \\frac{-e^{-u}}{1} = -e^0 = -1$$</p>\n<p><strong>Step 3: Conclusion.</strong></p>\n<p>The limit exists and equals $-1$.</p>"
     },
     {
       "id": "231_5",

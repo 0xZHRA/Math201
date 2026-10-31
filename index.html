@@ -37,7 +37,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="initKaTeXWhenReady()"></script>
-<script src="math201_exam2_bank.js?v=20261031_v5"></script>
+<script src="math201_exam2_bank.js?v=20261031_v6"></script>
 <style>
 /* ========================================================
    CONTAINER & BORDER CONTAINMENT RULES
@@ -7799,7 +7799,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</em>
         <!-- Exam Bank Top Header Bar -->
         <div class="exambank-header-bar">
             <div class="exambank-stat-pills">
-                <span>Questions: <strong>216</strong></span>
+                <span>Questions: <strong>201</strong></span>
                 <span>&bull;</span>
                 <span>Terms: <strong>13</strong></span>
                 <span>&bull;</span>
@@ -7855,7 +7855,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</em>
             <div class="progress-widget">
                 <div class="stat-card sky">
                     <span class="stat-label">Progress</span>
-                    <span class="stat-value" id="statAttempted">0 / 200</span>
+                    <span class="stat-value" id="statAttempted">0 / 201</span>
                     <span class="stat-subtext" id="statAttemptedPercent">0% Attempted</span>
                 </div>
                 <div class="stat-card green">
@@ -7944,7 +7944,7 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</em>
                 <!-- Row 4: Summary Bar & Controls -->
                 <div class="filter-summary-row">
                     <div class="filter-summary-left">
-                        <span id="filterStatsCount" style="font-weight: 700; color: var(--text-primary); font-size: 13px;">Showing 216 of 201 questions</span>
+                        <span id="filterStatsCount" style="font-weight: 700; color: var(--text-primary); font-size: 13px;">Showing 201 of 201 questions</span>
                         <span class="filter-applied-tag" id="filterTagsSummary"></span>
                         <button type="button" class="btn-reset-filters" id="btnClearAllFilters" onclick="resetAllFilters()" style="display: none;">
                             Reset All Filters
@@ -9327,6 +9327,23 @@ function initExamBank() {
                 APP.questions = [];
             }
 
+            // Auto-detect and asynchronously hot-swap if stale cached data is detected from browser disk cache
+            const hasStaleBoilerplate = APP.questions.some(q => q.solution && q.solution.includes('For radical expressions'));
+            if (hasStaleBoilerplate) {
+                fetch('math201_exam2_bank.json?t=' + Date.now())
+                    .then(res => res.json())
+                    .then(freshBank => {
+                        if (freshBank && freshBank.all_questions) {
+                            APP.questions = freshBank.all_questions;
+                            window.MATH201_BANK = freshBank.all_questions;
+                            window.MATH201_EXAM_BANK = freshBank;
+                            applyFilters();
+                            renderPracticeView();
+                        }
+                    })
+                    .catch(() => {});
+            }
+
             const prof = getCurrentProfile();
             const profLabel = document.getElementById('activeProfileLabel');
             if (profLabel) profLabel.textContent = prof;
@@ -9693,7 +9710,7 @@ function initExamBank() {
 
         function changePageSize() {
             const val = document.getElementById('pageSizeSelect').value;
-            APP.pageSize = val === 'ALL' ? APP.filtered.length || 200 : parseInt(val, 10);
+            APP.pageSize = val === 'ALL' ? APP.filtered.length || 201 : parseInt(val, 10);
             APP.page = 1;
             renderPracticeView();
         }
