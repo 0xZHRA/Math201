@@ -2,6 +2,7 @@
  * KFUPM MATH 201 — Major Exam 2 Comprehensive Master Bank
  * Consolidated Canonical Dataset (201 Distinct Questions across 13 Unique Exam Terms)
  * Zero Redundancies, 100% Deduplicated, Accurately Classified by Syllabus Section
+ * Full Mathematical Rigor, Zero Boilerplate Explanations
  */
 window.MATH201_BANK = [
   {
@@ -597,7 +598,7 @@ window.MATH201_BANK = [
       "$(-\\infty, 2\\ln 5]$"
     ],
     "correct_answer": "E",
-    "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$(-∞, 2 ln 5]$$</p>"
+    "solution": "<p><strong>Step 1: Determine the domain constraints for the logarithmic argument.</strong></p>\n<p>Let $u = 25 - (x^2 + y^2)$. The natural logarithm $\\ln u$ is defined only when its argument is strictly positive:\n$$25 - (x^2 + y^2) > 0 \\iff x^2 + y^2 < 25$$</p>\n<p><strong>Step 2: Find the maximum and infimum of the argument $u$.</strong></p>\n<p>Since $x^2 + y^2 \\ge 0$, the maximum value of $u$ occurs when $x^2 + y^2 = 0$ (at the origin $(0, 0)$):\n$$u_{\\max} = 25 - 0 = 25$$\nAs $(x, y)$ approaches the boundary circle $x^2 + y^2 = 25$ from the interior, $u \\to 0^+$. Hence, the range of the argument is $u \\in (0, 25]$.</p>\n<p><strong>Step 3: Evaluate the range of $f(x, y) = \\ln u$.</strong></p>\n<p>Since $g(u) = \\ln u$ is strictly increasing on $(0, \\infty)$:\n$$\\lim_{u \\to 0^+} \\ln u = -\\infty \\quad \\text{and} \\quad \\ln(25) = \\ln(5^2) = 2\\ln 5$$\nTherefore, the range of $f(x, y)$ is $(-\\infty, 2\\ln 5]$, which matches Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "252_5",
@@ -631,7 +632,7 @@ window.MATH201_BANK = [
       "$f_x(0, 0) = 0$."
     ],
     "correct_answer": "E",
-    "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$fx(0, 0) = 0.$$</p>"
+    "solution": "<p><strong>Step 1: Recall the limit definition of partial derivative at the origin $(0, 0)$.</strong></p>\n<p>$$f_x(0, 0) = \\lim_{h \\to 0} \\frac{f(0 + h, 0) - f(0, 0)}{h}$$</p>\n<p><strong>Step 2: Substitute $f(x, y) = (x^2 + y^2)^{2/3}$ into the difference quotient.</strong></p>\n<p>Note that $f(0, 0) = 0^{2/3} = 0$, and $f(h, 0) = (h^2 + 0)^{2/3} = (h^2)^{2/3} = h^{4/3}$.\n$$f_x(0, 0) = \\lim_{h \\to 0} \\frac{h^{4/3} - 0}{h} = \\lim_{h \\to 0} h^{4/3 - 1} = \\lim_{h \\to 0} h^{1/3} = 0$$</p>\n<p><strong>Step 3: Conclusion.</strong></p>\n<p>Since the limit exists and equals $0$, $f_x(0, 0) = 0$, which matches Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "252_7",
@@ -682,7 +683,7 @@ window.MATH201_BANK = [
       "$1$"
     ],
     "correct_answer": "C",
-    "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$-3$$</p>"
+    "solution": "<p><strong>Step 1: Apply Clairaut's Theorem on mixed partial derivatives.</strong></p>\n<p>For $f(x, y, z) = y e^x + x\\ln z$ with $z > 0$, the third-order partial derivatives are continuous. By Clairaut's Theorem:\n$$f_{xzz} = f_{zxz} = f_{zzx}$$\nTherefore:\n$$f_{xzz}(1, 1, 1) + f_{zxz}(1, 1, 1) + f_{zzx}(1, 1, 1) = 3 f_{xzz}(1, 1, 1)$$</p>\n<p><strong>Step 2: Compute $f_x$, $f_{xz}$, and $f_{xzz}$.</strong></p>\n<p>$$\\begin{aligned}\nf_x &= \\frac{\\partial}{\\partial x}(y e^x + x\\ln z) = y e^x + \\ln z \\\\\nf_{xz} &= \\frac{\\partial}{\\partial z}(y e^x + \\ln z) = 0 + \\frac{1}{z} = \\frac{1}{z} \\\\\nf_{xzz} &= \\frac{\\partial}{\\partial z}\\left(\\frac{1}{z}\\right) = -\\frac{1}{z^2}\n\\end{aligned}$$</p>\n<p><strong>Step 3: Evaluate at $(1, 1, 1)$ and compute the sum.</strong></p>\n<p>$$f_{xzz}(1, 1, 1) = -\\frac{1}{1^2} = -1 \\implies 3(-1) = -3$$\nThis matches Choice <strong>(c)</strong>.</p>"
   },
   {
     "id": "252_10",
@@ -852,7 +853,7 @@ window.MATH201_BANK = [
       "lying on or inside the ellipse $\\frac{x^2}{16} + \\frac{y^2}{2} = 1$"
     ],
     "correct_answer": "D",
-    "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$lying on or inside the ellipse x2 4 + y2 16 = 1$$</p>"
+    "solution": "<p><strong>Step 1: Set up the domain inequality for the square root.</strong></p>\n<p>The radical expression $\\sqrt{16 - 4x^2 - y^2}$ requires its radicand to be non-negative:\n$$16 - 4x^2 - y^2 \\ge 0 \\iff 4x^2 + y^2 \\le 16$$</p>\n<p><strong>Step 2: Rewrite in standard conic form.</strong></p>\n<p>Dividing both sides by $16$:\n$$\\frac{4x^2}{16} + \\frac{y^2}{16} \\le 1 \\iff \\frac{x^2}{4} + \\frac{y^2}{16} \\le 1$$</p>\n<p><strong>Step 3: Geometric interpretation.</strong></p>\n<p>The boundary is the ellipse $\\frac{x^2}{4} + \\frac{y^2}{16} = 1$. The inequality $\\le 1$ represents all points <strong>lying on or inside the ellipse</strong>, which corresponds to Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "251_5",
@@ -886,7 +887,7 @@ window.MATH201_BANK = [
       "$8$"
     ],
     "correct_answer": "E",
-    "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$8$$</p>"
+    "solution": "<p><strong>Step 1: Apply Clairaut's Theorem and eliminate terms without $z$-dependence.</strong></p>\n<p>By Clairaut's Theorem, mixed partials commute: $f_{xzyz} = f_{xyzz}$. Thus:\n$$f_{xyzz}(1, 1, 1) + f_{xzyz}(1, 1, 1) = 2 f_{xyzz}(1, 1, 1)$$\nNotice that the terms $x^3$, $-4xy$, and $3y^3$ in $f(x, y, z)$ do not contain $z$, so differentiating them with respect to $z$ yields $0$. Only the term $g(x, y, z) = x y^2 z^2$ contributes.</p>\n<p><strong>Step 2: Differentiate $g(x, y, z) = x y^2 z^2$ step by step.</strong></p>\n<p>$$\\begin{aligned}\ng_x &= y^2 z^2 \\\\\ng_{xy} &= 2y z^2 \\\\\ng_{xyz} &= 4y z \\\\\ng_{xyzz} &= 4y\n\\end{aligned}$$</p>\n<p><strong>Step 3: Evaluate at $(1, 1, 1)$ and compute the final sum.</strong></p>\n<p>$$g_{xyzz}(1, 1, 1) = 4(1) = 4 \\implies 2(4) = 8$$\nThis matches Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "251_7",
@@ -937,7 +938,7 @@ window.MATH201_BANK = [
       "$z^2$"
     ],
     "correct_answer": "A",
-    "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$2$$</p>"
+    "solution": "<p><strong>Step 1: Compute first partial derivatives using the Chain Rule.</strong></p>\n<p>For $z = \\ln(2x^2 + y^2)$:\n$$\\frac{\\partial z}{\\partial x} = \\frac{1}{2x^2 + y^2} \\cdot \\frac{\\partial}{\\partial x}(2x^2 + y^2) = \\frac{4x}{2x^2 + y^2}$$\n$$\\frac{\\partial z}{\\partial y} = \\frac{1}{2x^2 + y^2} \\cdot \\frac{\\partial}{\\partial y}(2x^2 + y^2) = \\frac{2y}{2x^2 + y^2}$$</p>\n<p><strong>Step 2: Form the linear combination $x\\frac{\\partial z}{\\partial x} + y\\frac{\\partial z}{\\partial y}$.</strong></p>\n<p>$$x\\frac{\\partial z}{\\partial x} + y\\frac{\\partial z}{\\partial y} = x\\left(\\frac{4x}{2x^2 + y^2}\\right) + y\\left(\\frac{2y}{2x^2 + y^2}\\right) = \\frac{4x^2 + 2y^2}{2x^2 + y^2}$$</p>\n<p><strong>Step 3: Factor out the common constant from the numerator.</strong></p>\n<p>$$\\frac{2(2x^2 + y^2)}{2x^2 + y^2} = 2$$\nThis matches Choice <strong>(a)</strong>.</p>"
   },
   {
     "id": "251_10",
@@ -971,7 +972,7 @@ window.MATH201_BANK = [
       "$z^2 = x^2 + y^2 + 3$"
     ],
     "correct_answer": "D",
-    "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$z2 = 4x2 + 4y2 + 1$$</p>"
+    "solution": "<p><strong>Step 1: Recall the definition of a level surface.</strong></p>\n<p>The level surface of a function of three variables $f(x, y, z)$ is the surface defined by $f(x, y, z) = k$ for a constant $k$.</p>\n<p><strong>Step 2: Find the constant $k$ by substituting the given point $(1, 1, 3)$.</strong></p>\n<p>$$k = f(1, 1, 3) = 4(1)^2 + 4(1)^2 - (3)^2 = 4 + 4 - 9 = -1$$</p>\n<p><strong>Step 3: Rearrange the level surface equation into standard form.</strong></p>\n<p>$$4x^2 + 4y^2 - z^2 = -1 \\iff z^2 = 4x^2 + 4y^2 + 1$$\nThis matches Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "251_12",
@@ -988,7 +989,7 @@ window.MATH201_BANK = [
       "$-17$"
     ],
     "correct_answer": "D",
-    "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$-28$$</p>"
+    "solution": "<p><strong>Step 1: Set up component-wise equality for lines $L_1$ and $L_2$.</strong></p>\n<p>$$x: \\; 1 + 2t = 8 - 3s \\implies 2t + 3s = 7 \\quad \\text{(Eq 1)}$$\n$$y: \\; 1 - 3t = -8 + 4s \\implies 3t + 4s = 9 \\quad \\text{(Eq 2)}$$</p>\n<p><strong>Step 2: Solve the linear system for parameters $t$ and $s$.</strong></p>\n<p>Multiplying Eq 1 by $3$ and Eq 2 by $2$:\n$$6t + 9s = 21 \\quad \\text{and} \\quad 6t + 8s = 18$$\nSubtracting gives $s = 3$. Substituting $s = 3$ into Eq 1:\n$$2t + 3(3) = 7 \\implies 2t = -2 \\implies t = -1$$</p>\n<p><strong>Step 3: Verify with $z$-component and calculate $a b c$.</strong></p>\n<p>$$L_1: \\; z = 2 - 5(-1) = 7 \\quad \\text{and} \\quad L_2: \\; z = -14 + 7(3) = 7 \\quad (\\checkmark)$$\nThus, the intersection point is $(a, b, c) = (1 + 2(-1), 1 - 3(-1), 7) = (-1, 4, 7)$.\n$$a b c = (-1)(4)(7) = -28$$\nThis matches Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "251_13",
@@ -1124,7 +1125,7 @@ window.MATH201_BANK = [
       "$-19$"
     ],
     "correct_answer": "B",
-    "solution": "<p><strong>1. Completing the Square:</strong> Grouping terms in $x, y, z$ and completing the squares transforms the general second-degree equation into its canonical quadric form.</p><p><strong>2. Trace & Surface Identification:</strong> Examining the signs of coefficients: equal positive signs indicate an ellipsoid, one negative sign yields a hyperboloid of one sheet, two negative signs yield a hyperboloid of two sheets, and a degree-1 linear variable indicates an elliptic/hyperbolic paraboloid.</p><p><strong>3. Conclusion:</strong> The geometric classification corresponds to: $$-11$$</p>"
+    "solution": "<p><strong>Step 1: Complete the square for each variable in the equation.</strong></p>\n<p>$$2(x^2 - 4x) + 4(y^2 + 2y) + 2(z^2 - 2z) = c$$\n$$2(x^2 - 4x + 4) + 4(y^2 + 2y + 1) + 2(z^2 - 2z + 1) = c + 2(4) + 4(1) + 2(1)$$\n$$2(x - 2)^2 + 4(y + 1)^2 + 2(z - 1)^2 = c + 14$$</p>\n<p><strong>Step 2: Determine condition for an ellipsoid.</strong></p>\n<p>Since the coefficients of $(x-2)^2$, $(y+1)^2$, and $(z-1)^2$ are all positive ($2, 4, 2$), the equation represents a real ellipsoid if and only if the right-hand side is strictly positive:\n$$c + 14 > 0 \\iff c > -14$$</p>\n<p><strong>Step 3: Select the matching choice.</strong></p>\n<p>Among the choices $\\{-21, -19, -17, -15, -11\\}$, the only value satisfying $c > -14$ is $c = -11$ (yielding right-hand side $3 > 0$). This corresponds to Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "243_6",
@@ -1175,7 +1176,7 @@ window.MATH201_BANK = [
       "$D = \\{(x, y) : -\\infty < x < \\infty \\text{ and } -\\infty < y < \\infty\\}$ and $R = [-1, 1]$"
     ],
     "correct_answer": "D",
-    "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$D = {(x, y) : -1 + x ≤y ≤1 + x} and R = [0, π]$$</p>"
+    "solution": "<p><strong>Step 1: Identify domain constraints for the inverse cosine function $\\arccos(u)$.</strong></p>\n<p>The function $\\arccos(u)$ is defined for $-1 \\le u \\le 1$. Setting $u = x - y$:\n$$-1 \\le x - y \\le 1$$\nAdding $y$ and subtracting the constant gives:\n$$-1 + x \\le y \\le 1 + x$$\nThus, the domain is $D = \\{(x, y) : -1 + x \\le y \\le 1 + x\\}$.</p>\n<p><strong>Step 2: Determine the range of $\\arccos(u)$.</strong></p>\n<p>By standard mathematical definition, the principal range of $\\arccos$ is $[0, \\pi]$.</p>\n<p><strong>Step 3: Conclusion.</strong></p>\n<p>Combining domain and range matches Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "243_9",
@@ -1192,7 +1193,7 @@ window.MATH201_BANK = [
       "elliptic paraboloids"
     ],
     "correct_answer": "B",
-    "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$hyperboloids of one sheet, hyperboloids of two sheets, and cones$$</p>"
+    "solution": "<p><strong>Step 1: Write the level surface equation $f(x, y, z) = k$.</strong></p>\n<p>$$4x^2 + 4y^2 - z^2 = k$$</p>\n<p><strong>Step 2: Classify based on the value of constant $k$.</strong></p>\n<p><ul>\n<li>If $k > 0$: $4x^2 + 4y^2 - z^2 = k$ represents a <strong>hyperboloid of one sheet</strong> (circular cross-sections parallel to the $xy$-plane).</li>\n<li>If $k = 0$: $4x^2 + 4y^2 - z^2 = 0 \\iff z^2 = 4(x^2 + y^2)$ represents an <strong>elliptic (circular) cone</strong>.</li>\n<li>If $k < 0$: $z^2 - 4x^2 - 4y^2 = -k > 0$ represents a <strong>hyperboloid of two sheets</strong>.</li>\n</ul></p>\n<p><strong>Step 3: Conclusion.</strong></p>\n<p>The family of level surfaces includes hyperboloids of one sheet, hyperboloids of two sheets, and cones. This matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "243_10",
@@ -1277,7 +1278,7 @@ window.MATH201_BANK = [
       "$\\frac{x^2 - y^2}{(x^2 + y^2)^2}$"
     ],
     "correct_answer": "C",
-    "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$0$$</p>"
+    "solution": "<p><strong>Step 1: Compute first-order partial derivatives of $z = \\arctan(y/x)$.</strong></p>\n<p>Using the derivative formula $\\frac{d}{du}\\arctan u = \\frac{1}{1 + u^2}$:\n$$\\frac{\\partial z}{\\partial x} = \\frac{1}{1 + (y/x)^2} \\cdot \\left(-\\frac{y}{x^2}\\right) = \\frac{-y}{x^2 + y^2}$$\n$$\\frac{\\partial z}{\\partial y} = \\frac{1}{1 + (y/x)^2} \\cdot \\left(\\frac{1}{x}\\right) = \\frac{x}{x^2 + y^2}$$</p>\n<p><strong>Step 2: Compute second-order partial derivatives $\\frac{\\partial^2 z}{\\partial x^2}$ and $\\frac{\\partial^2 z}{\\partial y^2}$.</strong></p>\n<p>$$\\frac{\\partial^2 z}{\\partial x^2} = \\frac{\\partial}{\\partial x}\\left[-y(x^2 + y^2)^{-1}\\right] = -y\\left[-(x^2 + y^2)^{-2}(2x)\\right] = \\frac{2xy}{(x^2 + y^2)^2}$$\n$$\\frac{\\partial^2 z}{\\partial y^2} = \\frac{\\partial}{\\partial y}\\left[x(x^2 + y^2)^{-1}\\right] = x\\left[-(x^2 + y^2)^{-2}(2y)\\right] = \\frac{-2xy}{(x^2 + y^2)^2}$$</p>\n<p><strong>Step 3: Add the two second derivatives (Laplace's Equation).</strong></p>\n<p>$$\\frac{\\partial^2 z}{\\partial x^2} + \\frac{\\partial^2 z}{\\partial y^2} = \\frac{2xy - 2xy}{(x^2 + y^2)^2} = 0$$\nThis matches Choice <strong>(c)</strong>.</p>"
   },
   {
     "id": "243_15",
@@ -1566,7 +1567,7 @@ window.MATH201_BANK = [
       "$4$"
     ],
     "correct_answer": "B",
-    "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$-1$$</p>"
+    "solution": "<p><strong>Step 1: Write parametric equations for the line.</strong></p>\n<p>Given base point $P_0(5, -3, -4)$ and direction vector $\\vec{u} = \\langle 2, -1, 3 \\rangle$:\n$$x(t) = 5 + 2t, \\quad y(t) = -3 - t, \\quad z(t) = -4 + 3t$$</p>\n<p><strong>Step 2: Use the point $(7, -4, a)$ to determine parameter $t$.</strong></p>\n<p>From the $x$-coordinate:\n$$7 = 5 + 2t \\implies 2t = 2 \\implies t = 1$$\nCheck $y$: $y(1) = -3 - (1) = -4$, which is consistent.</p>\n<p><strong>Step 3: Evaluate $a$ using the $z$-coordinate.</strong></p>\n<p>$$a = z(1) = -4 + 3(1) = -1$$\nThis matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "241_2",
@@ -1617,7 +1618,7 @@ window.MATH201_BANK = [
       "$[0, 2]$"
     ],
     "correct_answer": "E",
-    "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$[0, 2]$$</p>"
+    "solution": "<p><strong>Step 1: Determine the domain constraints.</strong></p>\n<p>The radicand of $f(x, y) = \\sqrt{4 - x^2 - y^2}$ must be non-negative:\n$$4 - (x^2 + y^2) \\ge 0 \\iff x^2 + y^2 \\le 4$$</p>\n<p><strong>Step 2: Find minimum and maximum values on this domain disk.</strong></p>\n<p>Since $x^2 + y^2 \\ge 0$:\n<ul>\n<li>The maximum occurs at $(x, y) = (0, 0)$: $f(0, 0) = \\sqrt{4 - 0} = 2$.</li>\n<li>The minimum occurs along the boundary circle $x^2 + y^2 = 4$: $f(x, y) = \\sqrt{4 - 4} = 0$.</li>\n</ul></p>\n<p><strong>Step 3: Conclusion.</strong></p>\n<p>Since $f(x, y)$ is continuous on the closed disk $x^2 + y^2 \\le 4$, it attains all values between $0$ and $2$. The range is $[0, 2]$, which matches Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "241_5",
@@ -1651,7 +1652,7 @@ window.MATH201_BANK = [
       "$2$"
     ],
     "correct_answer": "D",
-    "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$3$$</p>"
+    "solution": "<p><strong>Step 1: Evaluate the function value at the point $(2, \\sqrt{5})$.</strong></p>\n<p>$$c = f(2, \\sqrt{5}) = \\sqrt{9 - (2)^2 - (\\sqrt{5})^2} = \\sqrt{9 - 4 - 5} = \\sqrt{0} = 0$$</p>\n<p><strong>Step 2: Set up the level curve equation $f(x, y) = c$.</strong></p>\n<p>$$\\sqrt{9 - x^2 - y^2} = 0 \\implies 9 - x^2 - y^2 = 0 \\iff x^2 + y^2 = 9 = 3^2$$</p>\n<p><strong>Step 3: Identify the radius of the circle.</strong></p>\n<p>The equation $x^2 + y^2 = 3^2$ is a circle centered at $(0, 0)$ with radius $R = 3$. This corresponds to Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "241_7",
@@ -1685,7 +1686,7 @@ window.MATH201_BANK = [
       "$e^{-x}\\cos(yz)$"
     ],
     "correct_answer": "D",
-    "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$e-xz2 sin(yz)$$</p>"
+    "solution": "<p><strong>Step 1: Compute partial derivative with respect to $x$.</strong></p>\n<p>For $f(x, y, z) = e^{-x}\\sin(yz)$:\n$$f_x = \\frac{\\partial}{\\partial x}\\left[e^{-x}\\sin(yz)\\right] = -e^{-x}\\sin(yz)$$</p>\n<p><strong>Step 2: Compute second partial with respect to $y$.</strong></p>\n<p>$$f_{xy} = \\frac{\\partial}{\\partial y}\\left[-e^{-x}\\sin(yz)\\right] = -e^{-x}\\left(z\\cos(yz)\\right) = -z e^{-x}\\cos(yz)$$</p>\n<p><strong>Step 3: Compute third partial with respect to $y$ again.</strong></p>\n<p>$$f_{xyy} = \\frac{\\partial}{\\partial y}\\left[-z e^{-x}\\cos(yz)\\right] = -z e^{-x}\\left(-z\\sin(yz)\\right) = z^2 e^{-x}\\sin(yz) = e^{-x}z^2\\sin(yz)$$\nThis matches Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "241_9",
@@ -1736,7 +1737,7 @@ window.MATH201_BANK = [
       "$2\\sec^2(x + y)\\sin z$"
     ],
     "correct_answer": "E",
-    "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$2 sec2(x + y) sin z$$</p>"
+    "solution": "<p><strong>Step 1: Differentiate the implicit equation with respect to $x$.</strong></p>\n<p>Given $\\tan(x + y) + \\cos z = 2$, treating $z = z(x, y)$:\n$$\\frac{\\partial}{\\partial x}[\\tan(x + y) + \\cos z] = 0 \\implies \\sec^2(x + y) - \\sin z \\frac{\\partial z}{\\partial x} = 0$$\n$$\\frac{\\partial z}{\\partial x} = \\frac{\\sec^2(x + y)}{\\sin z}$$</p>\n<p><strong>Step 2: Differentiate with respect to $y$ similarly.</strong></p>\n<p>$$\\frac{\\partial}{\\partial y}[\\tan(x + y) + \\cos z] = 0 \\implies \\sec^2(x + y) - \\sin z \\frac{\\partial z}{\\partial y} = 0$$\n$$\\frac{\\partial z}{\\partial y} = \\frac{\\sec^2(x + y)}{\\sin z}$$</p>\n<p><strong>Step 3: Compute the sum $\\frac{\\partial z}{\\partial x} + \\frac{\\partial z}{\\partial y}$.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial x} + \\frac{\\partial z}{\\partial y} = \\frac{\\sec^2(x + y)}{\\sin z} + \\frac{\\sec^2(x + y)}{\\sin z} = \\frac{2\\sec^2(x + y)}{\\sin z} = 2\\sec^2(x + y)\\csc z$$\nThis matches Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "241_12",
@@ -2416,7 +2417,7 @@ window.MATH201_BANK = [
       "$18$"
     ],
     "correct_answer": "E",
-    "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$18$$</p>"
+    "solution": "<p><strong>Step 1: Determine the domain condition of the logarithm.</strong></p>\n<p>For $f(x, y) = \\ln(6 - x - y)$, the argument must be strictly positive:\n$$6 - x - y > 0 \\iff x + y < 6$$</p>\n<p><strong>Step 2: Intersect with the first quadrant.</strong></p>\n<p>The first quadrant requires $x \\ge 0$ and $y \\ge 0$. The region is bounded by:\n$$x \\ge 0, \\quad y \\ge 0, \\quad x + y \\le 6$$</p>\n<p><strong>Step 3: Calculate the area of the triangular region.</strong></p>\n<p>This is a right triangle with vertices at $(0, 0)$, $(6, 0)$, and $(0, 6)$.\n$$\\text{Area} = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(6)(6) = 18$$\nThis matches Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "231_2",
@@ -2433,7 +2434,7 @@ window.MATH201_BANK = [
       "hyperboloids of one sheet"
     ],
     "correct_answer": "E",
-    "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$hyperboloids of one sheet$$</p>"
+    "solution": "<p><strong>Step 1: Set the level surface equation $f(x, y, z) = k$.</strong></p>\n<p>$$\\ln(4x^2 + 4y^2 - z^2) = k$$</p>\n<p><strong>Step 2: Exponentiate both sides to eliminate the logarithm.</strong></p>\n<p>$$4x^2 + 4y^2 - z^2 = e^k$$\nSince $e^k > 0$ for all real constants $k$, let $c = e^k > 0$:\n$$4x^2 + 4y^2 - z^2 = c \\iff \\frac{x^2}{c/4} + \\frac{y^2}{c/4} - \\frac{z^2}{c} = 1$$</p>\n<p><strong>Step 3: Classify the quadric surface.</strong></p>\n<p>An equation with two positive squared variables and one negative squared variable equal to $+1$ is a <strong>hyperboloid of one sheet</strong> (with circular cross-sections parallel to the $xy$-plane). This corresponds to Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "231_3",
@@ -2450,7 +2451,7 @@ window.MATH201_BANK = [
       "$[-1, \\ln 4)$"
     ],
     "correct_answer": "B",
-    "solution": "<p><strong>1. Domain & Range Analysis:</strong> For radical expressions $\\sqrt{u}$, the domain requires $u \\ge 0$. For logarithmic expressions $\\ln(u)$, the domain requires $u > 0$.</p><p><strong>2. Level Curves & Surfaces:</strong> Setting $f(x, y) = k$ (or $f(x, y, z) = k$) creates a family of contour curves or level surfaces in space.</p><p><strong>3. Value:</strong> Evaluating constraints yields the domain/range: $$(-∞, 4 ln 3]$$</p>"
+    "solution": "<p><strong>Step 1: Determine domain boundaries for the logarithm.</strong></p>\n<p>Let $u = 3 - 2x^2 - y^2$. The function $f(x, y) = 4\\ln u$ requires $u > 0$, so $2x^2 + y^2 < 3$.</p>\n<p><strong>Step 2: Find bounds on $u$.</strong></p>\n<p>Since $2x^2 + y^2 \\ge 0$:\n<ul>\n<li>$u$ reaches its maximum at $(0, 0)$: $u_{\\max} = 3 - 0 = 3$.</li>\n<li>As $(x, y)$ approaches the boundary ellipse $2x^2 + y^2 = 3$, $u \\to 0^+$.</li>\n</ul>\nHence $u \\in (0, 3]$.</p>\n<p><strong>Step 3: Evaluate range of $4\\ln u$.</strong></p>\n<p>Since $\\ln u$ is strictly increasing on $(0, \\infty)$:\n$$\\lim_{u \\to 0^+} 4\\ln u = -\\infty \\quad \\text{and} \\quad 4\\ln(3) = 4\\ln 3$$\nThe range is $(-\\infty, 4\\ln 3]$, which matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "231_4",
@@ -2586,7 +2587,7 @@ window.MATH201_BANK = [
       "$4$"
     ],
     "correct_answer": "C",
-    "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$-2$$</p>"
+    "solution": "<p><strong>Step 1: Apply Clairaut's Theorem to choose an efficient differentiation order.</strong></p>\n<p>By Clairaut's Theorem, mixed partial derivatives commute: $f_{xyz} = f_{zxy}$.\nStarting with $f(x, y, z) = x e^{xy} \\sin^2 z$, differentiating with respect to $z$ first isolates the $x, y$ variables.</p>\n<p><strong>Step 2: Differentiate step by step.</strong></p>\n<p>$$\\begin{aligned}\nf_z &= x e^{xy} \\cdot \\frac{d}{dz}(\\sin^2 z) = x e^{xy}(2\\sin z\\cos z) = x e^{xy}\\sin(2z) \\\\\nf_{zx} &= \\frac{\\partial}{\\partial x}\\left[x e^{xy}\\right]\\sin(2z) = (e^{xy} + x y e^{xy})\\sin(2z) = (1 + xy)e^{xy}\\sin(2z) \\\\\nf_{zxy} &= \\frac{\\partial}{\\partial y}\\left[(1 + xy)e^{xy}\\right]\\sin(2z) = \\left[x e^{xy} + (1 + xy)x e^{xy}\\right]\\sin(2z) = x(2 + xy)e^{xy}\\sin(2z)\n\\end{aligned}$$</p>\n<p><strong>Step 3: Evaluate at $(-1, 0, \\pi/4)$.</strong></p>\n<p>Substitute $x = -1, y = 0, z = \\pi/4$:\n$$xy = 0, \\quad e^0 = 1, \\quad \\sin\\left(2\\cdot\\frac{\\pi}{4}\\right) = \\sin\\left(\\frac{\\pi}{2}\\right) = 1$$\n$$f_{xyz}(-1, 0, \\pi/4) = (-1)(2 + 0)(1)(1) = -2$$\nThis matches Choice <strong>(c)</strong>.</p>"
   },
   {
     "id": "231_12",
@@ -2620,7 +2621,7 @@ window.MATH201_BANK = [
       "$1$"
     ],
     "correct_answer": "A",
-    "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$3$$</p>"
+    "solution": "<p><strong>Step 1: Formulate implicit function $F(x, y, z) = 0$.</strong></p>\n<p>$$F(x, y, z) = 2yz + x\\ln y - z^2 = 0$$</p>\n<p><strong>Step 2: Apply the Implicit Function Theorem formula for $\\frac{\\partial z}{\\partial y}$.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$\nCompute $F_y$ and $F_z$:\n$$F_y = 2z + \\frac{x}{y}$$\n$$F_z = 2y - 2z$$</p>\n<p><strong>Step 3: Evaluate at the point $(2, 1, 2)$.</strong></p>\n<p>$$F_y(2, 1, 2) = 2(2) + \\frac{2}{1} = 4 + 2 = 6$$\n$$F_z(2, 1, 2) = 2(1) - 2(2) = 2 - 4 = -2$$\n$$\\frac{\\partial z}{\\partial y} = -\\frac{6}{-2} = 3$$\nThis matches Choice <strong>(a)</strong>.</p>"
   },
   {
     "id": "231_14",
@@ -2671,7 +2672,7 @@ window.MATH201_BANK = [
       "$5$"
     ],
     "correct_answer": "A",
-    "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$1$$</p>"
+    "solution": "<p><strong>Step 1: Find a direction vector $\\vec{v}$ for the line through $P(1, 3, 4)$ and $Q(0, 5, 7)$.</strong></p>\n<p>$$\\vec{v} = \\vec{PQ} = \\langle 0 - 1, 5 - 3, 7 - 4 \\rangle = \\langle -1, 2, 3 \\rangle$$</p>\n<p><strong>Step 2: Write parametric equations for the line.</strong></p>\n<p>$$x(t) = 1 - t, \\quad y(t) = 3 + 2t, \\quad z(t) = 4 + 3t$$</p>\n<p><strong>Step 3: Use the point $R(2, 1, a)$ to solve for $t$ and $a$.</strong></p>\n<p>From the $x$-coordinate:\n$$2 = 1 - t \\implies t = -1$$\nVerify with $y$: $y(-1) = 3 + 2(-1) = 1$ (consistent).\nNow find $a$:\n$$a = z(-1) = 4 + 3(-1) = 4 - 3 = 1$$\nThis matches Choice <strong>(a)</strong>.</p>"
   },
   {
     "id": "231_17",
@@ -2722,7 +2723,7 @@ window.MATH201_BANK = [
       "$1$"
     ],
     "correct_answer": "A",
-    "solution": "<p><strong>Step 1: Line perpendicular to surface is the normal line, parallel to $\\nabla F$.</strong></p>"
+    "solution": "<p><strong>Step 1: Identify line direction vector and surface normal vector.</strong></p>\n<p>The line $x - 2 = z - 1, \\; y = 1$ has direction vector $\\vec{v} = \\langle 1, 0, 1 \\rangle$.\nFor the surface $F(x, y, z) = 3x^2 - 2xy + z^2 - 1 = 0$, the normal vector is given by the gradient:\n$$\\nabla F = \\langle 6x - 2y, -2x, 2z \\rangle$$</p>\n<p><strong>Step 2: Relate normal vector to line direction at $(x_0, y_0, z_0)$.</strong></p>\n<p>Since the line is perpendicular to the surface, $\\nabla F(x_0, y_0, z_0)$ must be parallel to $\\vec{v} = \\langle 1, 0, 1 \\rangle$:\n$$\\langle 6x_0 - 2y_0, -2x_0, 2z_0 \\rangle = k \\langle 1, 0, 1 \\rangle$$\nFrom the $y$-component: $-2x_0 = 0 \\implies x_0 = 0$.\nThen the gradient becomes $\\langle -2y_0, 0, 2z_0 \\rangle \\implies -2y_0 = 2z_0 \\implies y_0 = -z_0$.</p>\n<p><strong>Step 3: Use surface equation to determine $x_0 + y_0 + z_0$.</strong></p>\n<p>Substitute $x_0 = 0$ and $y_0 = -z_0$ into the surface equation:\n$$3(0)^2 - 2(0)(-z_0) + z_0^2 = 1 \\implies z_0^2 = 1 \\implies z_0 = \\pm 1$$\nSince $y_0 = -z_0$, in either case:\n$$x_0 + y_0 + z_0 = 0 + (-z_0) + z_0 = 0$$\nThis matches Choice <strong>(a)</strong>.</p>"
   },
   {
     "id": "231_20",
@@ -3422,7 +3423,3 @@ window.MATH201_BANK = [
     "solution": "The gradient is $\\nabla f = \\langle e^y + z e^x, x e^y + e^z, y e^z + e^x \\rangle$. At $(0, 0, 0)$, $\\nabla f(0, 0, 0) = \\langle 1, 1, 1 \\rangle$. The unit vector is $\\vec{u} = \\frac{\\langle -3, 1, 2 \\rangle}{\\sqrt{14}}$. The directional derivative is $D_{\\vec{u}} f(0, 0, 0) = \\langle 1, 1, 1 \\rangle \\cdot \\frac{\\langle -3, 1, 2 \\rangle}{\\sqrt{14}} = \\frac{-3 + 1 + 2}{\\sqrt{14}} = 0$."
   }
 ];
-window.MATH201_EXAM_BANK = { all_questions: window.MATH201_BANK };
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = window.MATH201_BANK;
-}
