@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <script>
     /* Theme Initialization: runs before first paint to prevent flashes */
     (function () {
@@ -34,7 +37,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="initKaTeXWhenReady()"></script>
-<script src="math201_exam2_bank.js"></script>
+<script src="math201_exam2_bank.js?v=20261031_v2"></script>
 <style>
 /* ========================================================
    CONTAINER & BORDER CONTAINMENT RULES
@@ -921,6 +924,174 @@ body {
 }
 .sol-step:last-child {
     margin-bottom: 0;
+}
+
+/* ========================================================
+   EDITORIAL CONCEPT & WORKED EXAMPLE TYPOGRAPHY OVERHAUL
+   ======================================================== */
+.card-header.concept-header,
+.card-header.q-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    margin-block-end: 20px !important;
+    padding-block-end: 14px !important;
+    border-block-end: 1px solid var(--border-subtle) !important;
+}
+
+.concept-header .tag-concept,
+.q-header .tag-q {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    padding-block: 3px !important;
+    padding-inline: 9px !important;
+    border-radius: 6px !important;
+    background: var(--bg-subtle) !important;
+    color: var(--text-secondary) !important;
+    border: 1px solid var(--border-subtle) !important;
+}
+
+.concept-header .card-title,
+.q-header .card-title {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    letter-spacing: -0.015em !important;
+    color: var(--text-primary) !important;
+    margin-block: 0 !important;
+    margin-inline: 0 !important;
+}
+
+/* Lead Principle Callout */
+.concept-card .body-text > p:first-of-type {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text-primary);
+    margin-block-end: 22px;
+    padding-block: 12px;
+    padding-inline: 16px;
+    background: var(--bg-subtle);
+    border-inline-start: 3px solid var(--border-strong);
+    border-radius: 6px;
+}
+
+/* Section Subheadings */
+.body-text h4, .concept-card h4 {
+    font-size: 12.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-block-start: 26px;
+    margin-block-end: 14px;
+    padding-block-start: 14px;
+    border-block-start: 1px dashed var(--border-subtle);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.body-text h4::before, .concept-card h4::before {
+    content: "";
+    display: inline-block;
+    inline-size: 5px;
+    block-size: 5px;
+    border-radius: 50%;
+    background: var(--text-muted);
+}
+
+/* Structured Concept Rule Blocks */
+.body-text > ul, .body-text > ol {
+    list-style: none !important;
+    padding-inline-start: 0 !important;
+    margin-block: 0 20px !important;
+    margin-inline: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+
+.body-text > ul > li, .body-text > ol > li {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding-block: 14px;
+    padding-inline: 18px;
+    line-height: 1.6;
+    font-size: 14.5px;
+    color: var(--text-primary);
+    transition: border-color 0.15s ease;
+}
+.body-text > ul > li:hover, .body-text > ol > li:hover {
+    border-color: var(--border-strong);
+}
+
+.body-text > ul > li > strong:first-child,
+.body-text > ol > li > strong:first-child {
+    display: block;
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-block-end: 6px;
+    letter-spacing: -0.01em;
+}
+
+/* Nested Sub-rules & Comparisons */
+.body-text ul ul, .body-text ol ol {
+    list-style: none !important;
+    padding-inline-start: 0 !important;
+    margin-block-start: 12px !important;
+    margin-block-end: 4px !important;
+    margin-inline: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+}
+
+.body-text ul ul > li, .body-text ol ol > li {
+    display: block !important;
+    position: relative !important;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding-block: 10px;
+    padding-inline-start: 28px !important;
+    padding-inline-end: 14px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+.body-text ul ul > li::before, .body-text ol ol > li::before {
+    content: "—";
+    position: absolute !important;
+    inset-inline-start: 12px !important;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+/* Step Dividers & Solution Badges */
+.step-divider {
+    block-size: 1px;
+    background: var(--border-subtle);
+    margin-block: 18px;
+    margin-inline: 0;
+}
+
+.sol-content > p > strong:first-child {
+    display: inline-block;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text-primary);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding-block: 2px;
+    padding-inline: 8px;
+    margin-block-end: 8px;
 }
 
 /* Practice Test Cards (Editorial) */
