@@ -37,7 +37,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="initKaTeXWhenReady()"></script>
-<script src="math201_exam2_bank.js?v=20261031_v2"></script>
+<script src="math201_exam2_bank.js?v=20261031_v3"></script>
 <style>
 /* ========================================================
    CONTAINER & BORDER CONTAINMENT RULES
@@ -2239,6 +2239,35 @@ html.auth-passed .auth-gate-screen {
     align-items: center;
     gap: 8px;
     flex-shrink: 0;
+}
+
+.btn-retry {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 30px;
+    block-size: 30px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.15s ease, background-color 0.15s ease, transform 0.3s ease;
+}
+.btn-retry:hover {
+    color: var(--text-primary);
+    background: var(--bg-subtle);
+    transform: rotate(45deg);
+}
+.btn-retry:active {
+    transform: rotate(180deg) scale(0.92);
+}
+.btn-retry.spinning svg {
+    animation: retry-spin 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes retry-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 .btn-star {
@@ -8990,7 +9019,7 @@ function loadLocalProfileData(prof) {
     } catch (e) { bookmarks = new Set(); }
 
     if (prof === 'full' && Object.keys(progress).length === 0) {
-        const allQ = (window.MATH201_EXAM_BANK && window.MATH201_EXAM_BANK.all_questions) || (typeof APP !== 'undefined' && APP.questions) || [];
+        const allQ = (window.MATH201_EXAM_BANK && window.MATH201_EXAM_BANK.all_questions) || (Array.isArray(window.MATH201_BANK) ? window.MATH201_BANK : null) || (typeof APP !== 'undefined' && APP.questions) || [];
         if (allQ.length > 0) {
             allQ.forEach(q => {
                 progress[q.id] = {
@@ -9290,6 +9319,9 @@ function initExamBank() {
         function initData() {
             if (window.MATH201_EXAM_BANK && window.MATH201_EXAM_BANK.all_questions) {
                 APP.questions = window.MATH201_EXAM_BANK.all_questions;
+            } else if (Array.isArray(window.MATH201_BANK)) {
+                APP.questions = window.MATH201_BANK;
+                window.MATH201_EXAM_BANK = { all_questions: window.MATH201_BANK };
             } else {
                 console.error('MATH201_EXAM_BANK data not loaded');
                 APP.questions = [];
@@ -9835,6 +9867,13 @@ function initExamBank() {
                             </div>
 
                             <div class="q-header-actions">
+                                <button class="btn-retry" onclick="resetAndScrambleQuestion('${q.id}')" title="Reset attempt & scramble choices" aria-label="Reset attempt & scramble choices">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="23 4 23 10 17 10"></polyline>
+                                        <polyline points="1 20 1 14 7 14"></polyline>
+                                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                                    </svg>
+                                </button>
                                 <button class="btn-star ${isBookmarked ? 'bookmarked' : ''}" onclick="toggleBookmark('${q.id}')" title="Bookmark question" aria-label="Bookmark question">
                                     <svg width="15" height="15" viewBox="0 0 24 24" fill="${isBookmarked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
@@ -9920,6 +9959,71 @@ function initExamBank() {
                         btn.className += ' reveal-correct';
                     }
                 });
+            }
+        }
+
+        /* Repeat / Reset Attempt & Scramble Choices */
+        function resetAndScrambleQuestion(qid) {
+            const q = APP.questions.find(item => item.id === qid);
+            if (!q) return;
+
+            // 1. Delete user progress for this question
+            delete APP.progress[qid];
+            try {
+                localStorage.setItem(getProfileProgressKey(), JSON.stringify(APP.progress));
+            } catch(e) {}
+            
+            // 2. Update progress stats & cloud sync
+            updateProgressStats();
+            scheduleCloudSync();
+
+            // 3. Scramble choices randomly while preserving correct answer tracking
+            const origCorrectLetter = q.correct_answer;
+            const correctIdx = CHOICE_LETTERS.indexOf(origCorrectLetter);
+            const correctText = q.choices[correctIdx];
+
+            // Fisher-Yates shuffle
+            const indices = [0, 1, 2, 3, 4].slice(0, q.choices.length);
+            for (let i = indices.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [indices[i], indices[j]] = [indices[j], indices[i]];
+            }
+            q.choices = indices.map(idx => q.choices[idx]);
+            const newCorrectIdx = q.choices.indexOf(correctText);
+            q.correct_answer = CHOICE_LETTERS[newCorrectIdx];
+
+            // 4. Update the card in DOM without jumping scroll
+            const card = document.getElementById(`card-${qid}`);
+            if (card) {
+                card.className = `q-card ${APP.bookmarks.has(qid) ? 'is-bookmarked' : ''}`;
+                
+                // Close solution accordion
+                const accordion = document.getElementById(`accordion-${qid}`);
+                if (accordion) accordion.classList.remove('open');
+
+                // Re-render choices HTML
+                const choicesGrid = card.querySelector('.choices-grid');
+                if (choicesGrid) {
+                    let choicesHtml = '';
+                    q.choices.forEach((cText, idx) => {
+                        const ltr = CHOICE_LETTERS[idx];
+                        choicesHtml += `
+                            <button class="choice-btn" onclick="selectPracticeChoice('${q.id}', '${ltr}')">
+                                <span class="choice-letter">${ltr}</span>
+                                <span class="choice-text">${paperMath(cText)}</span>
+                            </button>
+                        `;
+                    });
+                    choicesGrid.innerHTML = choicesHtml;
+                    renderMathOnElement(choicesGrid);
+                }
+
+                // Trigger spin animation on retry icon
+                const retryBtn = card.querySelector('.btn-retry');
+                if (retryBtn) {
+                    retryBtn.classList.add('spinning');
+                    setTimeout(() => retryBtn.classList.remove('spinning'), 500);
+                }
             }
         }
 

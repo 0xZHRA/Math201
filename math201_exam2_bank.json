@@ -953,8 +953,8 @@
       "id": "252_2",
       "term": "252",
       "number": 2,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
+      "section": "11.6",
+      "topic": "11.6 Quadric Surfaces & Cylinders",
       "question": "The graph of the equation $x^2 - 2y^2 + z^2 - 4x + 4y - 6z = k$, represents",
       "choices": [
         "a hyperboloid with one sheet if $k = -20$.",
@@ -964,7 +964,7 @@
         "an ellipsoid if $k = 1$."
       ],
       "correct_answer": "B",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$an elliptic cone if k = -11.$$</p>"
+      "solution": "<p><strong>Step 1: Complete squares in $x, y, z$.</strong></p><p>$$(x^2 - 4x + 4) - 2(y^2 - 2y + 1) + (z^2 - 6z + 9) = k + 4 - 2 + 9$$</p><p>$$(x - 2)^2 - 2(y - 1)^2 + (z - 3)^2 = k + 11$$</p><p><strong>Step 2: Classify based on the signs of coefficients.</strong></p><p>There are two positive squared terms and one negative squared term $(-2(y-1)^2)$. For $k + 11 > 0$ (i.e. $k > -11$), this equation represents a <strong>hyperboloid of one sheet</strong>.</p>"
     },
     {
       "id": "252_3",
@@ -1004,8 +1004,8 @@
       "id": "252_5",
       "term": "252",
       "number": 5,
-      "section": "11.5",
-      "topic": "11.5 Lines in Space & Skew Lines",
+      "section": "13.7",
+      "topic": "13.7 Tangent Planes & Normal Lines",
       "question": "If the symmetric equations of the normal line to the surface $z = y e^{2xy}$ at the point $(0, 2, 2)$ are given by $\\frac{x}{8} = \\frac{y - 2}{b} = \\frac{z - 2}{c}$, then $b + c =$",
       "choices": [
         "$-2$",
@@ -1015,7 +1015,7 @@
         "$0$"
       ],
       "correct_answer": "E",
-      "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$0$$</p>"
+      "solution": "<p><strong>Step 1: Write surface in implicit form $F(x, y, z) = y e^{2xy} - z = 0$.</strong></p><p><strong>Step 2: Find gradient $\\nabla F(0, 2, 2)$ to get the normal vector.</strong></p><p>$$\\begin{aligned} F_x &= 2y^2 e^{2xy} \\implies F_x(0, 2, 2) = 2(4)(1) = 8 \\\\ F_y &= e^{2xy} + 2xy e^{2xy} \\implies F_y(0, 2, 2) = 1 + 0 = 1 \\\\ F_z &= -1 \\end{aligned}$$</p><p>Normal vector is $\\vec{n} = \\langle 8, 1, -1 \\rangle$.</p><p><strong>Step 3: Symmetric equations of normal line through $(0, 2, 2)$.</strong></p><p>$$\\frac{x}{8} = y - 2 = -(z - 2)$$</p>"
     },
     {
       "id": "252_6",
@@ -1038,7 +1038,7 @@
       "id": "252_7",
       "term": "252",
       "number": 7,
-      "section": "11.5",
+      "section": "13.4",
       "topic": "13.4 Differentials & Linear Approx",
       "question": "The total resistance $R$ (in ohms) of two resistors connected in parallel is given by $\\frac{1}{R} = \\frac{1}{R_1} + \\frac{1}{R_2}$. By using the differentials $dR$, the change in $R$ as $R_1$ is increased from $10\\,\\Omega$ to $10.5\\,\\Omega$ and $R_2$ is decreased from $15\\,\\Omega$ to $13\\,\\Omega$, is approximately equal to",
       "choices": [
@@ -1049,14 +1049,14 @@
         "$0.14$"
       ],
       "correct_answer": "B",
-      "solution": "<p><strong>1. Total Differential Formula:</strong> The linear approximation is given by: $$dz = f_x(x_0, y_0)\\,dx + f_y(x_0, y_0)\\,dy$$</p><p><strong>2. Partial Derivatives Evaluation:</strong> Evaluating $f_x$ and $f_y$ at the base point $(x_0, y_0)$ with deviations $dx = x - x_0$ and $dy = y - y_0$.</p><p><strong>3. Numerical Calculation:</strong> Summing the differentials yields the estimated value: $$-0.14$$</p>"
+      "solution": "<p><strong>Step 1: Differentiate $\\frac{1}{R} = \\frac{1}{R_1} + \\frac{1}{R_2}$ implicitly.</strong></p><p>$$-\\frac{1}{R^2} dR = -\\frac{1}{R_1^2} dR_1 - \\frac{1}{R_2^2} dR_2 \\implies dR = R^2\\left(\\frac{dR_1}{R_1^2} + \\frac{dR_2}{R_2^2}\\right)$$</p><p><strong>Step 2: Substitute values to compute estimated change in resistance $dR$.</strong></p>"
     },
     {
       "id": "252_8",
       "term": "252",
       "number": 8,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
+      "section": "13.2",
+      "topic": "13.2 Limits & Continuity",
       "question": "$\\lim_{(x,y)\\to(0,0)} \\frac{x - y}{\\sqrt{x} - \\sqrt{y}} =$",
       "choices": [
         "$2$",
@@ -1066,7 +1066,7 @@
         "$1$"
       ],
       "correct_answer": "B",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$does not exist$$</p>"
+      "solution": "<p><strong>Step 1: Factor the numerator using difference of squares.</strong></p><p>$$x - y = (\\sqrt{x} - \\sqrt{y})(\\sqrt{x} + \\sqrt{y})$$</p><p><strong>Step 2: Cancel the common denominator term $(\\sqrt{x} - \\sqrt{y})$.</strong></p><p>$$\\lim_{(x,y)\\to(0,0)} (\\sqrt{x} + \\sqrt{y}) = 0 + 0 = 0$$</p>"
     },
     {
       "id": "252_9",
@@ -1106,8 +1106,8 @@
       "id": "252_11",
       "term": "252",
       "number": 11,
-      "section": "11.5",
-      "topic": "11.5 Lines in Space & Skew Lines",
+      "section": "13.7",
+      "topic": "13.7 Tangent Planes & Normal Lines",
       "question": "If the equation of the tangent plane to the surface $z^2 - 2x^2 - 2y^2 = 12$ at the point $(1, -1, 4)$ is given by $x + ay + bz + c = 0$, then $a + b + c =$",
       "choices": [
         "$3$",
@@ -1117,7 +1117,7 @@
         "$5$"
       ],
       "correct_answer": "A",
-      "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$3$$</p>"
+      "solution": "<p><strong>Step 1: Define $F(x, y, z) = z^2 - 2x^2 - 2y^2 - 12 = 0$.</strong></p><p><strong>Step 2: Compute $\\nabla F(x_0, y_0, z_0) = \\langle -4x_0, -4y_0, 2z_0 \\rangle$.</strong></p><p><strong>Step 3: Apply the tangent plane formula:</strong></p><p>$$-4x_0(x - x_0) - 4y_0(y - y_0) + 2z_0(z - z_0) = 0$$</p>"
     },
     {
       "id": "252_12",
@@ -1157,8 +1157,8 @@
       "id": "252_14",
       "term": "252",
       "number": 14,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
+      "section": "13.5",
+      "topic": "13.5 Multivariable Chain Rule",
       "question": "If $w = xy + yz + xz$, where $x = s\\cos t, y = s\\sin t$, and $z = t$, then $\\frac{\\partial w}{\\partial s}$ when $s = 1$ and $t = 2\\pi$ is equal to",
       "choices": [
         "$2\\pi$",
@@ -1168,14 +1168,14 @@
         "$0$"
       ],
       "correct_answer": "A",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$2π$$</p>"
+      "solution": "<p><strong>Step 1: Apply multivariable chain rule for $\\frac{\\partial w}{\\partial s}$.</strong></p><p>$$\\frac{\\partial w}{\\partial s} = \\frac{\\partial w}{\\partial x}\\frac{\\partial x}{\\partial s} + \\frac{\\partial w}{\\partial y}\\frac{\\partial y}{\\partial s} + \\frac{\\partial w}{\\partial z}\\frac{\\partial z}{\\partial s}$$</p><p><strong>Step 2: Compute partial derivatives and substitute $x = s\\cos t, y = s\\sin t, z = t$.</strong></p>"
     },
     {
       "id": "252_15",
       "term": "252",
       "number": 15,
-      "section": "11.5",
-      "topic": "11.5 Lines in Space & Skew Lines",
+      "section": "13.7",
+      "topic": "13.7 Tangent Planes & Normal Lines",
       "question": "If $\\theta$ is the angle of inclination of the tangent plane to the surface $3x^2 + 2y^2 - z = 4$ at the point $(1, 1, 1)$, then $\\cos\\theta =$",
       "choices": [
         "$\\frac{6}{\\sqrt{53}}$",
@@ -1185,7 +1185,7 @@
         "$\\frac{1}{\\sqrt{53}}$"
       ],
       "correct_answer": "E",
-      "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$1 √ 53$$</p>"
+      "solution": "<p><strong>Step 1: Find normal vector $\\vec{n} = \\nabla F = \\langle 6x, 4y, -1 \\rangle$.</strong></p><p><strong>Step 2: Compute angle of inclination with the horizontal $xy$-plane (normal $\\vec{k} = \\langle 0, 0, 1 \\rangle$).</strong></p><p>$$\\cos\\theta = \\frac{|\\vec{n}\\cdot\\vec{k}|}{\\|\\vec{n}\\|\\|\\vec{k}\\|} = \\frac{1}{\\sqrt{36x^2 + 16y^2 + 1}}$$</p>"
     },
     {
       "id": "251_1",
@@ -1208,8 +1208,8 @@
       "id": "251_2",
       "term": "251",
       "number": 2,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
+      "section": "13.5",
+      "topic": "13.5 Multivariable Chain Rule",
       "question": "If $w = x^2 - 3y^2, x = s\\cos t, y = s\\sin t$, then $\\frac{\\partial w}{\\partial t} =$",
       "choices": [
         "$-4s^2\\sin(2t)$",
@@ -1219,7 +1219,7 @@
         "$-4t^2\\cos(2t)$"
       ],
       "correct_answer": "A",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$-4s2 sin(2t)$$</p>"
+      "solution": "<p><strong>Step 1: Apply Chain Rule for $\\frac{\\partial w}{\\partial t}$.</strong></p><p>$$\\frac{\\partial w}{\\partial t} = \\frac{\\partial w}{\\partial x}\\frac{\\partial x}{\\partial t} + \\frac{\\partial w}{\\partial y}\\frac{\\partial y}{\\partial t} = (2x)(-s\\sin t) + (-6y)(s\\cos t)$$</p><p><strong>Step 2: Substitute $x = s\\cos t$ and $y = s\\sin t$.</strong></p><p>$$\\frac{\\partial w}{\\partial t} = -2s^2\\sin t\\cos t - 6s^2\\sin t\\cos t = -8s^2\\sin t\\cos t = -4s^2\\sin 2t$$</p>"
     },
     {
       "id": "251_3",
@@ -1259,8 +1259,8 @@
       "id": "251_5",
       "term": "251",
       "number": 5,
-      "section": "11.5",
-      "topic": "11.5 Lines in Space & Skew Lines",
+      "section": "13.7",
+      "topic": "13.7 Tangent Planes & Normal Lines",
       "question": "An equation of the tangent plane to the surface $z = y e^{2xy}$ at the point $(0, 2, 2)$, is",
       "choices": [
         "$32x + y - z = 0$",
@@ -1270,7 +1270,7 @@
         "$y - z = 0$"
       ],
       "correct_answer": "B",
-      "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$8x + y -z = 0$$</p>"
+      "solution": "<p><strong>Step 1: Implicit surface $F(x, y, z) = y e^{2xy} - z = 0$.</strong></p><p><strong>Step 2: Gradient $\\nabla F(0, 2, 2) = \\langle 8, 1, -1 \\rangle$.</strong></p><p><strong>Step 3: Tangent plane equation:</strong></p><p>$$8(x - 0) + 1(y - 2) - 1(z - 2) = 0 \\iff 8x + y - z = 0$$</p>"
     },
     {
       "id": "251_6",
@@ -1293,7 +1293,7 @@
       "id": "251_7",
       "term": "251",
       "number": 7,
-      "section": "11.5",
+      "section": "13.4",
       "topic": "13.4 Differentials & Linear Approx",
       "question": "Let $z = x^2 + y^2$. If $(x, y)$ changes from $(1, 1)$ to $(1.2, 0.9)$, then using differentials, the change in $z$ is approximately equal to",
       "choices": [
@@ -1304,14 +1304,14 @@
         "$0.2$"
       ],
       "correct_answer": "E",
-      "solution": "<p><strong>1. Total Differential Formula:</strong> The linear approximation is given by: $$dz = f_x(x_0, y_0)\\,dx + f_y(x_0, y_0)\\,dy$$</p><p><strong>2. Partial Derivatives Evaluation:</strong> Evaluating $f_x$ and $f_y$ at the base point $(x_0, y_0)$ with deviations $dx = x - x_0$ and $dy = y - y_0$.</p><p><strong>3. Numerical Calculation:</strong> Summing the differentials yields the estimated value: $$0.2$$</p>"
+      "solution": "<p><strong>Step 1: Total differential $dz = 2x\\,dx + 2y\\,dy$.</strong></p><p><strong>Step 2: At $(x, y) = (1, 1)$ with $dx = 1.2 - 1 = 0.2$ and $dy = 0.9 - 1 = -0.1$:</strong></p><p>$$dz = 2(1)(0.2) + 2(1)(-0.1) = 0.4 - 0.2 = 0.2$$</p>"
     },
     {
       "id": "251_8",
       "term": "251",
       "number": 8,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
+      "section": "13.2",
+      "topic": "13.2 Limits & Continuity",
       "question": "$\\lim_{(x,y)\\to(0,0)} \\frac{3x^3}{2x^2 + 2y^2} =$",
       "choices": [
         "$3$",
@@ -1321,7 +1321,7 @@
         "$\\frac{3}{2}$"
       ],
       "correct_answer": "D",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$0$$</p>"
+      "solution": "<p><strong>Step 1: Convert to polar coordinates $x = r\\cos\\theta, y = r\\sin\\theta$.</strong></p><p>$$\\frac{3x^3}{2x^2 + 2y^2} = \\frac{3r^3\\cos^3\\theta}{2r^2} = \\frac{3}{2}r\\cos^3\\theta$$</p><p><strong>Step 2: As $r \\to 0^+$, $|\\frac{3}{2}r\\cos^3\\theta| \\le \\frac{3}{2}r \\to 0$. Limit equals $0$.</strong></p>"
     },
     {
       "id": "251_9",
@@ -1412,8 +1412,8 @@
       "id": "251_14",
       "term": "251",
       "number": 14,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
+      "section": "13.6",
+      "topic": "13.6 Directional Derivatives & Gradients",
       "question": "Consider the unit vector $\\vec{u} = \\frac{1}{\\sqrt{2}}(\\vec{i} + \\vec{j})$ and the two functions $f(x, y) = \\begin{cases} \\frac{4xy}{x^2 + y^2} & (x, y) \\ne (0, 0) \\\\ 0 & (x, y) = (0, 0) \\end{cases}$ and $g(x, y) = \\begin{cases} \\frac{4xy}{x^2 + y^2} & (x, y) \\ne (0, 0) \\\\ 2 & (x, y) = (0, 0) \\end{cases}$. Which of the following is FALSE ?",
       "choices": [
         "$D_{\\vec{u}} g(0, 0) = 0$",
@@ -1423,14 +1423,14 @@
         "$D_{\\vec{u}} f(0, 0)$ does not exist"
       ],
       "correct_answer": "D",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$g is differentiable at (0, 0)$$</p>"
+      "solution": "<p><strong>Step 1: Differentiability analysis and limit definition of directional derivatives.</strong></p><p>$$D_{\\vec{u}} f(0, 0) = \\lim_{h \\to 0} \\frac{f(0 + h u_1, 0 + h u_2) - f(0, 0)}{h}$$</p>"
     },
     {
       "id": "251_15",
       "term": "251",
       "number": 15,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
+      "section": "11.6",
+      "topic": "11.6 Quadric Surfaces & Cylinders",
       "question": "Which of the following statements is FALSE ?",
       "choices": [
         "The graph of $16x^2 + y^2 + 16z^2 = 4$ is a cylinder",
@@ -1440,7 +1440,7 @@
         "The graph of $16x^2 - y^2 - 16z^2 = 4$ is a hyperboloid of two sheets"
       ],
       "correct_answer": "A",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$The graph of 16x2 + y2 + 16z2 = 4 is a cylinder$$</p>"
+      "solution": "<p><strong>Step 1: Analyze $16x^2 + y^2 + 16z^2 = 4$.</strong></p><p>Dividing by $4$ gives $\\frac{x^2}{1/4} + \\frac{y^2}{4} + \\frac{z^2}{1/4} = 1$, which is an <strong>ellipsoid</strong> (specifically a prolate spheroid), NOT a cylinder. Hence, statement (A) is FALSE.</p>"
     },
     {
       "id": "243_1",
@@ -1990,8 +1990,8 @@
       "id": "241_3",
       "term": "241",
       "number": 3,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
+      "section": "11.6",
+      "topic": "11.6 Quadric Surfaces & Cylinders",
       "question": "The surface given by the equation $x - y^2 - 4z^2 = 2$ is:",
       "choices": [
         "Elliptic paraboloid",
@@ -2001,7 +2001,7 @@
         "Elliptic cone"
       ],
       "correct_answer": "A",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$Elliptic paraboloid$$</p>"
+      "solution": "<p><strong>Step 1: Rearrange the equation:</strong></p><p>$$x - 2 = y^2 + 4z^2$$</p><p>This matches the canonical equation of an <strong>elliptic paraboloid</strong> opening along the positive $x$-axis with vertex at $(2, 0, 0)$.</p>"
     },
     {
       "id": "241_4",
@@ -2024,8 +2024,8 @@
       "id": "241_5",
       "term": "241",
       "number": 5,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
+      "section": "13.2",
+      "topic": "13.2 Limits & Continuity",
       "question": "$\\lim_{(x,y)\\to(0,0)} (x^2 + y^2)\\ln(x^2 + y^2) =$",
       "choices": [
         "$0$",
@@ -2035,7 +2035,7 @@
         "$\\infty$"
       ],
       "correct_answer": "A",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$0$$</p>"
+      "solution": "<p><strong>Step 1: Convert to polar coordinates with $r^2 = x^2 + y^2$.</strong></p><p>$$\\lim_{r \\to 0^+} r^2 \\ln(r^2) = \\lim_{u \\to 0^+} u \\ln u = 0$$</p>"
     },
     {
       "id": "241_6",
@@ -2058,8 +2058,8 @@
       "id": "241_7",
       "term": "241",
       "number": 7,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
+      "section": "13.2",
+      "topic": "13.2 Limits & Continuity",
       "question": "Consider the following statements about the function $f(x, y, z) = \\frac{xy + yz^2 + xz^2}{x^2 + y^2 + z^2}$: (I) $\\lim_{(x,y)\\to(0,0)} f(x, y, 0) = 0$ (II) $\\lim_{(x,z)\\to(0,0)} f(x, 0, z) = 0$ (III) $\\lim_{x\\to 0} f(x, x, x) = \\frac{1}{3}$. Then",
       "choices": [
         "(I) and (III) are true",
@@ -2069,7 +2069,7 @@
         "(I) and (II) are true"
       ],
       "correct_answer": "D",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$(II) and (III) are true$$</p>"
+      "solution": "<p><strong>Step 1: Test paths for multivariable limit:</strong></p><p>Along path $(x, y, 0)$: $\\lim_{(x,y)\\to(0,0)} \\frac{xy}{x^2+y^2}$, which depends on $y=mx$ and does not exist.</p>"
     },
     {
       "id": "241_8",
@@ -2092,7 +2092,7 @@
       "id": "241_9",
       "term": "241",
       "number": 9,
-      "section": "11.5",
+      "section": "13.4",
       "topic": "13.4 Differentials & Linear Approx",
       "question": "Using total differential, the expression $5\\sqrt{(4.03)^2 + (3.1)^2} - 5\\sqrt{4^2 + 3^2}$ is approximately equal to",
       "choices": [
@@ -2103,14 +2103,14 @@
         "$0.35$"
       ],
       "correct_answer": "D",
-      "solution": "<p><strong>1. Total Differential Formula:</strong> The linear approximation is given by: $$dz = f_x(x_0, y_0)\\,dx + f_y(x_0, y_0)\\,dy$$</p><p><strong>2. Partial Derivatives Evaluation:</strong> Evaluating $f_x$ and $f_y$ at the base point $(x_0, y_0)$ with deviations $dx = x - x_0$ and $dy = y - y_0$.</p><p><strong>3. Numerical Calculation:</strong> Summing the differentials yields the estimated value: $$0.42$$</p>"
+      "solution": "<p><strong>Step 1: Let $f(x, y) = 5\\sqrt{x^2 + y^2}$ with $(x_0, y_0) = (4, 3)$.</strong></p><p>$$f_x = \\frac{5x}{\\sqrt{x^2 + y^2}} = \\frac{20}{5} = 4, \\quad f_y = \\frac{5y}{\\sqrt{x^2 + y^2}} = \\frac{15}{5} = 3$$</p><p><strong>Step 2: Differential $df = f_x\\,dx + f_y\\,dy = 4(0.03) + 3(0.1) = 0.12 + 0.30 = 0.42$.</strong></p>"
     },
     {
       "id": "241_10",
       "term": "241",
       "number": 10,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
+      "section": "13.5",
+      "topic": "13.5 Multivariable Chain Rule",
       "question": "Let $w = x^2 - y^2$, where $x = s\\cos t$ and $y = s\\sin t$. The value of $\\frac{\\partial w}{\\partial t}$ when $s = 3$ and $t = \\frac{\\pi}{4}$ is equal to",
       "choices": [
         "$-18$",
@@ -2120,7 +2120,7 @@
         "$-12$"
       ],
       "correct_answer": "A",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$-18$$</p>"
+      "solution": "<p><strong>Step 1: Multivariable Chain Rule:</strong></p><p>$$\\frac{\\partial w}{\\partial s} = \\frac{\\partial w}{\\partial x}\\frac{\\partial x}{\\partial s} + \\frac{\\partial w}{\\partial y}\\frac{\\partial y}{\\partial s} = 2x(\\cos t) - 2y(\\sin t)$$</p><p>$$\\frac{\\partial w}{\\partial s} = 2s\\cos^2 t - 2s\\sin^2 t = 2s\\cos 2t$$</p>"
     },
     {
       "id": "241_11",
@@ -2160,8 +2160,8 @@
       "id": "241_13",
       "term": "241",
       "number": 13,
-      "section": "11.5",
-      "topic": "11.5 Lines in Space & Skew Lines",
+      "section": "13.7",
+      "topic": "13.7 Tangent Planes & Normal Lines",
       "question": "An equation of the tangent plane to the surface $z^2 - 2x^2 - 2y^2 = 12$ at the point $(1, -1, 4)$ is given by $x + ay + bz + c = 0$, then $a + b + c =$",
       "choices": [
         "$1$",
@@ -2171,14 +2171,14 @@
         "$3$"
       ],
       "correct_answer": "E",
-      "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$3$$</p>"
+      "solution": "<p><strong>Step 1: Define $F(x, y, z) = z^2 - 2x^2 - 2y^2 - 12 = 0$.</strong></p><p>$$\\nabla F = \\langle -4x, -4y, 2z \\rangle$$</p><p><strong>Step 2: Tangent plane equation at $(1, 1, 4)$:</strong></p><p>$$-4(x - 1) - 4(y - 1) + 8(z - 4) = 0 \\iff -4x - 4y + 8z = 24 \\iff x + y - 2z = -6$$</p>"
     },
     {
       "id": "241_14",
       "term": "241",
       "number": 14,
-      "section": "11.5",
-      "topic": "11.5 Lines in Space & Skew Lines",
+      "section": "13.7",
+      "topic": "13.7 Tangent Planes & Normal Lines",
       "question": "A set of symmetric equations for the tangent line to the curve of intersection of the surfaces $x^2 + y^2 + z^2 = 14$ and $x - y - z = 0$ at the point $(3, 1, 2)$ is",
       "choices": [
         "$\\frac{x - 3}{4} = y - 1 = \\frac{z - 3}{5}$",
@@ -2188,7 +2188,7 @@
         "$x - 3 = \\frac{y - 1}{-5} = \\frac{z - 2}{4}$"
       ],
       "correct_answer": "D",
-      "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$x -3 = y -1 5 = z -2 -4$$</p>"
+      "solution": "<p><strong>Step 1: The tangent line to the curve of intersection of two surfaces $F_1 = 0$ and $F_2 = 0$ has direction vector $\\vec{v} = \\nabla F_1 \\times \\nabla F_2$.</strong></p>"
     },
     {
       "id": "241_15",
@@ -2857,8 +2857,8 @@
       "id": "231_4",
       "term": "231",
       "number": 4,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
+      "section": "13.2",
+      "topic": "13.2 Limits & Continuity",
       "question": "$\\lim_{(x,y)\\to(0,0)} \\frac{e^{-x^2-y^2} - 1}{x^2 + y^2} =$",
       "choices": [
         "does not exist",
@@ -2868,14 +2868,14 @@
         "$-2$"
       ],
       "correct_answer": "B",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$-1$$</p>"
+      "solution": "<p><strong>Step 1: Substitute $u = -(x^2 + y^2) \\to 0$.</strong></p><p>$$\\lim_{u \\to 0} \\frac{e^u - 1}{-u} = -\\lim_{u \\to 0} \\frac{e^u - 1}{u} = -1$$</p>"
     },
     {
       "id": "231_5",
       "term": "231",
       "number": 5,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
+      "section": "13.6",
+      "topic": "13.6 Directional Derivatives & Gradients",
       "question": "If the maximum increase of the function $f(x, y) = x^2 + y^2 - 4x - 2y$ at the point $(5, c)$ occurs in the direction of $\\vec{i} + 2\\vec{j}$, then $c =$",
       "choices": [
         "$4$",
@@ -2885,14 +2885,14 @@
         "$5$"
       ],
       "correct_answer": "D",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$7$$</p>"
+      "solution": "<p><strong>Step 1: The maximum rate of change occurs in the direction of the gradient $\\nabla f$, and its value is $\\|\\nabla f\\|$.</strong></p><p>$$\\nabla f = \\langle 2x - 4, 2y - 2 \\rangle \\implies \\nabla f(5, 2) = \\langle 6, 2 \\rangle$$</p><p>$$\\|\\nabla f(5, 2)\\| = \\sqrt{6^2 + 2^2} = \\sqrt{40} = 2\\sqrt{10}$$</p>"
     },
     {
       "id": "231_6",
       "term": "231",
       "number": 6,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
+      "section": "13.2",
+      "topic": "13.2 Limits & Continuity",
       "question": "$\\lim_{(x,y)\\to(0,0)} \\frac{x^2 y}{x^4 + y^2} =$",
       "choices": [
         "does not exist",
@@ -2902,14 +2902,14 @@
         "$\\infty$"
       ],
       "correct_answer": "A",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$does not exist$$</p>"
+      "solution": "<p><strong>Step 1: Test paths $y = mx^2$.</strong></p><p>$$\\frac{x^2(m x^2)}{x^4 + (m x^2)^2} = \\frac{m x^4}{(1 + m^2)x^4} = \\frac{m}{1 + m^2}$$</p><p>Since the limit depends on $m$, the limit <strong>does not exist</strong>.</p>"
     },
     {
       "id": "231_7",
       "term": "231",
       "number": 7,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
+      "section": "13.5",
+      "topic": "13.5 Multivariable Chain Rule",
       "question": "Let $z = \\arctan(xy)$ where $x = s + \\sin t$ and $y = \\cos t$. Then $\\frac{\\partial z}{\\partial s} + \\frac{\\partial z}{\\partial t}$ at $(s, t) = (1, 0)$ is equal to",
       "choices": [
         "$0$",
@@ -2919,7 +2919,7 @@
         "$-4$"
       ],
       "correct_answer": "C",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$1$$</p>"
+      "solution": "<p><strong>Step 1: Multivariable Chain Rule for $\\frac{\\partial z}{\\partial s}$:</strong></p><p>$$\\frac{\\partial z}{\\partial s} = \\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial s} + \\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial s} = \\frac{y}{1 + x^2 y^2}(1) + \\frac{x}{1 + x^2 y^2}(0) = \\frac{\\cos t}{1 + (s + \\sin t)^2\\cos^2 t}$$</p>"
     },
     {
       "id": "231_8",
@@ -2942,8 +2942,8 @@
       "id": "231_9",
       "term": "231",
       "number": 9,
-      "section": "11.5",
-      "topic": "11.5 Lines in Space & Skew Lines",
+      "section": "13.7",
+      "topic": "13.7 Tangent Planes & Normal Lines",
       "question": "The normal line to the surface $\\ln\\left(\\frac{x}{y - z}\\right) = x - 1$ at the point $(1, 4, 3)$ passes through the point",
       "choices": [
         "$(0, 3, 3)$",
@@ -2953,14 +2953,14 @@
         "$(1, 2, 1)$"
       ],
       "correct_answer": "B",
-      "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$(1, 3, 4)$$</p>"
+      "solution": "<p><strong>Step 1: Implicit surface $F(x, y, z) = \\ln x - \\ln(y - z) - x + 1 = 0$.</strong></p><p><strong>Step 2: Compute gradient $\\nabla F(1, 4, 3)$:</strong></p><p>$$\\begin{aligned} F_x &= \\frac{1}{x} - 1 \\implies F_x(1, 4, 3) = 0 \\\\ F_y &= -\\frac{1}{y - z} \\implies F_y(1, 4, 3) = -1 \\\\ F_z &= \\frac{1}{y - z} \\implies F_z(1, 4, 3) = 1 \\end{aligned}$$</p><p>Normal vector is $\\vec{n} = \\langle 0, -1, 1 \\rangle$.</p><p><strong>Step 3: Normal line parametric equations:</strong></p><p>$$x = 1, \\quad y = 4 - t, \\quad z = 3 + t$$</p><p>For $t = 1$, $(x, y, z) = (1, 3, 4)$, which matches Choice <strong>(b)</strong>.</p>"
     },
     {
       "id": "231_10",
       "term": "231",
       "number": 10,
-      "section": "11.6",
-      "topic": "11.6 Quadric Surfaces & Cylinders",
+      "section": "13.4",
+      "topic": "13.4 Differentials & Linear Approx",
       "question": "If the radius and height of a right circular cone are measured as $10\\,\\text{cm}$ and $25\\,\\text{cm}$, respectively, with a possible error in measurement of as much as $0.1\\,\\text{cm}$ in each. The maximum error in the calculated volume of the cone is estimated as (Hint: The volume $V$ of a cone with radius $r$ and height $h$ is $V = \\frac{1}{3}\\pi r^2 h$).",
       "choices": [
         "$12\\pi$",
@@ -2970,7 +2970,7 @@
         "$2\\pi$"
       ],
       "correct_answer": "B",
-      "solution": "<p><strong>1. Completing the Square:</strong> Grouping terms in $x, y, z$ and completing the squares transforms the general second-degree equation into its canonical quadric form.</p><p><strong>2. Trace & Surface Identification:</strong> Examining the signs of coefficients: equal positive signs indicate an ellipsoid, one negative sign yields a hyperboloid of one sheet, two negative signs yield a hyperboloid of two sheets, and a degree-1 linear variable indicates an elliptic/hyperbolic paraboloid.</p><p><strong>3. Conclusion:</strong> The geometric classification corresponds to: $$20 π$$</p>"
+      "solution": "<p><strong>Step 1: Total differential of cone volume $V = \\frac{1}{3}\\pi r^2 h$:</strong></p><p>$$dV = \\frac{\\partial V}{\\partial r}\\,dr + \\frac{\\partial V}{\\partial h}\\,dh = \\left(\\frac{2}{3}\\pi r h\\right)dr + \\left(\\frac{1}{3}\\pi r^2\\right)dh$$</p><p><strong>Step 2: Evaluate with $r = 10, h = 25, dr = 0.1, dh = 0.1$:</strong></p><p>$$dV = \\left(\\frac{2}{3}\\pi(250)\\right)(0.1) + \\left(\\frac{1}{3}\\pi(100)\\right)(0.1) = \\frac{50}{3}\\pi + \\frac{10}{3}\\pi = 20\\pi$$</p>"
     },
     {
       "id": "231_11",
@@ -2993,8 +2993,8 @@
       "id": "231_12",
       "term": "231",
       "number": 12,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
+      "section": "13.5",
+      "topic": "13.5 Multivariable Chain Rule",
       "question": "Let $W(s, t) = F(u(s, t), v(s, t))$, where $F, u$ and $v$ are differentiable functions, and $F_u(2, -3) = 1, F_v(2, -3) = 3, u(1, 0) = 2, v(1, 0) = -3, u_s(1, 0) = -2, v_s(1, 0) = 5, u_t(1, 0) = -6, v_t(1, 0) = 4$. Then $W_s(1, 0) + W_t(1, 0) =$",
       "choices": [
         "$19$",
@@ -3004,7 +3004,7 @@
         "$11$"
       ],
       "correct_answer": "A",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$19$$</p>"
+      "solution": "<p><strong>Step 1: Multivariable Chain Rule for composite function $W(s, t) = F(u(s, t), v(s, t))$:</strong></p><p>$$W_s = F_u u_s + F_v v_s$$</p>"
     },
     {
       "id": "231_13",
@@ -3095,8 +3095,8 @@
       "id": "231_18",
       "term": "231",
       "number": 18,
-      "section": "11.5",
-      "topic": "11.5 Planes in Space & Intersections",
+      "section": "11.6",
+      "topic": "11.6 Quadric Surfaces & Cylinders",
       "question": "Consider the surface $x^2 - 3y^2 - 9z^2 = 0$. Which of the following is/are correct? (I) The vertical trace in the $xz$-plane is the lines $x = \\pm 3z$. (II) The traces in the plane parallel to the $yz$-plane are ellipses. (III) The surface represents a hyperboloid of two sheets.",
       "choices": [
         "(I) only",
@@ -3106,14 +3106,14 @@
         "(III) only"
       ],
       "correct_answer": "C",
-      "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$(I) and (II) only$$</p>"
+      "solution": "<p><strong>Step 1: Analyze $x^2 - 3y^2 - 9z^2 = 0 \\iff x^2 = 3y^2 + 9z^2$.</strong></p><p>This represents an <strong>elliptic cone</strong> opening along the $x$-axis with vertex at $(0, 0, 0)$.</p>"
     },
     {
       "id": "231_19",
       "term": "231",
       "number": 19,
-      "section": "11.5",
-      "topic": "11.5 Lines in Space & Skew Lines",
+      "section": "13.7",
+      "topic": "13.7 Tangent Planes & Normal Lines",
       "question": "If the line with symmetric equations $x - 2 = z - 1, y = 1$ is perpendicular to the surface $3x^2 - 2xy + z^2 = 1$ at the point $(x_0, y_0, z_0)$, then $x_0 + y_0 + z_0 =$",
       "choices": [
         "$0$",
@@ -3123,14 +3123,14 @@
         "$1$"
       ],
       "correct_answer": "A",
-      "solution": "<p><strong>1. Direction Vector & Point Formulation:</strong> For a 3D line passing through a given point with direction vector $\\vec{v} = \\langle a, b, c \\rangle$, the parametric equations are given by $x = x_0 + at$, $y = y_0 + bt$, $z = z_0 + ct$.</p><p><strong>2. Parameter Evaluation:</strong> Substituting coordinates or equating intersecting/skew line parameters allows solving for $t$ uniquely.</p><p><strong>3. Solution Conclusion:</strong> Evaluating the required sum, coordinate, or parameter matches: $$0$$</p>"
+      "solution": "<p><strong>Step 1: Line perpendicular to surface is the normal line, parallel to $\\nabla F$.</strong></p>"
     },
     {
       "id": "231_20",
       "term": "231",
       "number": 20,
-      "section": "13.3",
-      "topic": "13.3 Partial Derivatives",
+      "section": "13.5",
+      "topic": "13.5 Multivariable Chain Rule",
       "question": "Let $w = \\sqrt{x^2 + y^2 + z^2}$, where $x = \\cos\\theta, y = \\sin\\theta, z = \\tan\\theta$. Then $\\frac{dw}{d\\theta}$ at $\\theta = \\frac{\\pi}{4}$ is equal to",
       "choices": [
         "$\\frac{3}{\\sqrt{2}}$",
@@ -3140,7 +3140,7 @@
         "$\\sqrt{2}$"
       ],
       "correct_answer": "E",
-      "solution": "<p><strong>1. Partial Differentiation:</strong> Differentiating with respect to the indicated independent variable while treating all other variables as constants.</p><p><strong>2. Higher-Order & Clairaut:</strong> Mixed partial derivatives $f_{xy} = f_{yx}$ are equal for continuous second partials.</p><p><strong>3. Evaluation:</strong> Substituting coordinates yields the final value: $$√ 2$$</p>"
+      "solution": "<p><strong>Step 1: Chain Rule with one independent variable $\\theta$:</strong></p><p>$$\\frac{dw}{d\\theta} = \\frac{\\partial w}{\\partial x}\\frac{dx}{d\\theta} + \\frac{\\partial w}{\\partial y}\\frac{dy}{d\\theta} + \\frac{\\partial w}{\\partial z}\\frac{dz}{d\\theta}$$</p>"
     },
     {
       "id": "223_1",
@@ -3824,14 +3824,14 @@
     }
   ],
   "section_distribution": {
-    "11.5": 54,
-    "11.6": 15,
-    "13.1": 27,
-    "13.2": 19,
-    "13.3": 46,
-    "13.4": 11,
-    "13.5": 23,
-    "13.6": 15,
-    "13.7": 6
+    "11.5": 37,
+    "11.6": 18,
+    "13.1": 25,
+    "13.2": 25,
+    "13.3": 23,
+    "13.4": 15,
+    "13.5": 28,
+    "13.6": 16,
+    "13.7": 14
   }
 }
