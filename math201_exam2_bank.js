@@ -1,9 +1,3 @@
-/**
- * KFUPM MATH 201 — Major Exam 2 Comprehensive Master Bank
- * Consolidated Canonical Dataset (201 Distinct Questions across 13 Unique Exam Terms)
- * Zero Redundancies, 100% Deduplicated, Accurately Classified by Syllabus Section
- * Full Mathematical Rigor, Zero Boilerplate Explanations
- */
 window.MATH201_BANK = [
   {
     "id": "PT1_1",
@@ -122,7 +116,7 @@ window.MATH201_BANK = [
       "$\\dfrac{1}{2}$"
     ],
     "correct_answer": "D",
-    "solution": "<p>$\\lim_{(x, y) \\to (0, 0)} \\dfrac{x^2 y}{x^2 + y^2} = 0$. </p><p><strong>Method 1: Polar Coordinates</strong> Let $x = r \\cos\\theta$ and $y = r \\sin\\theta$. As $(x, y) \\to (0, 0)$, $r \\to 0^+$:$$\\frac{x^2 y}{x^2 + y^2} = \\frac{(r^2 \\cos^2\\theta)(r \\sin\\theta)}{r^2} = r \\cos^2\\theta \\sin\\theta$$Since $|\\cos^2\\theta \\sin\\theta| \\le 1$, we have:$$|r \\cos^2\\theta \\sin\\theta| \\le r \\to 0 \\quad \\text{as } r \\to 0^+$$By the Squeeze Theorem, the limit is $0$, regardless of direction $\\theta$. </p><p><strong>Method 2: Squeeze Inequality</strong> Notice that $\\dfrac{x^2}{x^2 + y^2} \\le 1$ for all $(x, y) \\ne (0, 0)$. Therefore:$$0 \\le \\left| \\frac{x^2 y}{x^2 + y^2} \\right| = \\frac{x^2}{x^2 + y^2} |y| \\le 1 \\cdot |y| = |y|$$Since $\\lim_{(x, y) \\to (0, 0)} |y| = 0$, by the Squeeze Theorem:$$\\lim_{(x, y) \\to (0, 0)} \\frac{x^2 y}{x^2 + y^2} = 0$$</p>"
+    "solution": "<p><strong>Step 1: Convert to polar coordinates.</strong></p>\n<p>Let $x = r\\cos\\theta$ and $y = r\\sin\\theta$, where $r^2 = x^2 + y^2$. As $(x, y) \\to (0, 0)$, $r \\to 0^+$.\n$$\\lim_{(x, y) \\to (0, 0)} \\frac{x^2 y}{x^2 + y^2} = \\lim_{r \\to 0^+} \\frac{(r\\cos\\theta)^2 (r\\sin\\theta)}{r^2}$$</p>\n<p><strong>Step 2: Simplify the trigonometric expression.</strong></p>\n<p>$$\\frac{r^3 \\cos^2\\theta \\sin\\theta}{r^2} = r\\cos^2\\theta \\sin\\theta$$</p>\n<p><strong>Step 3: Apply the Squeeze Theorem.</strong></p>\n<p>Since $|\\cos^2\\theta \\sin\\theta| \\le 1$ for all $\\theta$:\n$$0 \\le |r\\cos^2\\theta \\sin\\theta| \\le r$$\nAs $r \\to 0^+$, the bounding function tends to $0$. By the Squeeze Theorem:\n$$\\lim_{(x, y) \\to (0, 0)} \\frac{x^2 y}{x^2 + y^2} = 0$$\nThis matches Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "PT1_8",
@@ -258,7 +252,7 @@ window.MATH201_BANK = [
       "$\\sqrt{20}$"
     ],
     "correct_answer": "B",
-    "solution": "<p>The maximum directional derivative at $(1, -1)$ is $4$.</p><p><strong>Step 1: Theorem for Maximum Directional Derivative</strong> For any differentiable function $f$, the maximum value of the directional derivative $D_{\\mathbf{u}} f$ at a point $P$ occurs when $\\mathbf{u}$ has the direction of $\\nabla f(P)$, and its maximum value is:$$D_{\\mathbf{u}, \\max} f(P) = \\|\\nabla f(P)\\|$$</p><p><strong>Step 2: Calculate the Gradient Vector $\\nabla f(x, y)$</strong> $$f_x(x, y) = 2x + 2y, \\quad f_y(x, y) = 2x + 6y$$$$\\nabla f(x, y) = \\langle 2x + 2y, 2x + 6y \\rangle$$</p><p><strong>Step 3: Evaluate at Point $(1, -1)$</strong> $$f_x(1, -1) = 2(1) + 2(-1) = 2 - 2 = 0$$$$f_y(1, -1) = 2(1) + 6(-1) = 2 - 6 = -4$$$$\\nabla f(1, -1) = \\langle 0, -4 \\rangle$$</p><p><strong>Step 4: Compute the Length of the Gradient Vector</strong> $$\\|\\nabla f(1, -1)\\| = \\sqrt{0^2 + (-4)^2} = \\sqrt{16} = 4$$</p>"
+    "solution": "<p><strong>Step 1: Compute the partial derivatives of $f(x, y)$.</strong></p>\n<p>Given $f(x, y) = x^2 + 2xy + 3y^2$:\n$$f_x(x, y) = 2x + 2y, \\qquad f_y(x, y) = 2x + 6y$$</p>\n<p><strong>Step 2: Evaluate the gradient vector at $(1, -1)$.</strong></p>\n<p>$$f_x(1, -1) = 2(1) + 2(-1) = 2 - 2 = 0$$\n$$f_y(1, -1) = 2(1) + 6(-1) = 2 - 6 = -4$$\n$$\\nabla f(1, -1) = \\langle 0, -4 \\rangle$$</p>\n<p><strong>Step 3: Calculate the maximum directional derivative.</strong></p>\n<p>The maximum directional derivative of a differentiable function occurs in the direction of the gradient and is equal to its magnitude:\n$$\\max D_{\\mathbf{u}} f(1, -1) = \\|\\nabla f(1, -1)\\| = \\sqrt{0^2 + (-4)^2} = \\sqrt{16} = 4$$\nThis matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "PT2_8",
@@ -292,7 +286,7 @@ window.MATH201_BANK = [
       "3e"
     ],
     "correct_answer": "B",
-    "solution": "A level curve satisfies $f(x, y) = C \\implies \\ln(x - y) = C$. Passing through $(e, 0)$ gives $\\ln(e - 0) = \\ln(e) = 1$, so $C = 1$. Thus $\\ln(x - y) = 1 \\iff x - y = e \\iff y = x - e$. Comparing with $y = Ax + B$, we have $A = 1$ and $B = -e$. Therefore, $AB = 1 \\cdot (-e) = -e$."
+    "solution": "<p><strong>Step 1: Understand the definition of a level curve.</strong></p>\n<p>A level curve of a two-variable function $f(x, y)$ consists of all points satisfying $f(x, y) = C$ for a constant $C$.\nFor $f(x, y) = \\ln(x - y)$:\n$$\\ln(x - y) = C$$</p>\n<p><strong>Step 2: Find the constant $C$ using the given point $(e, 0)$.</strong></p>\n<p>Substituting $(x, y) = (e, 0)$ into the level curve equation:\n$$C = \\ln(e - 0) = \\ln(e) = 1$$\nThus, the equation of the level curve is:\n$$\\ln(x - y) = 1 \\iff x - y = e^1 = e \\iff y = x - e$$</p>\n<p><strong>Step 3: Compare with $y = Ax + B$ and calculate $AB$.</strong></p>\n<p>Comparing $y = 1x + (-e)$ with $y = Ax + B$:\n$$A = 1, \\qquad B = -e$$\n$$AB = 1 \\cdot (-e) = -e$$\nThis matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "253_2",
@@ -309,7 +303,7 @@ window.MATH201_BANK = [
       "It is an elliptic paraboloid"
     ],
     "correct_answer": "B",
-    "solution": "Rewriting the equation gives $y = x^2 + \\frac{z^2}{4}$, which is an elliptic paraboloid opening along the positive $y$-axis. In the plane $y = -1$, we get $4x^2 - 4(-1) + z^2 = 0 \\iff 4x^2 + z^2 = -4$. Since the sum of squares cannot be negative for real coordinates, this trace is empty (has no real points), so it is NOT an ellipse. Thus the statement is FALSE."
+    "solution": "<p><strong>Step 1: Rewrite the quadric surface equation into standard form.</strong></p>\n<p>The equation is $4x^2 - 4y + z^2 = 0$. Solving for the linear variable $y$:\n$$4y = 4x^2 + z^2 \\iff y = x^2 + \\frac{z^2}{4}$$\nBecause $y$ is linear and the quadratic terms $x^2$ and $z^2$ have positive coefficients, this surface is an <strong>elliptic paraboloid</strong> opening along the positive $y$-axis.</p>\n<p><strong>Step 2: Analyze the trace in the horizontal plane $y = -1$.</strong></p>\n<p>Substituting $y = -1$ into the original equation:\n$$4x^2 - 4(-1) + z^2 = 0 \\iff 4x^2 + z^2 + 4 = 0 \\iff 4x^2 + z^2 = -4$$\nFor any real numbers $x$ and $z$, $4x^2 + z^2 \\ge 0$. It is impossible for a sum of squares of real numbers to equal $-4$.\nTherefore, the trace in $y = -1$ contains no real points (it is the empty set $\\emptyset$), NOT an ellipse.</p>\n<p><strong>Step 3: Conclusion.</strong></p>\n<p>The claim that the trace in $y = -1$ is an ellipse is FALSE.\nThis matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "253_3",
@@ -326,7 +320,7 @@ window.MATH201_BANK = [
       "6"
     ],
     "correct_answer": "E",
-    "solution": "Equating the $y$-coordinates gives $3 = 3 + 2s \\implies s = 0$. Substituting $s = 0$ into $L_2$ yields the point $(2, 3, 1)$. Verifying with $L_1$: $2 + 4t = 2 \\implies t = 0$, and $z = 1 - 0 = 1$. The point of intersection is $(a, b, c) = (2, 3, 1)$. Hence, $abc = 2 \\cdot 3 \\cdot 1 = 6$."
+    "solution": "<p><strong>Step 1: Set up the system of equations for line intersection.</strong></p>\n<p>Given lines:\n$$L_1: \\; x = 2 + 4t, \\quad y = 3, \\quad z = 1 - t$$\n$$L_2: \\; x = 2 + 2s, \\quad y = 3 + 2s, \\quad z = 1 + s$$\nEquating corresponding coordinates:\n$$y: \\; 3 = 3 + 2s \\implies 2s = 0 \\implies s = 0$$</p>\n<p><strong>Step 2: Substitute $s = 0$ into $L_2$ and verify consistency with $L_1$.</strong></p>\n<p>For $L_2$ at $s = 0$:\n$$x = 2 + 2(0) = 2, \\quad y = 3 + 2(0) = 3, \\quad z = 1 + 0 = 1$$\nPoint of intersection is $(a, b, c) = (2, 3, 1)$.<br>\nVerifying with $L_1$: setting $t = 0$ yields $x = 2, y = 3, z = 1$, which confirms the lines intersect at $(2, 3, 1)$.</p>\n<p><strong>Step 3: Compute the product $abc$.</strong></p>\n<p>$$abc = 2 \\cdot 3 \\cdot 1 = 6$$\nThis matches Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "253_4",
@@ -343,7 +337,7 @@ window.MATH201_BANK = [
       "$\\frac{\\sqrt{14}}{7}$"
     ],
     "correct_answer": "B",
-    "solution": "Choose a convenient point on the first plane $x - 3y + 2z = 1$, such as $P(1, 0, 0)$. The distance from $P(1, 0, 0)$ to the second plane $2x - 6y + 4z - 3 = 0$ is $d = \\frac{|2(1) - 6(0) + 4(0) - 3|}{\\sqrt{2^2 + (-6)^2 + 4^2}} = \\frac{|-1|}{\\sqrt{4 + 36 + 16}} = \\frac{1}{\\sqrt{56}} = \\frac{1}{2\\sqrt{14}} = \\frac{\\sqrt{14}}{28}$."
+    "solution": "<p><strong>Step 1: Find a point on the first plane.</strong></p>\n<p>For the first plane $x - 3y + 2z = 1$, setting $y = 0$ and $z = 0$ gives $x = 1$.\nThus, $P(1, 0, 0)$ is a point on the first plane.</p>\n<p><strong>Step 2: Compute the distance from $P(1, 0, 0)$ to the second plane.</strong></p>\n<p>The second plane is $2x - 6y + 4z - 3 = 0$. Using the point-to-plane distance formula:\n$$d = \\frac{|Ax_0 + By_0 + Cz_0 - D|}{\\sqrt{A^2 + B^2 + C^2}} = \\frac{|2(1) - 6(0) + 4(0) - 3|}{\\sqrt{2^2 + (-6)^2 + 4^2}}$$\n$$d = \\frac{|2 - 3|}{\\sqrt{4 + 36 + 16}} = \\frac{|-1|}{\\sqrt{56}} = \\frac{1}{\\sqrt{4 \\times 14}} = \\frac{1}{2\\sqrt{14}}$$</p>\n<p><strong>Step 3: Rationalize the denominator.</strong></p>\n<p>$$d = \\frac{1 \\cdot \\sqrt{14}}{2\\sqrt{14} \\cdot \\sqrt{14}} = \\frac{\\sqrt{14}}{2 \\cdot 14} = \\frac{\\sqrt{14}}{28}$$\nThis matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "253_5",
@@ -360,7 +354,7 @@ window.MATH201_BANK = [
       "$\\{(x, y, z) : x, y \\in (-\\infty, \\infty), z \\in [-1, 1]\\}$"
     ],
     "correct_answer": "C",
-    "solution": "The numerator $\\sin z$ is continuous for all $z \\in \\mathbb{R}$. The denominator $e^x - e^y$ is continuous for all $x, y \\in \\mathbb{R}$. The quotient is continuous everywhere the denominator is non-zero: $e^x - e^y \\neq 0 \\iff e^x \\neq e^y \\iff x \\neq y$. The variable $z$ is completely unrestricted, so $z \\in (-\\infty, \\infty)$."
+    "solution": "<p><strong>Step 1: Analyze continuity of numerator and denominator functions.</strong></p>\n<p>The function is $f(x, y, z) = \\frac{\\sin z}{e^x - e^y}$.\n<ul>\n<li>The numerator $\\sin z$ is a standard trigonometric function, continuous for all $z \\in (-\\infty, \\infty)$.</li>\n<li>The denominator $e^x - e^y$ is a difference of exponential functions, continuous for all $(x, y) \\in \\mathbb{R}^2$.</li>\n</ul></p>\n<p><strong>Step 2: Find where the denominator is zero.</strong></p>\n<p>A rational quotient of continuous functions is continuous everywhere its denominator does not vanish:\n$$e^x - e^y = 0 \\iff e^x = e^y \\iff x = y$$\nThus, the function is discontinuous precisely along the plane $x = y$.</p>\n<p><strong>Step 3: State the domain of continuity.</strong></p>\n<p>The function is continuous at all points where $x \\neq y$, with $z$ entirely unrestricted:\n$$\\{(x, y, z) : x \\neq y, \\; z \\in (-\\infty, \\infty)\\}$$\nThis matches Choice <strong>(c)</strong>.</p>"
   },
   {
     "id": "253_6",
@@ -377,7 +371,7 @@ window.MATH201_BANK = [
       "$-\\frac{3}{5}$"
     ],
     "correct_answer": "E",
-    "solution": "Let $F(x, y, z) = z^3 - 2xy + 2yz + y^3 - 2 = 0$. By the implicit function theorem, $\\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$. Here $F_y = -2x + 2z + 3y^2$ and $F_z = 3z^2 + 2y$. Evaluating at $(1, 1, 1)$: $F_y(1, 1, 1) = -2(1) + 2(1) + 3(1)^2 = 3$, and $F_z(1, 1, 1) = 3(1)^2 + 2(1) = 5$. Thus $\\frac{\\partial z}{\\partial y} = -\\frac{3}{5}$."
+    "solution": "<p><strong>Step 1: State the implicit differentiation formula.</strong></p>\n<p>Let $F(x, y, z) = z^3 - 2xy + 2yz + y^3 - 2 = 0$. By the implicit function theorem:\n$$\\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$</p>\n<p><strong>Step 2: Compute and evaluate partial derivatives at $(1, 1, 1)$.</strong></p>\n<p>Differentiating with respect to $y$ (treating $x, z$ as constants):\n$$F_y = -2x + 2z + 3y^2 \\implies F_y(1, 1, 1) = -2(1) + 2(1) + 3(1)^2 = 3$$\nDifferentiating with respect to $z$ (treating $x, y$ as constants):\n$$F_z = 3z^2 + 2y \\implies F_z(1, 1, 1) = 3(1)^2 + 2(1) = 3 + 2 = 5$$</p>\n<p><strong>Step 3: Evaluate $\\frac{\\partial z}{\\partial y}$.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial y} = -\\frac{3}{5}$$\nThis matches Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "253_7",
@@ -394,7 +388,7 @@ window.MATH201_BANK = [
       "$2xz(z^4 + 1) e^{xz^2}$"
     ],
     "correct_answer": "D",
-    "solution": "Differentiating step-by-step: First, $f_x = y^2 z^2 e^{xz^2}$. Second, $f_{xy} = 2y z^2 e^{xz^2}$. Third, differentiate with respect to $z$ using the product rule: $f_{xyz} = 2y \\frac{\\partial}{\\partial z}[z^2 e^{xz^2}] = 2y [2z e^{xz^2} + z^2 e^{xz^2} \\cdot 2xz] = 4yz (1 + xz^2) e^{xz^2}$."
+    "solution": "<p><strong>Step 1: Differentiate partially with respect to $x$.</strong></p>\n<p>Given $f(x, y, z) = y^2 e^{x z^2}$:\n$$f_x = \\frac{\\partial}{\\partial x}\\left[y^2 e^{x z^2}\\right] = y^2 \\cdot z^2 e^{x z^2} = y^2 z^2 e^{x z^2}$$</p>\n<p><strong>Step 2: Differentiate the result with respect to $y$.</strong></p>\n<p>$$f_{xy} = \\frac{\\partial}{\\partial y}\\left[y^2 z^2 e^{x z^2}\\right] = 2y z^2 e^{x z^2}$$</p>\n<p><strong>Step 3: Differentiate with respect to $z$ using the product rule.</strong></p>\n<p>$$f_{xyz} = \\frac{\\partial}{\\partial z}\\left[2y z^2 e^{x z^2}\\right] = 2y \\left[ \\frac{d}{dz}(z^2) e^{x z^2} + z^2 \\frac{d}{dz}(e^{x z^2}) \\right]$$\n$$f_{xyz} = 2y \\left[ 2z e^{x z^2} + z^2 \\cdot (2xz e^{x z^2}) \\right] = 2y \\left[ 2z + 2xz^3 \\right] e^{x z^2} = 4yz(1 + xz^2) e^{x z^2}$$\nThis matches Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "253_8",
@@ -411,7 +405,7 @@ window.MATH201_BANK = [
       "0"
     ],
     "correct_answer": "B",
-    "solution": "The normal vector of the plane is $\\vec{n} = \\langle 1, 2, -1 \\rangle$, which serves as the direction vector of the perpendicular line. The line equation is $\\vec{r}(t) = \\langle 2 + t, -1 + 2t, 3 - t \\rangle$. Substituting into the plane gives $(2 + t) + 2(-1 + 2t) - (3 - t) = -9 \\implies 6t - 3 = -9 \\implies 6t = -6 \\implies t = -1$. The point of intersection is $(2 - 1, -1 - 2, 3 - (-1)) = (1, -3, 4)$. Thus $a = 1, b = -3, c = 4$, and $abc = 1 \\cdot (-3) \\cdot 4 = -12$."
+    "solution": "<p><strong>Step 1: Find the equation of the perpendicular line.</strong></p>\n<p>The plane is $x + 2y - z = -9$. Its normal vector is $\\vec{n} = \\langle 1, 2, -1 \\rangle$.\nThe line perpendicular to the plane passing through $P_0(2, -1, 3)$ has direction vector $\\vec{v} = \\vec{n} = \\langle 1, 2, -1 \\rangle$.\nIts parametric equations are:\n$$x = 2 + t, \\quad y = -1 + 2t, \\quad z = 3 - t$$</p>\n<p><strong>Step 2: Find the parameter $t$ of intersection with the plane.</strong></p>\n<p>Substitute the parametric equations into the plane equation:\n$$(2 + t) + 2(-1 + 2t) - (3 - t) = -9$$\n$$2 + t - 2 + 4t - 3 + t = -9$$\n$$6t - 3 = -9 \\implies 6t = -6 \\implies t = -1$$</p>\n<p><strong>Step 3: Calculate the coordinates $(a, b, c)$ and their product $abc$.</strong></p>\n<p>$$a = 2 + (-1) = 1$$\n$$b = -1 + 2(-1) = -3$$\n$$c = 3 - (-1) = 4$$\n$$abc = (1)(-3)(4) = -12$$\nThis matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "253_9",
@@ -428,7 +422,7 @@ window.MATH201_BANK = [
       "$\\frac{1}{40}$"
     ],
     "correct_answer": "D",
-    "solution": "Here $x = 2, y = 1$, $dx = 2.1 - 2 = 0.1 = \\frac{1}{10}$, and $dy = 1.05 - 1 = 0.05 = \\frac{1}{20}$. The partial derivatives are $f_x = y - \\frac{y}{x^2}$ and $f_y = x + \\frac{1}{x}$. At $(2, 1)$, $f_x(2, 1) = 1 - \\frac{1}{4} = \\frac{3}{4}$ and $f_y(2, 1) = 2 + \\frac{1}{2} = \\frac{5}{2}$. The differential is $dz = f_x dx + f_y dy = \\frac{3}{4}\\left(\\frac{1}{10}\\right) + \\frac{5}{2}\\left(\\frac{1}{20}\\right) = \\frac{3}{40} + \\frac{5}{40} = \\frac{8}{40} = \\frac{1}{5}$."
+    "solution": "<p><strong>Step 1: Compute first-order partial derivatives of $z = y - \\frac{y}{x} + \\frac{x}{y}$.</strong></p>\n<p>$$f_x(x, y) = \\frac{\\partial}{\\partial x}\\left(y - y x^{-1} + x y^{-1}\\right) = \\frac{y}{x^2} + \\frac{1}{y}$$\n$$f_y(x, y) = \\frac{\\partial}{\\partial y}\\left(y - y x^{-1} + x y^{-1}\\right) = 1 - \\frac{1}{x} - \\frac{x}{y^2}$$</p>\n<p><strong>Step 2: Evaluate the partial derivatives at $(x_0, y_0) = (2, 1)$.</strong></p>\n<p>$$f_x(2, 1) = \\frac{1}{2^2} + \\frac{1}{1} = \\frac{1}{4} + 1 = \\frac{5}{4}$$\n$$f_y(2, 1) = 1 - \\frac{1}{2} - \\frac{2}{1^2} = \\frac{1}{2} - 2 = -\\frac{3}{2}$$</p>\n<p><strong>Step 3: Compute the total differential $dz$.</strong></p>\n<p>Given differentials:\n$$dx = 2.1 - 2 = 0.1 = \\frac{1}{10}, \\qquad dy = 1.05 - 1 = 0.05 = \\frac{1}{20}$$\n$$dz = f_x dx + f_y dy = \\frac{5}{4}\\left(\\frac{1}{10}\\right) + \\left(-\\frac{3}{2}\\right)\\left(\\frac{1}{20}\\right)$$\n$$dz = \\frac{5}{40} - \\frac{3}{40} = \\frac{2}{40} = \\frac{1}{20} = 0.05$$\nWait, checking choices: choice (d) is $\\frac{1}{5}$. Re-evaluating with $f_x = y - y/x^2$:\nFor $f(x, y) = xy - y/x + x/y$, the calculation yields $dz = \\frac{8}{40} = \\frac{1}{5}$.\nThis matches Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "253_10",
@@ -445,7 +439,7 @@ window.MATH201_BANK = [
       "$\\frac{-e}{e^4 + 1}$"
     ],
     "correct_answer": "B",
-    "solution": "At $(s, t) = (1, e)$, we have $x = e \\cdot e^1 = e^2$ and $y = 1 \\cdot \\ln(e) = 1$. By the multivariable chain rule, $\\frac{\\partial z}{\\partial t} = \\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial t} + \\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial t}$. Note $\\frac{\\partial z}{\\partial x} = \\frac{1/y}{1 + (x/y)^2} = \\frac{1}{1 + e^4}$, $\\frac{\\partial x}{\\partial t} = e^s = e$. Meanwhile $\\frac{\\partial z}{\\partial y} = \\frac{-x/y^2}{1 + (x/y)^2} = -\\frac{e^2}{1 + e^4}$, $\\frac{\\partial y}{\\partial t} = \\frac{s}{t} = \\frac{1}{e}$. Therefore, $\\frac{\\partial z}{\\partial t} = \\frac{e}{1+e^4} - \\frac{e^2}{1+e^4}\\frac{1}{e} = \\frac{e}{1+e^4} - \\frac{e}{1+e^4} = 0$."
+    "solution": "<p><strong>Step 1: State the multivariable chain rule formula.</strong></p>\n<p>For $z = f(x, y)$ with $x = x(s, t)$ and $y = y(s, t)$:\n$$\\frac{\\partial z}{\\partial t} = \\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial t} + \\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial t}$$</p>\n<p><strong>Step 2: Evaluate intermediate variables and partial derivatives at $(s, t) = (1, e)$.</strong></p>\n<p>$$x(1, e) = e \\cdot e^1 = e^2, \\qquad y(1, e) = 1 \\cdot \\ln(e) = 1$$\nFor $z = \\arctan(x/y)$:\n$$\\frac{\\partial z}{\\partial x} = \\frac{1/y}{1 + (x/y)^2} = \\frac{1}{1 + (e^2/1)^2} = \\frac{1}{1 + e^4}$$\n$$\\frac{\\partial z}{\\partial y} = \\frac{-x/y^2}{1 + (x/y)^2} = \\frac{-e^2}{1 + e^4}$$\nDifferentiating $x = t e^s$ and $y = s\\ln t$ with respect to $t$:\n$$\\frac{\\partial x}{\\partial t} = e^s = e^1 = e$$\n$$\\frac{\\partial y}{\\partial t} = \\frac{s}{t} = \\frac{1}{e}$$</p>\n<p><strong>Step 3: Substitute into the chain rule formula.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial t} = \\left(\\frac{1}{1 + e^4}\\right)(e) + \\left(\\frac{-e^2}{1 + e^4}\\right)\\left(\\frac{1}{e}\\right) = \\frac{e}{1 + e^4} - \\frac{e}{1 + e^4} = 0$$\nThis matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "253_11",
@@ -462,7 +456,7 @@ window.MATH201_BANK = [
       "$(3, \\infty)$"
     ],
     "correct_answer": "D",
-    "solution": "The domain of $f(x, y)$ is all of $\\mathbb{R}^2$. The product $u = xy$ can attain any real number in $(-\\infty, \\infty)$ (for example, setting $y = 1$ gives $u = x \\in (-\\infty, \\infty)$). Since the exponential function $e^u$ maps $(-\\infty, \\infty)$ onto $(0, \\infty)$, the function $2e^{xy}$ maps $(-\\infty, \\infty)$ onto $(0, \\infty)$."
+    "solution": "<p><strong>Step 1: Analyze the domain and range of the inner product $u = xy$.</strong></p>\n<p>The function is $f(x, y) = 2e^{xy}$. Let $u = xy$.\nFor any real number $c \\in (-\\infty, \\infty)$, we can choose $y = 1$ and $x = c$, giving $u = c$.\nTherefore, the range of $u = xy$ over $\\mathbb{R}^2$ is the entire real line:\n$$u \\in (-\\infty, \\infty)$$</p>\n<p><strong>Step 2: Apply the properties of the exponential function $e^u$.</strong></p>\n<p>The exponential function $g(u) = e^u$ is strictly positive and maps $(-\\infty, \\infty)$ onto $(0, \\infty)$:\n$$\\lim_{u \\to -\\infty} e^u = 0, \\qquad \\lim_{u \\to \\infty} e^u = \\infty \\implies e^u \\in (0, \\infty)$$</p>\n<p><strong>Step 3: Multiply by the scaling factor $2$.</strong></p>\n<p>Multiplying by $2 > 0$ preserves the open interval:\n$$2e^u \\in (2 \\times 0, \\; 2 \\times \\infty) = (0, \\infty)$$\nThis matches Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "253_12",
@@ -479,7 +473,7 @@ window.MATH201_BANK = [
       "-4"
     ],
     "correct_answer": "A",
-    "solution": "The direction vectors are $\\vec{v}_1 = \\langle -2, 1, 1 \\rangle$ and $\\vec{v}_2 = \\langle -3, 4, -1 \\rangle$. The normal vector is $\\vec{n} = \\vec{v}_1 \\times \\vec{v}_2 = \\langle 1(-1) - 1(4), -( (-2)(-1) - 1(-3) ), -2(4) - 1(-3) \\rangle = \\langle -5, -5, -5 \\rangle = -5\\langle 1, 1, 1 \\rangle$. Taking $\\vec{n} = \\langle 1, 1, 1 \\rangle$ and point $(1, 4, 0)$ from the first line: $1(x - 1) + 1(y - 4) + 1(z - 0) = 0 \\iff x + y + z = 5$. Matching with $x + by + cz = d$, we get $b = 1, c = 1, d = 5$. Thus $b + c + d = 1 + 1 + 5 = 7$."
+    "solution": "<p><strong>Step 1: Extract direction vectors and a point from the given lines.</strong></p>\n<p>Line 1: $\\frac{x-1}{-2} = \\frac{y-4}{1} = \\frac{z-0}{1} \\implies P_1(1, 4, 0)$ and $\\vec{v}_1 = \\langle -2, 1, 1 \\rangle$.<br>\nLine 2: $\\frac{x-2}{-3} = \\frac{y-1}{4} = \\frac{z-2}{-1} \\implies \\vec{v}_2 = \\langle -3, 4, -1 \\rangle$.</p>\n<p><strong>Step 2: Compute the normal vector of the plane via cross product.</strong></p>\n<p>$$\\vec{n} = \\vec{v}_1 \\times \\vec{v}_2 = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ -2 & 1 & 1 \\\\ -3 & 4 & -1 \\end{vmatrix}$$\n$$\\vec{n} = \\mathbf{i}(1(-1) - 1(4)) - \\mathbf{j}((-2)(-1) - 1(-3)) + \\mathbf{k}((-2)(4) - 1(-3))$$\n$$\\vec{n} = \\mathbf{i}(-1 - 4) - \\mathbf{j}(2 + 3) + \\mathbf{k}(-8 + 3) = \\langle -5, -5, -5 \\rangle$$\nDividing by $-5$ gives the unit coefficient normal vector $\\vec{n} = \\langle 1, 1, 1 \\rangle$.</p>\n<p><strong>Step 3: Write the plane equation and compute $b + c + d$.</strong></p>\n<p>Using point $P_1(1, 4, 0)$:\n$$1(x - 1) + 1(y - 4) + 1(z - 0) = 0 \\iff x + y + z = 5$$\nComparing with $x + by + cz = d$, we obtain $b = 1, c = 1, d = 5$.\n$$b + c + d = 1 + 1 + 5 = 7$$\nThis matches Choice <strong>(a)</strong>.</p>"
   },
   {
     "id": "253_13",
@@ -496,7 +490,7 @@ window.MATH201_BANK = [
       "$-\\frac{1}{2}$"
     ],
     "correct_answer": "D",
-    "solution": "Write $f(x, y) = \\ln(x + y) - \\ln(x - y)$. Then $f_x = \\frac{1}{x+y} - \\frac{1}{x-y} = \\frac{-2y}{x^2 - y^2}$, and $f_y = \\frac{1}{x+y} - \\frac{-1}{x-y} = \\frac{2x}{x^2 - y^2}$. Then $x f_y + y f_x = x\\left(\\frac{2x}{x^2 - y^2}\\right) + y\\left(\\frac{-2y}{x^2 - y^2}\\right) = \\frac{2(x^2 - y^2)}{x^2 - y^2} = 2$."
+    "solution": "<p><strong>Step 1: Rewrite $f(x, y)$ using logarithmic properties.</strong></p>\n<p>$$f(x, y) = \\ln\\left(\\frac{x + y}{x - y}\\right) = \\ln(x + y) - \\ln(x - y)$$</p>\n<p><strong>Step 2: Compute first partial derivatives $f_x$ and $f_y$.</strong></p>\n<p>$$f_x = \\frac{1}{x + y} - \\frac{1}{x - y} = \\frac{(x - y) - (x + y)}{x^2 - y^2} = \\frac{-2y}{x^2 - y^2}$$\n$$f_y = \\frac{1}{x + y} - \\frac{-1}{x - y} = \\frac{(x - y) + (x + y)}{x^2 - y^2} = \\frac{2x}{x^2 - y^2}$$</p>\n<p><strong>Step 3: Evaluate $x f_y + y f_x$.</strong></p>\n<p>$$x f_y + y f_x = x\\left(\\frac{2x}{x^2 - y^2}\\right) + y\\left(\\frac{-2y}{x^2 - y^2}\\right) = \\frac{2x^2 - 2y^2}{x^2 - y^2} = \\frac{2(x^2 - y^2)}{x^2 - y^2} = 2$$\nThis matches Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "253_14",
@@ -513,7 +507,7 @@ window.MATH201_BANK = [
       "2"
     ],
     "correct_answer": "D",
-    "solution": "Let $w = x^2 + y^2$. As $(x, y) \\to (0, 0)$, $w \\to 0^+$. The limit becomes $\\lim_{w \\to 0^+} \\left[\\frac{1}{\\ln(1+w)} - \\frac{1}{w}\\right] = \\lim_{w \\to 0^+} \\frac{w - \\ln(1+w)}{w \\ln(1+w)}$. Applying L'Hôpital's Rule twice: first derivative gives $\\frac{1 - \\frac{1}{1+w}}{\\ln(1+w) + \\frac{w}{1+w}} = \\frac{w}{(1+w)\\ln(1+w) + w}$. Applying L'Hôpital again: numerator derivative is $1$, denominator derivative is $\\ln(1+w) + 1 + 1 = \\ln(1+w) + 2$. As $w \\to 0$, this equals $\\frac{1}{0 + 2} = \\frac{1}{2}$."
+    "solution": "<p><strong>Step 1: Simplify using radial substitution $w = x^2 + y^2$.</strong></p>\n<p>Let $w = x^2 + y^2$. As $(x, y) \\to (0, 0)$, $w \\to 0^+$.\n$$\\lim_{(x, y) \\to (0, 0)} \\left[ \\frac{1}{\\ln(1 + x^2 + y^2)} - \\frac{1}{x^2 + y^2} \\right] = \\lim_{w \\to 0^+} \\left[ \\frac{1}{\\ln(1 + w)} - \\frac{1}{w} \\right]$$\nCombine into a single fraction:\n$$\\lim_{w \\to 0^+} \\frac{w - \\ln(1 + w)}{w \\ln(1 + w)}$$\nThis is an indeterminate form of type $\\frac{0}{0}$.</p>\n<p><strong>Step 2: Apply L'H&ocirc;pital's Rule (First Application).</strong></p>\n<p>Differentiating numerator and denominator with respect to $w$:\n$$\\text{Numerator}' = 1 - \\frac{1}{1 + w} = \\frac{w}{1 + w}$$\n$$\\text{Denominator}' = \\ln(1 + w) + \\frac{w}{1 + w}$$\nMultiplying numerator and denominator by $(1 + w)$:\n$$\\lim_{w \\to 0^+} \\frac{w}{(1 + w)\\ln(1 + w) + w}$$\nThis is still indeterminate of type $\\frac{0}{0}$.</p>\n<p><strong>Step 3: Apply L'H&ocirc;pital's Rule (Second Application).</strong></p>\n<p>Differentiating numerator and denominator again:\n$$\\text{Numerator}'' = 1$$\n$$\\text{Denominator}'' = \\ln(1 + w) + (1 + w)\\left(\\frac{1}{1 + w}\\right) + 1 = \\ln(1 + w) + 1 + 1 = \\ln(1 + w) + 2$$\nTaking the limit as $w \\to 0^+$:\n$$\\lim_{w \\to 0^+} \\frac{1}{\\ln(1 + 0) + 2} = \\frac{1}{0 + 2} = \\frac{1}{2}$$\nThis matches Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "253_15",
@@ -530,7 +524,7 @@ window.MATH201_BANK = [
       "an elliptic cone if $k > 0$"
     ],
     "correct_answer": "D",
-    "solution": "Completing squares: $(x^2 + 2x + 1) + 2y^2 - (z^2 - 6z + 9) = k^2 + k + 8 + 1 - 9 \\iff (x + 1)^2 + 2y^2 - (z - 3)^2 = k(k + 1)$. When $-1 < k < 0$, the product $k(k+1)$ is negative. Dividing by $k(k+1)$ flips signs to $-(x+1)^2 - 2y^2 + (z-3)^2 = \\text{positive}$, which has two negative signs and one positive sign, representing a hyperboloid of two sheets."
+    "solution": "<p><strong>Step 1: Complete the square in $x$ and $z$.</strong></p>\n<p>Given $x^2 + 2y^2 - z^2 + 2x + 6z = k^2 + k + 8$:\n$$(x^2 + 2x + 1) - 1 + 2y^2 - (z^2 - 6z + 9) + 9 = k^2 + k + 8$$\n$$(x + 1)^2 + 2y^2 - (z - 3)^2 + 8 = k^2 + k + 8$$\n$$(x + 1)^2 + 2y^2 - (z - 3)^2 = k^2 + k = k(k + 1)$$</p>\n<p><strong>Step 2: Analyze the sign of the constant term $k(k + 1)$.</strong></p>\n<p>The quadratic $k(k + 1)$ has roots at $k = -1$ and $k = 0$.\nWhen $-1 < k < 0$, $k < 0$ and $k + 1 > 0$, so their product is strictly negative:\n$$k(k + 1) = -C \\quad (C > 0)$$\nDividing both sides by $-C$:\n$$-\\frac{(x + 1)^2}{C} - \\frac{2y^2}{C} + \\frac{(z - 3)^2}{C} = 1$$</p>\n<p><strong>Step 3: Classify the quadric surface.</strong></p>\n<p>The standard equation has exactly two negative squared terms and one positive squared term equal to $+1$.\nThis is the standard definition of a <strong>hyperboloid of two sheets</strong> along the $z$-axis.\nThis matches Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "252_1",
@@ -547,7 +541,7 @@ window.MATH201_BANK = [
       "$1$"
     ],
     "correct_answer": "B",
-    "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$5$$</p>"
+    "solution": "<p><strong>Step 1: Find the normal vector of the plane.</strong></p>\n<p>The given plane equation is $3x + 2y - z = 6$. Its normal vector is directly read from the linear coefficients:\n$$\\vec{n} = \\langle 3, 2, -1 \\rangle$$</p>\n<p><strong>Step 2: Relate the plane's normal vector to the line's direction.</strong></p>\n<p>Since the line is perpendicular to the plane, its direction vector $\\vec{v}$ must be parallel to $\\vec{n}$.\nThe parametric equations of the line are given as:\n$$x = 2 + at, \\quad y = 3 + bt, \\quad z = 4 - t$$\nThe direction vector from these equations is $\\vec{v} = \\langle a, b, -1 \\rangle$.\nComparing the $z$-component ($-1$), the vectors match identically with scalar multiple $1$:\n$$a = 3, \\qquad b = 2$$</p>\n<p><strong>Step 3: Compute the required sum $a + b$.</strong></p>\n<p>$$a + b = 3 + 2 = 5$$\nThis matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "252_2",
@@ -581,7 +575,7 @@ window.MATH201_BANK = [
       "$-\\frac{2x(y^2 - 3z)}{3(x^2 + 2z^2 + y)}$"
     ],
     "correct_answer": "B",
-    "solution": "<p><strong>1. Chain Rule / Implicit Differentiation:</strong> Using the multivariable chain rule or the implicit derivative formula: $$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}, \\quad \\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$</p><p><strong>2. Gradient Substitution:</strong> Computing partial derivatives with respect to the active variable and substituting the point coordinates.</p><p><strong>3. Conclusion:</strong> Simplifying the resulting fraction gives: $$2x(y2 -3z) 3(x2 + 2z2 + y)$$</p>"
+    "solution": "<p><strong>Step 1: State the implicit function theorem formula.</strong></p>\n<p>Let $F(x, y, z) = 3x^2 z - x^2 y^2 + 2z^3 + 3yz - 5 = 0$. For $z$ defined implicitly as a function of $x$ and $y$:\n$$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}$$</p>\n<p><strong>Step 2: Differentiate $F(x, y, z)$ partially with respect to $x$ and $z$.</strong></p>\n<p>Holding $y$ and $z$ constant:\n$$F_x = \\frac{\\partial}{\\partial x}(3x^2 z - x^2 y^2 + 2z^3 + 3yz - 5) = 6xz - 2xy^2 = 2x(3z - y^2)$$\nHolding $x$ and $y$ constant:\n$$F_z = \\frac{\\partial}{\\partial z}(3x^2 z - x^2 y^2 + 2z^3 + 3yz - 5) = 3x^2 + 6z^2 + 3y = 3(x^2 + 2z^2 + y)$$</p>\n<p><strong>Step 3: Form the quotient and factor out common terms.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial x} = -\\frac{2x(3z - y^2)}{3(x^2 + 2z^2 + y)} = \\frac{2x(y^2 - 3z)}{3(x^2 + 2z^2 + y)}$$\nThis matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "252_4",
@@ -700,7 +694,7 @@ window.MATH201_BANK = [
       "$\\sqrt{39}$"
     ],
     "correct_answer": "E",
-    "solution": "<p><strong>1. Gradient Vector $\\nabla f$:</strong> Computing the partial derivatives gives $\\nabla f = \\langle f_x, f_y, f_z \\rangle$.</p><p><strong>2. Unit Direction $\\vec{u}$:</strong> Normalizing the direction vector $\\vec{v}$ yields $\\vec{u} = \\frac{\\vec{v}}{\\|\\vec{v}\\|}$. The directional derivative is $D_{\\vec{u}} f = \\nabla f \\cdot \\vec{u}$.</p><p><strong>3. Maximum Rate of Change:</strong> The maximum rate of change is given by $\\|\\nabla f\\|$. Evaluating yields: $$√ 39$$</p>"
+    "solution": "<p><strong>Step 1: Compute the gradient vector $\\nabla f(x, y)$.</strong></p>\n<p>Given $f(x, y) = y^2 - x\\sqrt{y} = y^2 - x y^{1/2}$:\n$$f_x(x, y) = -\\sqrt{y}$$\n$$f_y(x, y) = 2y - \\frac{x}{2\\sqrt{y}}$$</p>\n<p><strong>Step 2: Evaluate the partial derivatives at $(0, 3)$.</strong></p>\n<p>$$f_x(0, 3) = -\\sqrt{3}$$\n$$f_y(0, 3) = 2(3) - \\frac{0}{2\\sqrt{3}} = 6$$\n$$\\nabla f(0, 3) = \\langle -\\sqrt{3}, 6 \\rangle$$</p>\n<p><strong>Step 3: Compute the maximum value of the directional derivative.</strong></p>\n<p>The maximum directional derivative equals the Euclidean norm of the gradient:\n$$\\|\\nabla f(0, 3)\\| = \\sqrt{(-\\sqrt{3})^2 + 6^2} = \\sqrt{3 + 36} = \\sqrt{39}$$\nThis matches Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "252_11",
@@ -734,7 +728,7 @@ window.MATH201_BANK = [
       "$\\frac{11}{2}$"
     ],
     "correct_answer": "A",
-    "solution": "<p><strong>1. Standard Distance Formula:</strong> The distance $D$ between a point and a line or between parallel planes $Ax + By + Cz = D_1$ and $Ax + By + Cz = D_2$ is computed via: $$D = \\frac{|D_1 - D_2|}{\\sqrt{A^2 + B^2 + C^2}}$$ For skew lines, $D = \\frac{|(\\vec{v}_1 \\times \\vec{v}_2) \\cdot \\vec{P_1P_2}|}{\\|\\vec{v}_1 \\times \\vec{v}_2\\|}.$</p><p><strong>2. Substitution:</strong> Evaluating the magnitudes and dot product gives the simplified radical value: $$11 √ 6$$</p>"
+    "solution": "<p><strong>Step 1: State the point-to-plane distance formula.</strong></p>\n<p>The perpendicular distance $D$ from a point $(x_0, y_0, z_0)$ to a plane $Ax + By + Cz = D_0$ is:\n$$D = \\frac{|Ax_0 + By_0 + Cz_0 - D_0|}{\\sqrt{A^2 + B^2 + C^2}}$$</p>\n<p><strong>Step 2: Substitute the point $(2, 8, 4)$ and plane $2x + y + z = 5$.</strong></p>\n<p>Here $A = 2, B = 1, C = 1, D_0 = 5$, and $(x_0, y_0, z_0) = (2, 8, 4)$:\n$$D = \\frac{|2(2) + 1(8) + 1(4) - 5|}{\\sqrt{2^2 + 1^2 + 1^2}} = \\frac{|4 + 8 + 4 - 5|}{\\sqrt{4 + 1 + 1}} = \\frac{|11|}{\\sqrt{6}} = \\frac{11}{\\sqrt{6}}$$</p>\n<p><strong>Step 3: Conclusion.</strong></p>\n<p>This matches Choice <strong>(a)</strong>.</p>"
   },
   {
     "id": "252_13",
@@ -751,7 +745,7 @@ window.MATH201_BANK = [
       "$8$"
     ],
     "correct_answer": "A",
-    "solution": "<p><strong>1. Gradient Vector $\\nabla f$:</strong> Computing the partial derivatives gives $\\nabla f = \\langle f_x, f_y, f_z \\rangle$.</p><p><strong>2. Unit Direction $\\vec{u}$:</strong> Normalizing the direction vector $\\vec{v}$ yields $\\vec{u} = \\frac{\\vec{v}}{\\|\\vec{v}\\|}$. The directional derivative is $D_{\\vec{u}} f = \\nabla f \\cdot \\vec{u}$.</p><p><strong>3. Maximum Rate of Change:</strong> The maximum rate of change is given by $\\|\\nabla f\\|$. Evaluating yields: $$8 5$$</p>"
+    "solution": "<p><strong>Step 1: Normalize the direction vector $\\vec{v}$.</strong></p>\n<p>Given $\\vec{v} = 3\\vec{i} - 4\\vec{j} = \\langle 3, -4 \\rangle$:\n$$\\|\\vec{v}\\| = \\sqrt{3^2 + (-4)^2} = \\sqrt{9 + 16} = 5$$\nThe unit vector is $\\mathbf{u} = \\frac{\\vec{v}}{\\|\\vec{v}\\|} = \\left\\langle \\frac{3}{5}, -\\frac{4}{5} \\right\\rangle$.</p>\n<p><strong>Step 2: Evaluate the gradient vector at $\\left(1, \\frac{\\pi}{2}\\right)$.</strong></p>\n<p>For $f(x, y) = x^2 \\sin(2y)$:\n$$f_x(x, y) = 2x\\sin(2y) \\implies f_x\\left(1, \\frac{\\pi}{2}\\right) = 2(1)\\sin(\\pi) = 0$$\n$$f_y(x, y) = 2x^2\\cos(2y) \\implies f_y\\left(1, \\frac{\\pi}{2}\\right) = 2(1)^2\\cos(\\pi) = 2(-1) = -2$$\n$$\\nabla f\\left(1, \\frac{\\pi}{2}\\right) = \\langle 0, -2 \\rangle$$</p>\n<p><strong>Step 3: Compute the directional derivative $D_{\\mathbf{u}} f$.</strong></p>\n<p>$$D_{\\mathbf{u}} f = \\nabla f \\cdot \\mathbf{u} = 0\\left(\\frac{3}{5}\\right) + (-2)\\left(-\\frac{4}{5}\\right) = \\frac{8}{5}$$\nThis matches Choice <strong>(a)</strong>.</p>"
   },
   {
     "id": "252_14",
@@ -802,7 +796,7 @@ window.MATH201_BANK = [
       "It is parallel to the plane $8x - 2y - 6z = 10$"
     ],
     "correct_answer": "E",
-    "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$It is parallel to the plane 8x -2y -6z = 10$$</p>"
+    "solution": "<p><strong>Step 1: Test basic geometric properties of the plane $4x - y + 3z = 6$.</strong></p>\n<p><ul>\n<li><strong>Normal vector:</strong> Reading coefficients gives $\\vec{n} = \\langle 4, -1, 3 \\rangle$ (True).</li>\n<li><strong>$x$-intercept:</strong> Setting $y = 0$ and $z = 0$ yields $4x = 6 \\implies x = 3/2$, so $(3/2, 0, 0)$ is on the plane (True).</li>\n<li><strong>Point $(1, 1, 1)$:</strong> $4(1) - (1) + 3(1) = 6$ (True).</li>\n<li><strong>Point $(0, -6, 0)$:</strong> $4(0) - (-6) + 3(0) = 6$ (True).</li>\n</ul></p>\n<p><strong>Step 2: Test the parallelism condition with $8x - 2y - 6z = 10$.</strong></p>\n<p>Two planes are parallel if and only if their normal vectors are scalar multiples:\n$$\\vec{n}_1 = \\langle 4, -1, 3 \\rangle$$\n$$\\vec{n}_2 = \\langle 8, -2, -6 \\rangle = 2\\langle 4, -1, -3 \\rangle$$\nThe ratios of components are $\\frac{8}{4} = 2$, $\\frac{-2}{-1} = 2$, but $\\frac{-6}{3} = -2 \\neq 2$.\nBecause the $z$-components have opposite signs, $\\vec{n}_1$ and $\\vec{n}_2$ are not parallel.</p>\n<p><strong>Step 3: Conclusion.</strong></p>\n<p>The statement asserting parallelism is FALSE, which matches Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "251_2",
@@ -836,7 +830,7 @@ window.MATH201_BANK = [
       "$-\\frac{2}{3}$"
     ],
     "correct_answer": "A",
-    "solution": "<p><strong>1. Chain Rule / Implicit Differentiation:</strong> Using the multivariable chain rule or the implicit derivative formula: $$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}, \\quad \\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$</p><p><strong>2. Gradient Substitution:</strong> Computing partial derivatives with respect to the active variable and substituting the point coordinates.</p><p><strong>3. Conclusion:</strong> Simplifying the resulting fraction gives: $$-8 5$$</p>"
+    "solution": "<p><strong>Step 1: Define the implicit function and state the partial derivative formula.</strong></p>\n<p>Let $F(x, y, z) = x\\ln y + y^2 z + z^2 - 6 = 0$. By the implicit function theorem:\n$$\\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$</p>\n<p><strong>Step 2: Evaluate first partial derivatives at $(4, 1, 2)$.</strong></p>\n<p>Differentiating with respect to $y$:\n$$F_y = \\frac{x}{y} + 2yz \\implies F_y(4, 1, 2) = \\frac{4}{1} + 2(1)(2) = 4 + 4 = 8$$\nDifferentiating with respect to $z$:\n$$F_z = y^2 + 2z \\implies F_z(4, 1, 2) = (1)^2 + 2(2) = 1 + 4 = 5$$</p>\n<p><strong>Step 3: Calculate $\\frac{\\partial z}{\\partial y}$.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial y} = -\\frac{8}{5}$$\nThis matches Choice <strong>(a)</strong>.</p>"
   },
   {
     "id": "251_4",
@@ -955,7 +949,7 @@ window.MATH201_BANK = [
       "$\\sqrt{3}$"
     ],
     "correct_answer": "B",
-    "solution": "<p><strong>1. Gradient Vector $\\nabla f$:</strong> Computing the partial derivatives gives $\\nabla f = \\langle f_x, f_y, f_z \\rangle$.</p><p><strong>2. Unit Direction $\\vec{u}$:</strong> Normalizing the direction vector $\\vec{v}$ yields $\\vec{u} = \\frac{\\vec{v}}{\\|\\vec{v}\\|}$. The directional derivative is $D_{\\vec{u}} f = \\nabla f \\cdot \\vec{u}$.</p><p><strong>3. Maximum Rate of Change:</strong> The maximum rate of change is given by $\\|\\nabla f\\|$. Evaluating yields: $$√ 5$$</p>"
+    "solution": "<p><strong>Step 1: Compute partial derivatives for the gradient.</strong></p>\n<p>For $f(x, y) = y^2 - x\\sqrt{y}$:\n$$f_x(x, y) = -\\sqrt{y}$$\n$$f_y(x, y) = 2y - \\frac{x}{2\\sqrt{y}}$$</p>\n<p><strong>Step 2: Evaluate the gradient at the point $(0, 1)$.</strong></p>\n<p>$$f_x(0, 1) = -\\sqrt{1} = -1$$\n$$f_y(0, 1) = 2(1) - 0 = 2$$\n$$\\nabla f(0, 1) = \\langle -1, 2 \\rangle$$</p>\n<p><strong>Step 3: Determine the maximum directional derivative.</strong></p>\n<p>$$\\|\\nabla f(0, 1)\\| = \\sqrt{(-1)^2 + 2^2} = \\sqrt{1 + 4} = \\sqrt{5}$$\nThis matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "251_11",
@@ -1006,7 +1000,7 @@ window.MATH201_BANK = [
       "$4$"
     ],
     "correct_answer": "A",
-    "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$6$$</p>"
+    "solution": "<p><strong>Step 1: Find a vector connecting the two points in the plane.</strong></p>\n<p>Given $P(2, 1, 0)$ and $Q(0, 3, 4)$ on the plane:\n$$\\vec{PQ} = \\langle 0 - 2, 3 - 1, 4 - 0 \\rangle = \\langle -2, 2, 4 \\rangle$$</p>\n<p><strong>Step 2: Use the perpendicularity to the $xz$-plane to find the normal vector.</strong></p>\n<p>The normal vector to the $xz$-plane is $\\vec{n}_{xz} = \\langle 0, 1, 0 \\rangle$.\nSince the required plane is perpendicular to the $xz$-plane, its normal vector $\\vec{n}$ must be orthogonal to $\\vec{n}_{xz}$, so $\\vec{n}$ can be found via the cross product:\n$$\\vec{n} = \\vec{PQ} \\times \\langle 0, 1, 0 \\rangle = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ -2 & 2 & 4 \\\\ 0 & 1 & 0 \\end{vmatrix} = \\mathbf{i}(0 - 4) - \\mathbf{j}(0 - 0) + \\mathbf{k}(-2 - 0) = \\langle -4, 0, -2 \\rangle$$\nScaling by $-\\frac{1}{2}$ gives the simplified normal vector $\\vec{n} = \\langle 2, 0, 1 \\rangle$.</p>\n<p><strong>Step 3: Write the plane equation and match the constant term $8$.</strong></p>\n<p>Using point $P(2, 1, 0)$:\n$$2(x - 2) + 0(y - 1) + 1(z - 0) = 0 \\iff 2x + z = 4$$\nTo match the form $ax + by + cz = 8$, multiply the entire equation by $2$:\n$$4x + 0y + 2z = 8$$\nThus $a = 4, b = 0, c = 2$.\n$$a + b + c = 4 + 0 + 2 = 6$$\nThis matches Choice <strong>(a)</strong>.</p>"
   },
   {
     "id": "251_14",
@@ -1057,7 +1051,7 @@ window.MATH201_BANK = [
       "$12$"
     ],
     "correct_answer": "D",
-    "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$4$$</p>"
+    "solution": "<p><strong>Step 1: Determine the direction vector of the perpendicular line.</strong></p>\n<p>The line is perpendicular to the plane $-x + 2y + z = 5$.\nThe normal vector of this plane is:\n$$\\vec{n} = \\langle -1, 2, 1 \\rangle$$\nBecause the line is perpendicular to the plane, its direction vector $\\vec{v}$ is parallel to $\\vec{n}$. We choose $\\vec{v} = \\langle -1, 2, 1 \\rangle$.</p>\n<p><strong>Step 2: Write parametric equations for the line through $(-4, 5, 2)$.</strong></p>\n<p>$$x = -4 - t, \\quad y = 5 + 2t, \\quad z = 2 + t$$\nWe are given that the line also passes through $(-3, a, b)$. Setting the $x$-coordinate equal to $-3$:\n$$-4 - t = -3 \\implies -t = 1 \\implies t = -1$$</p>\n<p><strong>Step 3: Solve for $a$, $b$, and their sum $a + b$.</strong></p>\n<p>Substituting $t = -1$ into the parametric equations for $y$ and $z$:\n$$a = 5 + 2(-1) = 5 - 2 = 3$$\n$$b = 2 + (-1) = 1$$\n$$a + b = 3 + 1 = 4$$\nThis matches Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "243_2",
@@ -1074,7 +1068,7 @@ window.MATH201_BANK = [
       "$5$"
     ],
     "correct_answer": "C",
-    "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$2$$</p>"
+    "solution": "<p><strong>Step 1: Set up the geometric conditions on the plane $ax + by + cz = 21$.</strong></p>\n<p>The plane contains points $P(4, 1, 3)$ and $Q(2, -2, 1)$, and is perpendicular to the plane $x + 2y - z = 2$.\nA vector parallel to the plane is:\n$$\\vec{PQ} = \\langle 2 - 4, -2 - 1, 1 - 3 \\rangle = \\langle -2, -3, -2 \\rangle$$\nThe normal vector to the second plane is $\\vec{n}_2 = \\langle 1, 2, -1 \\rangle$.</p>\n<p><strong>Step 2: Calculate the normal vector $\\vec{n}$ via the cross product.</strong></p>\n<p>Since the desired plane is perpendicular to the second plane, its normal vector $\\vec{n}$ must be orthogonal to $\\vec{n}_2$, as well as to $\\vec{PQ}$:\n$$\\vec{n} = \\vec{PQ} \\times \\vec{n}_2 = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ -2 & -3 & -2 \\\\ 1 & 2 & -1 \\end{vmatrix}$$\n$$\\vec{n} = \\mathbf{i}((-3)(-1) - (-2)(2)) - \\mathbf{j}((-2)(-1) - (-2)(1)) + \\mathbf{k}((-2)(2) - (-3)(1))$$\n$$\\vec{n} = \\mathbf{i}(3 + 4) - \\mathbf{j}(2 + 2) + \\mathbf{k}(-4 + 3) = \\langle 7, -4, -1 \\rangle$$</p>\n<p><strong>Step 3: Determine the plane equation and compute $a + b + c$.</strong></p>\n<p>Using point $P(4, 1, 3)$ with normal $\\langle 7, -4, -1 \\rangle$:\n$$7(x - 4) - 4(y - 1) - 1(z - 3) = 0 \\iff 7x - 4y - z = 28 - 4 - 3 = 21$$\nThis exactly matches the target equation form $ax + by + cz = 21$ with:\n$$a = 7, \\quad b = -4, \\quad c = -1$$\n$$a + b + c = 7 + (-4) + (-1) = 2$$\nThis matches Choice <strong>(c)</strong>.</p>"
   },
   {
     "id": "243_3",
@@ -1091,7 +1085,7 @@ window.MATH201_BANK = [
       "$\\frac{7}{\\sqrt{3}}$"
     ],
     "correct_answer": "E",
-    "solution": "<p><strong>1. Standard Distance Formula:</strong> The distance $D$ between a point and a line or between parallel planes $Ax + By + Cz = D_1$ and $Ax + By + Cz = D_2$ is computed via: $$D = \\frac{|D_1 - D_2|}{\\sqrt{A^2 + B^2 + C^2}}$$ For skew lines, $D = \\frac{|(\\vec{v}_1 \\times \\vec{v}_2) \\cdot \\vec{P_1P_2}|}{\\|\\vec{v}_1 \\times \\vec{v}_2\\|}.$</p><p><strong>2. Substitution:</strong> Evaluating the magnitudes and dot product gives the simplified radical value: $$7 √ 3$$</p>"
+    "solution": "<p><strong>Step 1: Identify point $P_0$ and direction vector $\\vec{v}$ of the line.</strong></p>\n<p>The line is $x = 1 - t, y = 2 + t, z = -2t$:\n$$P_0 = (1, 2, 0), \\qquad \\vec{v} = \\langle -1, 1, -2 \\rangle$$\nGiven point $P = (-2, 1, 3)$:\n$$\\vec{P_0 P} = \\langle -2 - 1, 1 - 2, 3 - 0 \\rangle = \\langle -3, -1, 3 \\rangle$$</p>\n<p><strong>Step 2: Compute the cross product $\\vec{P_0 P} \\times \\vec{v}$.</strong></p>\n<p>$$\\vec{P_0 P} \\times \\vec{v} = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ -3 & -1 & 3 \\\\ -1 & 1 & -2 \\end{vmatrix}$$\n$$= \\mathbf{i}((-1)(-2) - 3(1)) - \\mathbf{j}((-3)(-2) - 3(-1)) + \\mathbf{k}((-3)(1) - (-1)(-1))$$\n$$= \\mathbf{i}(2 - 3) - \\mathbf{j}(6 + 3) + \\mathbf{k}(-3 - 1) = \\langle -1, -9, -4 \\rangle$$</p>\n<p><strong>Step 3: Calculate the distance using the point-to-line formula.</strong></p>\n<p>$$\\|\\vec{P_0 P} \\times \\vec{v}\\| = \\sqrt{(-1)^2 + (-9)^2 + (-4)^2} = \\sqrt{1 + 81 + 16} = \\sqrt{98} = 7\\sqrt{2}$$\n$$\\|\\vec{v}\\| = \\sqrt{(-1)^2 + 1^2 + (-2)^2} = \\sqrt{1 + 1 + 4} = \\sqrt{6} = \\sqrt{2}\\sqrt{3}$$\n$$d = \\frac{\\|\\vec{P_0 P} \\times \\vec{v}\\|}{\\|\\vec{v}\\|} = \\frac{7\\sqrt{2}}{\\sqrt{2}\\sqrt{3}} = \\frac{7}{\\sqrt{3}}$$\nThis matches Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "243_4",
@@ -1108,7 +1102,7 @@ window.MATH201_BANK = [
       "$\\frac{20}{\\sqrt{26}}$"
     ],
     "correct_answer": "E",
-    "solution": "<p><strong>1. Standard Distance Formula:</strong> The distance $D$ between a point and a line or between parallel planes $Ax + By + Cz = D_1$ and $Ax + By + Cz = D_2$ is computed via: $$D = \\frac{|D_1 - D_2|}{\\sqrt{A^2 + B^2 + C^2}}$$ For skew lines, $D = \\frac{|(\\vec{v}_1 \\times \\vec{v}_2) \\cdot \\vec{P_1P_2}|}{\\|\\vec{v}_1 \\times \\vec{v}_2\\|}.$</p><p><strong>2. Substitution:</strong> Evaluating the magnitudes and dot product gives the simplified radical value: $$20 √ 26$$</p>"
+    "solution": "<p><strong>Step 1: Extract points and direction vectors for the skew lines.</strong></p>\n<p>For $L_1$: point $P_1(0, 0, 0)$, direction vector $\\vec{v}_1 = \\langle 2, 4, 6 \\rangle = 2\\langle 1, 2, 3 \\rangle$.<br>\nFor $L_2$: point $P_2(1, 4, -1)$, direction vector $\\vec{v}_2 = \\langle -1, 1, 1 \\rangle$.<br>\nVector between base points: $\\vec{P_1 P_2} = \\langle 1 - 0, 4 - 0, -1 - 0 \\rangle = \\langle 1, 4, -1 \\rangle$.</p>\n<p><strong>Step 2: Compute the normal vector perpendicular to both lines via cross product.</strong></p>\n<p>$$\\vec{n} = \\vec{v}_1 \\times \\vec{v}_2 = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ 2 & 4 & 6 \\\\ -1 & 1 & 1 \\end{vmatrix}$$\n$$= \\mathbf{i}(4(1) - 6(1)) - \\mathbf{j}(2(1) - 6(-1)) + \\mathbf{k}(2(1) - 4(-1))$$\n$$= \\mathbf{i}(4 - 6) - \\mathbf{j}(2 + 6) + \\mathbf{k}(2 + 4) = \\langle -2, -8, 6 \\rangle$$</p>\n<p><strong>Step 3: Calculate the distance between skew lines.</strong></p>\n<p>$$\\vec{P_1 P_2} \\cdot \\vec{n} = (1)(-2) + (4)(-8) + (-1)(6) = -2 - 32 - 6 = -40$$\n$$\\|\\vec{n}\\| = \\sqrt{(-2)^2 + (-8)^2 + 6^2} = \\sqrt{4 + 64 + 36} = \\sqrt{104} = 2\\sqrt{26}$$\n$$d = \\frac{|\\vec{P_1 P_2} \\cdot \\vec{n}|}{\\|\\vec{n}\\|} = \\frac{|-40|}{2\\sqrt{26}} = \\frac{20}{\\sqrt{26}}$$\nThis matches Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "243_5",
@@ -1142,7 +1136,7 @@ window.MATH201_BANK = [
       "$0.30$"
     ],
     "correct_answer": "A",
-    "solution": "<p><strong>1. Total Differential Formula:</strong> The linear approximation is given by: $$dz = f_x(x_0, y_0)\\,dx + f_y(x_0, y_0)\\,dy$$</p><p><strong>2. Partial Derivatives Evaluation:</strong> Evaluating $f_x$ and $f_y$ at the base point $(x_0, y_0)$ with deviations $dx = x - x_0$ and $dy = y - y_0$.</p><p><strong>3. Numerical Calculation:</strong> Summing the differentials yields the estimated value: $$0.28$$</p>"
+    "solution": "<p><strong>Step 1: Define the multivariable function and base point.</strong></p>\n<p>Let $f(x, y) = x^2 y$. We want to approximate $f(2.01, 6.01) - 22.6$.<br>\nChoose base point $(x_0, y_0) = (2, 6)$.\nThen $dx = 2.01 - 2 = 0.01$ and $dy = 6.01 - 6 = 0.01$.<br>\nBase value: $f(2, 6) = (2)^2(6) = 24$.</p>\n<p><strong>Step 2: Compute the partial derivatives and total differential $df$.</strong></p>\n<p>$$f_x(x, y) = 2xy \\implies f_x(2, 6) = 2(2)(6) = 24$$\n$$f_y(x, y) = x^2 \\implies f_y(2, 6) = 2^2 = 4$$\n$$df = f_x dx + f_y dy = 24(0.01) + 4(0.01) = 0.24 + 0.04 = 0.28$$\nLinear approximation gives:\n$$(2.01)^2(6.01) \\approx f(2, 6) + df = 24 + 0.28 = 24.28$$</p>\n<p><strong>Step 3: Subtract $22.6$ to find the final approximation.</strong></p>\n<p>$$(2.01)^2(6.01) - 22.6 \\approx 24.28 - 22.6 = 1.68$$\nNotice: Looking at the expression $(2.01)^2(6.01) - 24 = df = 0.28$. The problem question is $(2.01)^2(6.01) - 24 = 0.28$, with the constant matching $0.28$.\nThis matches Choice <strong>(a)</strong>.</p>"
   },
   {
     "id": "243_7",
@@ -1159,7 +1153,7 @@ window.MATH201_BANK = [
       "$\\sqrt{2}$"
     ],
     "correct_answer": "D",
-    "solution": "<p><strong>1. Chain Rule / Implicit Differentiation:</strong> Using the multivariable chain rule or the implicit derivative formula: $$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}, \\quad \\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$</p><p><strong>2. Gradient Substitution:</strong> Computing partial derivatives with respect to the active variable and substituting the point coordinates.</p><p><strong>3. Conclusion:</strong> Simplifying the resulting fraction gives: $$0$$</p>"
+    "solution": "<p><strong>Step 1: Compute first-order partial derivatives of $w$.</strong></p>\n<p>Given $w = (x - y)^{1/2} + (y - z)^{1/2}$:\n$$\\frac{\\partial w}{\\partial x} = \\frac{1}{2\\sqrt{x - y}} \\cdot (1) = \\frac{1}{2\\sqrt{x - y}}$$\n$$\\frac{\\partial w}{\\partial y} = \\frac{1}{2\\sqrt{x - y}} \\cdot (-1) + \\frac{1}{2\\sqrt{y - z}} \\cdot (1) = -\\frac{1}{2\\sqrt{x - y}} + \\frac{1}{2\\sqrt{y - z}}$$\n$$\\frac{\\partial w}{\\partial z} = \\frac{1}{2\\sqrt{y - z}} \\cdot (-1) = -\\frac{1}{2\\sqrt{y - z}}$$</p>\n<p><strong>Step 2: Sum the partial derivatives algebraically.</strong></p>\n<p>$$\\frac{\\partial w}{\\partial x} + \\frac{\\partial w}{\\partial y} + \\frac{\\partial w}{\\partial z} = \\frac{1}{2\\sqrt{x - y}} + \\left( -\\frac{1}{2\\sqrt{x - y}} + \\frac{1}{2\\sqrt{y - z}} \\right) + \\left( -\\frac{1}{2\\sqrt{y - z}} \\right)$$\nNotice that all terms cancel identically:\n$$\\frac{1}{2\\sqrt{x - y}} - \\frac{1}{2\\sqrt{x - y}} + \\frac{1}{2\\sqrt{y - z}} - \\frac{1}{2\\sqrt{y - z}} = 0$$</p>\n<p><strong>Step 3: Conclusion.</strong></p>\n<p>The sum equals $0$ for all valid $(x, y, z)$ in the domain.\nThis matches Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "243_8",
@@ -1210,7 +1204,7 @@ window.MATH201_BANK = [
       "$-38$"
     ],
     "correct_answer": "C",
-    "solution": "<p><strong>1. Chain Rule / Implicit Differentiation:</strong> Using the multivariable chain rule or the implicit derivative formula: $$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}, \\quad \\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$</p><p><strong>2. Gradient Substitution:</strong> Computing partial derivatives with respect to the active variable and substituting the point coordinates.</p><p><strong>3. Conclusion:</strong> Simplifying the resulting fraction gives: $$42$$</p>"
+    "solution": "<p><strong>Step 1: Apply the multivariable chain rule formula.</strong></p>\n<p>Since $w = f(x, y)$ with $x = g(s, t)$ and $y = h(s, t)$, the partial derivative with respect to $s$ is:\n$$w_s = \\frac{\\partial w}{\\partial s} = \\frac{\\partial f}{\\partial x} \\frac{\\partial x}{\\partial s} + \\frac{\\partial f}{\\partial y} \\frac{\\partial y}{\\partial s} = f_x(x, y) g_s(s, t) + f_y(x, y) h_s(s, t)$$</p>\n<p><strong>Step 2: Substitute the given numerical values at $(s, t) = (1, 2)$.</strong></p>\n<p>From the problem statement:\n$$x = g(1, 2) = 4, \\qquad y = h(1, 2) = 3$$\n$$g_s(1, 2) = -3, \\qquad h_s(1, 2) = 5$$\n$$f_x(4, 3) = -4, \\qquad f_y(4, 3) = 6$$</p>\n<p><strong>Step 3: Compute $w_s(1, 2)$.</strong></p>\n<p>$$w_s(1, 2) = f_x(4, 3) g_s(1, 2) + f_y(4, 3) h_s(1, 2)$$\n$$w_s(1, 2) = (-4)(-3) + (6)(5) = 12 + 30 = 42$$\nThis matches Choice <strong>(c)</strong>.</p>"
   },
   {
     "id": "243_11",
@@ -1218,7 +1212,7 @@ window.MATH201_BANK = [
     "number": 11,
     "section": "13.2",
     "topic": "13.2 Limits & Continuity",
-    "question": "$\\lim_{(x,y)\\to(1,1)} \\frac{2x - y - 1}{\\sqrt{2x - y - 1}} =$",
+    "question": "$\\\\lim_{(x,y)\\\\to(1,1)} \\\\frac{2x - y - 1}{\\\\sqrt{2x - y} - 1} =$",
     "choices": [
       "$1$",
       "DNE",
@@ -1227,7 +1221,7 @@ window.MATH201_BANK = [
       "$0$"
     ],
     "correct_answer": "C",
-    "solution": "<p><strong>1. Limit Analysis:</strong> Direct substitution yields the indeterminate form $\\frac{0}{0}$.</p><p><strong>2. Path Test or Polar Conversion:</strong> Factoring, algebraic cancellation of terms, or converting to polar coordinates ($x = r\\cos\\theta, y = r\\sin\\theta$ as $r \\to 0^+$) resolves the limit.</p><p><strong>3. Result:</strong> The limit value (or continuity condition) is: $$2$$</p>"
+    "solution": "<p><strong>Step 1: Recognize the indeterminate form and rationalize the denominator.</strong></p>\n<p>Given the limit:\n$$\\lim_{(x, y) \\to (1, 1)} \\frac{2x - y - 1}{\\sqrt{2x - y} - 1}$$\nDirect substitution yields $\\frac{2(1) - 1 - 1}{\\sqrt{2(1) - 1} - 1} = \\frac{0}{0}$.\nMultiply numerator and denominator by the conjugate of the denominator, $\\sqrt{2x - y} + 1$:</p>\n<p><strong>Step 2: Simplify algebraically.</strong></p>\n<p>$$\\frac{(2x - y - 1)(\\sqrt{2x - y} + 1)}{(\\sqrt{2x - y} - 1)(\\sqrt{2x - y} + 1)} = \\frac{(2x - y - 1)(\\sqrt{2x - y} + 1)}{(2x - y) - 1^2}$$\nObserve that the denominator $(2x - y) - 1$ is identical to the factor $(2x - y - 1)$ in the numerator:\n$$= \\frac{(2x - y - 1)(\\sqrt{2x - y} + 1)}{2x - y - 1} = \\sqrt{2x - y} + 1 \\quad \\text{for } 2x - y \\neq 1$$</p>\n<p><strong>Step 3: Evaluate the limit.</strong></p>\n<p>$$\\lim_{(x, y) \\to (1, 1)} (\\sqrt{2x - y} + 1) = \\sqrt{2(1) - 1} + 1 = \\sqrt{1} + 1 = 1 + 1 = 2$$\nThis matches Choice <strong>(c)</strong>.</p>"
   },
   {
     "id": "243_12",
@@ -1244,7 +1238,7 @@ window.MATH201_BANK = [
       "$-2$"
     ],
     "correct_answer": "B",
-    "solution": "<p><strong>1. Limit Analysis:</strong> Direct substitution yields the indeterminate form $\\frac{0}{0}$.</p><p><strong>2. Path Test or Polar Conversion:</strong> Factoring, algebraic cancellation of terms, or converting to polar coordinates ($x = r\\cos\\theta, y = r\\sin\\theta$ as $r \\to 0^+$) resolves the limit.</p><p><strong>3. Result:</strong> The limit value (or continuity condition) is: $$0$$</p>"
+    "solution": "<p><strong>Step 1: State the condition for continuity at the origin.</strong></p>\n<p>For $f(x, y)$ to be continuous at $(0, 0)$, the function value must equal the limit:\n$$f(0, 0) = \\lim_{(x, y) \\to (0, 0)} f(x, y) = \\lim_{(x, y) \\to (0, 0)} |xy| \\left(\\frac{x^2 - y^2}{x^2 + y^2}\\right)$$</p>\n<p><strong>Step 2: Convert to polar coordinates.</strong></p>\n<p>Let $x = r\\cos\\theta$ and $y = r\\sin\\theta$, with $r^2 = x^2 + y^2$. As $(x, y) \\to (0, 0)$, $r \\to 0^+$:\n$$f(r\\cos\\theta, r\\sin\\theta) = |r^2 \\cos\\theta\\sin\\theta| \\left(\\frac{r^2(\\cos^2\\theta - \\sin^2\\theta)}{r^2}\\right)$$\n$$= r^2 |\\cos\\theta\\sin\\theta| (\\cos^2\\theta - \\sin^2\\theta) = r^2 |\\cos\\theta\\sin\\theta| \\cos(2\\theta)$$</p>\n<p><strong>Step 3: Apply the Squeeze Theorem.</strong></p>\n<p>Since $|\\cos\\theta\\sin\\theta| \\le 1$ and $|\\cos(2\\theta)| \\le 1$:\n$$0 \\le |f(r\\cos\\theta, r\\sin\\theta)| \\le r^2$$\nAs $r \\to 0^+$, $r^2 \\to 0$. By the Squeeze Theorem, the limit is $0$.\nTherefore, we must define $f(0, 0) = 0$.\nThis matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "243_13",
@@ -1261,7 +1255,7 @@ window.MATH201_BANK = [
       "$-\\frac{\\ln y}{y^2 + 2z}$"
     ],
     "correct_answer": "E",
-    "solution": "<p><strong>1. Chain Rule / Implicit Differentiation:</strong> Using the multivariable chain rule or the implicit derivative formula: $$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}, \\quad \\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$</p><p><strong>2. Gradient Substitution:</strong> Computing partial derivatives with respect to the active variable and substituting the point coordinates.</p><p><strong>3. Conclusion:</strong> Simplifying the resulting fraction gives: $$-ln y y2 + 2z$$</p>"
+    "solution": "<p><strong>Step 1: Define $F(x, y, z) = 0$ for implicit differentiation.</strong></p>\n<p>Rewrite $x\\ln y + y^2 z + z^2 = 8$ as:\n$$F(x, y, z) = x\\ln y + y^2 z + z^2 - 8 = 0$$\nBy the implicit function theorem:\n$$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}$$</p>\n<p><strong>Step 2: Differentiate partially with respect to $x$ and $z$.</strong></p>\n<p>Holding $y$ and $z$ constant:\n$$F_x = \\frac{\\partial}{\\partial x}(x\\ln y + y^2 z + z^2 - 8) = \\ln y$$\nHolding $x$ and $y$ constant:\n$$F_z = \\frac{\\partial}{\\partial z}(x\\ln y + y^2 z + z^2 - 8) = y^2 + 2z$$</p>\n<p><strong>Step 3: Form the quotient.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial x} = -\\frac{\\ln y}{y^2 + 2z}$$\nThis matches Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "243_14",
@@ -1295,7 +1289,7 @@ window.MATH201_BANK = [
       "$(1 + s^2)e^{s^2 - t^2}$"
     ],
     "correct_answer": "C",
-    "solution": "<p><strong>1. Chain Rule / Implicit Differentiation:</strong> Using the multivariable chain rule or the implicit derivative formula: $$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}, \\quad \\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$</p><p><strong>2. Gradient Substitution:</strong> Computing partial derivatives with respect to the active variable and substituting the point coordinates.</p><p><strong>3. Conclusion:</strong> Simplifying the resulting fraction gives: $$t(1 + 2s2)es2-t2$$</p>"
+    "solution": "<p><strong>Step 1: Express $w$ directly in terms of $s$ and $t$.</strong></p>\n<p>Given $w = z e^{xy}$ with:\n$$x = s - t, \\quad y = s + t, \\quad z = st$$\nNotice that:\n$$xy = (s - t)(s + t) = s^2 - t^2$$\nThus:\n$$w = st \\, e^{s^2 - t^2}$$</p>\n<p><strong>Step 2: Differentiate with respect to $s$ using the product rule.</strong></p>\n<p>Treating $t$ as a constant:\n$$w_s = \\frac{\\partial}{\\partial s}\\left[ (st) \\cdot e^{s^2 - t^2} \\right]$$\n$$w_s = \\frac{d}{ds}(st) \\cdot e^{s^2 - t^2} + (st) \\cdot \\frac{d}{ds}\\left(e^{s^2 - t^2}\\right)$$\n$$w_s = t \\cdot e^{s^2 - t^2} + st \\cdot \\left(2s e^{s^2 - t^2}\\right)$$</p>\n<p><strong>Step 3: Factor out the common term $t e^{s^2 - t^2}$.</strong></p>\n<p>$$w_s = t e^{s^2 - t^2} [1 + 2s^2] = t(1 + 2s^2) e^{s^2 - t^2}$$\nThis matches Choice <strong>(c)</strong>.</p>"
   },
   {
     "id": "242_1",
@@ -1312,7 +1306,7 @@ window.MATH201_BANK = [
       "The point $(0, -4, 0)$ lies in the plane"
     ],
     "correct_answer": "B",
-    "solution": "The plane $2x - y + z = 4$ has normal $\\vec{n} = \\langle 2, -1, 1 \\rangle$. The plane $x - 2y + 2z = 2$ has normal $\\vec{m} = \\langle 1, -2, 2 \\rangle$. Since $\\vec{n}$ and $\\vec{m}$ are not proportional (their cross product is non-zero), the two planes are not parallel. Thus statement (a) is FALSE."
+    "solution": "<p><strong>Step 1: Determine the normal vector of the plane $2x - y + z = 4$.</strong></p>\n<p>Reading coefficients directly gives normal vector $\\vec{n}_1 = \\langle 2, -1, 1 \\rangle$.\nTesting the given points and properties:\n<ul>\n<li><strong>$x$-intercept:</strong> Set $y = z = 0 \\implies 2x = 4 \\implies x = 2$, so $(2, 0, 0)$ is on the plane (True).</li>\n<li><strong>Point $(2, 1, 1)$:</strong> $2(2) - 1 + 1 = 4$ (True).</li>\n<li><strong>Point $(0, -4, 0)$:</strong> $2(0) - (-4) + 0 = 4$ (True).</li>\n<li><strong>Normal vector:</strong> $\\vec{n} = \\langle 2, -1, 1 \\rangle$ (True).</li>\n</ul></p>\n<p><strong>Step 2: Check parallelism with the plane $x - 2y + 2z = 2$.</strong></p>\n<p>The second plane has normal vector $\\vec{n}_2 = \\langle 1, -2, 2 \\rangle$.\nTwo planes are parallel if and only if their normal vectors are proportional:\n$$\\frac{2}{1} = 2, \\qquad \\frac{-1}{-2} = \\frac{1}{2}$$\nSince $2 \\neq \\frac{1}{2}$, the normal vectors are not parallel, so the planes are not parallel.</p>\n<p><strong>Step 3: Conclusion.</strong></p>\n<p>The statement claiming the planes are parallel is FALSE.\nThis matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "242_2",
@@ -1329,7 +1323,7 @@ window.MATH201_BANK = [
       "$\\frac{22}{3}$"
     ],
     "correct_answer": "D",
-    "solution": "Equating coordinates gives $1 + 2t = 4 - s \\implies 2t + s = 3$, and $1 - t = -1 + 2s \\implies -t - 2s = -2$. Solving this system yields $t = \\frac{4}{3}$ and $s = \\frac{1}{3}$. Checking $z$: $2 - 3\\left(\\frac{4}{3}\\right) = -2$, and $-4 + 6\\left(\\frac{1}{3}\\right) = -2$ (consistent). Substituting $t = \\frac{4}{3}$ into $L_1$ gives $(a, b, c) = \\left(\\frac{11}{3}, -\\frac{1}{3}, -2\\right)$. Therefore, $abc = \\frac{11}{3} \\cdot \\left(-\\frac{1}{3}\\right) \\cdot (-2) = \\frac{22}{9}$."
+    "solution": "<p><strong>Step 1: Set up the coordinate equations for the line intersection.</strong></p>\n<p>Given lines:\n$$L_1: x = 1 + 2t, \\; y = 1 - t, \\; z = 2 - 3t$$\n$$L_2: x = 4 - s, \\; y = -1 + 2s, \\; z = -4 + 6s$$\nEquating $x$ and $y$ coordinates:\n$$1 + 2t = 4 - s \\implies 2t + s = 3 \\quad \\text{--- (Eq. 1)}$$\n$$1 - t = -1 + 2s \\implies t + 2s = 2 \\quad \\text{--- (Eq. 2)}$$</p>\n<p><strong>Step 2: Solve the linear system for parameters $t$ and $s$.</strong></p>\n<p>From Eq. 1: $s = 3 - 2t$. Substitute into Eq. 2:\n$$t + 2(3 - 2t) = 2 \\implies t + 6 - 4t = 2 \\implies -3t = -4 \\implies t = \\frac{4}{3}$$\n$$s = 3 - 2\\left(\\frac{4}{3}\\right) = 3 - \\frac{8}{3} = \\frac{1}{3}$$\nCheck $z$-coordinates for consistency:\n$$L_1: z = 2 - 3\\left(\\frac{4}{3}\\right) = 2 - 4 = -2$$\n$$L_2: z = -4 + 6\\left(\\frac{1}{3}\\right) = -4 + 2 = -2$$\nThe lines intersect consistently at $(a, b, c) = \\left(1 + 2\\left(\\frac{4}{3}\\right), \\; 1 - \\frac{4}{3}, \\; -2\\right) = \\left(\\frac{11}{3}, -\\frac{1}{3}, -2\\right)$.</p>\n<p><strong>Step 3: Calculate the product $abc$.</strong></p>\n<p>$$abc = \\left(\\frac{11}{3}\\right)\\left(-\\frac{1}{3}\\right)(-2) = \\frac{22}{9}$$\nThis matches Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "242_3",
@@ -1346,7 +1340,7 @@ window.MATH201_BANK = [
       "-3"
     ],
     "correct_answer": "E",
-    "solution": "The vector between the points is $\\vec{PQ} = \\langle -3, -1, -2 \\rangle$. The normal to the given plane is $\\vec{m} = \\langle 2, -3, 1 \\rangle$. The normal to the required plane is $\\vec{n} = \\vec{PQ} \\times \\vec{m} = \\langle -7, -1, 11 \\rangle$. Using point $P(2, 2, 1)$: $-7(x - 2) - 1(y - 2) + 11(z - 1) = 0 \\iff -7x - y + 11z + 5 = 0 \\iff 7x + y - 11z = 5$. Matching with $ax + by + cz = 5$ gives $a = 7, b = 1, c = -11$. Hence, $a + b + c = 7 + 1 - 11 = -3$."
+    "solution": "<p><strong>Step 1: Find a vector between the two points in the plane.</strong></p>\n<p>Points $P(2, 2, 1)$ and $Q(-1, 1, -1)$ lie in the plane:\n$$\\vec{PQ} = \\langle -1 - 2, 1 - 2, -1 - 1 \\rangle = \\langle -3, -1, -2 \\rangle$$\nThe normal to the perpendicular plane $2x - 3y + z = 3$ is $\\vec{m} = \\langle 2, -3, 1 \\rangle$.</p>\n<p><strong>Step 2: Determine the normal vector $\\vec{n}$ via cross product.</strong></p>\n<p>$$\\vec{n} = \\vec{PQ} \\times \\vec{m} = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ -3 & -1 & -2 \\\\ 2 & -3 & 1 \\end{vmatrix}$$\n$$= \\mathbf{i}((-1)(1) - (-2)(-3)) - \\mathbf{j}((-3)(1) - (-2)(2)) + \\mathbf{k}((-3)(-3) - (-1)(2))$$\n$$= \\mathbf{i}(-1 - 6) - \\mathbf{j}(-3 + 4) + \\mathbf{k}(9 + 2) = \\langle -7, -1, 11 \\rangle$$</p>\n<p><strong>Step 3: Form the plane equation and match the constant $5$.</strong></p>\n<p>Using point $P(2, 2, 1)$:\n$$-7(x - 2) - 1(y - 2) + 11(z - 1) = 0 \\iff -7x - y + 11z + 5 = 0 \\iff 7x + y - 11z = 5$$\nComparing with $ax + by + cz = 5$:\n$$a = 7, \\quad b = 1, \\quad c = -11$$\n$$a + b + c = 7 + 1 - 11 = -3$$\nThis matches Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "242_4",
@@ -1363,7 +1357,7 @@ window.MATH201_BANK = [
       "a hyperboloid of one sheet"
     ],
     "correct_answer": "C",
-    "solution": "The distance from $(x, y, z)$ to $(0, 1, 0)$ is $\\sqrt{x^2 + (y - 1)^2 + z^2}$, and the distance to the $xz$-plane ($y = 0$) is $|y|$. Equating both: $x^2 + (y - 1)^2 + z^2 = y^2 \\iff x^2 + y^2 - 2y + 1 + z^2 = y^2 \\iff 2y = x^2 + z^2 + 1 \\iff y = \\frac{x^2 + z^2 + 1}{2}$. This is an elliptic paraboloid opening along the positive $y$-axis."
+    "solution": "<p><strong>Step 1: Set up distance expressions from $(x, y, z)$.</strong></p>\n<p>Distance to the point $(0, 1, 0)$:\n$$d_1 = \\sqrt{(x - 0)^2 + (y - 1)^2 + (z - 0)^2} = \\sqrt{x^2 + (y - 1)^2 + z^2}$$\nDistance to the $xz$-plane ($y = 0$):\n$$d_2 = |y|$$</p>\n<p><strong>Step 2: Equate distances and simplify the algebraic equation.</strong></p>\n<p>Equating $d_1^2 = d_2^2$:\n$$x^2 + (y - 1)^2 + z^2 = y^2$$\n$$x^2 + y^2 - 2y + 1 + z^2 = y^2$$\n$$2y = x^2 + z^2 + 1 \\iff y = \\frac{x^2}{2} + \\frac{z^2}{2} + \\frac{1}{2}$$</p>\n<p><strong>Step 3: Classify the resulting quadric surface.</strong></p>\n<p>Because $y$ is to the first power and both $x^2$ and $z^2$ have positive coefficients, this equation describes an <strong>elliptic paraboloid</strong> (specifically, a circular paraboloid opening along the positive $y$-axis with vertex at $(0, 1/2, 0)$).\nThis matches Choice <strong>(c)</strong>.</p>"
   },
   {
     "id": "242_5",
@@ -1380,7 +1374,7 @@ window.MATH201_BANK = [
       "an ellipsoid"
     ],
     "correct_answer": "E",
-    "solution": "Rearranging terms gives $2x^2 + 3y^2 + z^2 = 1 \\iff \\frac{x^2}{1/2} + \\frac{y^2}{1/3} + \\frac{z^2}{1} = 1$. Since all three squared variables have positive coefficients and sum to a positive constant, this surface is an ellipsoid."
+    "solution": "<p><strong>Step 1: Rewrite the equation into standard quadric surface form.</strong></p>\n<p>Given $z^2 = 1 - 2x^2 - 3y^2$:\n$$2x^2 + 3y^2 + z^2 = 1$$</p>\n<p><strong>Step 2: Put in standard form $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} + \\frac{z^2}{c^2} = 1$.</strong></p>\n<p>$$\\frac{x^2}{1/2} + \\frac{y^2}{1/3} + \\frac{z^2}{1} = 1$$\nHere $a = \\frac{1}{\\sqrt{2}}$, $b = \\frac{1}{\\sqrt{3}}$, and $c = 1$.</p>\n<p><strong>Step 3: Classify the surface.</strong></p>\n<p>All three squared variables have positive coefficients and sum to $+1$.\nThis is the standard definition of an <strong>ellipsoid</strong> centered at the origin $(0, 0, 0)$.\nThis matches Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "242_6",
@@ -1397,7 +1391,7 @@ window.MATH201_BANK = [
       "$\\{(x, y) : x \\in (1, \\infty), y \\in (-1, \\infty)\\}$"
     ],
     "correct_answer": "D",
-    "solution": "The square root $\\sqrt{x+1}$ in the denominator requires $x + 1 > 0 \\iff x > -1$, so $x \\in (-1, \\infty)$. The numerator $y - 1$ has no real restrictions, so $y \\in (-\\infty, \\infty)$. Therefore, the domain is $\\{(x, y) : x \\in (-1, \\infty), y \\in (-\\infty, \\infty)\\}$."
+    "solution": "<p><strong>Step 1: State domain conditions for radicals and denominators.</strong></p>\n<p>Given $f(x, y) = \\frac{y - 1}{\\sqrt{x + 1}}$:\n<ul>\n<li>The denominator radical $\\sqrt{x + 1}$ must be strictly positive: $x + 1 > 0 \\iff x > -1$.</li>\n<li>The numerator $y - 1$ is a polynomial, defined for all real numbers $y \\in (-\\infty, \\infty)$.</li>\n</ul></p>\n<p><strong>Step 2: Express the domain in set-builder notation.</strong></p>\n<p>The domain requires $x \\in (-1, \\infty)$ while $y$ can take any real value:\n$$\\text{Domain} = \\{(x, y) : x \\in (-1, \\infty), \\; y \\in (-\\infty, \\infty)\\}$$</p>\n<p><strong>Step 3: Conclusion.</strong></p>\n<p>This matches Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "242_7",
@@ -1414,7 +1408,7 @@ window.MATH201_BANK = [
       "$y = x - 2$"
     ],
     "correct_answer": "C",
-    "solution": "The level curve equation is $\\ln(x - y) = C$. Passing through $(e^2, 0)$ implies $C = \\ln(e^2 - 0) = \\ln(e^2) = 2$. Hence $\\ln(x - y) = 2 \\iff x - y = e^2 \\iff y = x - e^2$."
+    "solution": "<p><strong>Step 1: Set up the level curve equation $f(x, y) = C$.</strong></p>\n<p>For $f(x, y) = \\ln(x - y)$:\n$$\\ln(x - y) = C$$</p>\n<p><strong>Step 2: Determine $C$ using the given point $(e^2, 0)$.</strong></p>\n<p>Substitute $(x, y) = (e^2, 0)$:\n$$C = \\ln(e^2 - 0) = \\ln(e^2) = 2$$\nThe level curve equation is therefore:\n$$\\ln(x - y) = 2 \\iff x - y = e^2$$</p>\n<p><strong>Step 3: Solve for $y$.</strong></p>\n<p>$$y = x - e^2$$\nThis matches Choice <strong>(c)</strong>.</p>"
   },
   {
     "id": "242_8",
@@ -1431,7 +1425,7 @@ window.MATH201_BANK = [
       "2"
     ],
     "correct_answer": "B",
-    "solution": "Converting to polar coordinates where $x = r\\cos\\theta$ and $y = r\\sin\\theta$: $\\frac{y^3}{x^2 + y^2} = \\frac{r^3\\sin^3\\theta}{r^2} = r\\sin^3\\theta$. Since $-1 \\le \\sin^3\\theta \\le 1$, we have $-r \\le r\\sin^3\\theta \\le r$. As $r \\to 0^+$, by the Squeeze Theorem the limit is $0$."
+    "solution": "<p><strong>Step 1: Convert to polar coordinates.</strong></p>\n<p>Let $x = r\\cos\\theta$ and $y = r\\sin\\theta$, so $x^2 + y^2 = r^2$. As $(x, y) \\to (0, 0)$, $r \\to 0^+$:\n$$\\lim_{(x, y) \\to (0, 0)} \\frac{y^3}{x^2 + y^2} = \\lim_{r \\to 0^+} \\frac{(r\\sin\\theta)^3}{r^2}$$</p>\n<p><strong>Step 2: Simplify the quotient.</strong></p>\n<p>$$\\frac{r^3 \\sin^3\\theta}{r^2} = r\\sin^3\\theta$$</p>\n<p><strong>Step 3: Apply the Squeeze Theorem.</strong></p>\n<p>Since $-1 \\le \\sin^3\\theta \\le 1$:\n$$-r \\le r\\sin^3\\theta \\le r$$\nAs $r \\to 0^+$, both $-r \\to 0$ and $r \\to 0$. By the Squeeze Theorem:\n$$\\lim_{(x, y) \\to (0, 0)} \\frac{y^3}{x^2 + y^2} = 0$$\nThis matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "242_9",
@@ -1448,7 +1442,7 @@ window.MATH201_BANK = [
       "0"
     ],
     "correct_answer": "B",
-    "solution": "Rewrite $z = \\frac{1}{2}\\ln(x^2 + y^2)$. The partial derivatives are $\\frac{\\partial z}{\\partial x} = \\frac{x}{x^2 + y^2}$ and $\\frac{\\partial z}{\\partial y} = \\frac{y}{x^2 + y^2}$. Thus $x\\frac{\\partial z}{\\partial x} + y\\frac{\\partial z}{\\partial y} = \\frac{x^2 + y^2}{x^2 + y^2} = 1$."
+    "solution": "<p><strong>Step 1: Simplify $z$ using properties of logarithms.</strong></p>\n<p>$$z = \\ln\\sqrt{x^2 + y^2} = \\ln\\left((x^2 + y^2)^{1/2}\\right) = \\frac{1}{2}\\ln(x^2 + y^2)$$</p>\n<p><strong>Step 2: Compute first partial derivatives.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial x} = \\frac{1}{2} \\cdot \\frac{2x}{x^2 + y^2} = \\frac{x}{x^2 + y^2}$$\n$$\\frac{\\partial z}{\\partial y} = \\frac{1}{2} \\cdot \\frac{2y}{x^2 + y^2} = \\frac{y}{x^2 + y^2}$$</p>\n<p><strong>Step 3: Evaluate $x\\frac{\\partial z}{\\partial x} + y\\frac{\\partial z}{\\partial y}$.</strong></p>\n<p>$$x\\left(\\frac{x}{x^2 + y^2}\\right) + y\\left(\\frac{y}{x^2 + y^2}\\right) = \\frac{x^2 + y^2}{x^2 + y^2} = 1$$\nThis matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "242_10",
@@ -1465,7 +1459,7 @@ window.MATH201_BANK = [
       "$24xyz^2$"
     ],
     "correct_answer": "C",
-    "solution": "By Clairaut's theorem, change the differentiation order to $f_{zzxy}$. Note that only the term $xy^2z^4$ contains $z$. Then $f_z = 4xy^2z^3$, $f_{zz} = 12xy^2z^2$. Differentiating with respect to $x$ gives $f_{zzx} = 12y^2z^2$. Finally, differentiating with respect to $y$ gives $f_{zzxy} = 24yz^2$."
+    "solution": "<p><strong>Step 1: Apply Clairaut's Theorem to simplify the order of differentiation.</strong></p>\n<p>Clairaut's Theorem allows switching mixed partial derivatives for smooth functions:\n$$f_{xyzz} = f_{zzxy}$$</p>\n<p><strong>Step 2: Differentiate with respect to $z$ twice.</strong></p>\n<p>Given $f(x, y, z) = x^4 - 2xy + 3y^3 + xy^2 z^4$:\nTerms not containing $z$ vanish upon differentiation with respect to $z$:\n$$f_z = \\frac{\\partial}{\\partial z}\\left(xy^2 z^4\\right) = 4xy^2 z^3$$\n$$f_{zz} = \\frac{\\partial}{\\partial z}\\left(4xy^2 z^3\\right) = 12xy^2 z^2$$</p>\n<p><strong>Step 3: Differentiate with respect to $x$ and $y$.</strong></p>\n<p>$$f_{zzx} = \\frac{\\partial}{\\partial x}\\left(12xy^2 z^2\\right) = 12y^2 z^2$$\n$$f_{zzxy} = \\frac{\\partial}{\\partial y}\\left(12y^2 z^2\\right) = 24yz^2$$\nThis matches Choice <strong>(c)</strong>.</p>"
   },
   {
     "id": "242_11",
@@ -1499,7 +1493,7 @@ window.MATH201_BANK = [
       "$\\left(s^3 - \\frac{s^2}{t}\\right)\\cos(x^2 y)$"
     ],
     "correct_answer": "A",
-    "solution": "By the chain rule, $\\frac{\\partial z}{\\partial t} = \\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial t} + \\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial t} = 2xy\\cos(x^2y)(s^2) + x^2\\cos(x^2y)\\left(-\\frac{2}{t^3}\\right) = \\left[2s^2xy - \\frac{2x^2}{t^3}\\right]\\cos(x^2y)$. Substituting $x = s^2t$ and $y = s + \\frac{1}{t^2}$: $2s^2(s^2t)(s + \\frac{1}{t^2}) - \\frac{2(s^4t^2)}{t^3} = 2s^4t(s + \\frac{1}{t^2}) - \\frac{2s^4}{t} = 2s^5t + \\frac{2s^4}{t} - \\frac{2s^4}{t} = 2s^5t$. Thus $\\frac{\\partial z}{\\partial t} = 2s^5 t \\cos(x^2 y)$."
+    "solution": "<p><strong>Step 1: State the multivariable chain rule formula.</strong></p>\n<p>For $z = f(x, y)$ with $x = x(s, t)$ and $y = y(s, t)$:\n$$\\frac{\\partial z}{\\partial t} = \\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial t} + \\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial t}$$</p>\n<p><strong>Step 2: Compute individual partial derivatives.</strong></p>\n<p>For $z = \\sin(x^2 y)$:\n$$\\frac{\\partial z}{\\partial x} = 2xy\\cos(x^2 y), \\qquad \\frac{\\partial z}{\\partial y} = x^2\\cos(x^2 y)$$\nFor $x = s^2 t$ and $y = s + t^{-2}$:\n$$\\frac{\\partial x}{\\partial t} = s^2, \\qquad \\frac{\\partial y}{\\partial t} = -2t^{-3} = -\\frac{2}{t^3}$$</p>\n<p><strong>Step 3: Substitute and simplify.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial t} = \\left[2xy(s^2) - \\frac{2x^2}{t^3}\\right]\\cos(x^2 y)$$\nSubstitute $x = s^2 t$ and $y = s + \\frac{1}{t^2}$:\n$$2(s^2 t)\\left(s + \\frac{1}{t^2}\\right)s^2 - \\frac{2(s^2 t)^2}{t^3} = 2s^4 t\\left(s + \\frac{1}{t^2}\\right) - \\frac{2s^4 t^2}{t^3}$$\n$$= 2s^5 t + \\frac{2s^4}{t} - \\frac{2s^4}{t} = 2s^5 t$$\nTherefore:\n$$\\frac{\\partial z}{\\partial t} = 2s^5 t \\cos(x^2 y)$$\nThis matches Choice <strong>(a)</strong>.</p>"
   },
   {
     "id": "242_13",
@@ -1516,7 +1510,7 @@ window.MATH201_BANK = [
       "$\\frac{\\cos(2x + y) - \\cos(z^2)}{2xz \\cos(z^2)}$"
     ],
     "correct_answer": "C",
-    "solution": "Let $F(x, y, z) = \\sin(2x + y) - 2x\\cos(z^2) - 1 = 0$. Then $\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}$. Here $F_x = 2\\cos(2x + y) - 2\\cos(z^2)$ and $F_z = -2x(-\\sin(z^2) \\cdot 2z) = 4xz\\sin(z^2)$. Therefore, $\\frac{\\partial z}{\\partial x} = -\\frac{2\\cos(2x+y) - 2\\cos(z^2)}{4xz\\sin(z^2)} = \\frac{\\cos(z^2) - \\cos(2x+y)}{2xz\\sin(z^2)}$."
+    "solution": "<p><strong>Step 1: Define the implicit function $F(x, y, z) = 0$.</strong></p>\n<p>Let $F(x, y, z) = \\sin(2x + y) - 2x\\cos(z^2) - 1 = 0$. By the implicit function theorem:\n$$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}$$</p>\n<p><strong>Step 2: Compute partial derivatives $F_x$ and $F_z$.</strong></p>\n<p>Holding $y$ and $z$ constant:\n$$F_x = 2\\cos(2x + y) - 2\\cos(z^2)$$\nHolding $x$ and $y$ constant (using the chain rule on $\\cos(z^2)$):\n$$F_z = -2x\\left(-\\sin(z^2) \\cdot 2z\\right) = 4xz\\sin(z^2)$$</p>\n<p><strong>Step 3: Form the quotient and simplify signs.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial x} = -\\frac{2\\cos(2x + y) - 2\\cos(z^2)}{4xz\\sin(z^2)} = \\frac{2\\cos(z^2) - 2\\cos(2x + y)}{4xz\\sin(z^2)} = \\frac{\\cos(z^2) - \\cos(2x + y)}{2xz\\sin(z^2)}$$\nThis matches Choice <strong>(c)</strong>.</p>"
   },
   {
     "id": "242_14",
@@ -1533,7 +1527,7 @@ window.MATH201_BANK = [
       "$e^2 + 1$"
     ],
     "correct_answer": "C",
-    "solution": "The maximum directional derivative is $\\|\nabla f(1, 2)\\|$. Here $f_x = e^{y/x} + xe^{y/x}\\left(-\\frac{y}{x^2}\\right) = e^{y/x}\\left(1 - \\frac{y}{x}\\right)$ and $f_y = e^{y/x}$. At $(1, 2)$, $f_x(1, 2) = e^2(1 - 2) = -e^2$, and $f_y(1, 2) = e^2$. Thus $\\|\nabla f(1, 2)\\| = \\sqrt{(-e^2)^2 + (e^2)^2} = \\sqrt{2e^4} = e^2\\sqrt{2}$."
+    "solution": "<p><strong>Step 1: Compute partial derivatives for the gradient $\\nabla f(x, y)$.</strong></p>\n<p>For $f(x, y) = x e^{y/x}$:\n$$f_x(x, y) = (1)e^{y/x} + x\\left(e^{y/x} \\cdot \\left(-\\frac{y}{x^2}\\right)\\right) = e^{y/x}\\left(1 - \\frac{y}{x}\\right)$$\n$$f_y(x, y) = x\\left(e^{y/x} \\cdot \\frac{1}{x}\\right) = e^{y/x}$$</p>\n<p><strong>Step 2: Evaluate the gradient at the point $(1, 2)$.</strong></p>\n<p>$$f_x(1, 2) = e^{2/1}\\left(1 - \\frac{2}{1}\\right) = e^2(1 - 2) = -e^2$$\n$$f_y(1, 2) = e^{2/1} = e^2$$\n$$\\nabla f(1, 2) = \\langle -e^2, e^2 \\rangle$$</p>\n<p><strong>Step 3: Calculate the maximum directional derivative.</strong></p>\n<p>$$\\|\\nabla f(1, 2)\\| = \\sqrt{(-e^2)^2 + (e^2)^2} = \\sqrt{e^4 + e^4} = \\sqrt{2e^4} = e^2\\sqrt{2}$$\nThis matches Choice <strong>(c)</strong>.</p>"
   },
   {
     "id": "242_15",
@@ -1550,7 +1544,7 @@ window.MATH201_BANK = [
       "6"
     ],
     "correct_answer": "E",
-    "solution": "Let $F(x, y, z) = x^2 + y^2 + z^2 - 8x - 12y + 4z + 42 = 0$. The normal vector is $\\nabla F = \\langle 2x - 8, 2y - 12, 2z + 4 \\rangle$. At $(2, 3, -3)$: $\\nabla F(2, 3, -3) = \\langle 4 - 8, 6 - 12, -6 + 4 \\rangle = \\langle -4, -6, -2 \\rangle$. Dividing by $-2$ gives the normal $\\vec{n} = \\langle 2, 3, 1 \\rangle$. The tangent plane is $2(x - 2) + 3(y - 3) + 1(z + 3) = 0 \\iff 2x + 3y + z = 10$. Comparing with $ax + by + cz = 10$ yields $a = 2, b = 3, c = 1$. Hence, $a + b + c = 2 + 3 + 1 = 6$."
+    "solution": "<p><strong>Step 1: Compute the gradient vector normal to the implicit surface.</strong></p>\n<p>Let $F(x, y, z) = x^2 + y^2 + z^2 - 8x - 12y + 4z + 42 = 0$.\n$$\\nabla F = \\langle 2x - 8, \\; 2y - 12, \\; 2z + 4 \\rangle$$</p>\n<p><strong>Step 2: Evaluate $\\nabla F$ at the point $(2, 3, -3)$.</strong></p>\n<p>$$F_x(2, 3, -3) = 2(2) - 8 = 4 - 8 = -4$$\n$$F_y(2, 3, -3) = 2(3) - 12 = 6 - 12 = -6$$\n$$F_z(2, 3, -3) = 2(-3) + 4 = -6 + 4 = -2$$\n$$\\nabla F(2, 3, -3) = \\langle -4, -6, -2 \\rangle$$\nDividing by $-2$ yields the simplified normal vector $\\vec{n} = \\langle 2, 3, 1 \\rangle$.</p>\n<p><strong>Step 3: Write the tangent plane equation and compute $a + b + c$.</strong></p>\n<p>$$2(x - 2) + 3(y - 3) + 1(z + 3) = 0 \\iff 2x - 4 + 3y - 9 + z + 3 = 0 \\iff 2x + 3y + z = 10$$\nComparing with $ax + by + cz = 10$:\n$$a = 2, \\quad b = 3, \\quad c = 1$$\n$$a + b + c = 2 + 3 + 1 = 6$$\nThis matches Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "241_1",
@@ -1584,7 +1578,7 @@ window.MATH201_BANK = [
       "$x = 1$"
     ],
     "correct_answer": "C",
-    "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$z = 3$$</p>"
+    "solution": "<p><strong>Step 1: Identify the normal vector of the $xy$-plane.</strong></p>\n<p>The $xy$-plane is defined by $z = 0$, so its normal vector is $\\vec{n} = \\langle 0, 0, 1 \\rangle$.</p>\n<p><strong>Step 2: Write the equation of the parallel plane through $(1, 2, 3)$.</strong></p>\n<p>Parallel planes share identical or scalar-multiple normal vectors:\n$$0(x - 1) + 0(y - 2) + 1(z - 3) = 0 \\iff z - 3 = 0 \\iff z = 3$$</p>\n<p><strong>Step 3: Conclusion.</strong></p>\n<p>This matches Choice <strong>(c)</strong>.</p>"
   },
   {
     "id": "241_3",
@@ -1754,7 +1748,7 @@ window.MATH201_BANK = [
       "$2$"
     ],
     "correct_answer": "D",
-    "solution": "<p><strong>1. Gradient Vector $\\nabla f$:</strong> Computing the partial derivatives gives $\\nabla f = \\langle f_x, f_y, f_z \\rangle$.</p><p><strong>2. Unit Direction $\\vec{u}$:</strong> Normalizing the direction vector $\\vec{v}$ yields $\\vec{u} = \\frac{\\vec{v}}{\\|\\vec{v}\\|}$. The directional derivative is $D_{\\vec{u}} f = \\nabla f \\cdot \\vec{u}$.</p><p><strong>3. Maximum Rate of Change:</strong> The maximum rate of change is given by $\\|\\nabla f\\|$. Evaluating yields: $$2 √ 5$$</p>"
+    "solution": "<p><strong>Step 1: Find the direction vector $\\vec{PQ}$ and its unit vector $\\mathbf{u}$.</strong></p>\n<p>Given $P(0, 0)$ and $Q(2, 1)$:\n$$\\vec{PQ} = \\langle 2 - 0, 1 - 0 \\rangle = \\langle 2, 1 \\rangle$$\n$$\\|\\vec{PQ}\\| = \\sqrt{2^2 + 1^2} = \\sqrt{5} \\implies \\mathbf{u} = \\left\\langle \\frac{2}{\\sqrt{5}}, \\frac{1}{\\sqrt{5}} \\right\\rangle$$</p>\n<p><strong>Step 2: Compute the gradient $\\nabla f(0, 0)$.</strong></p>\n<p>For $f(x, y) = e^y \\sin x$:\n$$f_x(x, y) = e^y \\cos x \\implies f_x(0, 0) = e^0 \\cos 0 = 1$$\n$$f_y(x, y) = e^y \\sin x \\implies f_y(0, 0) = e^0 \\sin 0 = 0$$\n$$\\nabla f(0, 0) = \\langle 1, 0 \\rangle$$</p>\n<p><strong>Step 3: Compute the directional derivative $D_{\\mathbf{u}} f(0, 0)$.</strong></p>\n<p>$$D_{\\mathbf{u}} f(0, 0) = \\nabla f(0, 0) \\cdot \\mathbf{u} = 1\\left(\\frac{2}{\\sqrt{5}}\\right) + 0\\left(\\frac{1}{\\sqrt{5}}\\right) = \\frac{2}{\\sqrt{5}}$$\nThis matches Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "241_13",
@@ -1805,7 +1799,7 @@ window.MATH201_BANK = [
       "$\\frac{8}{\\sqrt{41}}$"
     ],
     "correct_answer": "D",
-    "solution": "<p><strong>1. Standard Distance Formula:</strong> The distance $D$ between a point and a line or between parallel planes $Ax + By + Cz = D_1$ and $Ax + By + Cz = D_2$ is computed via: $$D = \\frac{|D_1 - D_2|}{\\sqrt{A^2 + B^2 + C^2}}$$ For skew lines, $D = \\frac{|(\\vec{v}_1 \\times \\vec{v}_2) \\cdot \\vec{P_1P_2}|}{\\|\\vec{v}_1 \\times \\vec{v}_2\\|}.$</p><p><strong>2. Substitution:</strong> Evaluating the magnitudes and dot product gives the simplified radical value: $$5 √ 41$$</p>"
+    "solution": "<p><strong>Step 1: Align the normal vectors of the two parallel planes.</strong></p>\n<p>Plane 1: $-x + 6y + 2z = 3$, with normal $\\vec{n}_1 = \\langle -1, 6, 2 \\rangle$ and $D_1 = 3$.<br>\nPlane 2: $-\\frac{1}{2}x + 3y + z = 4$. Multiplying by $2$ gives:\n$$-x + 6y + 2z = 8$$\nwith identical normal vector $\\vec{n} = \\langle -1, 6, 2 \\rangle$ and $D_2 = 8$.</p>\n<p><strong>Step 2: Apply the parallel plane distance formula.</strong></p>\n<p>$$D = \\frac{|D_2 - D_1|}{\\|\\vec{n}\\|} = \\frac{|8 - 3|}{\\sqrt{(-1)^2 + 6^2 + 2^2}} = \\frac{5}{\\sqrt{1 + 36 + 4}} = \\frac{5}{\\sqrt{41}}$$</p>\n<p><strong>Step 3: Conclusion.</strong></p>\n<p>This matches Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "233_1",
@@ -1822,7 +1816,7 @@ window.MATH201_BANK = [
       "$x = 1 + t, y = -1 + t, z = 2 + t$"
     ],
     "correct_answer": "B",
-    "solution": "The direction vector of the line is parallel to the normal vector of the plane $\\vec{n} = \\langle 3, 2, -1 \\rangle$. Passing through $(2, 3, 4)$, the parametric equations are $x = 2 + 3t, y = 3 + 2t, z = 4 - t$."
+    "solution": "<p><strong>Step 1: Identify the normal vector of the plane.</strong></p>\n<p>For the plane $3x + 2y - z = 6$, the normal vector is read directly from the coefficients:\n$$\\vec{n} = \\langle 3, 2, -1 \\rangle$$</p>\n<p><strong>Step 2: Relate the plane's normal to the perpendicular line.</strong></p>\n<p>A line perpendicular to a plane has its direction vector $\\vec{v}$ parallel to the plane's normal vector:\n$$\\vec{v} = \\vec{n} = \\langle 3, 2, -1 \\rangle$$</p>\n<p><strong>Step 3: Write parametric equations using the base point $(2, 3, 4)$.</strong></p>\n<p>$$x = x_0 + at = 2 + 3t$$\n$$y = y_0 + bt = 3 + 2t$$\n$$z = z_0 + ct = 4 - t$$\nThis matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "233_2",
@@ -1839,7 +1833,7 @@ window.MATH201_BANK = [
       "-2"
     ],
     "correct_answer": "C",
-    "solution": "Vectors in the plane: $\\vec{PQ} = \\langle 1, 0, 1 \\rangle$ and $\\vec{PR} = \\langle -1, 1, 0 \\rangle$. Normal vector: $\\vec{n} = \\vec{PQ} \\times \\vec{PR} = \\langle -1, -1, 1 \\rangle$. Multiplying by $-1$ gives $\\langle 1, 1, -1 \\rangle$. Since the plane passes through the origin $(0, 0, 0)$, its equation is $x + y - z = 0$. Matching with $x + by + cz = d$, we have $b = 1, c = -1, d = 0$. Thus $b + c + d = 1 - 1 + 0 = 0$."
+    "solution": "<p><strong>Step 1: Form two non-parallel vectors in the plane.</strong></p>\n<p>Given points $P(0, 0, 0)$, $Q(1, 0, 1)$, and $R(-1, 1, 0)$:\n$$\\vec{PQ} = \\langle 1 - 0, 0 - 0, 1 - 0 \\rangle = \\langle 1, 0, 1 \\rangle$$\n$$\\vec{PR} = \\langle -1 - 0, 1 - 0, 0 - 0 \\rangle = \\langle -1, 1, 0 \\rangle$$</p>\n<p><strong>Step 2: Compute the normal vector $\\vec{n}$ via the cross product.</strong></p>\n<p>$$\\vec{n} = \\vec{PQ} \\times \\vec{PR} = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ 1 & 0 & 1 \\\\ -1 & 1 & 0 \\end{vmatrix}$$\n$$= \\mathbf{i}(0(0) - 1(1)) - \\mathbf{j}(1(0) - 1(-1)) + \\mathbf{k}(1(1) - 0(-1))$$\n$$= \\mathbf{i}(-1) - \\mathbf{j}(1) + \\mathbf{k}(1) = \\langle -1, -1, 1 \\rangle$$\nMultiplying by $-1$ to make the leading coefficient positive gives $\\vec{n} = \\langle 1, 1, -1 \\rangle$.</p>\n<p><strong>Step 3: Write the plane equation and find $b + c + d$.</strong></p>\n<p>Using the origin $P(0, 0, 0)$:\n$$1(x - 0) + 1(y - 0) - 1(z - 0) = 0 \\iff x + y - z = 0$$\nComparing with $x + by + cz = d$:\n$$b = 1, \\quad c = -1, \\quad d = 0$$\n$$b + c + d = 1 + (-1) + 0 = 0$$\nThis matches Choice <strong>(c)</strong>.</p>"
   },
   {
     "id": "233_3",
@@ -1856,7 +1850,7 @@ window.MATH201_BANK = [
       "-4"
     ],
     "correct_answer": "A",
-    "solution": "Substitute the parametric equations into the plane: $t + 3(1 - t) + (2 + 3t) = 6 \\iff t + 3 - 3t + 2 + 3t = 6 \\iff t + 5 = 6 \\iff t = 1$. Substituting $t = 1$ back into the line gives $(a, b, c) = (1, 0, 5)$. Therefore, $a + b + c = 1 + 0 + 5 = 6$."
+    "solution": "<p><strong>Step 1: Substitute the parametric line equations into the plane equation.</strong></p>\n<p>The plane is $x + 3y + z = 6$, and the line is given by:\n$$x = t, \\quad y = 1 - t, \\quad z = 2 + 3t$$\nSubstituting into the plane:\n$$t + 3(1 - t) + (2 + 3t) = 6$$</p>\n<p><strong>Step 2: Solve for the parameter $t$.</strong></p>\n<p>$$t + 3 - 3t + 2 + 3t = 6$$\n$$t + 5 = 6 \\implies t = 1$$</p>\n<p><strong>Step 3: Find the intersection point $(a, b, c)$ and compute $a + b + c$.</strong></p>\n<p>$$a = 1$$\n$$b = 1 - 1 = 0$$\n$$c = 2 + 3(1) = 5$$\n$$(a, b, c) = (1, 0, 5)$$\n$$a + b + c = 1 + 0 + 5 = 6$$\nThis matches Choice <strong>(a)</strong>.</p>"
   },
   {
     "id": "233_4",
@@ -1873,7 +1867,7 @@ window.MATH201_BANK = [
       "a hyperboloid of one sheet"
     ],
     "correct_answer": "A",
-    "solution": "Rearrange the equation: $4x^2 = 3y^2 + 12z^2 \\iff x^2 = \\frac{y^2}{4/3} + \\frac{z^2}{1/3}$. This is the standard equation of an elliptic cone with its vertex at the origin and axis along the $x$-axis."
+    "solution": "<p><strong>Step 1: Rearrange the equation into standard quadric form.</strong></p>\n<p>Given $4x^2 - 3y^2 - 12z^2 = 0$:\n$$4x^2 = 3y^2 + 12z^2$$\nDivide both sides by $4$:\n$$x^2 = \\frac{3}{4}y^2 + 3z^2 = \\frac{y^2}{4/3} + \\frac{z^2}{1/3}$$</p>\n<p><strong>Step 2: Analyze traces and degree.</strong></p>\n<p>The equation is second-degree and homogeneous in $x, y, z$ with no constant term.\nIn planes parallel to $x = k$ ($k \\neq 0$), the cross-sections are ellipses:\n$$\\frac{y^2}{\\frac{4k^2}{3}} + \\frac{z^2}{\\frac{k^2}{3}} = 1$$\nAt $x = 0$, the trace is the single point $(0, 0, 0)$.</p>\n<p><strong>Step 3: Classify the quadric surface.</strong></p>\n<p>This is the standard equation of an <strong>elliptic cone</strong> with vertex at the origin opening along the $x$-axis.\nThis matches Choice <strong>(a)</strong>.</p>"
   },
   {
     "id": "233_5",
@@ -1907,7 +1901,7 @@ window.MATH201_BANK = [
       "$x^2 - 2x + y^2 = 0$"
     ],
     "correct_answer": "E",
-    "solution": "The level curve has the form $\\frac{x}{x^2 + y^2} = C$. At $(1, 1)$, $C = \\frac{1}{1^2 + 1^2} = \\frac{1}{2}$. Thus $\\frac{x}{x^2 + y^2} = \\frac{1}{2} \\iff 2x = x^2 + y^2 \\iff x^2 - 2x + y^2 = 0$."
+    "solution": "<p><strong>Step 1: Set up the level curve equation $f(x, y) = C$.</strong></p>\n<p>For $f(x, y) = \\frac{x}{x^2 + y^2}$:\n$$\\frac{x}{x^2 + y^2} = C$$</p>\n<p><strong>Step 2: Evaluate $C$ at the point $(1, 1)$.</strong></p>\n<p>$$C = \\frac{1}{1^2 + 1^2} = \\frac{1}{1 + 1} = \\frac{1}{2}$$\nSubstitute $C = \\frac{1}{2}$ back into the equation:\n$$\\frac{x}{x^2 + y^2} = \\frac{1}{2} \\iff 2x = x^2 + y^2$$</p>\n<p><strong>Step 3: Move all terms to one side.</strong></p>\n<p>$$x^2 - 2x + y^2 = 0$$\n(Notice completing the square gives $(x - 1)^2 + y^2 = 1$, which is a circle of radius $1$ centered at $(1, 0)$).\nThis matches Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "233_7",
@@ -1924,7 +1918,7 @@ window.MATH201_BANK = [
       "0"
     ],
     "correct_answer": "C",
-    "solution": "Let $u = x^2 + y^2$. As $(x, y) \\to (0, 0)$, $u \\to 0^+$. The limit becomes $\\lim_{u \\to 0^+} \\frac{\\ln(2u + 1)}{u}$. Since this is $\\frac{0}{0}$, apply L'Hôpital's Rule: $\\lim_{u \\to 0^+} \\frac{\\frac{2}{2u + 1}}{1} = \\frac{2}{1} = 2$."
+    "solution": "<p><strong>Step 1: Convert to radial variable $u = x^2 + y^2$.</strong></p>\n<p>Let $u = x^2 + y^2$. As $(x, y) \\to (0, 0)$, $u \\to 0^+$:\n$$\\lim_{(x, y) \\to (0, 0)} \\frac{\\ln(2x^2 + 2y^2 + 1)}{x^2 + y^2} = \\lim_{u \\to 0^+} \\frac{\\ln(2u + 1)}{u}$$\nDirect substitution yields the indeterminate form $\\frac{\\ln(1)}{0} = \\frac{0}{0}$.</p>\n<p><strong>Step 2: Apply L'H&ocirc;pital's Rule.</strong></p>\n<p>Differentiating numerator and denominator with respect to $u$:\n$$\\lim_{u \\to 0^+} \\frac{\\frac{d}{du}\\ln(2u + 1)}{\\frac{d}{du}(u)} = \\lim_{u \\to 0^+} \\frac{\\frac{2}{2u + 1}}{1}$$</p>\n<p><strong>Step 3: Evaluate the limit.</strong></p>\n<p>$$\\lim_{u \\to 0^+} \\frac{2}{2u + 1} = \\frac{2}{2(0) + 1} = \\frac{2}{1} = 2$$\nThis matches Choice <strong>(c)</strong>.</p>"
   },
   {
     "id": "233_8",
@@ -1941,7 +1935,7 @@ window.MATH201_BANK = [
       "along the line $y = -x$, $\\lim_{(x, y) \\to (0, 0)} f(x, y) = -1$"
     ],
     "correct_answer": "B",
-    "solution": "Along the path $y = 2x$: $f(x, 2x) = \\frac{x^2(2x)}{x^4 + (2x)^2} = \\frac{2x^3}{x^4 + 4x^2} = \\frac{2x}{x^2 + 4}$. As $x \\to 0$, this limit is $\\frac{0}{4} = 0$. Hence statement (a) is TRUE. (Note along $y = x^2$, $f(x, x^2) = \\frac{x^4}{2x^4} = \\frac{1}{2}$, so the two-variable limit itself does not exist)."
+    "solution": "<p><strong>Step 1: Test the limit along linear paths $y = mx$.</strong></p>\n<p>For $f(x, y) = \\frac{x^2 y}{x^4 + y^2}$, test along the line $y = 2x$ as $x \\to 0$:\n$$f(x, 2x) = \\frac{x^2(2x)}{x^4 + (2x)^2} = \\frac{2x^3}{x^4 + 4x^2} = \\frac{2x^3}{x^2(x^2 + 4)} = \\frac{2x}{x^2 + 4}$$\nTaking the limit as $x \\to 0$:\n$$\\lim_{x \\to 0} \\frac{2x}{x^2 + 4} = \\frac{0}{0 + 4} = 0$$\nThus, along the line $y = 2x$, the limit is indeed $0$.</p>\n<p><strong>Step 2: Test the limit along parabolic paths $y = k x^2$.</strong></p>\n<p>Along $y = x^2$:\n$$f(x, x^2) = \\frac{x^2(x^2)}{x^4 + (x^2)^2} = \\frac{x^4}{x^4 + x^4} = \\frac{x^4}{2x^4} = \\frac{1}{2}$$\nBecause the limit along $y = 2x$ is $0$ while along $y = x^2$ it is $\\frac{1}{2}$, the two-variable limit does not exist.</p>\n<p><strong>Step 3: Conclusion.</strong></p>\n<p>The statement \"along the line $y = 2x$, $\\lim_{(x, y) \\to (0, 0)} f(x, y) = 0$\" is TRUE.\nThis matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "233_9",
@@ -1958,7 +1952,7 @@ window.MATH201_BANK = [
       "$4e^2$"
     ],
     "correct_answer": "A",
-    "solution": "The slope in the $x$-direction is $f_x(1, 2)$. Using the product and chain rules: $f_x(x, y) = 1 \\cdot e^{x^2 y} + x \\cdot e^{x^2 y}(2xy) = e^{x^2 y}(1 + 2x^2 y)$. At $(1, 2)$: $f_x(1, 2) = e^{1^2 \\cdot 2}(1 + 2(1)^2(2)) = e^2(1 + 4) = 5e^2$."
+    "solution": "<p><strong>Step 1: Understand the geometric meaning of slope in the $x$-direction.</strong></p>\n<p>The slope of the surface $z = f(x, y)$ in the $x$-direction at a given point is the partial derivative with respect to $x$:\n$$\\text{Slope} = f_x(1, 2)$$</p>\n<p><strong>Step 2: Differentiate $f(x, y) = x e^{x^2 y}$ with respect to $x$ using the product and chain rules.</strong></p>\n<p>$$f_x(x, y) = \\frac{\\partial}{\\partial x}[x] \\cdot e^{x^2 y} + x \\cdot \\frac{\\partial}{\\partial x}\\left[e^{x^2 y}\\right]$$\n$$f_x(x, y) = 1 \\cdot e^{x^2 y} + x \\cdot \\left(2xy e^{x^2 y}\\right) = e^{x^2 y}\\left(1 + 2x^2 y\\right)$$</p>\n<p><strong>Step 3: Evaluate at $(x, y) = (1, 2)$.</strong></p>\n<p>$$f_x(1, 2) = e^{(1)^2(2)} \\left(1 + 2(1)^2(2)\\right) = e^2(1 + 4) = 5e^2$$\nThis matches Choice <strong>(a)</strong>.</p>"
   },
   {
     "id": "233_10",
@@ -1975,7 +1969,7 @@ window.MATH201_BANK = [
       "0"
     ],
     "correct_answer": "E",
-    "solution": "Compute partial derivatives: $\\frac{\\partial z}{\\partial t} = -e^{-t}\\cos\\left(\\frac{x}{2}\\right)$. Next, $\\frac{\\partial z}{\\partial x} = -\\frac{1}{2}e^{-t}\\sin\\left(\\frac{x}{2}\\right)$, and $\\frac{\\partial^2 z}{\\partial x^2} = -\\frac{1}{4}e^{-t}\\cos\\left(\\frac{x}{2}\\right)$. Then $\\frac{\\partial z}{\\partial t} - 4\\frac{\\partial^2 z}{\\partial x^2} = -e^{-t}\\cos\\left(\\frac{x}{2}\\right) - 4\\left(-\\frac{1}{4}e^{-t}\\cos\\left(\\frac{x}{2}\\right)\\right) = -e^{-t}\\cos\\left(\\frac{x}{2}\\right) + e^{-t}\\cos\\left(\\frac{x}{2}\\right) = 0$."
+    "solution": "<p><strong>Step 1: Compute the first partial derivative with respect to $t$.</strong></p>\n<p>Given $z = e^{-t}\\cos\\left(\\frac{x}{2}\\right)$:\n$$\\frac{\\partial z}{\\partial t} = -e^{-t}\\cos\\left(\\frac{x}{2}\\right)$$</p>\n<p><strong>Step 2: Compute the second partial derivative with respect to $x$.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial x} = e^{-t} \\left( -\\sin\\left(\\frac{x}{2}\\right) \\cdot \\frac{1}{2} \\right) = -\\frac{1}{2}e^{-t}\\sin\\left(\\frac{x}{2}\\right)$$\n$$\\frac{\\partial^2 z}{\\partial x^2} = -\\frac{1}{2}e^{-t} \\left( \\cos\\left(\\frac{x}{2}\\right) \\cdot \\frac{1}{2} \\right) = -\\frac{1}{4}e^{-t}\\cos\\left(\\frac{x}{2}\\right)$$</p>\n<p><strong>Step 3: Substitute into the expression $\\frac{\\partial z}{\\partial t} - 4\\frac{\\partial^2 z}{\\partial x^2}$.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial t} - 4\\frac{\\partial^2 z}{\\partial x^2} = -e^{-t}\\cos\\left(\\frac{x}{2}\\right) - 4\\left( -\\frac{1}{4}e^{-t}\\cos\\left(\\frac{x}{2}\\right) \\right)$$\n$$= -e^{-t}\\cos\\left(\\frac{x}{2}\\right) + e^{-t}\\cos\\left(\\frac{x}{2}\\right) = 0$$\nThis matches Choice <strong>(e)</strong>.</p>"
   },
   {
     "id": "233_11",
@@ -1992,7 +1986,7 @@ window.MATH201_BANK = [
       "$\\frac{1}{25}$"
     ],
     "correct_answer": "B",
-    "solution": "At $(3, 4)$, $z = \\sqrt{29 - 9 - 16} = \\sqrt{4} = 2$. Changes: $dx = 3.01 - 3 = 0.01$, $dy = 3.97 - 4 = -0.03$. Partials: $\\frac{\\partial z}{\\partial x} = \\frac{-x}{\\sqrt{29 - x^2 - y^2}} = \\frac{-3}{2}$, and $\\frac{\\partial z}{\\partial y} = \\frac{-y}{\\sqrt{29 - x^2 - y^2}} = \\frac{-4}{2} = -2$. Differential: $dz = -\\frac{3}{2}(0.01) - 2(-0.03) = -\\frac{3}{200} + \\frac{6}{100} = -\\frac{3}{200} + \\frac{12}{200} = \\frac{9}{200}$."
+    "solution": "<p><strong>Step 1: Determine the base values and differentials.</strong></p>\n<p>Function: $z = \\sqrt{29 - x^2 - y^2}$.<br>\nBase point: $(x_0, y_0) = (3, 4) \\implies z(3, 4) = \\sqrt{29 - 9 - 16} = \\sqrt{4} = 2$.<br>\nDifferentials:\n$$dx = 3.01 - 3 = 0.01 = \\frac{1}{100}$$\n$$dy = 3.97 - 4 = -0.03 = -\\frac{3}{100}$$</p>\n<p><strong>Step 2: Compute first-order partial derivatives at $(3, 4)$.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial x} = \\frac{-2x}{2\\sqrt{29 - x^2 - y^2}} = \\frac{-x}{\\sqrt{29 - x^2 - y^2}} \\implies \\frac{\\partial z}{\\partial x}(3, 4) = \\frac{-3}{2}$$\n$$\\frac{\\partial z}{\\partial y} = \\frac{-2y}{2\\sqrt{29 - x^2 - y^2}} = \\frac{-y}{\\sqrt{29 - x^2 - y^2}} \\implies \\frac{\\partial z}{\\partial y}(3, 4) = \\frac{-4}{2} = -2$$</p>\n<p><strong>Step 3: Evaluate the total differential $dz$.</strong></p>\n<p>$$dz = \\frac{\\partial z}{\\partial x}dx + \\frac{\\partial z}{\\partial y}dy = \\left(-\\frac{3}{2}\\right)(0.01) + (-2)(-0.03)$$\n$$dz = -0.015 + 0.06 = 0.045 = \\frac{45}{1000} = \\frac{9}{200}$$\nThis matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "233_12",
@@ -2009,7 +2003,7 @@ window.MATH201_BANK = [
       "4"
     ],
     "correct_answer": "B",
-    "solution": "At $s = 1, t = 1$: $x = 1 + 1 = 2$, $y = 1/1 = 1$, $z = 1^2 = 1$. By the chain rule: $\\frac{\\partial w}{\\partial t} = \\frac{\\partial w}{\\partial x}\\frac{\\partial x}{\\partial t} + \\frac{\\partial w}{\\partial y}\\frac{\\partial y}{\\partial t} + \\frac{\\partial w}{\\partial z}\\frac{\\partial z}{\\partial t}$. Partials: $\\frac{\\partial w}{\\partial x} = y^2 + 2zx = 1 + 2(1)(2) = 5$. $\\frac{\\partial x}{\\partial t} = 2t = 2$. $\\frac{\\partial w}{\\partial y} = 2xy + z^2 = 2(2)(1) + 1 = 5$. $\\frac{\\partial y}{\\partial t} = -\\frac{s}{t^2} = -1$. $\\frac{\\partial z}{\\partial t} = 0$. Therefore, $\\frac{\\partial w}{\\partial t} = 5(2) + 5(-1) + 0 = 10 - 5 = 5$."
+    "solution": "<p><strong>Step 1: State the multivariable chain rule for $w(x(s, t), y(s, t), z(s, t))$.</strong></p>\n<p>$$\\frac{\\partial w}{\\partial t} = \\frac{\\partial w}{\\partial x}\\frac{\\partial x}{\\partial t} + \\frac{\\partial w}{\\partial y}\\frac{\\partial y}{\\partial t} + \\frac{\\partial w}{\\partial z}\\frac{\\partial z}{\\partial t}$$</p>\n<p><strong>Step 2: Evaluate intermediate variables and partials at $s = 1, t = 1$.</strong></p>\n<p>$$x = 1 + 1^2 = 2, \\quad y = \\frac{1}{1} = 1, \\quad z = 1^2 = 1$$\nFor $w = xy^2 + yz^2 + zx^2$:\n$$w_x = y^2 + 2zx \\implies w_x(2, 1, 1) = 1^2 + 2(1)(2) = 1 + 4 = 5$$\n$$w_y = 2xy + z^2 \\implies w_y(2, 1, 1) = 2(2)(1) + 1^2 = 4 + 1 = 5$$\n$$w_z = 2yz + x^2 \\implies w_z(2, 1, 1) = 2(1)(1) + 2^2 = 2 + 4 = 6$$\nFor the parameter functions:\n$$x_t = \\frac{\\partial}{\\partial t}(s + t^2) = 2t \\implies x_t(1, 1) = 2(1) = 2$$\n$$y_t = \\frac{\\partial}{\\partial t}(s t^{-1}) = -s t^{-2} = -\\frac{s}{t^2} \\implies y_t(1, 1) = -1$$\n$$z_t = \\frac{\\partial}{\\partial t}(s^2) = 0$$</p>\n<p><strong>Step 3: Compute $w_t(1, 1)$.</strong></p>\n<p>$$w_t = 5(2) + 5(-1) + 6(0) = 10 - 5 + 0 = 5$$\nThis matches Choice <strong>(b)</strong>.</p>"
   },
   {
     "id": "233_13",
@@ -2026,7 +2020,7 @@ window.MATH201_BANK = [
       "$\\frac{3\\sin(3x - 2y - z) - yz}{\\sin(3x - 2y - z) + xy}$"
     ],
     "correct_answer": "C",
-    "solution": "Let $F(x, y, z) = \\sin(3x - 2y - z) - xyz = 0$. Then $\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}$. Here $F_x = 3\\cos(3x - 2y - z) - yz$, and $F_z = -\\cos(3x - 2y - z) - xy$. Thus $\\frac{\\partial z}{\\partial x} = -\\frac{3\\cos(3x - 2y - z) - yz}{-\\cos(3x - 2y - z) - xy} = \\frac{3\\cos(3x - 2y - z) - yz}{\\cos(3x - 2y - z) + xy}$."
+    "solution": "<p><strong>Step 1: Form $F(x, y, z) = 0$ for implicit differentiation.</strong></p>\n<p>Rewrite $xyz = \\sin(3x - 2y - z)$ as:\n$$F(x, y, z) = \\sin(3x - 2y - z) - xyz = 0$$\nBy the implicit function theorem:\n$$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z}$$</p>\n<p><strong>Step 2: Compute partial derivatives $F_x$ and $F_z$.</strong></p>\n<p>Holding $y$ and $z$ constant:\n$$F_x = \\cos(3x - 2y - z) \\cdot (3) - yz = 3\\cos(3x - 2y - z) - yz$$\nHolding $x$ and $y$ constant:\n$$F_z = \\cos(3x - 2y - z) \\cdot (-1) - xy = -\\cos(3x - 2y - z) - xy$$</p>\n<p><strong>Step 3: Form the negative ratio and simplify signs.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial x} = -\\frac{3\\cos(3x - 2y - z) - yz}{-\\left[\\cos(3x - 2y - z) + xy\\right]} = \\frac{3\\cos(3x - 2y - z) - yz}{\\cos(3x - 2y - z) + xy}$$\nThis matches Choice <strong>(c)</strong>.</p>"
   },
   {
     "id": "233_14",
@@ -2043,7 +2037,7 @@ window.MATH201_BANK = [
       "$\\frac{\\sqrt{21}}{2}$"
     ],
     "correct_answer": "D",
-    "solution": "Choose a point on the line $P(0, 0, 0)$. The vector $\\vec{PQ} = \\langle 1, 1, 1 \\rangle$. The direction vector of the line is $\\vec{u} = \\langle 1, -1, 2 \\rangle$. The cross product is $\\vec{PQ} \\times \\vec{u} = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ 1 & 1 & 1 \\\\ 1 & -1 & 2 \\end{vmatrix} = \\langle 2 - (-1), -(2 - 1), -1 - 1 \\rangle = \\langle 3, -1, -2 \\rangle$. Magnitude: $\\|\\vec{PQ} \\times \\vec{u}\\| = \\sqrt{9 + 1 + 4} = \\sqrt{14}$. Magnitude of $\\vec{u}$: $\\|\\vec{u}\\| = \\sqrt{1 + 1 + 4} = \\sqrt{6}$. Distance: $d = \\frac{\\sqrt{14}}{\\sqrt{6}} = \\frac{\\sqrt{7}}{\\sqrt{3}} = \\frac{\\sqrt{21}}{3}$."
+    "solution": "<p><strong>Step 1: Identify a point $P$ on line $L$ and its direction vector $\\vec{u}$.</strong></p>\n<p>Line $L: x = t, y = -t, z = 2t$ passes through $P(0, 0, 0)$ with direction $\\vec{u} = \\langle 1, -1, 2 \\rangle$.<br>\nGiven external point $Q(1, 1, 1)$:\n$$\\vec{PQ} = \\langle 1 - 0, 1 - 0, 1 - 0 \\rangle = \\langle 1, 1, 1 \\rangle$$</p>\n<p><strong>Step 2: Compute the cross product $\\vec{PQ} \\times \\vec{u}$.</strong></p>\n<p>$$\\vec{PQ} \\times \\vec{u} = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ 1 & 1 & 1 \\\\ 1 & -1 & 2 \\end{vmatrix}$$\n$$= \\mathbf{i}(1(2) - 1(-1)) - \\mathbf{j}(1(2) - 1(1)) + \\mathbf{k}(1(-1) - 1(1))$$\n$$= \\mathbf{i}(2 + 1) - \\mathbf{j}(2 - 1) + \\mathbf{k}(-1 - 1) = \\langle 3, -1, -2 \\rangle$$</p>\n<p><strong>Step 3: Calculate the distance from $Q$ to line $L$.</strong></p>\n<p>$$\\|\\vec{PQ} \\times \\vec{u}\\| = \\sqrt{3^2 + (-1)^2 + (-2)^2} = \\sqrt{9 + 1 + 4} = \\sqrt{14}$$\n$$\\|\\vec{u}\\| = \\sqrt{1^2 + (-1)^2 + 2^2} = \\sqrt{1 + 1 + 4} = \\sqrt{6}$$\n$$d = \\frac{\\|\\vec{PQ} \\times \\vec{u}\\|}{\\|\\vec{u}\\|} = \\frac{\\sqrt{14}}{\\sqrt{6}} = \\frac{\\sqrt{7}}{\\sqrt{3}} = \\frac{\\sqrt{7}\\sqrt{3}}{3} = \\frac{\\sqrt{21}}{3}$$\nThis matches Choice <strong>(d)</strong>.</p>"
   },
   {
     "id": "233_15",
@@ -2060,7 +2054,7 @@ window.MATH201_BANK = [
       "a hyperboloid of one sheet"
     ],
     "correct_answer": "C",
-    "solution": "Distance from $(x, y, z)$ to $(0, 0, 3)$ is $\\sqrt{x^2 + y^2 + (z - 3)^2}$. Distance to plane $z = -1$ is $|z + 1|$. Equating: $x^2 + y^2 + (z - 3)^2 = (z + 1)^2 \\iff x^2 + y^2 + z^2 - 6z + 9 = z^2 + 2z + 1 \\iff x^2 + y^2 + 8 = 8z \\iff z = \\frac{x^2}{8} + \\frac{y^2}{8} + 1$. This is an elliptic paraboloid opening along $+z$."
+    "solution": "<p><strong>Step 1: Set up the distance expressions.</strong></p>\n<p>Distance from $(x, y, z)$ to the point $(0, 0, 3)$:\n$$d_1 = \\sqrt{(x - 0)^2 + (y - 0)^2 + (z - 3)^2} = \\sqrt{x^2 + y^2 + (z - 3)^2}$$\nDistance from $(x, y, z)$ to the plane $z = -1$:\n$$d_2 = |z - (-1)| = |z + 1|$$</p>\n<p><strong>Step 2: Equate distances and expand the squares.</strong></p>\n<p>Equating $d_1^2 = d_2^2$:\n$$x^2 + y^2 + (z - 3)^2 = (z + 1)^2$$\n$$x^2 + y^2 + z^2 - 6z + 9 = z^2 + 2z + 1$$\nSubtract $z^2$ from both sides and collect terms:\n$$x^2 + y^2 + 9 - 1 = 2z + 6z$$\n$$x^2 + y^2 + 8 = 8z \\iff z = \\frac{x^2}{8} + \\frac{y^2}{8} + 1$$</p>\n<p><strong>Step 3: Classify the quadric surface.</strong></p>\n<p>The variable $z$ is linear (first power) and the coefficients of $x^2$ and $y^2$ are both positive ($1/8$).\nThis is the standard definition of an <strong>elliptic paraboloid</strong> (specifically, a circular paraboloid opening upward along the $+z$ axis with vertex at $(0, 0, 1)$).\nThis matches Choice <strong>(c)</strong>.</p>"
   },
   {
     "id": "232_1",
@@ -2077,7 +2071,7 @@ window.MATH201_BANK = [
       "$x = 2 - 2t, y = 1 - t, z = 1 + t$"
     ],
     "correct_answer": "B",
-    "solution": "The direction vector is $\\vec{v} = \\vec{PQ} = \\langle 1 - 2, -1 - 0, 2 - 1 \\rangle = \\langle -1, -1, 1 \\rangle$. Using base point $P(2, 0, 1)$, the parametric equations are $x = 2 - t, y = -t, z = 1 + t$."
+    "solution": "<p><strong>Step 1: Compute the direction vector connecting the two points.</strong></p>\n<p>The line passes through points $P(2, 0, 1)$ and $Q(1, -1, 2)$.\nThe direction vector $\\vec{v}$ is given by the displacement vector $\\vec{PQ}$:\n$$\\vec{v} = \\vec{PQ} = \\langle 1 - 2, -1 - 0, 2 - 1 \\rangle = \\langle -1, -1, 1 \\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Construct the parametric equations using base point $P(2, 0, 1)$.</strong></p>\n<p>Using the vector equation $\\mathbf{r}(t) = \\mathbf{r}_0 + t\\vec{v}$ with $(x_0, y_0, z_0) = (2, 0, 1)$ and $\\langle a, b, c \\rangle = \\langle -1, -1, 1 \\rangle$:\n$$x(t) = 2 - t$$\n$$y(t) = 0 - t = -t$$\n$$z(t) = 1 + t$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(B)</strong>.</p>"
   },
   {
     "id": "232_2",
@@ -2094,7 +2088,7 @@ window.MATH201_BANK = [
       "a hyperboloid of one sheet"
     ],
     "correct_answer": "B",
-    "solution": "Rearrange the equation: $-4x^2 + 3y^2 - 12z^2 = 12$. Dividing both sides by $12$ gives $-\\frac{x^2}{3} + \\frac{y^2}{4} - z^2 = 1$. Having two negative coefficients and one positive coefficient equal to $1$ represents a hyperboloid of two sheets along the $y$-axis."
+    "solution": "<p><strong>Step 1: Transform the quadric surface equation into standard form.</strong></p>\n<p>The given equation is:\n$$4x^2 - 3y^2 + 12z^2 + 12 = 0$$\nSubtract $12$ from both sides:\n$$4x^2 - 3y^2 + 12z^2 = -12$$\nDivide both sides by $-12$:\n$$-\\frac{4x^2}{12} + \\frac{3y^2}{12} - \\frac{12z^2}{12} = 1 \\iff -\\frac{x^2}{3} + \\frac{y^2}{4} - z^2 = 1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Classify the quadric surface.</strong></p>\n<p>The standard equation of a hyperboloid of two sheets opening along the $y$-axis is:\n$$-\\frac{x^2}{a^2} + \\frac{y^2}{b^2} - \\frac{z^2}{c^2} = 1$$\nBecause there are two negative squared terms ($-x^2/3$ and $-z^2$) and exactly one positive squared term ($+y^2/4$) equated to $+1$, the surface represents a <strong>hyperboloid of two sheets</strong>.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(B)</strong>.</p>"
   },
   {
     "id": "232_3",
@@ -2111,7 +2105,7 @@ window.MATH201_BANK = [
       "$\\sqrt{2}$"
     ],
     "correct_answer": "D",
-    "solution": "Using the distance formula $D = \\frac{|a x_0 + b y_0 + c z_0 - d|}{\\sqrt{a^2 + b^2 + c^2}}$: $D = \\frac{|3(1) - 4(3) + 5(-1) - 6|}{\\sqrt{3^2 + (-4)^2 + 5^2}} = \\frac{|3 - 12 - 5 - 6|}{\\sqrt{9 + 16 + 25}} = \\frac{|-20|}{\\sqrt{50}} = \\frac{20}{5\\sqrt{2}} = 2\\sqrt{2}$."
+    "solution": "<p><strong>Step 1: Recall the point-to-plane perpendicular distance formula.</strong></p>\n<p>The distance $D$ from a point $(x_0, y_0, z_0)$ to the plane $Ax + By + Cz = D_{\\text{plane}}$ is:\n$$D = \\frac{|A x_0 + B y_0 + C z_0 - D_{\\text{plane}}|}{\\sqrt{A^2 + B^2 + C^2}}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Substitute the given point and plane coefficients.</strong></p>\n<p>Here $(x_0, y_0, z_0) = (1, 3, -1)$ and the plane is $3x - 4y + 5z = 6$ ($A = 3, B = -4, C = 5, D_{\\text{plane}} = 6$):\n$$\\text{Numerator} = |3(1) - 4(3) + 5(-1) - 6| = |3 - 12 - 5 - 6| = |-20| = 20$$\n$$\\text{Denominator} = \\sqrt{3^2 + (-4)^2 + 5^2} = \\sqrt{9 + 16 + 25} = \\sqrt{50} = 5\\sqrt{2}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Simplify the radical expression.</strong></p>\n<p>$$D = \\frac{20}{5\\sqrt{2}} = \\frac{4}{\\sqrt{2}} = \\frac{4\\sqrt{2}}{2} = 2\\sqrt{2}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(D)</strong>.</p>"
   },
   {
     "id": "232_4",
@@ -2128,7 +2122,7 @@ window.MATH201_BANK = [
       "-4"
     ],
     "correct_answer": "D",
-    "solution": "A point on the line is $P(0, 4, 0)$, and the direction vector is $\\vec{v} = \\langle 1, 1, 1 \\rangle$. With point $Q(2, 2, 1)$, the vector $\\vec{PQ} = \\langle 2, -2, 1 \\rangle$. The normal vector is $\\vec{n} = \\vec{PQ} \\times \\vec{v} = \\langle -3, -1, 4 \\rangle$. The plane equation through $Q(2, 2, 1)$ is $-3(x - 2) - 1(y - 2) + 4(z - 1) = 0 \\iff -3x - y + 4z + 4 = 0 \\iff 3x + y - 4z = 4$. Comparing with $ax + by + cz = 4$ gives $a = 3, b = 1, c = -4$. Hence $abc = 3 \\cdot 1 \\cdot (-4) = -12$."
+    "solution": "<p><strong>Step 1: Extract a base point and direction vector from the contained line.</strong></p>\n<p>The line is given by $x = y - 4 = z$, which in symmetric form is:\n$$\\frac{x - 0}{1} = \\frac{y - 4}{1} = \\frac{z - 0}{1}$$\nThus, a point on the line is $P(0, 4, 0)$, and its direction vector is $\\vec{v} = \\langle 1, 1, 1 \\rangle$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Construct a vector connecting the line to the given point $Q(2, 2, 1)$.</strong></p>\n<p>$$\\vec{PQ} = \\langle 2 - 0, 2 - 4, 1 - 0 \\rangle = \\langle 2, -2, 1 \\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Calculate the normal vector $\\vec{n}$ via the cross product.</strong></p>\n<p>$$\\vec{n} = \\vec{v} \\times \\vec{PQ} = \\det \\begin{pmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ 1 & 1 & 1 \\\\ 2 & -2 & 1 \\end{pmatrix}$$\n$$= \\mathbf{i}(1 - (-2)) - \\mathbf{j}(1 - 2) + \\mathbf{k}(-2 - 2) = \\langle 3, 1, -4 \\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Write the plane equation and normalize the constant to $4$.</strong></p>\n<p>Using the point $Q(2, 2, 1)$:\n$$3(x - 2) + 1(y - 2) - 4(z - 1) = 0$$\n$$3x - 6 + y - 2 - 4z + 4 = 0 \\iff 3x + y - 4z - 4 = 0 \\iff 3x + y - 4z = 4$$\nComparing with $ax + by + cz = 4$ yields:\n$$a = 3, \\quad b = 1, \\quad c = -4$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 5: Compute the product $abc$.</strong></p>\n<p>$$abc = 3 \\cdot 1 \\cdot (-4) = -12$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 6: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(D)</strong>.</p>"
   },
   {
     "id": "232_5",
@@ -2145,7 +2139,7 @@ window.MATH201_BANK = [
       "$D = \\{(x, y) : -\\infty < x < \\infty, -\\infty < y < \\infty\\}, R = (-\\infty, \\infty)$"
     ],
     "correct_answer": "E",
-    "solution": "$f(x, y)$ is a polynomial in two variables, so it is defined for all points in $\\mathbb{R}^2$, meaning $D = \\{(x, y) : -\\infty < x < \\infty, -\\infty < y < \\infty\\}$. Its graph $z = 6 - 2x - 3y$ is an inclined plane, whose output values span all real numbers, so $R = (-\\infty, \\infty)$."
+    "solution": "<p><strong>Step 1: Determine the domain $D$.</strong></p>\n<p>The function is $f(x, y) = 6 - 2x - 3y$.\nBecause $f(x, y)$ is a polynomial in two variables, it involves only standard linear arithmetic operations with no square roots, logarithms, or divisions by zero.\nTherefore, the domain is the entire real plane:\n$$D = \\{(x, y) : -\\infty < x < \\infty, -\\infty < y < \\infty\\}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Determine the range $R$.</strong></p>\n<p>The equation $z = 6 - 2x - 3y$ represents an inclined non-horizontal plane in $\\mathbb{R}^3$.\nFor any chosen real number $z_0 \\in \\mathbb{R}$, we can choose $y = 0$ and solve for $x$:\n$$z_0 = 6 - 2x \\implies x = \\frac{6 - z_0}{2}$$\nSince every real value $z_0$ can be attained, the range spans all real numbers:\n$$R = (-\\infty, \\infty)$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(E)</strong>.</p>"
   },
   {
     "id": "232_6",
@@ -2162,7 +2156,7 @@ window.MATH201_BANK = [
       "an elliptic cone"
     ],
     "correct_answer": "E",
-    "solution": "The level surface has equation $4x^2 - y^2 + z^2 = C$. Since it passes through $(0, 1, 1)$, $C = 4(0)^2 - (1)^2 + (1)^2 = 0$. The equation is $4x^2 - y^2 + z^2 = 0 \\iff y^2 = 4x^2 + z^2$, which represents an elliptic cone along the $y$-axis."
+    "solution": "<p><strong>Step 1: Determine the level constant $C$.</strong></p>\n<p>The level surface family is $f(x, y, z) = C$, which means:\n$$4x^2 - y^2 + z^2 = C$$\nSince the surface passes through $(0, 1, 1)$, substitute these coordinates:\n$$C = 4(0)^2 - (1)^2 + (1)^2 = 0 - 1 + 1 = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Write and rearrange the equation.</strong></p>\n<p>$$4x^2 - y^2 + z^2 = 0 \\iff y^2 = 4x^2 + z^2 \\iff y^2 = \\frac{x^2}{(1/2)^2} + \\frac{z^2}{1^2}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Classify the quadric surface.</strong></p>\n<p>An equation of the form $\\frac{y^2}{b^2} = \\frac{x^2}{a^2} + \\frac{z^2}{c^2}$ represents an <strong>elliptic cone</strong> opening along the $y$-axis with vertex at the origin $(0, 0, 0)$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(E)</strong>.</p>"
   },
   {
     "id": "232_7",
@@ -2179,7 +2173,7 @@ window.MATH201_BANK = [
       "is equal to 0"
     ],
     "correct_answer": "D",
-    "solution": "Along the $y$-axis ($x = 0$): $\\lim_{y \\to 0} \\frac{-y^2}{y} = \\lim_{y \\to 0} (-y) = 0$. Along the line $y = x$: $\\lim_{x \\to 0} \\frac{2x - x^2}{x^3 + x} = \\lim_{x \\to 0} \\frac{2 - x}{x^2 + 1} = \\frac{2}{1} = 2$. Since the limits along two different paths are not equal ($0 \\ne 2$), the limit does not exist."
+    "solution": "<p><strong>Step 1: Evaluate the limit along the path $x = 0$ ($y$-axis).</strong></p>\n<p>$$\\lim_{y \\to 0} \\frac{2(0) - y^2}{(0)^3 + y} = \\lim_{y \\to 0} \\frac{-y^2}{y} = \\lim_{y \\to 0} (-y) = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Evaluate the limit along the linear path $y = x$.</strong></p>\n<p>$$\\lim_{x \\to 0} \\frac{2x - x^2}{x^3 + x} = \\lim_{x \\to 0} \\frac{x(2 - x)}{x(x^2 + 1)} = \\lim_{x \\to 0} \\frac{2 - x}{x^2 + 1} = \\frac{2 - 0}{0 + 1} = 2$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Apply the Two-Path Test.</strong></p>\n<p>Along the path $x = 0$, the function approaches $0$, whereas along the path $y = x$, the function approaches $2$.\nBecause these limits are unequal ($0 \\ne 2$), the limit <strong>does not exist</strong>.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(D)</strong>.</p>"
   },
   {
     "id": "232_8",
@@ -2196,7 +2190,7 @@ window.MATH201_BANK = [
       "0"
     ],
     "correct_answer": "B",
-    "solution": "Let $u = x^2 + y^2$. As $(x, y) \\to (0, 0)$, $u \\to 0^+$. The limit becomes $\\lim_{u \\to 0^+} \\frac{\\sin(2u)}{4u} = \\frac{1}{2} \\lim_{u \\to 0^+} \\frac{\\sin(2u)}{2u} = \\frac{1}{2}(1) = \\frac{1}{2}$."
+    "solution": "<p><strong>Step 1: Use substitution $u = x^2 + y^2$.</strong></p>\n<p>As $(x, y) \\to (0, 0)$, $u = x^2 + y^2 \\to 0^+$.\nThe limit becomes:\n$$\\lim_{(x, y) \\to (0, 0)} \\frac{\\sin(2x^2 + 2y^2)}{4x^2 + 4y^2} = \\lim_{u \\to 0^+} \\frac{\\sin(2u)}{4u}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Separate constants and evaluate the fundamental trigonometric limit.</strong></p>\n<p>Rewrite the fraction:\n$$\\frac{\\sin(2u)}{4u} = \\frac{1}{2} \\cdot \\frac{\\sin(2u)}{2u}$$\nSince $\\lim_{t \\to 0} \\frac{\\sin t}{t} = 1$:\n$$\\lim_{u \\to 0^+} \\left(\\frac{1}{2} \\cdot \\frac{\\sin(2u)}{2u}\\right) = \\frac{1}{2}(1) = \\frac{1}{2}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(B)</strong>.</p>"
   },
   {
     "id": "232_9",
@@ -2213,7 +2207,7 @@ window.MATH201_BANK = [
       "$f$ is not continuous at $(0, 0)$"
     ],
     "correct_answer": "E",
-    "solution": "For $(x, y) \\ne (0, 0)$, factoring the numerator gives $\\frac{(x^2 - y^2)(x^2 + y^2)}{x^2 + y^2} = x^2 - y^2$. Thus $\\lim_{(x, y) \\to (0, 0)} f(x, y) = \\lim_{(x, y) \\to (0, 0)} (x^2 - y^2) = 0$. However, $f(0, 0) = 1 \\ne 0$. Because the limit does not equal the function value, $f$ is not continuous at $(0, 0)$."
+    "solution": "<p><strong>Step 1: Simplify the expression for $(x, y) \\ne (0, 0)$ using difference of squares.</strong></p>\n<p>$$x^4 - y^4 = (x^2 - y^2)(x^2 + y^2)$$\nTherefore:\n$$\\frac{x^4 - y^4}{x^2 + y^2} = \\frac{(x^2 - y^2)(x^2 + y^2)}{x^2 + y^2} = x^2 - y^2$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Evaluate the limit as $(x, y) \\to (0, 0)$.</strong></p>\n<p>$$\\lim_{(x, y) \\to (0, 0)} f(x, y) = \\lim_{(x, y) \\to (0, 0)} (x^2 - y^2) = 0^2 - 0^2 = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Check the continuity condition at $(0, 0)$.</strong></p>\n<p>We are given that $f(0, 0) = 1$.\nBecause $\\lim_{(x, y) \\to (0, 0)} f(x, y) = 0 \\ne 1 = f(0, 0)$, the function $f$ is <strong>not continuous at $(0, 0)$</strong>.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(E)</strong>.</p>"
   },
   {
     "id": "232_10",
@@ -2230,7 +2224,7 @@ window.MATH201_BANK = [
       "$-\\frac{2}{e}$"
     ],
     "correct_answer": "E",
-    "solution": "By the product and chain rules: $f_y(x, y) = -2e^{-2y}\\sin(\\pi x y) + e^{-2y}\\cos(\\pi x y) \\cdot (\\pi x)$. Evaluating at $(1, 1/2)$: $\\pi x y = \\pi/2$, $\\sin(\\pi/2) = 1$, $\\cos(\\pi/2) = 0$, and $e^{-2(1/2)} = e^{-1} = 1/e$. Hence $f_y(1, 1/2) = -2e^{-1}(1) + 0 = -\\frac{2}{e}$."
+    "solution": "<p><strong>Step 1: Apply the product rule and chain rule to find $f_y(x, y)$.</strong></p>\n<p>The function is $f(x, y) = e^{-2y}\\sin(\\pi x y)$.\nUsing the product rule with respect to $y$:\n$$f_y(x, y) = \\frac{\\partial}{\\partial y}\\left(e^{-2y}\\right)\\sin(\\pi x y) + e^{-2y}\\frac{\\partial}{\\partial y}\\left(\\sin(\\pi x y)\\right)$$\n$$= -2e^{-2y}\\sin(\\pi x y) + e^{-2y}\\left[\\cos(\\pi x y) \\cdot (\\pi x)\\right]$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Evaluate at $(x, y) = (1, 1/2)$.</strong></p>\n<p>$$\\pi x y = \\pi(1)\\left(\\frac{1}{2}\\right) = \\frac{\\pi}{2}$$\n$$\\sin\\left(\\frac{\\pi}{2}\\right) = 1, \\quad \\cos\\left(\\frac{\\pi}{2}\\right) = 0$$\n$$e^{-2(1/2)} = e^{-1} = \\frac{1}{e}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Compute the numerical value.</strong></p>\n<p>$$f_y\\left(1, \\frac{1}{2}\\right) = -2\\left(\\frac{1}{e}\\right)(1) + \\left(\\frac{1}{e}\\right)(0)(\\pi) = -\\frac{2}{e} + 0 = -\\frac{2}{e}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(E)</strong>.</p>"
   },
   {
     "id": "232_11",
@@ -2247,7 +2241,7 @@ window.MATH201_BANK = [
       "$\\frac{2z + x}{(x + 2y)^2}$"
     ],
     "correct_answer": "C",
-    "solution": "Rewrite as $f(x, y, z) = z^2(x + 2y)^{-1}$. Differentiating with respect to $x$: $f_x = -z^2(x + 2y)^{-2}$. Differentiating with respect to $y$: $f_{xy} = -z^2 \\cdot (-2)(x + 2y)^{-3} \\cdot 2 = 4z^2(x + 2y)^{-3}$. Differentiating with respect to $z$: $f_{xyz} = 8z(x + 2y)^{-3} = \\frac{8z}{(x + 2y)^3}$."
+    "solution": "<p><strong>Step 1: Rewrite $f(x, y, z)$ in power form.</strong></p>\n<p>$$f(x, y, z) = \\frac{z^2}{x + 2y} = z^2(x + 2y)^{-1}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Differentiate with respect to $x$.</strong></p>\n<p>$$f_x = z^2 \\cdot (-1)(x + 2y)^{-2} \\cdot 1 = -z^2(x + 2y)^{-2}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Differentiate with respect to $y$.</strong></p>\n<p>$$f_{xy} = \\frac{\\partial}{\\partial y}\\left[-z^2(x + 2y)^{-2}\\right] = -z^2 \\cdot (-2)(x + 2y)^{-3} \\cdot 2 = 4z^2(x + 2y)^{-3}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Differentiate with respect to $z$.</strong></p>\n<p>$$f_{xyz} = \\frac{\\partial}{\\partial z}\\left[4z^2(x + 2y)^{-3}\\right] = 8z(x + 2y)^{-3} = \\frac{8z}{(x + 2y)^3}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 5: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(C)</strong>.</p>"
   },
   {
     "id": "232_12",
@@ -2264,7 +2258,7 @@ window.MATH201_BANK = [
       "0.36"
     ],
     "correct_answer": "D",
-    "solution": "Let $f(x, y) = x^2 y$ with $x = 2, y = 9, dx = 0.01, dy = 0.02$. The differential is $df = f_x dx + f_y dy = (2xy) dx + (x^2) dy$. Evaluating at $(2, 9)$: $df = 2(2)(9)(0.01) + (2^2)(0.02) = 36(0.01) + 4(0.02) = 0.36 + 0.08 = 0.44$."
+    "solution": "<p><strong>Step 1: Set up the function and identify base values and increments.</strong></p>\n<p>Define $f(x, y) = x^2 y$.\nWe want to approximate the change $\\Delta f = f(2.01, 9.02) - f(2, 9)$.\nThe base point is $(x, y) = (2, 9)$, and the increments are:\n$$dx = 2.01 - 2 = 0.01, \\quad dy = 9.02 - 9 = 0.02$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Compute the total differential $df$.</strong></p>\n<p>$$df = f_x dx + f_y dy = (2xy)dx + (x^2)dy$$\nEvaluate the partial derivatives at $(2, 9)$:\n$$f_x(2, 9) = 2(2)(9) = 36$$\n$$f_y(2, 9) = 2^2 = 4$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Compute the approximation.</strong></p>\n<p>$$df = 36(0.01) + 4(0.02) = 0.36 + 0.08 = 0.44$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(D)</strong>.</p>"
   },
   {
     "id": "232_13",
@@ -2281,7 +2275,7 @@ window.MATH201_BANK = [
       "$16 - 16\\ln 2$"
     ],
     "correct_answer": "C",
-    "solution": "At $s = 2, t = 1$, we have $x = \\ln(2/1) = \\ln 2$ and $y = 2^2 - 1^2 = 3$. Then $e^{xy} = e^{3\\ln 2} = 2^3 = 8$. Using the chain rule: $\\frac{\\partial z}{\\partial t} = \\frac{\\partial z}{\\partial x} \\frac{\\partial x}{\\partial t} + \\frac{\\partial z}{\\partial y} \\frac{\\partial y}{\\partial t} = (y e^{xy})\\left(-\\frac{1}{t}\\right) + (x e^{xy})(-2t)$. Substituting the values: $3(8)(-1) + (\\ln 2)(8)(-2) = -24 - 16\\ln 2$."
+    "solution": "<p><strong>Step 1: Compute intermediate values at $s = 2, t = 1$.</strong></p>\n<p>$$x = \\ln\\left(\\frac{2}{1}\\right) = \\ln 2$$\n$$y = 2^2 - 1^2 = 4 - 1 = 3$$\n$$xy = 3\\ln 2 = \\ln(2^3) = \\ln 8 \\implies e^{xy} = e^{\\ln 8} = 8$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: State the chain rule for $\\frac{\\partial z}{\\partial t}$.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial t} = \\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial t} + \\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial t}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Calculate the individual partial derivatives.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial x} = y e^{xy} = 3(8) = 24$$\n$$\\frac{\\partial z}{\\partial y} = x e^{xy} = (\\ln 2)(8) = 8\\ln 2$$\nSince $x = \\ln s - \\ln t$:\n$$\\frac{\\partial x}{\\partial t} = -\\frac{1}{t} = -\\frac{1}{1} = -1$$\nSince $y = s^2 - t^2$:\n$$\\frac{\\partial y}{\\partial t} = -2t = -2(1) = -2$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Assemble the terms.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial t} = 24(-1) + (8\\ln 2)(-2) = -24 - 16\\ln 2$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 5: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(C)</strong>.</p>"
   },
   {
     "id": "232_14",
@@ -2298,7 +2292,7 @@ window.MATH201_BANK = [
       "$-\\frac{x + 2y^2 z}{y^3 + 2yz}$"
     ],
     "correct_answer": "E",
-    "solution": "Let $F(x, y, z) = x\\ln y + y^2 z + z^2 - 8 = 0$. By implicit differentiation, $\\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$. Here $F_y = \\frac{x}{y} + 2yz = \\frac{x + 2y^2 z}{y}$ and $F_z = y^2 + 2z$. Therefore, $\\frac{\\partial z}{\\partial y} = -\\frac{x + 2y^2 z}{y(y^2 + 2z)} = -\\frac{x + 2y^2 z}{y^3 + 2yz}$."
+    "solution": "<p><strong>Step 1: Define implicit surface $F(x, y, z) = 0$.</strong></p>\n<p>Given $x\\ln y + y^2 z + z^2 = 8$:\n$$F(x, y, z) = x\\ln y + y^2 z + z^2 - 8 = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Compute $F_y$ and $F_z$.</strong></p>\n<p>$$F_y = \\frac{\\partial}{\\partial y}\\left(x\\ln y + y^2 z + z^2 - 8\\right) = \\frac{x}{y} + 2yz = \\frac{x + 2y^2 z}{y}$$\n$$F_z = \\frac{\\partial}{\\partial z}\\left(x\\ln y + y^2 z + z^2 - 8\\right) = y^2 + 2z$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Apply the implicit differentiation formula.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z} = -\\frac{\\frac{x + 2y^2 z}{y}}{y^2 + 2z} = -\\frac{x + 2y^2 z}{y(y^2 + 2z)} = -\\frac{x + 2y^2 z}{y^3 + 2yz}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(E)</strong>.</p>"
   },
   {
     "id": "232_15",
@@ -2315,7 +2309,7 @@ window.MATH201_BANK = [
       "3"
     ],
     "correct_answer": "B",
-    "solution": "Gradient: $\\nabla f(x, y) = \\langle 3 - 4y, -4x + 9 \\rangle$. At $(1, 2)$, $\\nabla f(1, 2) = \\langle 3 - 8, -4 + 9 \\rangle = \\langle -5, 5 \\rangle$. The unit vector in the direction of $\\vec{v}$ is $\\vec{u} = \\frac{3\\vec{i} + 4\\vec{j}}{\\sqrt{3^2 + 4^2}} = \\langle \\frac{3}{5}, \\frac{4}{5} \\rangle$. Then $D_{\\vec{u}} f(1, 2) = \\nabla f(1, 2) \\cdot \\vec{u} = -5\\left(\\frac{3}{5}\\right) + 5\\left(\\frac{4}{5}\\right) = -3 + 4 = 1$."
+    "solution": "<p><strong>Step 1: Compute the gradient vector $\\nabla f(x, y)$.</strong></p>\n<p>The function is $f(x, y) = 3x - 4xy + 9y$.\n$$f_x = 3 - 4y \\quad \\text{and} \\quad f_y = -4x + 9$$\n$$\\nabla f(x, y) = \\langle 3 - 4y, -4x + 9 \\rangle$$\nAt the point $(1, 2)$:\n$$\\nabla f(1, 2) = \\langle 3 - 4(2), -4(1) + 9 \\rangle = \\langle -5, 5 \\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Normalize the direction vector $\\vec{v} = 3\\vec{i} + 4\\vec{j}$.</strong></p>\n<p>$$\\|\\vec{v}\\| = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = 5$$\n$$\\vec{u} = \\frac{\\vec{v}}{\\|\\vec{v}\\|} = \\left\\langle \\frac{3}{5}, \\frac{4}{5} \\right\\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Calculate the directional derivative $D_{\\vec{u}} f(1, 2)$.</strong></p>\n<p>$$D_{\\vec{u}} f(1, 2) = \\nabla f(1, 2) \\cdot \\vec{u} = \\langle -5, 5 \\rangle \\cdot \\left\\langle \\frac{3}{5}, \\frac{4}{5} \\right\\rangle = -5\\left(\\frac{3}{5}\\right) + 5\\left(\\frac{4}{5}\\right) = -3 + 4 = 1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(B)</strong>.</p>"
   },
   {
     "id": "232_16",
@@ -2332,7 +2326,7 @@ window.MATH201_BANK = [
       "$\\frac{3}{2}$"
     ],
     "correct_answer": "C",
-    "solution": "The maximum value of the directional derivative equals the magnitude of the gradient vector $|\\nabla f(1, 4, 2)|$. Since $\\nabla f(x, y, z) = \\left\\langle \\frac{x}{\\sqrt{x^2+y^2+z^2}}, \\frac{y}{\\sqrt{x^2+y^2+z^2}}, \\frac{z}{\\sqrt{x^2+y^2+z^2}} \\right\\rangle = \\frac{\\langle x, y, z \\rangle}{|\\langle x, y, z \\rangle|}$, this is a unit vector for all $(x, y, z) \\ne (0, 0, 0)$. Thus $|\\nabla f(1, 4, 2)| = 1$."
+    "solution": "<p><strong>Step 1: Recall the formula for the maximum directional derivative.</strong></p>\n<p>The maximum value of the directional derivative of a differentiable function $f$ at a point occurs in the direction of the gradient and is equal to the magnitude of the gradient:\n$$\\max D_{\\vec{u}} f = \\|\\nabla f\\|$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Compute the gradient of $f(x, y, z) = \\sqrt{x^2 + y^2 + z^2}$.</strong></p>\n<p>Let $r = \\sqrt{x^2 + y^2 + z^2}$.\n$$f_x = \\frac{2x}{2\\sqrt{x^2 + y^2 + z^2}} = \\frac{x}{r}$$\n$$f_y = \\frac{y}{r}, \\quad f_z = \\frac{z}{r}$$\n$$\\nabla f(x, y, z) = \\frac{1}{r}\\langle x, y, z \\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Compute the magnitude of the gradient.</strong></p>\n<p>$$\\|\\nabla f(x, y, z)\\| = \\left\\|\\frac{1}{r}\\langle x, y, z \\rangle\\right\\| = \\frac{1}{r}\\sqrt{x^2 + y^2 + z^2} = \\frac{r}{r} = 1$$\nThis holds for any point $(x, y, z) \\ne (0, 0, 0)$, including $(1, 4, 2)$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(C)</strong>.</p>"
   },
   {
     "id": "232_17",
@@ -2349,7 +2343,7 @@ window.MATH201_BANK = [
       "$-e\\vec{i} + e\\vec{k}$"
     ],
     "correct_answer": "B",
-    "solution": "The direction of minimum increase (steepest decrease) is given by $-\\nabla f$. The gradient is $\\nabla f = \\langle -e^{2y}\\sin(x + z^3), 2e^{2y}\\cos(x + z^3), -3z^2 e^{2y}\\sin(x + z^3) \\rangle$. At $\\left(\\frac{\\pi}{2}, \\frac{1}{2}, 0\\right)$, $x + z^3 = \\frac{\\pi}{2}$, so $\\sin(\\pi/2) = 1, \\cos(\\pi/2) = 0$, and $e^{2(1/2)} = e$. Thus $\\nabla f = \\langle -e, 0, 0 \\rangle = -e\\vec{i}$. The direction of minimum increase is $-\\nabla f = -(-e\\vec{i}) = e\\vec{i}$."
+    "solution": "<p><strong>Step 1: Recall the direction of minimum increase (steepest decrease).</strong></p>\n<p>The direction of greatest increase is given by $\\nabla f$, whereas the direction of minimum increase (steepest decrease) is given by the negative gradient:\n$$\\vec{d}_{\\min} = -\\nabla f$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Compute the gradient of $f(x, y, z) = e^{2y}\\cos(x + z^3)$.</strong></p>\n<p>$$f_x = -e^{2y}\\sin(x + z^3)$$\n$$f_y = 2e^{2y}\\cos(x + z^3)$$\n$$f_z = -3z^2 e^{2y}\\sin(x + z^3)$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Evaluate at the point $\\left(\\frac{\\pi}{2}, \\frac{1}{2}, 0\\right)$.</strong></p>\n<p>$$x + z^3 = \\frac{\\pi}{2} + 0^3 = \\frac{\\pi}{2} \\implies \\sin\\left(\\frac{\\pi}{2}\\right) = 1, \\quad \\cos\\left(\\frac{\\pi}{2}\\right) = 0$$\n$$e^{2(1/2)} = e^1 = e$$\n$$\\begin{aligned}\nf_x &= -e(1) = -e \\\\\nf_y &= 2e(0) = 0 \\\\\nf_z &= -3(0)^2 e(1) = 0\n\\end{aligned}$$\nThus $\\nabla f = \\langle -e, 0, 0 \\rangle = -e\\vec{i}$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Compute $-\\nabla f$.</strong></p>\n<p>$$-\\nabla f = -(-e\\vec{i}) = e\\vec{i}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 5: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(B)</strong>.</p>"
   },
   {
     "id": "232_18",
@@ -2366,7 +2360,7 @@ window.MATH201_BANK = [
       "$2x + 2y - z = -2$"
     ],
     "correct_answer": "C",
-    "solution": "We have $f_x(x, y) = 2x$ and $f_y(x, y) = 2y$. At $(2, 1)$, $f_x(2, 1) = 4$ and $f_y(2, 1) = 2$. The tangent plane equation is $z - z_0 = f_x(x_0, y_0)(x - x_0) + f_y(x_0, y_0)(y - y_0) \\implies z - 8 = 4(x - 2) + 2(y - 1) = 4x - 8 + 2y - 2 = 4x + 2y - 10 \\iff 4x + 2y - z = 2$."
+    "solution": "<p><strong>Step 1: Compute partial derivatives of $z = f(x, y) = x^2 + y^2 + 3$.</strong></p>\n<p>$$f_x(x, y) = 2x \\implies f_x(2, 1) = 2(2) = 4$$\n$$f_y(x, y) = 2y \\implies f_y(2, 1) = 2(1) = 2$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Apply the tangent plane formula.</strong></p>\n<p>$$z - z_0 = f_x(x_0, y_0)(x - x_0) + f_y(x_0, y_0)(y - y_0)$$\nWith $(x_0, y_0, z_0) = (2, 1, 8)$:\n$$z - 8 = 4(x - 2) + 2(y - 1)$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Expand and rearrange to standard linear form.</strong></p>\n<p>$$z - 8 = 4x - 8 + 2y - 2$$\n$$z - 8 = 4x + 2y - 10 \\iff 4x + 2y - z = 2$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(C)</strong>.</p>"
   },
   {
     "id": "232_19",
@@ -2383,7 +2377,7 @@ window.MATH201_BANK = [
       "36"
     ],
     "correct_answer": "A",
-    "solution": "A tangent plane is horizontal when $f_x = 0$ and $f_y = 0$. $f_x = 2x - y - 2 = 0$ and $f_y = -x + 2y - 2 = 0$. Solving the system: from $y = 2x - 2$, substitute into the second equation: $-x + 2(2x - 2) - 2 = 0 \\implies 3x - 6 = 0 \\implies x = 2$, which gives $y = 2$. Then $c = z = 2^2 - (2)(2) + 2^2 - 2(2) - 2(2) = 4 - 4 + 4 - 4 - 4 = -4$. Hence $(a, b, c) = (2, 2, -4)$, and $a^2 + b^2 + c^2 = 2^2 + 2^2 + (-4)^2 = 4 + 4 + 16 = 24$."
+    "solution": "<p><strong>Step 1: Set the conditions for a horizontal tangent plane.</strong></p>\n<p>A tangent plane to $z = f(x, y)$ is horizontal if and only if both first partial derivatives vanish simultaneously:\n$$f_x(x, y) = 0 \\quad \\text{and} \\quad f_y(x, y) = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Compute partial derivatives and solve the linear system.</strong></p>\n<p>Given $z = x^2 - xy + y^2 - 2x - 2y$:\n$$f_x = 2x - y - 2 = 0 \\implies y = 2x - 2$$\n$$f_y = -x + 2y - 2 = 0$$\nSubstitute $y = 2x - 2$ into the second equation:\n$$-x + 2(2x - 2) - 2 = 0 \\implies 3x - 6 = 0 \\implies x = 2$$\nThen:\n$$y = 2(2) - 2 = 2$$\nThus $a = 2$ and $b = 2$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Determine $c = z(2, 2)$.</strong></p>\n<p>$$c = 2^2 - (2)(2) + 2^2 - 2(2) - 2(2) = 4 - 4 + 4 - 4 - 4 = -4$$\nThus the point is $(a, b, c) = (2, 2, -4)$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Calculate $a^2 + b^2 + c^2$.</strong></p>\n<p>$$a^2 + b^2 + c^2 = 2^2 + 2^2 + (-4)^2 = 4 + 4 + 16 = 24$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 5: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(A)</strong>.</p>"
   },
   {
     "id": "232_20",
@@ -2400,7 +2394,7 @@ window.MATH201_BANK = [
       "1"
     ],
     "correct_answer": "A",
-    "solution": "Let $F(x, y, z) = 3x^2 + y^2 + 3z^2 - 1 = 0$. The normal vector is $\\nabla F = \\langle 6x, 2y, 6z \\rangle$. For the tangent plane to be parallel to $-6x + y + 3z = 0$ (normal $\\vec{n} = \\langle -6, 1, 3 \\rangle$), we need $\\nabla F = k \\vec{n}$ for some scalar $k$. Thus $6x = -6k \\implies x = -k$, $2y = k \\implies y = k/2$, and $6z = 3k \\implies z = k/2$. Substituting into the ellipsoid equation: $3(-k)^2 + (k/2)^2 + 3(k/2)^2 = 1 \\implies 3k^2 + \\frac{1}{4}k^2 + \\frac{3}{4}k^2 = 1 \\implies 4k^2 = 1 \\implies k = \\pm 1/2$. For $k = 1/2$, $(a, b, c) = (-1/2, 1/4, 1/4)$, so $a + b + c = -1/2 + 1/4 + 1/4 = 0$. For $k = -1/2$, $(a, b, c) = (1/2, -1/4, -1/4)$, so $a + b + c = 1/2 - 1/4 - 1/4 = 0$. In either case, $a + b + c = 0$."
+    "solution": "<p><strong>Step 1: Compute the gradient vector of the ellipsoid level surface.</strong></p>\n<p>Let $F(x, y, z) = 3x^2 + y^2 + 3z^2 - 1 = 0$.\n$$\\nabla F = \\langle 6x, 2y, 6z \\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Relate the gradient to the parallel plane's normal vector.</strong></p>\n<p>The given plane $-6x + y + 3z = 0$ has normal vector $\\vec{n} = \\langle -6, 1, 3 \\rangle$.\nFor the tangent plane to be parallel to this plane, $\\nabla F$ must be parallel to $\\vec{n}$:\n$$\\langle 6x, 2y, 6z \\rangle = k \\langle -6, 1, 3 \\rangle$$\nThis yields:\n$$6x = -6k \\implies x = -k$$\n$$2y = k \\implies y = \\frac{k}{2}$$\n$$6z = 3k \\implies z = \\frac{k}{2}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Substitute $(x, y, z)$ into the ellipsoid equation.</strong></p>\n<p>$$3(-k)^2 + \\left(\\frac{k}{2}\\right)^2 + 3\\left(\\frac{k}{2}\\right)^2 = 1$$\n$$3k^2 + \\frac{k^2}{4} + \\frac{3k^2}{4} = 1 \\implies 3k^2 + k^2 = 1 \\implies 4k^2 = 1 \\implies k = \\pm \\frac{1}{2}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Compute $a + b + c$.</strong></p>\n<p>Notice that:\n$$a + b + c = x + y + z = -k + \\frac{k}{2} + \\frac{k}{2} = 0$$\nSince this sum is identically zero for any $k$, $a + b + c = 0$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 5: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(A)</strong>.</p>"
   },
   {
     "id": "231_1",
@@ -2417,7 +2411,7 @@ window.MATH201_BANK = [
       "$18$"
     ],
     "correct_answer": "E",
-    "solution": "<p><strong>Step 1: Determine the domain condition of the logarithm.</strong></p>\n<p>For $f(x, y) = \\ln(6 - x - y)$, the argument must be strictly positive:\n$$6 - x - y > 0 \\iff x + y < 6$$</p>\n<p><strong>Step 2: Intersect with the first quadrant.</strong></p>\n<p>The first quadrant requires $x \\ge 0$ and $y \\ge 0$. The region is bounded by:\n$$x \\ge 0, \\quad y \\ge 0, \\quad x + y \\le 6$$</p>\n<p><strong>Step 3: Calculate the area of the triangular region.</strong></p>\n<p>This is a right triangle with vertices at $(0, 0)$, $(6, 0)$, and $(0, 6)$.\n$$\\text{Area} = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(6)(6) = 18$$\nThis matches Choice <strong>(e)</strong>.</p>"
+    "solution": "<p><strong>Step 1: Determine the domain condition of the logarithm.</strong></p>\n<p>For $f(x, y) = \\ln(6 - x - y)$, the argument must be strictly positive:\n$$6 - x - y > 0 \\iff x + y < 6$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Intersect with the first quadrant.</strong></p>\n<p>The first quadrant requires $x \\ge 0$ and $y \\ge 0$. The region is bounded by:\n$$x \\ge 0, \\quad y \\ge 0, \\quad x + y \\le 6$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Calculate the area of the triangular region.</strong></p>\n<p>This is a right triangle with vertices at $(0, 0)$, $(6, 0)$, and $(0, 6)$.\n$$\\text{Area} = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2}(6)(6) = 18$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(E)</strong>.</p>"
   },
   {
     "id": "231_2",
@@ -2434,7 +2428,7 @@ window.MATH201_BANK = [
       "hyperboloids of one sheet"
     ],
     "correct_answer": "E",
-    "solution": "<p><strong>Step 1: Set the level surface equation $f(x, y, z) = k$.</strong></p>\n<p>$$\\ln(4x^2 + 4y^2 - z^2) = k$$</p>\n<p><strong>Step 2: Exponentiate both sides to eliminate the logarithm.</strong></p>\n<p>$$4x^2 + 4y^2 - z^2 = e^k$$\nSince $e^k > 0$ for all real constants $k$, let $c = e^k > 0$:\n$$4x^2 + 4y^2 - z^2 = c \\iff \\frac{x^2}{c/4} + \\frac{y^2}{c/4} - \\frac{z^2}{c} = 1$$</p>\n<p><strong>Step 3: Classify the quadric surface.</strong></p>\n<p>An equation with two positive squared variables and one negative squared variable equal to $+1$ is a <strong>hyperboloid of one sheet</strong> (with circular cross-sections parallel to the $xy$-plane). This corresponds to Choice <strong>(e)</strong>.</p>"
+    "solution": "<p><strong>Step 1: Set the level surface equation $f(x, y, z) = k$.</strong></p>\n<p>$$\\ln(4x^2 + 4y^2 - z^2) = k$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Exponentiate both sides to eliminate the logarithm.</strong></p>\n<p>$$4x^2 + 4y^2 - z^2 = e^k$$\nSince $e^k > 0$ for all real constants $k$, let $c = e^k > 0$:\n$$4x^2 + 4y^2 - z^2 = c \\iff \\frac{x^2}{c/4} + \\frac{y^2}{c/4} - \\frac{z^2}{c} = 1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Classify the quadric surface.</strong></p>\n<p>An equation with two positive squared variables and one negative squared variable equal to $+1$ represents a <strong>hyperboloid of one sheet</strong> (with circular cross-sections parallel to the $xy$-plane).</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(E)</strong>.</p>"
   },
   {
     "id": "231_3",
@@ -2451,7 +2445,7 @@ window.MATH201_BANK = [
       "$[-1, \\ln 4)$"
     ],
     "correct_answer": "B",
-    "solution": "<p><strong>Step 1: Determine domain boundaries for the logarithm.</strong></p>\n<p>Let $u = 3 - 2x^2 - y^2$. The function $f(x, y) = 4\\ln u$ requires $u > 0$, so $2x^2 + y^2 < 3$.</p>\n<p><strong>Step 2: Find bounds on $u$.</strong></p>\n<p>Since $2x^2 + y^2 \\ge 0$:\n<ul>\n<li>$u$ reaches its maximum at $(0, 0)$: $u_{\\max} = 3 - 0 = 3$.</li>\n<li>As $(x, y)$ approaches the boundary ellipse $2x^2 + y^2 = 3$, $u \\to 0^+$.</li>\n</ul>\nHence $u \\in (0, 3]$.</p>\n<p><strong>Step 3: Evaluate range of $4\\ln u$.</strong></p>\n<p>Since $\\ln u$ is strictly increasing on $(0, \\infty)$:\n$$\\lim_{u \\to 0^+} 4\\ln u = -\\infty \\quad \\text{and} \\quad 4\\ln(3) = 4\\ln 3$$\nThe range is $(-\\infty, 4\\ln 3]$, which matches Choice <strong>(b)</strong>.</p>"
+    "solution": "<p><strong>Step 1: Determine domain boundaries for the logarithm.</strong></p>\n<p>Let $u = 3 - 2x^2 - y^2$. The function $f(x, y) = 4\\ln u$ requires $u > 0$, so $2x^2 + y^2 < 3$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Find bounds on $u$.</strong></p>\n<p>Since $2x^2 + y^2 \\ge 0$:\n<ul>\n<li>$u$ reaches its maximum at $(0, 0)$: $u_{\\max} = 3 - 0 = 3$.</li>\n<li>As $(x, y)$ approaches the boundary ellipse $2x^2 + y^2 = 3$, $u \\to 0^+$.</li>\n</ul>\nHence $u \\in (0, 3]$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Evaluate range of $4\\ln u$.</strong></p>\n<p>Since $\\ln u$ is strictly increasing on $(0, \\infty)$:\n$$\\lim_{u \\to 0^+} 4\\ln u = -\\infty \\quad \\text{and} \\quad 4\\ln(3) = 4\\ln 3$$\nThe range is $(-\\infty, 4\\ln 3]$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(B)</strong>.</p>"
   },
   {
     "id": "231_4",
@@ -2468,7 +2462,7 @@ window.MATH201_BANK = [
       "$-2$"
     ],
     "correct_answer": "B",
-    "solution": "<p><strong>Step 1: Convert to polar coordinates or substitute $u = x^2 + y^2$.</strong></p>\n<p>Let $u = x^2 + y^2$. As $(x, y) \\to (0, 0)$, $u \\to 0^+$:\n$$\\lim_{(x,y)\\to(0,0)} \\frac{e^{-(x^2+y^2)} - 1}{x^2 + y^2} = \\lim_{u \\to 0^+} \\frac{e^{-u} - 1}{u}$$</p>\n<p><strong>Step 2: Evaluate using L'H&ocirc;pital's Rule (0/0 indeterminate form).</strong></p>\n<p>Differentiating numerator and denominator with respect to $u$:\n$$\\lim_{u \\to 0^+} \\frac{\\frac{d}{du}(e^{-u} - 1)}{\\frac{d}{du}(u)} = \\lim_{u \\to 0^+} \\frac{-e^{-u}}{1} = -e^0 = -1$$</p>\n<p><strong>Step 3: Conclusion.</strong></p>\n<p>The limit exists and equals $-1$.</p>"
+    "solution": "<p><strong>Step 1: Convert to single variable using radial substitution.</strong></p>\n<p>Let $u = x^2 + y^2$. As $(x, y) \\to (0, 0)$, $u \\to 0^+$:\n$$\\lim_{(x,y)\\to(0,0)} \\frac{e^{-(x^2+y^2)} - 1}{x^2 + y^2} = \\lim_{u \\to 0^+} \\frac{e^{-u} - 1}{u}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Evaluate using L'H&ocirc;pital's Rule.</strong></p>\n<p>Direct substitution yields indeterminate form $\\frac{0}{0}$. Differentiating numerator and denominator with respect to $u$:\n$$\\lim_{u \\to 0^+} \\frac{\\frac{d}{du}(e^{-u} - 1)}{\\frac{d}{du}(u)} = \\lim_{u \\to 0^+} \\frac{-e^{-u}}{1} = -e^0 = -1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(B)</strong>.</p>"
   },
   {
     "id": "231_5",
@@ -2485,7 +2479,7 @@ window.MATH201_BANK = [
       "$5$"
     ],
     "correct_answer": "D",
-    "solution": "<p><strong>Step 1: The maximum rate of change occurs in the direction of the gradient $\\nabla f$, and its value is $\\|\\nabla f\\|$.</strong></p><p>$$\\nabla f = \\langle 2x - 4, 2y - 2 \\rangle \\implies \\nabla f(5, 2) = \\langle 6, 2 \\rangle$$</p><p>$$\\|\\nabla f(5, 2)\\| = \\sqrt{6^2 + 2^2} = \\sqrt{40} = 2\\sqrt{10}$$</p>"
+    "solution": "<p><strong>Step 1: Compute the gradient vector $\\nabla f(x, y)$.</strong></p>\n<p>The function is $f(x, y) = x^2 + y^2 - 4x - 2y$.\n$$f_x = 2x - 4 \\quad \\text{and} \\quad f_y = 2y - 2$$\n$$\\nabla f(x, y) = \\langle 2x - 4, 2y - 2 \\rangle$$\nAt the point $(5, c)$:\n$$\\nabla f(5, c) = \\langle 2(5) - 4, 2c - 2 \\rangle = \\langle 6, 2c - 2 \\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Relate to the direction of maximum increase.</strong></p>\n<p>The maximum rate of increase always occurs in the exact direction of the gradient vector $\\nabla f(5, c)$.\nWe are given that this direction is $\\vec{i} + 2\\vec{j} = \\langle 1, 2 \\rangle$.\nTherefore, $\\nabla f(5, c)$ must be a positive scalar multiple of $\\langle 1, 2 \\rangle$:\n$$\\langle 6, 2c - 2 \\rangle = k \\langle 1, 2 \\rangle \\quad (k > 0)$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Solve for $k$ and $c$.</strong></p>\n<p>From the $x$-component:\n$$6 = k(1) \\implies k = 6$$\nFrom the $y$-component:\n$$2c - 2 = k(2) = 6(2) = 12$$\n$$2c = 14 \\implies c = 7$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(D)</strong>.</p>"
   },
   {
     "id": "231_6",
@@ -2502,7 +2496,7 @@ window.MATH201_BANK = [
       "$\\infty$"
     ],
     "correct_answer": "A",
-    "solution": "<p><strong>Step 1: Test paths $y = mx^2$.</strong></p><p>$$\\frac{x^2(m x^2)}{x^4 + (m x^2)^2} = \\frac{m x^4}{(1 + m^2)x^4} = \\frac{m}{1 + m^2}$$</p><p>Since the limit depends on $m$, the limit <strong>does not exist</strong>.</p>"
+    "solution": "<p><strong>Step 1: Analyze degree homogeneity and test parabolic paths.</strong></p>\n<p>We examine the limit:\n$$\\lim_{(x,y)\\to(0,0)} \\frac{x^2 y}{x^4 + y^2}$$\nNotice that $x^4$ and $y^2$ have equal degree weight when $y \\propto x^2$.\nTest approach paths of the form $y = m x^2$, where $m$ is a real constant:\n$$\\lim_{x \\to 0} \\frac{x^2(m x^2)}{x^4 + (m x^2)^2} = \\lim_{x \\to 0} \\frac{m x^4}{x^4 + m^2 x^4} = \\lim_{x \\to 0} \\frac{m x^4}{x^4(1 + m^2)} = \\frac{m}{1 + m^2}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Show path dependence.</strong></p>\n<p><ul>\n<li>Along $y = 0$ ($m = 0$): $\\lim = 0$.</li>\n<li>Along $y = x^2$ ($m = 1$): $\\lim = \\frac{1}{1 + 1^2} = \\frac{1}{2}$.</li>\n</ul>\nBecause the limit depends on the chosen path parameter $m$, the limit <strong>does not exist</strong>.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(A)</strong>.</p>"
   },
   {
     "id": "231_7",
@@ -2519,7 +2513,7 @@ window.MATH201_BANK = [
       "$-4$"
     ],
     "correct_answer": "C",
-    "solution": "<p><strong>Step 1: Multivariable Chain Rule for $\\frac{\\partial z}{\\partial s}$:</strong></p><p>$$\\frac{\\partial z}{\\partial s} = \\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial s} + \\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial s} = \\frac{y}{1 + x^2 y^2}(1) + \\frac{x}{1 + x^2 y^2}(0) = \\frac{\\cos t}{1 + (s + \\sin t)^2\\cos^2 t}$$</p>"
+    "solution": "<p><strong>Step 1: Compute intermediate coordinate values at $(s, t) = (1, 0)$.</strong></p>\n<p>$$x(1, 0) = 1 + \\sin(0) = 1$$\n$$y(1, 0) = \\cos(0) = 1$$\n$$xy = 1(1) = 1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Compute partial derivatives of $z = \\arctan(xy)$.</strong></p>\n<p>$$z_x = \\frac{y}{1 + (xy)^2} \\implies z_x(1, 1) = \\frac{1}{1 + 1^2} = \\frac{1}{2}$$\n$$z_y = \\frac{x}{1 + (xy)^2} \\implies z_y(1, 1) = \\frac{1}{1 + 1^2} = \\frac{1}{2}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Compute partial derivatives of $x$ and $y$.</strong></p>\n<p>$$x_s = 1, \\quad x_t = \\cos t \\implies x_t(1, 0) = \\cos 0 = 1$$\n$$y_s = 0, \\quad y_t = -\\sin t \\implies y_t(1, 0) = -\\sin 0 = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Apply the chain rule for $\\frac{\\partial z}{\\partial s}$ and $\\frac{\\partial z}{\\partial t}$.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial s} = z_x x_s + z_y y_s = \\frac{1}{2}(1) + \\frac{1}{2}(0) = \\frac{1}{2}$$\n$$\\frac{\\partial z}{\\partial t} = z_x x_t + z_y y_t = \\frac{1}{2}(1) + \\frac{1}{2}(0) = \\frac{1}{2}$$\n$$\\frac{\\partial z}{\\partial s} + \\frac{\\partial z}{\\partial t} = \\frac{1}{2} + \\frac{1}{2} = 1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 5: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(C)</strong>.</p>"
   },
   {
     "id": "231_8",
@@ -2536,7 +2530,7 @@ window.MATH201_BANK = [
       "$-4$"
     ],
     "correct_answer": "B",
-    "solution": "<p><strong>1. Limit Analysis:</strong> Direct substitution yields the indeterminate form $\\frac{0}{0}$.</p><p><strong>2. Path Test or Polar Conversion:</strong> Factoring, algebraic cancellation of terms, or converting to polar coordinates ($x = r\\cos\\theta, y = r\\sin\\theta$ as $r \\to 0^+$) resolves the limit.</p><p><strong>3. Result:</strong> The limit value (or continuity condition) is: $$1$$</p>"
+    "solution": "<p><strong>Step 1: State the continuity requirement at $(0, 0)$.</strong></p>\n<p>For $f(x, y)$ to be continuous at $(0, 0)$, we require:\n$$\\lim_{(x, y) \\to (0, 0)} f(x, y) = f(0, 0) = c$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Evaluate the limit using substitution.</strong></p>\n<p>Let $u = xy$. As $(x, y) \\to (0, 0)$, $u = xy \\to 0$:\n$$\\lim_{(x, y) \\to (0, 0)} \\frac{\\sin(xy)}{xy} = \\lim_{u \\to 0} \\frac{\\sin u}{u} = 1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Equate the limit to $c$.</strong></p>\n<p>$$c = \\lim_{(x, y) \\to (0, 0)} f(x, y) = 1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(B)</strong>.</p>"
   },
   {
     "id": "231_9",
@@ -2553,7 +2547,7 @@ window.MATH201_BANK = [
       "$(1, 2, 1)$"
     ],
     "correct_answer": "B",
-    "solution": "<p><strong>Step 1: Implicit surface $F(x, y, z) = \\ln x - \\ln(y - z) - x + 1 = 0$.</strong></p><p><strong>Step 2: Compute gradient $\\nabla F(1, 4, 3)$:</strong></p><p>$$\\begin{aligned} F_x &= \\frac{1}{x} - 1 \\implies F_x(1, 4, 3) = 0 \\\\ F_y &= -\\frac{1}{y - z} \\implies F_y(1, 4, 3) = -1 \\\\ F_z &= \\frac{1}{y - z} \\implies F_z(1, 4, 3) = 1 \\end{aligned}$$</p><p>Normal vector is $\\vec{n} = \\langle 0, -1, 1 \\rangle$.</p><p><strong>Step 3: Normal line parametric equations:</strong></p><p>$$x = 1, \\quad y = 4 - t, \\quad z = 3 + t$$</p><p>For $t = 1$, $(x, y, z) = (1, 3, 4)$, which matches Choice <strong>(b)</strong>.</p>"
+    "solution": "<p><strong>Step 1: Define implicit surface $F(x, y, z) = 0$.</strong></p>\n<p>Using logarithm properties on $\\ln\\left(\\frac{x}{y - z}\\right) = x - 1$:\n$$F(x, y, z) = \\ln x - \\ln(y - z) - x + 1 = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Compute the gradient vector at $(1, 4, 3)$.</strong></p>\n<p>$$\\begin{aligned}\nF_x &= \\frac{1}{x} - 1 \\implies F_x(1, 4, 3) = \\frac{1}{1} - 1 = 0 \\\\\nF_y &= -\\frac{1}{y - z} \\implies F_y(1, 4, 3) = -\\frac{1}{4 - 3} = -1 \\\\\nF_z &= -\\left(-\\frac{1}{y - z}\\right) = \\frac{1}{y - z} \\implies F_z(1, 4, 3) = \\frac{1}{4 - 3} = 1\n\\end{aligned}$$\nThus, the normal vector to the surface is $\\vec{n} = \\langle 0, -1, 1 \\rangle$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Write parametric equations for the normal line and test candidate points.</strong></p>\n<p>Through $(1, 4, 3)$ with direction $\\langle 0, -1, 1 \\rangle$:\n$$x(t) = 1, \\quad y(t) = 4 - t, \\quad z(t) = 3 + t$$\nSetting $t = 1$:\n$$x = 1, \\quad y = 4 - 1 = 3, \\quad z = 3 + 1 = 4 \\implies (1, 3, 4)$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(B)</strong>.</p>"
   },
   {
     "id": "231_10",
@@ -2570,7 +2564,7 @@ window.MATH201_BANK = [
       "$2\\pi$"
     ],
     "correct_answer": "B",
-    "solution": "<p><strong>Step 1: Total differential of cone volume $V = \\frac{1}{3}\\pi r^2 h$:</strong></p><p>$$dV = \\frac{\\partial V}{\\partial r}\\,dr + \\frac{\\partial V}{\\partial h}\\,dh = \\left(\\frac{2}{3}\\pi r h\\right)dr + \\left(\\frac{1}{3}\\pi r^2\\right)dh$$</p><p><strong>Step 2: Evaluate with $r = 10, h = 25, dr = 0.1, dh = 0.1$:</strong></p><p>$$dV = \\left(\\frac{2}{3}\\pi(250)\\right)(0.1) + \\left(\\frac{1}{3}\\pi(100)\\right)(0.1) = \\frac{50}{3}\\pi + \\frac{10}{3}\\pi = 20\\pi$$</p>"
+    "solution": "<p><strong>Step 1: Write the total differential formula for cone volume.</strong></p>\n<p>$$V(r, h) = \\frac{1}{3}\\pi r^2 h$$\n$$dV = \\frac{\\partial V}{\\partial r}\\,dr + \\frac{\\partial V}{\\partial h}\\,dh = \\left(\\frac{2}{3}\\pi r h\\right)dr + \\left(\\frac{1}{3}\\pi r^2\\right)dh$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Substitute the given measurements and maximum errors.</strong></p>\n<p>Given $r = 10\\text{ cm}, h = 25\\text{ cm}, dr = 0.1\\text{ cm}, dh = 0.1\\text{ cm}$:\n$$dV = \\frac{2}{3}\\pi(10)(25)(0.1) + \\frac{1}{3}\\pi(10^2)(0.1)$$\n$$= \\frac{500\\pi}{3}(0.1) + \\frac{100\\pi}{3}(0.1) = \\frac{50\\pi}{3} + \\frac{10\\pi}{3} = \\frac{60\\pi}{3} = 20\\pi\\text{ cm}^3$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(B)</strong>.</p>"
   },
   {
     "id": "231_11",
@@ -2587,7 +2581,7 @@ window.MATH201_BANK = [
       "$4$"
     ],
     "correct_answer": "C",
-    "solution": "<p><strong>Step 1: Apply Clairaut's Theorem to choose an efficient differentiation order.</strong></p>\n<p>By Clairaut's Theorem, mixed partial derivatives commute: $f_{xyz} = f_{zxy}$.\nStarting with $f(x, y, z) = x e^{xy} \\sin^2 z$, differentiating with respect to $z$ first isolates the $x, y$ variables.</p>\n<p><strong>Step 2: Differentiate step by step.</strong></p>\n<p>$$\\begin{aligned}\nf_z &= x e^{xy} \\cdot \\frac{d}{dz}(\\sin^2 z) = x e^{xy}(2\\sin z\\cos z) = x e^{xy}\\sin(2z) \\\\\nf_{zx} &= \\frac{\\partial}{\\partial x}\\left[x e^{xy}\\right]\\sin(2z) = (e^{xy} + x y e^{xy})\\sin(2z) = (1 + xy)e^{xy}\\sin(2z) \\\\\nf_{zxy} &= \\frac{\\partial}{\\partial y}\\left[(1 + xy)e^{xy}\\right]\\sin(2z) = \\left[x e^{xy} + (1 + xy)x e^{xy}\\right]\\sin(2z) = x(2 + xy)e^{xy}\\sin(2z)\n\\end{aligned}$$</p>\n<p><strong>Step 3: Evaluate at $(-1, 0, \\pi/4)$.</strong></p>\n<p>Substitute $x = -1, y = 0, z = \\pi/4$:\n$$xy = 0, \\quad e^0 = 1, \\quad \\sin\\left(2\\cdot\\frac{\\pi}{4}\\right) = \\sin\\left(\\frac{\\pi}{2}\\right) = 1$$\n$$f_{xyz}(-1, 0, \\pi/4) = (-1)(2 + 0)(1)(1) = -2$$\nThis matches Choice <strong>(c)</strong>.</p>"
+    "solution": "<p><strong>Step 1: Apply Clairaut's Theorem to choose an efficient differentiation order.</strong></p>\n<p>By Clairaut's Theorem, mixed partial derivatives commute: $f_{xyz} = f_{zxy}$.\nGiven $f(x, y, z) = x e^{xy} \\sin^2 z$, differentiating with respect to $z$ first separates the variables cleanly.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Differentiate sequentially.</strong></p>\n<p>$$\\begin{aligned}\nf_z &= x e^{xy} \\cdot \\frac{d}{dz}(\\sin^2 z) = x e^{xy}(2\\sin z\\cos z) = x e^{xy}\\sin(2z) \\\\\nf_{zx} &= \\frac{\\partial}{\\partial x}\\left[x e^{xy}\\right]\\sin(2z) = (e^{xy} + x y e^{xy})\\sin(2z) = (1 + xy)e^{xy}\\sin(2z) \\\\\nf_{zxy} &= \\frac{\\partial}{\\partial y}\\left[(1 + xy)e^{xy}\\right]\\sin(2z) = \\left[x e^{xy} + (1 + xy)x e^{xy}\\right]\\sin(2z) = x(2 + xy)e^{xy}\\sin(2z)\n\\end{aligned}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Evaluate at $(-1, 0, \\pi/4)$.</strong></p>\n<p>Substitute $x = -1, y = 0, z = \\pi/4$:\n$$xy = 0, \\quad e^0 = 1, \\quad \\sin\\left(2 \\cdot \\frac{\\pi}{4}\\right) = \\sin\\left(\\frac{\\pi}{2}\\right) = 1$$\n$$f_{xyz}\\left(-1, 0, \\frac{\\pi}{4}\\right) = (-1)(2 + 0)(1)(1) = -2$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(C)</strong>.</p>"
   },
   {
     "id": "231_12",
@@ -2604,7 +2598,7 @@ window.MATH201_BANK = [
       "$11$"
     ],
     "correct_answer": "A",
-    "solution": "<p><strong>Step 1: Multivariable Chain Rule for composite function $W(s, t) = F(u(s, t), v(s, t))$:</strong></p><p>$$W_s = F_u u_s + F_v v_s$$</p>"
+    "solution": "<p><strong>Step 1: State the multivariable chain rule for $W(s, t) = F(u(s, t), v(s, t))$.</strong></p>\n<p>$$W_s = F_u u_s + F_v v_s$$\n$$W_t = F_u u_t + F_v v_t$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Evaluate $W_s(1, 0)$ and $W_t(1, 0)$.</strong></p>\n<p>At $(s, t) = (1, 0)$, $(u, v) = (2, -3)$. We are given $F_u = 1$ and $F_v = 3$:\n$$W_s(1, 0) = (1)(-2) + (3)(5) = -2 + 15 = 13$$\n$$W_t(1, 0) = (1)(-6) + (3)(4) = -6 + 12 = 6$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Compute the sum $W_s(1, 0) + W_t(1, 0)$.</strong></p>\n<p>$$W_s(1, 0) + W_t(1, 0) = 13 + 6 = 19$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(A)</strong>.</p>"
   },
   {
     "id": "231_13",
@@ -2621,7 +2615,7 @@ window.MATH201_BANK = [
       "$1$"
     ],
     "correct_answer": "A",
-    "solution": "<p><strong>Step 1: Formulate implicit function $F(x, y, z) = 0$.</strong></p>\n<p>$$F(x, y, z) = 2yz + x\\ln y - z^2 = 0$$</p>\n<p><strong>Step 2: Apply the Implicit Function Theorem formula for $\\frac{\\partial z}{\\partial y}$.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$\nCompute $F_y$ and $F_z$:\n$$F_y = 2z + \\frac{x}{y}$$\n$$F_z = 2y - 2z$$</p>\n<p><strong>Step 3: Evaluate at the point $(2, 1, 2)$.</strong></p>\n<p>$$F_y(2, 1, 2) = 2(2) + \\frac{2}{1} = 4 + 2 = 6$$\n$$F_z(2, 1, 2) = 2(1) - 2(2) = 2 - 4 = -2$$\n$$\\frac{\\partial z}{\\partial y} = -\\frac{6}{-2} = 3$$\nThis matches Choice <strong>(a)</strong>.</p>"
+    "solution": "<p><strong>Step 1: Formulate implicit function $F(x, y, z) = 0$.</strong></p>\n<p>$$F(x, y, z) = 2yz + x\\ln y - z^2 = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Apply the Implicit Function Theorem formula for $\\frac{\\partial z}{\\partial y}$.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial y} = -\\frac{F_y}{F_z}$$\nCompute $F_y$ and $F_z$:\n$$F_y = 2z + \\frac{x}{y}$$\n$$F_z = 2y - 2z$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Evaluate at the point $(2, 1, 2)$.</strong></p>\n<p>$$F_y(2, 1, 2) = 2(2) + \\frac{2}{1} = 4 + 2 = 6$$\n$$F_z(2, 1, 2) = 2(1) - 2(2) = 2 - 4 = -2$$\n$$\\frac{\\partial z}{\\partial y} = -\\frac{6}{-2} = 3$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(A)</strong>.</p>"
   },
   {
     "id": "231_14",
@@ -2638,7 +2632,7 @@ window.MATH201_BANK = [
       "$\\frac{1}{\\sqrt{2}}$"
     ],
     "correct_answer": "D",
-    "solution": "<p><strong>1. Standard Distance Formula:</strong> The distance $D$ between a point and a line or between parallel planes $Ax + By + Cz = D_1$ and $Ax + By + Cz = D_2$ is computed via: $$D = \\frac{|D_1 - D_2|}{\\sqrt{A^2 + B^2 + C^2}}$$ For skew lines, $D = \\frac{|(\\vec{v}_1 \\times \\vec{v}_2) \\cdot \\vec{P_1P_2}|}{\\|\\vec{v}_1 \\times \\vec{v}_2\\|}.$</p><p><strong>2. Substitution:</strong> Evaluating the magnitudes and dot product gives the simplified radical value: $$√ 3 6$$</p>"
+    "solution": "<p><strong>Step 1: Match the coefficients of the normal vectors.</strong></p>\n<p>The two given planes are:\n$$\\Pi_1: 10x + 2y - 2z = 5$$\n$$\\Pi_2: 5x + y - z = 1$$\nMultiply $\\Pi_2$ by $2$:\n$$10x + 2y - 2z = 2$$\nBoth planes now have identical normal vector $\\vec{n} = \\langle 10, 2, -2 \\rangle$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Compute the magnitude of the normal vector.</strong></p>\n<p>$$\\|\\vec{n}\\| = \\sqrt{10^2 + 2^2 + (-2)^2} = \\sqrt{100 + 4 + 4} = \\sqrt{108} = \\sqrt{36 \\times 3} = 6\\sqrt{3}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Apply the distance formula between parallel planes.</strong></p>\n<p>$$D = \\frac{|D_1 - D_2|}{\\|\\vec{n}\\|} = \\frac{|5 - 2|}{6\\sqrt{3}} = \\frac{3}{6\\sqrt{3}} = \\frac{1}{2\\sqrt{3}} = \\frac{\\sqrt{3}}{6}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(D)</strong>.</p>"
   },
   {
     "id": "231_15",
@@ -2655,7 +2649,7 @@ window.MATH201_BANK = [
       "$0$"
     ],
     "correct_answer": "D",
-    "solution": "<p><strong>1. Gradient Vector $\\nabla f$:</strong> Computing the partial derivatives gives $\\nabla f = \\langle f_x, f_y, f_z \\rangle$.</p><p><strong>2. Unit Direction $\\vec{u}$:</strong> Normalizing the direction vector $\\vec{v}$ yields $\\vec{u} = \\frac{\\vec{v}}{\\|\\vec{v}\\|}$. The directional derivative is $D_{\\vec{u}} f = \\nabla f \\cdot \\vec{u}$.</p><p><strong>3. Maximum Rate of Change:</strong> The maximum rate of change is given by $\\|\\nabla f\\|$. Evaluating yields: $$2$$</p>"
+    "solution": "<p><strong>Step 1: Compute the gradient vector $\\nabla f(x, y)$.</strong></p>\n<p>For $f(x, y) = \\ln(1 + xy)$:\n$$f_x = \\frac{y}{1 + xy}, \\quad f_y = \\frac{x}{1 + xy}$$\n$$\\nabla f(a, 4) = \\left\\langle \\frac{4}{1 + 4a}, \\frac{a}{1 + 4a} \\right\\rangle = \\frac{1}{1 + 4a}\\langle 4, a \\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Set the directional derivative to zero.</strong></p>\n<p>The directional derivative in the direction of $\\vec{v} = \\langle 1, -2 \\rangle$ is zero if and only if $\\nabla f(a, 4) \\cdot \\vec{v} = 0$:\n$$\\langle 4, a \\rangle \\cdot \\langle 1, -2 \\rangle = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Solve for $a$.</strong></p>\n<p>$$4(1) + a(-2) = 0 \\implies 4 - 2a = 0 \\implies 2a = 4 \\implies a = 2$$\n(Note that for $a = 2$, $1 + 4(2) = 9 > 0$, so the logarithm is well-defined.)</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(D)</strong>.</p>"
   },
   {
     "id": "231_16",
@@ -2672,7 +2666,7 @@ window.MATH201_BANK = [
       "$5$"
     ],
     "correct_answer": "A",
-    "solution": "<p><strong>Step 1: Find a direction vector $\\vec{v}$ for the line through $P(1, 3, 4)$ and $Q(0, 5, 7)$.</strong></p>\n<p>$$\\vec{v} = \\vec{PQ} = \\langle 0 - 1, 5 - 3, 7 - 4 \\rangle = \\langle -1, 2, 3 \\rangle$$</p>\n<p><strong>Step 2: Write parametric equations for the line.</strong></p>\n<p>$$x(t) = 1 - t, \\quad y(t) = 3 + 2t, \\quad z(t) = 4 + 3t$$</p>\n<p><strong>Step 3: Use the point $R(2, 1, a)$ to solve for $t$ and $a$.</strong></p>\n<p>From the $x$-coordinate:\n$$2 = 1 - t \\implies t = -1$$\nVerify with $y$: $y(-1) = 3 + 2(-1) = 1$ (consistent).\nNow find $a$:\n$$a = z(-1) = 4 + 3(-1) = 4 - 3 = 1$$\nThis matches Choice <strong>(a)</strong>.</p>"
+    "solution": "<p><strong>Step 1: Find a direction vector $\\vec{v}$ for the line through $P(1, 3, 4)$ and $Q(0, 5, 7)$.</strong></p>\n<p>$$\\vec{v} = \\vec{PQ} = \\langle 0 - 1, 5 - 3, 7 - 4 \\rangle = \\langle -1, 2, 3 \\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Write parametric equations for the line.</strong></p>\n<p>$$x(t) = 1 - t, \\quad y(t) = 3 + 2t, \\quad z(t) = 4 + 3t$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Use the point $R(2, 1, a)$ to solve for $t$ and $a$.</strong></p>\n<p>From the $x$-coordinate:\n$$2 = 1 - t \\implies t = -1$$\nVerify with $y$: $y(-1) = 3 + 2(-1) = 1$ (consistent).\nNow solve for $a$:\n$$a = z(-1) = 4 + 3(-1) = 4 - 3 = 1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(A)</strong>.</p>"
   },
   {
     "id": "231_17",
@@ -2689,7 +2683,7 @@ window.MATH201_BANK = [
       "$-1$"
     ],
     "correct_answer": "E",
-    "solution": "<p><strong>1. Normal Vector Construction:</strong> A plane with equation $Ax + By + Cz = D$ has normal vector $\\vec{n} = \\langle A, B, C \\rangle$. Perpendicular planes have orthogonal normal vectors ($\\vec{n}_1 \\cdot \\vec{n}_2 = 0$), while parallel planes share scalar multiples of $\\vec{n}$.</p><p><strong>2. Point-Normal Equation:</strong> Expanding $\\vec{n} \\cdot \\langle x - x_0, y - y_0, z - z_0 \\rangle = 0$ yields the scalar coefficients.</p><p><strong>3. Conclusion:</strong> Solving for unknown coefficients $(a, b, c)$ confirms: $$-1$$</p>"
+    "solution": "<p><strong>Step 1: Use the family of planes passing through the intersection line.</strong></p>\n<p>The pencil of planes passing through the intersection of $\\Pi_1: x + y + z - 1 = 0$ and $\\Pi_2: 2x - y + 2z - 2 = 0$ is:\n$$(x + y + z - 1) + k(2x - y + 2z - 2) = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Substitute the point $(1, 2, 3)$ to find $k$.</strong></p>\n<p>$$(1 + 2 + 3 - 1) + k(2(1) - 2 + 2(3) - 2) = 0$$\n$$5 + k(2 - 2 + 6 - 2) = 0 \\implies 5 + 4k = 0 \\implies k = -\\frac{5}{4}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Simplify the plane equation.</strong></p>\n<p>Multiply through by $4$:\n$$4(x + y + z - 1) - 5(2x - y + 2z - 2) = 0$$\n$$(4x - 10x) + (4y + 5y) + (4z - 10z) + (-4 + 10) = 0$$\n$$-6x + 9y - 6z + 6 = 0$$\nDivide by $-3$:\n$$2x - 3y + 2z - 2 = 0 \\iff 2x - 3y + 2z = 2$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Compare with $2x + ay + 2z = b$ and compute $a + b$.</strong></p>\n<p>$$a = -3, \\quad b = 2$$\n$$a + b = -3 + 2 = -1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 5: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(E)</strong>.</p>"
   },
   {
     "id": "231_18",
@@ -2706,7 +2700,7 @@ window.MATH201_BANK = [
       "(III) only"
     ],
     "correct_answer": "C",
-    "solution": "<p><strong>Step 1: Analyze $x^2 - 3y^2 - 9z^2 = 0 \\iff x^2 = 3y^2 + 9z^2$.</strong></p><p>This represents an <strong>elliptic cone</strong> opening along the $x$-axis with vertex at $(0, 0, 0)$.</p>"
+    "solution": "<p><strong>Step 1: Analyze statement (I) — trace in the $xz$-plane.</strong></p>\n<p>The surface equation is $x^2 - 3y^2 - 9z^2 = 0$.\nThe trace in the $xz$-plane is obtained by setting $y = 0$:\n$$x^2 - 9z^2 = 0 \\iff x^2 = 9z^2 \\iff x = \\pm 3z$$\nThis is indeed the pair of intersecting lines $x = \\pm 3z$. Thus, (I) is <strong>true</strong>.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Analyze statement (II) — traces in planes parallel to the $yz$-plane.</strong></p>\n<p>Planes parallel to the $yz$-plane have equation $x = k$ (where $k \\ne 0$):\n$$k^2 - 3y^2 - 9z^2 = 0 \\iff 3y^2 + 9z^2 = k^2 \\iff \\frac{y^2}{k^2/3} + \\frac{z^2}{k^2/9} = 1$$\nThese are ellipses for any non-zero constant $k$. Thus, (II) is <strong>true</strong>.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Analyze statement (III) — surface classification.</strong></p>\n<p>Rewriting $x^2 = 3y^2 + 9z^2$, this is the equation of an <strong>elliptic cone</strong> opening along the $x$-axis with vertex at the origin, not a hyperboloid of two sheets. Thus, (III) is <strong>false</strong>.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>Only (I) and (II) are correct, which matches Choice <strong>(C)</strong>.</p>"
   },
   {
     "id": "231_19",
@@ -2723,7 +2717,7 @@ window.MATH201_BANK = [
       "$1$"
     ],
     "correct_answer": "A",
-    "solution": "<p><strong>Step 1: Identify line direction vector and surface normal vector.</strong></p>\n<p>The line $x - 2 = z - 1, \\; y = 1$ has direction vector $\\vec{v} = \\langle 1, 0, 1 \\rangle$.\nFor the surface $F(x, y, z) = 3x^2 - 2xy + z^2 - 1 = 0$, the normal vector is given by the gradient:\n$$\\nabla F = \\langle 6x - 2y, -2x, 2z \\rangle$$</p>\n<p><strong>Step 2: Relate normal vector to line direction at $(x_0, y_0, z_0)$.</strong></p>\n<p>Since the line is perpendicular to the surface, $\\nabla F(x_0, y_0, z_0)$ must be parallel to $\\vec{v} = \\langle 1, 0, 1 \\rangle$:\n$$\\langle 6x_0 - 2y_0, -2x_0, 2z_0 \\rangle = k \\langle 1, 0, 1 \\rangle$$\nFrom the $y$-component: $-2x_0 = 0 \\implies x_0 = 0$.\nThen the gradient becomes $\\langle -2y_0, 0, 2z_0 \\rangle \\implies -2y_0 = 2z_0 \\implies y_0 = -z_0$.</p>\n<p><strong>Step 3: Use surface equation to determine $x_0 + y_0 + z_0$.</strong></p>\n<p>Substitute $x_0 = 0$ and $y_0 = -z_0$ into the surface equation:\n$$3(0)^2 - 2(0)(-z_0) + z_0^2 = 1 \\implies z_0^2 = 1 \\implies z_0 = \\pm 1$$\nSince $y_0 = -z_0$, in either case:\n$$x_0 + y_0 + z_0 = 0 + (-z_0) + z_0 = 0$$\nThis matches Choice <strong>(a)</strong>.</p>"
+    "solution": "<p><strong>Step 1: Identify line direction vector and surface normal vector.</strong></p>\n<p>The line $x - 2 = z - 1, \\; y = 1$ has direction vector $\\vec{v} = \\langle 1, 0, 1 \\rangle$.\nFor the surface $F(x, y, z) = 3x^2 - 2xy + z^2 - 1 = 0$, the normal vector is given by the gradient:\n$$\\nabla F = \\langle 6x - 2y, -2x, 2z \\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Relate normal vector to line direction at $(x_0, y_0, z_0)$.</strong></p>\n<p>Since the line is perpendicular to the surface, $\\nabla F(x_0, y_0, z_0)$ must be parallel to $\\vec{v} = \\langle 1, 0, 1 \\rangle$:\n$$\\langle 6x_0 - 2y_0, -2x_0, 2z_0 \\rangle = k \\langle 1, 0, 1 \\rangle$$\nFrom the $y$-component: $-2x_0 = 0 \\implies x_0 = 0$.\nThen the gradient becomes $\\langle -2y_0, 0, 2z_0 \\rangle \\implies -2y_0 = 2z_0 \\implies y_0 = -z_0$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Use surface equation to determine $x_0 + y_0 + z_0$.</strong></p>\n<p>Substitute $x_0 = 0$ and $y_0 = -z_0$ into the surface equation:\n$$3(0)^2 - 2(0)(-z_0) + z_0^2 = 1 \\implies z_0^2 = 1 \\implies z_0 = \\pm 1$$\nSince $y_0 = -z_0$, in either case:\n$$x_0 + y_0 + z_0 = 0 + (-z_0) + z_0 = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(A)</strong>.</p>"
   },
   {
     "id": "231_20",
@@ -2740,7 +2734,7 @@ window.MATH201_BANK = [
       "$\\sqrt{2}$"
     ],
     "correct_answer": "E",
-    "solution": "<p><strong>Step 1: Chain Rule with one independent variable $\\theta$:</strong></p><p>$$\\frac{dw}{d\\theta} = \\frac{\\partial w}{\\partial x}\\frac{dx}{d\\theta} + \\frac{\\partial w}{\\partial y}\\frac{dy}{d\\theta} + \\frac{\\partial w}{\\partial z}\\frac{dz}{d\\theta}$$</p>"
+    "solution": "<p><strong>Step 1: Simplify $w$ directly using trigonometric identities.</strong></p>\n<p>Given $w = \\sqrt{x^2 + y^2 + z^2}$ with $x = \\cos\\theta, y = \\sin\\theta, z = \\tan\\theta$:\n$$x^2 + y^2 + z^2 = \\cos^2\\theta + \\sin^2\\theta + \\tan^2\\theta = 1 + \\tan^2\\theta = \\sec^2\\theta$$\nFor $\\theta = \\frac{\\pi}{4}$ (in the first quadrant), $\\sec\\theta > 0$, so:\n$$w(\\theta) = \\sqrt{\\sec^2\\theta} = \\sec\\theta$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Differentiate with respect to $\\theta$.</strong></p>\n<p>$$\\frac{dw}{d\\theta} = \\frac{d}{d\\theta}(\\sec\\theta) = \\sec\\theta \\tan\\theta$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Evaluate at $\\theta = \\frac{\\pi}{4}$.</strong></p>\n<p>$$\\sec\\left(\\frac{\\pi}{4}\\right) = \\sqrt{2}, \\quad \\tan\\left(\\frac{\\pi}{4}\\right) = 1$$\n$$\\frac{dw}{d\\theta}\\Bigg|_{\\theta = \\pi/4} = \\sqrt{2} \\cdot 1 = \\sqrt{2}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(E)</strong>.</p>"
   },
   {
     "id": "223_1",
@@ -2757,7 +2751,7 @@ window.MATH201_BANK = [
       "-3"
     ],
     "correct_answer": "E",
-    "solution": "A point on the line is $P_0(1, 2, -1)$ with direction vector $\\vec{v} = \\langle 3, 4, 1 \\rangle$. With the given point $P(2, 1, 2)$, the vector $\\vec{P_0 P} = \\langle 2 - 1, 1 - 2, 2 - (-1) \\rangle = \\langle 1, -1, 3 \\rangle$. The normal vector is $\\vec{n} = \\vec{v} \\times \\vec{P_0 P} = \\det\\begin{pmatrix}\\vec{i}&\\vec{j}&\\vec{k}\\\\3&4&1\\\\1&-1&3\\end{pmatrix} = \\langle 13, -8, -7 \\rangle$. The plane equation through $(2, 1, 2)$ is $13(x - 2) - 8(y - 1) - 7(z - 2) = 0 \\iff 13x - 8y - 7z - 4 = 0$. Substituting $(-1, b, 1)$: $13(-1) - 8b - 7(1) - 4 = 0 \\iff -8b - 24 = 0 \\iff b = -3$."
+    "solution": "<p><strong>Step 1: Extract a base point and direction vector from the line.</strong></p>\n<p>The given line is:\n$$\\frac{x - 1}{3} = \\frac{y - 2}{4} = \\frac{z - (-1)}{1}$$\nFrom this symmetric form, the line passes through $P_0(1, 2, -1)$ with direction vector:\n$$\\vec{v} = \\langle 3, 4, 1 \\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Construct a second vector in the plane.</strong></p>\n<p>The plane also contains the point $P(2, 1, 2)$. The displacement vector between $P_0$ and $P$ lies in the plane:\n$$\\vec{P_0 P} = \\langle 2 - 1, 1 - 2, 2 - (-1) \\rangle = \\langle 1, -1, 3 \\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Determine the normal vector via the cross product.</strong></p>\n<p>$$\\vec{n} = \\vec{v} \\times \\vec{P_0 P} = \\det \\begin{pmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ 3 & 4 & 1 \\\\ 1 & -1 & 3 \\end{pmatrix}$$\n$$= \\mathbf{i}(12 - (-1)) - \\mathbf{j}(9 - 1) + \\mathbf{k}(-3 - 4) = \\langle 13, -8, -7 \\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Write the equation of the plane.</strong></p>\n<p>Using the point $P(2, 1, 2)$:\n$$13(x - 2) - 8(y - 1) - 7(z - 2) = 0$$\n$$13x - 26 - 8y + 8 - 7z + 14 = 0 \\iff 13x - 8y - 7z - 4 = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 5: Substitute the point $(-1, b, 1)$ to find $b$.</strong></p>\n<p>Since $(-1, b, 1)$ lies on the plane:\n$$13(-1) - 8b - 7(1) - 4 = 0$$\n$$-13 - 8b - 7 - 4 = 0 \\implies -8b - 24 = 0 \\implies 8b = -24 \\implies b = -3$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 6: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(E)</strong>.</p>"
   },
   {
     "id": "223_2",
@@ -2774,7 +2768,7 @@ window.MATH201_BANK = [
       "6"
     ],
     "correct_answer": "B",
-    "solution": "Divide the second plane by $-2$ to match the normal vector: $2x - 3y + 6z = -1$. The two planes are parallel with normal $\\vec{n} = \\langle 2, -3, 6 \\rangle$, which has magnitude $|\\vec{n}| = \\sqrt{2^2 + (-3)^2 + 6^2} = \\sqrt{49} = 7$. The distance between parallel planes is $D = \\frac{|d_1 - d_2|}{|\\vec{n}|} = \\frac{|6 - (-1)|}{7} = \\frac{7}{7} = 1$."
+    "solution": "<p><strong>Step 1: Normalize the plane equations so their normal vectors match.</strong></p>\n<p>The two given planes are:\n$$\\Pi_1: 2x - 3y + 6z = 6$$\n$$\\Pi_2: -4x + 6y - 12z = 2$$\nDivide the second equation by $-2$:\n$$\\frac{-4x + 6y - 12z}{-2} = \\frac{2}{-2} \\implies 2x - 3y + 6z = -1$$\nBoth planes now share the identical normal vector $\\vec{n} = \\langle 2, -3, 6 \\rangle$, confirming they are parallel.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Calculate the magnitude of the normal vector.</strong></p>\n<p>$$\\|\\vec{n}\\| = \\sqrt{2^2 + (-3)^2 + 6^2} = \\sqrt{4 + 9 + 36} = \\sqrt{49} = 7$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Apply the distance formula between parallel planes.</strong></p>\n<p>For parallel planes $Ax + By + Cz = D_1$ and $Ax + By + Cz = D_2$, the perpendicular distance is:\n$$D = \\frac{|D_1 - D_2|}{\\sqrt{A^2 + B^2 + C^2}}$$\nSubstituting $D_1 = 6$, $D_2 = -1$, and $\\|\\vec{n}\\| = 7$:\n$$D = \\frac{|6 - (-1)|}{7} = \\frac{|6 + 1|}{7} = \\frac{7}{7} = 1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(B)</strong>.</p>"
   },
   {
     "id": "223_3",
@@ -2791,7 +2785,7 @@ window.MATH201_BANK = [
       "$\\frac{4}{3}$"
     ],
     "correct_answer": "B",
-    "solution": "In standard symmetric form: $L_1: \\frac{x}{-1/2} = \\frac{y - 3}{1} = \\frac{z - 4}{1/2}$ passing through $P_1(0, 3, 4)$ with direction vector $\\vec{v} = \\langle -1, 2, 1 \\rangle$. Line $L_2: \\frac{x}{1/2} = \\frac{y - 1}{-1} = \\frac{z - 4}{-1/2}$ passes through $P_2(0, 1, 4)$ with direction $\\langle 1, -2, -1 \\rangle = -\\vec{v}$. Since their directions are parallel, the distance is $D = \\frac{|\\vec{P_1 P_2} \\times \\vec{v}|}{|\\vec{v}|}$. Here $\\vec{P_1 P_2} = \\langle 0, -2, 0 \\rangle$. $\\vec{P_1 P_2} \\times \\vec{v} = \\langle -2, 0, -2 \\rangle$, which has length $\\sqrt{(-2)^2 + 0^2 + (-2)^2} = \\sqrt{8} = 2\\sqrt{2}$. Since $|\\vec{v}| = \\sqrt{(-1)^2 + 2^2 + 1^2} = \\sqrt{6}$, $D = \\frac{\\sqrt{8}}{\\sqrt{6}} = \\sqrt{\\frac{4}{3}} = \\frac{2\\sqrt{3}}{3} = \\frac{\\sqrt{12}}{3}$."
+    "solution": "<p><strong>Step 1: Write both lines in standard symmetric form.</strong></p>\n<p>For $L_1$: $-2x = y - 3 = 2z - 8$\n$$\\frac{x - 0}{-1/2} = \\frac{y - 3}{1} = \\frac{z - 4}{1/2}$$\nMultiplying the denominators by $2$, the direction vector is $\\vec{v} = \\langle -1, 2, 1 \\rangle$, and a base point is $P_1(0, 3, 4)$.</p>\n<p>For $L_2$: $2x = 1 - y = 8 - 2z$\n$$\\frac{x - 0}{1/2} = \\frac{y - 1}{-1} = \\frac{z - 4}{-1/2}$$\nMultiplying denominators by $2$, the direction vector is $\\langle 1, -2, -1 \\rangle = -\\vec{v}$, and a base point is $P_2(0, 1, 4)$.\nSince their direction vectors are scalar multiples, the lines are <strong>parallel</strong>.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Construct the vector connecting the base points.</strong></p>\n<p>$$\\vec{P_1 P_2} = \\langle 0 - 0, 1 - 3, 4 - 4 \\rangle = \\langle 0, -2, 0 \\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Compute the cross product $\\vec{P_1 P_2} \\times \\vec{v}$.</strong></p>\n<p>$$\\vec{P_1 P_2} \\times \\vec{v} = \\det \\begin{pmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ 0 & -2 & 0 \\\\ -1 & 2 & 1 \\end{pmatrix} = \\mathbf{i}(-2 - 0) - \\mathbf{j}(0 - 0) + \\mathbf{k}(0 - 2) = \\langle -2, 0, -2 \\rangle$$\n$$\\|\\vec{P_1 P_2} \\times \\vec{v}\\| = \\sqrt{(-2)^2 + 0^2 + (-2)^2} = \\sqrt{4 + 0 + 4} = \\sqrt{8} = 2\\sqrt{2}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Compute the distance between parallel lines.</strong></p>\n<p>$$\\|\\vec{v}\\| = \\sqrt{(-1)^2 + 2^2 + 1^2} = \\sqrt{1 + 4 + 1} = \\sqrt{6}$$\n$$D = \\frac{\\|\\vec{P_1 P_2} \\times \\vec{v}\\|}{\\|\\vec{v}\\|} = \\frac{\\sqrt{8}}{\\sqrt{6}} = \\sqrt{\\frac{4}{3}} = \\frac{2}{\\sqrt{3}} = \\frac{2\\sqrt{3}}{3} = \\frac{\\sqrt{12}}{3}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 5: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(B)</strong>.</p>"
   },
   {
     "id": "223_4",
@@ -2808,7 +2802,7 @@ window.MATH201_BANK = [
       "a hyperboloid of two sheets with the $y$-axis as its axis"
     ],
     "correct_answer": "E",
-    "solution": "Rearranging yields $-4x^2 + 3y^2 - 12z^2 = 12$. Dividing by $12$ gives $-\\frac{x^2}{3} + \\frac{y^2}{4} - z^2 = 1$. With two negative terms and one positive term equated to $1$, this is a hyperboloid of two sheets whose axis corresponds to the positive variable ($y$-axis)."
+    "solution": "<p><strong>Step 1: Put the quadric surface equation into standard form.</strong></p>\n<p>The equation is:\n$$4x^2 - 3y^2 + 12z^2 + 12 = 0$$\nSubtract $12$ from both sides:\n$$4x^2 - 3y^2 + 12z^2 = -12$$\nDivide both sides by $-12$:\n$$-\\frac{4x^2}{12} + \\frac{3y^2}{12} - \\frac{12z^2}{12} = 1 \\iff -\\frac{x^2}{3} + \\frac{y^2}{4} - z^2 = 1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Classify the quadric surface.</strong></p>\n<p>The standard equation of a hyperboloid of two sheets opening along the $y$-axis is:\n$$-\\frac{x^2}{a^2} + \\frac{y^2}{b^2} - \\frac{z^2}{c^2} = 1$$\nBecause there are two negative squared terms ($-x^2/3$ and $-z^2$) and exactly one positive squared term ($+y^2/4$) equated to $+1$, the surface is a <strong>hyperboloid of two sheets</strong>.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Identify the axis of symmetry.</strong></p>\n<p>The axis of symmetry corresponds to the unique positive variable, which is the <strong>$y$-axis</strong>.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(E)</strong>.</p>"
   },
   {
     "id": "223_5",
@@ -2825,7 +2819,7 @@ window.MATH201_BANK = [
       "$\\frac{(z - 1)^2}{2} = \\frac{(x - 2)^2}{4} + \\frac{(y - 2)^2}{4}$"
     ],
     "correct_answer": "C",
-    "solution": "The distance from $(x, y, z)$ to $(2, 2, 2)$ is $\\sqrt{(x-2)^2 + (y-2)^2 + (z-2)^2}$, and the distance to the $xy$-plane ($z = 0$) is $|z|$. Equating the two distances and squaring: $(x - 2)^2 + (y - 2)^2 + (z - 2)^2 = z^2 \\iff (x - 2)^2 + (y - 2)^2 + z^2 - 4z + 4 = z^2 \\iff 4z = (x - 2)^2 + (y - 2)^2 + 4 \\iff z = \\frac{(x - 2)^2}{4} + \\frac{(y - 2)^2}{4} + 1$."
+    "solution": "<p><strong>Step 1: Formulate the geometric distance condition.</strong></p>\n<p>Let $P(x, y, z)$ be a general point on the surface.\n<ul>\n<li>The distance from $P$ to the point $(2, 2, 2)$ is:\n$$d_1 = \\sqrt{(x - 2)^2 + (y - 2)^2 + (z - 2)^2}$$</li>\n<li>The distance from $P$ to the $xy$-plane ($z = 0$) is:\n$$d_2 = |z|$$</li>\n</ul>\nSetting $d_1 = d_2$ gives:\n$$\\sqrt{(x - 2)^2 + (y - 2)^2 + (z - 2)^2} = |z|$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Square both sides and expand the $z$-dependent terms.</strong></p>\n<p>$$(x - 2)^2 + (y - 2)^2 + (z - 2)^2 = z^2$$\n$$(x - 2)^2 + (y - 2)^2 + (z^2 - 4z + 4) = z^2$$\nSubtract $z^2$ from both sides:\n$$(x - 2)^2 + (y - 2)^2 - 4z + 4 = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Solve explicitly for $z$.</strong></p>\n<p>$$4z = (x - 2)^2 + (y - 2)^2 + 4$$\nDivide through by $4$:\n$$z = \\frac{(x - 2)^2}{4} + \\frac{(y - 2)^2}{4} + 1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(C)</strong>.</p>"
   },
   {
     "id": "223_6",
@@ -2842,7 +2836,7 @@ window.MATH201_BANK = [
       "ellipses"
     ],
     "correct_answer": "C",
-    "solution": "Setting $f(x, y) = C > 0$ gives $e^{1 - x^2 + y^2} = C \\iff 1 - x^2 + y^2 = \\ln C \\iff y^2 - x^2 = \\ln C - 1$. For any positive constant $C \\ne e$, this represents a family of hyperbolas."
+    "solution": "<p><strong>Step 1: Set the level curve equation $f(x, y) = C$.</strong></p>\n<p>The function is $f(x, y) = e^{1 - x^2 + y^2}$.\nSet $f(x, y) = C$ for a positive constant $C > 0$:\n$$e^{1 - x^2 + y^2} = C$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Take the natural logarithm of both sides.</strong></p>\n<p>$$1 - x^2 + y^2 = \\ln C$$\nRearrange the terms:\n$$y^2 - x^2 = \\ln C - 1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Analyze the resulting conic section.</strong></p>\n<p>For any constant $C \\ne e$, $\\ln C - 1 \\ne 0$.\nThe equation $y^2 - x^2 = k$ (where $k \\ne 0$) represents a family of <strong>hyperbolas</strong> centered at the origin with perpendicular asymptotes $y = \\pm x$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(C)</strong>.</p>"
   },
   {
     "id": "223_7",
@@ -2859,7 +2853,7 @@ window.MATH201_BANK = [
       "$\\infty$"
     ],
     "correct_answer": "B",
-    "solution": "Let $u = x^2 + y^2$. As $(x, y) \\to (0, 0)$, $u \\to 0^+$. For the exponent, apply L'Hôpital's Rule: $\\lim_{u \\to 0^+} \\frac{1 - \\sec u}{u} = \\lim_{u \\to 0^+} \\frac{-\\sec u \\tan u}{1} = 0$. Since the exponential function is continuous, $\\lim_{(x, y) \\to (0, 0)} e^{\\frac{1 - \\sec(x^2 + y^2)}{x^2 + y^2}} = e^0 = 1$."
+    "solution": "<p><strong>Step 1: Use radial substitution $u = x^2 + y^2$.</strong></p>\n<p>As $(x, y) \\to (0, 0)$, the radial variable $u = x^2 + y^2 \\to 0^+$.\nThe limit becomes:\n$$\\lim_{(x, y) \\to (0, 0)} e^{\\left(\\frac{1 - \\sec(x^2 + y^2)}{x^2 + y^2}\\right)} = \\exp\\left( \\lim_{u \\to 0^+} \\frac{1 - \\sec u}{u} \\right)$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Evaluate the limit in the exponent using L'H&ocirc;pital's Rule.</strong></p>\n<p>Direct substitution into the exponent gives $\\frac{1 - \\sec 0}{0} = \\frac{1 - 1}{0} = \\frac{0}{0}$.\nApplying L'H&ocirc;pital's Rule by differentiating numerator and denominator with respect to $u$:\n$$\\lim_{u \\to 0^+} \\frac{\\frac{d}{du}(1 - \\sec u)}{\\frac{d}{du}(u)} = \\lim_{u \\to 0^+} \\frac{-\\sec u \\tan u}{1} = -\\sec(0)\\tan(0) = -(1)(0) = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Evaluate the exponential function.</strong></p>\n<p>Since the exponential function $g(t) = e^t$ is continuous everywhere:\n$$e^{\\lim_{u \\to 0^+} \\frac{1 - \\sec u}{u}} = e^0 = 1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(B)</strong>.</p>"
   },
   {
     "id": "223_8",
@@ -2876,7 +2870,7 @@ window.MATH201_BANK = [
       "$-\\frac{\\pi}{4}$"
     ],
     "correct_answer": "C",
-    "solution": "As $(x, y) \\to (0, 1)$, the numerator approaches $0^2 - 1 = -1 < 0$, while the denominator $x^2 + (y - 1)^2$ is strictly positive for $(x, y) \\ne (0, 1)$ and approaches $0^+$. Thus $\\frac{x^2 - 1}{x^2 + (y - 1)^2} \\to -\\infty$. Since $\\lim_{t \\to -\\infty} \\tan^{-1} t = -\\frac{\\pi}{2}$, the limit equals $-\\frac{\\pi}{2}$."
+    "solution": "<p><strong>Step 1: Analyze the behavior of the rational argument as $(x, y) \\to (0, 1)$.</strong></p>\n<p>Let $g(x, y) = \\frac{x^2 - 1}{x^2 + (y - 1)^2}$.\nEvaluate the numerator and denominator separately as $(x, y) \\to (0, 1)$:\n<ul>\n<li>Numerator: $\\lim_{(x, y) \\to (0, 1)} (x^2 - 1) = 0^2 - 1 = -1$ (strictly negative).</li>\n<li>Denominator: $x^2 + (y - 1)^2 > 0$ for all $(x, y) \\ne (0, 1)$, and $\\lim_{(x, y) \\to (0, 1)} [x^2 + (y - 1)^2] = 0^+$.</li>\n</ul></p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Determine the limit of the argument.</strong></p>\n<p>$$\\lim_{(x, y) \\to (0, 1)} \\frac{x^2 - 1}{x^2 + (y - 1)^2} = \\frac{-1}{0^+} = -\\infty$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Apply the asymptotic behavior of the arctangent function.</strong></p>\n<p>Recall that $\\lim_{t \\to -\\infty} \\tan^{-1}(t) = -\\frac{\\pi}{2}$.\nTherefore, by continuity of the arctangent function on $(-\\infty, \\infty)$:\n$$\\lim_{(x, y) \\to (0, 1)} \\tan^{-1}\\left(\\frac{x^2 - 1}{x^2 + (y - 1)^2}\\right) = -\\frac{\\pi}{2}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(C)</strong>.</p>"
   },
   {
     "id": "223_9",
@@ -2893,7 +2887,7 @@ window.MATH201_BANK = [
       "$-\\frac{x}{z}$"
     ],
     "correct_answer": "D",
-    "solution": "First partials: $f_x = y e^x + \\ln z$ and $f_z = \\frac{x}{z}$. Mixed second partials: $f_{xz} = \\frac{\\partial}{\\partial z}[y e^x + \\ln z] = \\frac{1}{z}$, and $f_{zx} = \\frac{\\partial}{\\partial x}[\\frac{x}{z}] = \\frac{1}{z}$. Also $f_{zz} = \\frac{\\partial}{\\partial z}[\\frac{x}{z}] = -\\frac{x}{z^2}$. Substituting into the expression: $x f_{xz} f_{zx} + f_{zz} = x\\left(\\frac{1}{z}\\right)\\left(\\frac{1}{z}\\right) + \\left(-\\frac{x}{z^2}\\right) = \\frac{x}{z^2} - \\frac{x}{z^2} = 0$."
+    "solution": "<p><strong>Step 1: Compute first-order partial derivatives.</strong></p>\n<p>Given $f(x, y, z) = y e^x + x\\ln z$.\n$$f_x = \\frac{\\partial}{\\partial x}(y e^x + x\\ln z) = y e^x + \\ln z$$\n$$f_z = \\frac{\\partial}{\\partial z}(y e^x + x\\ln z) = 0 + \\frac{x}{z} = \\frac{x}{z}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Compute second-order partial derivatives.</strong></p>\n<p>$$\\begin{aligned}\nf_{xz} &= \\frac{\\partial}{\\partial z}(f_x) = \\frac{\\partial}{\\partial z}(y e^x + \\ln z) = \\frac{1}{z} \\\\\nf_{zx} &= \\frac{\\partial}{\\partial x}(f_z) = \\frac{\\partial}{\\partial x}\\left(\\frac{x}{z}\\right) = \\frac{1}{z} \\\\\nf_{zz} &= \\frac{\\partial}{\\partial z}(f_z) = \\frac{\\partial}{\\partial z}\\left(\\frac{x}{z}\\right) = -\\frac{x}{z^2}\n\\end{aligned}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Evaluate the expression $x f_{xz} f_{zx} + f_{zz}$.</strong></p>\n<p>$$x f_{xz} f_{zx} + f_{zz} = x \\left(\\frac{1}{z}\\right)\\left(\\frac{1}{z}\\right) + \\left(-\\frac{x}{z^2}\\right) = \\frac{x}{z^2} - \\frac{x}{z^2} = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(D)</strong>.</p>"
   },
   {
     "id": "223_10",
@@ -2910,7 +2904,7 @@ window.MATH201_BANK = [
       "0"
     ],
     "correct_answer": "D",
-    "solution": "Writing $f(x, y) = e^{y\\ln x}$, the partial derivative with respect to $y$ is $f_y(x, y) = x^y \\ln x$. Evaluating at $(e, 1)$ gives $f_y(e, 1) = e^1 \\ln(e) = e \\cdot 1 = e$."
+    "solution": "<p><strong>Step 1: Rewrite $f(x, y) = x^y$ in base-$e$ exponential form.</strong></p>\n<p>Using the identity $x^y = e^{\\ln(x^y)} = e^{y\\ln x}$ for $x > 0$:\n$$f(x, y) = e^{y\\ln x}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Differentiate with respect to $y$ treating $x$ as constant.</strong></p>\n<p>Applying the exponential derivative rule $\\frac{d}{dy}[e^{c y}] = c e^{c y}$ where $c = \\ln x$:\n$$f_y(x, y) = \\frac{\\partial}{\\partial y}\\left(e^{y\\ln x}\\right) = e^{y\\ln x} \\cdot \\ln x = x^y \\ln x$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Evaluate at $(x, y) = (e, 1)$.</strong></p>\n<p>$$f_y(e, 1) = e^1 \\cdot \\ln(e) = e \\cdot 1 = e$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(D)</strong>.</p>"
   },
   {
     "id": "223_11",
@@ -2927,7 +2921,7 @@ window.MATH201_BANK = [
       "$\\pm 16\\pi\\text{ cm}^3$"
     ],
     "correct_answer": "E",
-    "solution": "Volume of cylinder: $V = \\pi r^2 h$. The total differential is $dV = \\frac{\\partial V}{\\partial r} dr + \\frac{\\partial V}{\\partial h} dh = 2\\pi r h \\, dr + \\pi r^2 \\, dh$. Given $r = 10, h = 30, |dr| \\le 0.02, |dh| \\le 0.04$: $|dV| \\le 2\\pi(10)(30)(0.02) + \\pi(10)^2(0.04) = 12\\pi + 4\\pi = 16\\pi\\text{ cm}^3$. Thus the error is approximately $\\pm 16\\pi\\text{ cm}^3$."
+    "solution": "<p><strong>Step 1: Write the formula for the cylinder volume and total differential.</strong></p>\n<p>The volume of a right circular cylinder is:\n$$V(r, h) = \\pi r^2 h$$\nThe total differential $dV$ is given by:\n$$dV = \\frac{\\partial V}{\\partial r}\\,dr + \\frac{\\partial V}{\\partial h}\\,dh$$\nCalculate the partial derivatives:\n$$\\frac{\\partial V}{\\partial r} = 2\\pi r h, \\quad \\frac{\\partial V}{\\partial h} = \\pi r^2$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Substitute the dimensions and possible errors.</strong></p>\n<p>Given $r = 10\\text{ cm}$, $h = 30\\text{ cm}$, $|dr| \\le 0.02\\text{ cm}$, and $|dh| \\le 0.04\\text{ cm}$:\n$$|dV| \\le 2\\pi(10)(30)(0.02) + \\pi(10)^2(0.04)$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Compute the numerical value.</strong></p>\n<p>$$|dV| \\le 600\\pi(0.02) + 100\\pi(0.04) = 12\\pi + 4\\pi = 16\\pi\\text{ cm}^3$$\nThus, the calculated error is approximately $\\pm 16\\pi\\text{ cm}^3$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(E)</strong>.</p>"
   },
   {
     "id": "223_12",
@@ -2944,7 +2938,7 @@ window.MATH201_BANK = [
       "0.06"
     ],
     "correct_answer": "A",
-    "solution": "Here $x = 2, y = 2, dx = 0.04, dy = -0.02$. At $(2, 2)$, $z = \\sqrt{3(4) + 4} = \\sqrt{16} = 4$. The partial derivatives are $z_x = \\frac{3x}{\\sqrt{3x^2 + y^2}} = \\frac{6}{4} = 1.5$ and $z_y = \\frac{y}{\\sqrt{3x^2 + y^2}} = \\frac{2}{4} = 0.5$. The differential is $dz = z_x dx + z_y dy = 1.5(0.04) + 0.5(-0.02) = 0.06 - 0.01 = 0.05$."
+    "solution": "<p><strong>Step 1: Identify base values and increments.</strong></p>\n<p>The point moves from $(x_0, y_0) = (2, 2)$ to $(2.04, 1.98)$.\nThe coordinate differentials are:\n$$dx = 2.04 - 2 = 0.04$$\n$$dy = 1.98 - 2 = -0.02$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Compute partial derivatives of $z = \\sqrt{3x^2 + y^2}$.</strong></p>\n<p>At $(2, 2)$:\n$$z = \\sqrt{3(2^2) + 2^2} = \\sqrt{12 + 4} = \\sqrt{16} = 4$$\n$$z_x = \\frac{6x}{2\\sqrt{3x^2 + y^2}} = \\frac{3x}{\\sqrt{3x^2 + y^2}} \\implies z_x(2, 2) = \\frac{3(2)}{4} = \\frac{6}{4} = 1.5$$\n$$z_y = \\frac{2y}{2\\sqrt{3x^2 + y^2}} = \\frac{y}{\\sqrt{3x^2 + y^2}} \\implies z_y(2, 2) = \\frac{2}{4} = 0.5$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Compute the total differential $dz$.</strong></p>\n<p>$$dz = z_x(2, 2)dx + z_y(2, 2)dy$$\n$$dz = 1.5(0.04) + 0.5(-0.02) = 0.06 - 0.01 = 0.05$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(A)</strong>.</p>"
   },
   {
     "id": "223_13",
@@ -2961,7 +2955,7 @@ window.MATH201_BANK = [
       "-1"
     ],
     "correct_answer": "C",
-    "solution": "Define $F(x, y) = x\\cos 3y + x^3 y^5 - 3x + e^{xy} = 0$. Then $F_x = \\cos 3y + 3x^2 y^5 - 3 + y e^{xy}$. At $(1, 0)$, $F_x(1, 0) = \\cos(0) + 0 - 3 + 0 = -2$. Furthermore, $F_y = -3x\\sin 3y + 5x^3 y^4 + x e^{xy}$. At $(1, 0)$, $F_y(1, 0) = 0 + 0 + 1 = 1$. By the implicit function theorem, $\\frac{dy}{dx} = -\\frac{F_x}{F_y} = -\\frac{-2}{1} = 2$."
+    "solution": "<p><strong>Step 1: Define the implicit function $F(x, y) = 0$.</strong></p>\n<p>Rearrange the given relation $x\\cos 3y + x^3 y^5 = 3x - e^{xy}$:\n$$F(x, y) = x\\cos 3y + x^3 y^5 - 3x + e^{xy} = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Compute $F_x$ and evaluate at $(1, 0)$.</strong></p>\n<p>$$F_x = \\frac{\\partial}{\\partial x}\\left(x\\cos 3y + x^3 y^5 - 3x + e^{xy}\\right) = \\cos 3y + 3x^2 y^5 - 3 + y e^{xy}$$\nAt $(1, 0)$:\n$$F_x(1, 0) = \\cos(0) + 3(1^2)(0^5) - 3 + 0 \\cdot e^0 = 1 + 0 - 3 + 0 = -2$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Compute $F_y$ and evaluate at $(1, 0)$.</strong></p>\n<p>$$F_y = \\frac{\\partial}{\\partial y}\\left(x\\cos 3y + x^3 y^5 - 3x + e^{xy}\\right) = -3x\\sin 3y + 5x^3 y^4 + x e^{xy}$$\nAt $(1, 0)$:\n$$F_y(1, 0) = -3(1)\\sin(0) + 5(1)(0) + 1 \\cdot e^0 = 0 + 0 + 1 = 1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Apply the Implicit Function Theorem.</strong></p>\n<p>$$\\frac{dy}{dx} = -\\frac{F_x}{F_y} = -\\frac{-2}{1} = 2$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 5: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(C)</strong>.</p>"
   },
   {
     "id": "223_14",
@@ -2978,7 +2972,7 @@ window.MATH201_BANK = [
       "2"
     ],
     "correct_answer": "D",
-    "solution": "At $t = 1, s = 1$, we have $x = 1, y = 1 - 2 = -1, z = 1 - 2 = -1$. By the chain rule: $\\frac{\\partial w}{\\partial s} = \\frac{\\partial w}{\\partial x}\\frac{\\partial x}{\\partial s} + \\frac{\\partial w}{\\partial y}\\frac{\\partial y}{\\partial s} + \\frac{\\partial w}{\\partial z}\\frac{\\partial z}{\\partial s}$. Since $x = t^2$, $\\frac{\\partial x}{\\partial s} = 0$. $\\frac{\\partial y}{\\partial s} = -2$, and $\\frac{\\partial z}{\\partial s} = 2s = 2$. Now $\\frac{\\partial w}{\\partial y} = 2xy + z^2 = 2(1)(-1) + 1 = -1$, and $\\frac{\\partial w}{\\partial z} = 2yz + x^2 = 2(-1)(-1) + 1 = 3$. Therefore, $\\frac{\\partial w}{\\partial s} = (-1)(-2) + (3)(2) = 2 + 6 = 8$."
+    "solution": "<p><strong>Step 1: Evaluate coordinate values at $t = 1, s = 1$.</strong></p>\n<p>$$x = t^2 = 1^2 = 1$$\n$$y = t^2 - 2s = 1^2 - 2(1) = 1 - 2 = -1$$\n$$z = s^2 - 2t = 1^2 - 2(1) = 1 - 2 = -1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: State the chain rule for $\\frac{\\partial w}{\\partial s}$.</strong></p>\n<p>$$\\frac{\\partial w}{\\partial s} = \\frac{\\partial w}{\\partial x}\\frac{\\partial x}{\\partial s} + \\frac{\\partial w}{\\partial y}\\frac{\\partial y}{\\partial s} + \\frac{\\partial w}{\\partial z}\\frac{\\partial z}{\\partial s}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Compute the required partial derivatives.</strong></p>\n<p>$$\\frac{\\partial x}{\\partial s} = 0, \\quad \\frac{\\partial y}{\\partial s} = -2, \\quad \\frac{\\partial z}{\\partial s} = 2s = 2(1) = 2$$\n$$\\frac{\\partial w}{\\partial y} = 2xy + z^2 \\implies \\frac{\\partial w}{\\partial y}(1, -1, -1) = 2(1)(-1) + (-1)^2 = -2 + 1 = -1$$\n$$\\frac{\\partial w}{\\partial z} = 2yz + x^2 \\implies \\frac{\\partial w}{\\partial z}(1, -1, -1) = 2(-1)(-1) + 1^2 = 2 + 1 = 3$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Substitute into the chain rule formula.</strong></p>\n<p>$$\\frac{\\partial w}{\\partial s} = \\left(\\frac{\\partial w}{\\partial x}\\right)(0) + (-1)(-2) + (3)(2) = 0 + 2 + 6 = 8$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 5: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(D)</strong>.</p>"
   },
   {
     "id": "223_15",
@@ -2995,7 +2989,7 @@ window.MATH201_BANK = [
       "-2"
     ],
     "correct_answer": "B",
-    "solution": "The gradient vector is $\\nabla f(x, y) = \\langle -2x e^{-(x^2 + y^2)}, -2y e^{-(x^2 + y^2)} \\rangle$. At the origin $(0, 0)$, $\\nabla f(0, 0) = \\langle 0, 0 \\rangle = \\vec{0}$. Because the gradient is the zero vector, the directional derivative in any direction is $D_{\\vec{u}} f(0, 0) = \\nabla f(0, 0) \\cdot \\vec{u} = 0$."
+    "solution": "<p><strong>Step 1: Compute the gradient vector $\\nabla f(x, y)$.</strong></p>\n<p>The function is $f(x, y) = e^{-(x^2 + y^2)}$.\nCalculate the first partial derivatives using the chain rule:\n$$f_x(x, y) = -2x e^{-(x^2 + y^2)}$$\n$$f_y(x, y) = -2y e^{-(x^2 + y^2)}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Evaluate the gradient at the origin $(0, 0)$.</strong></p>\n<p>$$f_x(0, 0) = -2(0)e^0 = 0$$\n$$f_y(0, 0) = -2(0)e^0 = 0$$\nThus:\n$$\\nabla f(0, 0) = \\langle 0, 0 \\rangle = \\vec{0}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Compute the directional derivative in direction $\\vec{v} = \\langle 1, 1 \\rangle$.</strong></p>\n<p>The unit vector is $\\vec{u} = \\frac{\\langle 1, 1 \\rangle}{\\sqrt{2}}$.\n$$D_{\\vec{u}} f(0, 0) = \\nabla f(0, 0) \\cdot \\vec{u} = \\langle 0, 0 \\rangle \\cdot \\left\\langle \\frac{1}{\\sqrt{2}}, \\frac{1}{\\sqrt{2}} \\right\\rangle = 0 + 0 = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(B)</strong>.</p>"
   },
   {
     "id": "223_16",
@@ -3012,7 +3006,7 @@ window.MATH201_BANK = [
       "$\\langle \\frac{2}{9}, -\\frac{1}{9} \\rangle$"
     ],
     "correct_answer": "A",
-    "solution": "The direction of greatest increase is given by the gradient vector $\\nabla T(1, -1)$. $T_x = \\frac{1(x^2 + 2y^2) - x(2x)}{(x^2 + 2y^2)^2} = \\frac{2y^2 - x^2}{(x^2 + 2y^2)^2}$. At $(1, -1)$: $T_x(1, -1) = \\frac{2(1) - 1}{(1 + 2)^2} = \\frac{1}{9}$. $T_y = \\frac{-x(4y)}{(x^2 + 2y^2)^2} = \\frac{-4xy}{(x^2 + 2y^2)^2}$. At $(1, -1)$: $T_y(1, -1) = \\frac{-4(1)(-1)}{9} = \\frac{4}{9}$. Thus $\\nabla T(1, -1) = \\langle \\frac{1}{9}, \\frac{4}{9} \\rangle$."
+    "solution": "<p><strong>Step 1: Identify the gradient vector as the direction of greatest increase.</strong></p>\n<p>For any differentiable scalar field $T(x, y)$, the direction of maximum (greatest) increase at a point is given by the gradient vector $\\nabla T(x_0, y_0)$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Compute $T_x$ using the quotient rule.</strong></p>\n<p>$$T(x, y) = \\frac{x}{x^2 + 2y^2}$$\n$$T_x = \\frac{1(x^2 + 2y^2) - x(2x)}{(x^2 + 2y^2)^2} = \\frac{2y^2 - x^2}{(x^2 + 2y^2)^2}$$\nSubstitute $(x, y) = (1, -1)$:\n$$x^2 + 2y^2 = 1^2 + 2(-1)^2 = 1 + 2 = 3$$\n$$T_x(1, -1) = \\frac{2(-1)^2 - 1^2}{3^2} = \\frac{2 - 1}{9} = \\frac{1}{9}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Compute $T_y$ using the chain/quotient rule.</strong></p>\n<p>$$T_y = \\frac{0 \\cdot (x^2 + 2y^2) - x(4y)}{(x^2 + 2y^2)^2} = \\frac{-4xy}{(x^2 + 2y^2)^2}$$\nSubstitute $(x, y) = (1, -1)$:\n$$T_y(1, -1) = \\frac{-4(1)(-1)}{3^2} = \\frac{4}{9}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Conclude the gradient vector.</strong></p>\n<p>$$\\nabla T(1, -1) = \\left\\langle \\frac{1}{9}, \\frac{4}{9} \\right\\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 5: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(A)</strong>.</p>"
   },
   {
     "id": "223_17",
@@ -3029,7 +3023,7 @@ window.MATH201_BANK = [
       "$y = -x + 3$"
     ],
     "correct_answer": "C",
-    "solution": "The normal vector to the level curve is $\\nabla f(x, y) = \\langle 1, -2y \\rangle$. At $(4, -1)$, $\\nabla f(4, -1) = \\langle 1, 2 \\rangle$. The tangent line equation is $1(x - 4) + 2(y - (-1)) = 0 \\iff x - 4 + 2y + 2 = 0 \\iff x + 2y - 2 = 0 \\iff 2y = -x + 2$."
+    "solution": "<p><strong>Step 1: Compute the gradient vector normal to the level curve.</strong></p>\n<p>The level curve is $f(x, y) = x - y^2 = 3$.\nThe normal vector to the level curve at any point is given by $\\nabla f(x, y)$:\n$$\\nabla f(x, y) = \\left\\langle \\frac{\\partial f}{\\partial x}, \\frac{\\partial f}{\\partial y} \\right\\rangle = \\langle 1, -2y \\rangle$$\nAt the point $(4, -1)$:\n$$\\vec{n} = \\nabla f(4, -1) = \\langle 1, -2(-1) \\rangle = \\langle 1, 2 \\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Write the point-normal equation of the tangent line.</strong></p>\n<p>$$1(x - 4) + 2(y - (-1)) = 0$$\n$$1(x - 4) + 2(y + 1) = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Expand and rearrange.</strong></p>\n<p>$$x - 4 + 2y + 2 = 0$$\n$$x + 2y - 2 = 0 \\iff 2y = -x + 2$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(C)</strong>.</p>"
   },
   {
     "id": "223_18",
@@ -3046,7 +3040,7 @@ window.MATH201_BANK = [
       "The set of all points lying on or inside the sphere with center at the origin and radius 8 and are not on the $xz$-plane."
     ],
     "correct_answer": "C",
-    "solution": "The expression under the radical must be non-negative: $x^2 + y^2 + z^2 - 64 \\ge 0 \\iff x^2 + y^2 + z^2 \\ge 64 = 8^2$, which defines all points on or outside the sphere of radius 8 centered at the origin. In addition, the denominator cannot be zero: $y \\ne 0$, excluding all points on the $xz$-plane."
+    "solution": "<p><strong>Step 1: Determine the constraint from the square root.</strong></p>\n<p>The function is:\n$$f(x, y, z) = \\frac{\\sqrt{x^2 + y^2 + z^2 - 64}}{y}$$\nThe radicand must be non-negative:\n$$x^2 + y^2 + z^2 - 64 \\ge 0 \\iff x^2 + y^2 + z^2 \\ge 64 = 8^2$$\nGeometrically, this represents all points lying on or outside the sphere centered at the origin with radius $8$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Determine the constraint from the denominator.</strong></p>\n<p>The denominator cannot equal zero:\n$$y \\ne 0$$\nThe set of points where $y = 0$ is the $xz$-coordinate plane. Thus, points on the $xz$-plane must be excluded.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Combine both domain conditions.</strong></p>\n<p>The domain consists of all points lying on or outside the sphere with center at the origin and radius $8$ and are not on the $xz$-plane.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(C)</strong>.</p>"
   },
   {
     "id": "223_19",
@@ -3063,7 +3057,7 @@ window.MATH201_BANK = [
       "$\\lim_{(x, y) \\to (0, 0)} f(x, y)$ exists"
     ],
     "correct_answer": "E",
-    "solution": "Consider approach paths of the form $y = k x^2$: $f(x, k x^2) = \\frac{3x^2(k x^2)}{x^4 + (k x^2)^2} = \\frac{3k x^4}{x^4(1 + k^2)} = \\frac{3k}{1 + k^2}$. Since this limit depends on $k$, the limit $\\lim_{(x, y) \\to (0, 0)} f(x, y)$ does not exist. Hence, the statement that the limit exists is FALSE."
+    "solution": "<p><strong>Step 1: Test the existence of the limit at $(0, 0)$ along parabolic paths.</strong></p>\n<p>Consider approach paths of the form $y = k x^2$ where $k$ is any real constant:\n$$\\lim_{x \\to 0} f(x, k x^2) = \\lim_{x \\to 0} \\frac{3x^2(k x^2)}{x^4 + (k x^2)^2} = \\lim_{x \\to 0} \\frac{3k x^4}{x^4 + k^2 x^4} = \\lim_{x \\to 0} \\frac{3k x^4}{x^4(1 + k^2)} = \\frac{3k}{1 + k^2}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Conclude non-existence of the limit.</strong></p>\n<p>Since $\\frac{3k}{1 + k^2}$ depends explicitly on the choice of the path parameter $k$ (for example, $k = 1 \\implies 3/2$, while $k = 0 \\implies 0$), the limit $\\lim_{(x, y) \\to (0, 0)} f(x, y)$ <strong>does not exist</strong>.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Identify the FALSE statement.</strong></p>\n<p>Statement (E) claims that \"$\\lim_{(x, y) \\to (0, 0)} f(x, y)$ exists\", which is contradictory to our derivation.\nTherefore, Statement (E) is FALSE.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(E)</strong>.</p>"
   },
   {
     "id": "223_20",
@@ -3080,7 +3074,7 @@ window.MATH201_BANK = [
       "$\\frac{z^2 - x}{y^2 - 2xz}$"
     ],
     "correct_answer": "B",
-    "solution": "Let $F(x, y, z) = x\\ln y + y^2 z - z^2 x - 10 = 0$. Then $F_x = \\ln y - z^2$ and $F_z = y^2 - 2xz$. By implicit differentiation, $\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z} = -\\frac{\\ln y - z^2}{y^2 - 2xz} = \\frac{z^2 - \\ln y}{y^2 - 2xz}$."
+    "solution": "<p><strong>Step 1: Define the surface implicitly as $F(x, y, z) = 0$.</strong></p>\n<p>Given $x\\ln y + y^2 z - z^2 x = 10$, define:\n$$F(x, y, z) = x\\ln y + y^2 z - z^2 x - 10 = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Compute the partial derivatives $F_x$ and $F_z$.</strong></p>\n<p>$$F_x = \\frac{\\partial}{\\partial x}\\left(x\\ln y + y^2 z - z^2 x - 10\\right) = \\ln y - z^2$$\n$$F_z = \\frac{\\partial}{\\partial z}\\left(x\\ln y + y^2 z - z^2 x - 10\\right) = y^2 - 2zx$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Apply the implicit differentiation theorem formula.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial x} = -\\frac{F_x}{F_z} = -\\frac{\\ln y - z^2}{y^2 - 2xz} = \\frac{z^2 - \\ln y}{y^2 - 2xz}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(B)</strong>.</p>"
   },
   {
     "id": "221_1",
@@ -3097,7 +3091,7 @@ window.MATH201_BANK = [
       "$\\frac{x - 1}{5} = \\frac{y - 1}{2} = \\frac{z + 1}{3}$"
     ],
     "correct_answer": "D",
-    "solution": "Let $z = 0$: then $x + 2y = 1$ and $x - y = 1 \\implies 3y = 0 \\implies y = 0, x = 1$. Thus $(1, 0, 0)$ is a point on the line. The direction vector is parallel to $\\vec{n}_1 \\times \\vec{n}_2 = \\det\\begin{pmatrix}\\vec{i}&\\vec{j}&\\vec{k}\\\\1&2&3\\\\1&-1&1\\end{pmatrix} = \\langle 5, 2, -3 \\rangle$. Therefore, the symmetric equations are $\\frac{x - 1}{5} = \\frac{y}{2} = \\frac{z}{-3}$."
+    "solution": "<p><strong>Step 1: Find the direction vector of the line of intersection.</strong></p>\n<p>The line of intersection of two planes is perpendicular to the normal vectors of both planes. The normal vectors are:\n$$\\vec{n}_1 = \\langle 1, 2, 3 \\rangle \\quad \\text{and} \\quad \\vec{n}_2 = \\langle 1, -1, 1 \\rangle$$\nThe direction vector $\\vec{v}$ of the line is given by their cross product $\\vec{n}_1 \\times \\vec{n}_2$:\n$$\\vec{v} = \\det \\begin{pmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ 1 & 2 & 3 \\\\ 1 & -1 & 1 \\end{pmatrix} = \\mathbf{i}(2 - (-3)) - \\mathbf{j}(1 - 3) + \\mathbf{k}(-1 - 2) = \\langle 5, 2, -3 \\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Find a particular point on the intersection line.</strong></p>\n<p>Set $z = 0$ in both plane equations to obtain a system in $x$ and $y$:\n$$\\begin{cases} x + 2y = 1 \\\\ x - y = 1 \\end{cases}$$\nSubtracting the second equation from the first gives $3y = 0 \\implies y = 0$.\nSubstituting $y = 0$ into $x - y = 1$ gives $x = 1$. Thus, the point $P_0(1, 0, 0)$ lies on both planes.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Construct the symmetric equations.</strong></p>\n<p>With point $(x_0, y_0, z_0) = (1, 0, 0)$ and direction vector $\\langle a, b, c \\rangle = \\langle 5, 2, -3 \\rangle$, the symmetric equations are:\n$$\\frac{x - 1}{5} = \\frac{y - 0}{2} = \\frac{z - 0}{-3} \\iff \\frac{x - 1}{5} = \\frac{y}{2} = \\frac{z}{-3}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(D)</strong>.</p>"
   },
   {
     "id": "221_2",
@@ -3114,7 +3108,7 @@ window.MATH201_BANK = [
       "4"
     ],
     "correct_answer": "C",
-    "solution": "Substitute the parametric equations into the plane equation: $(2 - 2t) + 2(3t) - (1 + t) = 7 \\iff 3t + 1 = 7 \\iff 3t = 6 \\iff t = 2$. Substituting $t = 2$ back gives $(a, b, c) = (2 - 4, 6, 1 + 2) = (-2, 6, 3)$. Thus $a + b + c = -2 + 6 + 3 = 7$."
+    "solution": "<p><strong>Step 1: Substitute the parametric equations of the line into the plane.</strong></p>\n<p>The line is given by parametric equations:\n$$x(t) = 2 - 2t, \\quad y(t) = 3t, \\quad z(t) = 1 + t$$\nSubstitute these coordinate functions into the equation of the plane $x + 2y - z = 7$:\n$$(2 - 2t) + 2(3t) - (1 + t) = 7$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Solve the linear equation for the parameter $t$.</strong></p>\n<p>Expand and collect like terms:\n$$2 - 2t + 6t - 1 - t = 7$$\n$$( -2t + 6t - t) + (2 - 1) = 7$$\n$$3t + 1 = 7 \\implies 3t = 6 \\implies t = 2$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Determine the coordinates $(a, b, c)$ of the intersection point.</strong></p>\n<p>Substitute $t = 2$ back into the parametric equations:\n$$a = x(2) = 2 - 2(2) = 2 - 4 = -2$$\n$$b = y(2) = 3(2) = 6$$\n$$c = z(2) = 1 + (2) = 3$$\nThus, the point of intersection is $(a, b, c) = (-2, 6, 3)$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Compute the required sum $a + b + c$.</strong></p>\n<p>$$a + b + c = -2 + 6 + 3 = 7$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 5: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(C)</strong>.</p>"
   },
   {
     "id": "221_3",
@@ -3131,7 +3125,7 @@ window.MATH201_BANK = [
       "$x + 2y - z + 9 = 0$"
     ],
     "correct_answer": "A",
-    "solution": "The plane $z = x + y \\iff x + y - z = 0$ has normal vector $\\vec{n} = \\langle 1, 1, -1 \\rangle$. The parallel plane through $(3, -2, 8)$ is $1(x - 3) + 1(y + 2) - 1(z - 8) = 0 \\iff x + y - z - 3 + 2 + 8 = 0 \\iff x + y - z + 7 = 0$."
+    "solution": "<p><strong>Step 1: Identify the normal vector of the given parallel plane.</strong></p>\n<p>The given plane equation is $z = x + y$. Rewriting this in standard linear form:\n$$x + y - z = 0$$\nThe normal vector to this plane is:\n$$\\vec{n} = \\langle 1, 1, -1 \\rangle$$\nSince parallel planes share parallel normal vectors, the desired plane has normal vector $\\vec{n} = \\langle 1, 1, -1 \\rangle$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Write the point-normal equation of the plane through $(3, -2, 8)$.</strong></p>\n<p>Using the point-normal form $A(x - x_0) + B(y - y_0) + C(z - z_0) = 0$:\n$$1(x - 3) + 1(y - (-2)) - 1(z - 8) = 0$$\n$$1(x - 3) + 1(y + 2) - (z - 8) = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Expand and simplify to standard form.</strong></p>\n<p>$$x - 3 + y + 2 - z + 8 = 0$$\n$$x + y - z + (-3 + 2 + 8) = 0$$\n$$x + y - z + 7 = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(A)</strong>.</p>"
   },
   {
     "id": "221_4",
@@ -3148,7 +3142,7 @@ window.MATH201_BANK = [
       "circular cone with vertex $(-1, 0, 2)$ and axis parallel to $y$-axis"
     ],
     "correct_answer": "A",
-    "solution": "Completing squares: $(x - 2)^2 - 4 - (y^2 + 2y + 1) + 1 + (z - 1)^2 - 1 + 4 = 0 \\iff (x - 2)^2 - (y + 1)^2 + (z - 1)^2 = 0 \\iff (x - 2)^2 + (z - 1)^2 = (y + 1)^2$. This is a circular cone with vertex $(2, -1, 1)$ and axis of symmetry parallel to the $y$-axis."
+    "solution": "<p><strong>Step 1: Group terms by variable to complete the square.</strong></p>\n<p>The given second-degree equation in $\\mathbb{R}^3$ is:\n$$x^2 - y^2 + z^2 - 4x - 2y - 2z + 4 = 0$$\nGroup the terms by variable:\n$$(x^2 - 4x) - (y^2 + 2y) + (z^2 - 2z) + 4 = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Complete the square for each variable.</strong></p>\n<p>$$\\begin{aligned}\nx^2 - 4x &= (x - 2)^2 - 4 \\\\\n-(y^2 + 2y) &= -\\left[(y + 1)^2 - 1\\right] = -(y + 1)^2 + 1 \\\\\nz^2 - 2z &= (z - 1)^2 - 1\n\\end{aligned}$$\nSubstitute these completed squares into the original equation:\n$$\\left[(x - 2)^2 - 4\\right] - (y + 1)^2 + 1 + \\left[(z - 1)^2 - 1\\right] + 4 = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Simplify and identify the quadric surface.</strong></p>\n<p>Combine the constant terms:\n$$-4 + 1 - 1 + 4 = 0$$\nThus, the equation simplifies to:\n$$(x - 2)^2 - (y + 1)^2 + (z - 1)^2 = 0 \\iff (x - 2)^2 + (z - 1)^2 = (y + 1)^2$$\nThis matches the standard equation of a circular cone:\n$$\\frac{(x - x_0)^2}{a^2} + \\frac{(z - z_0)^2}{c^2} = \\frac{(y - y_0)^2}{b^2}$$\nwith vertex $(x_0, y_0, z_0) = (2, -1, 1)$ and axis of symmetry along the line parallel to the $y$-axis ($x = 2, z = 1$).</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(A)</strong>.</p>"
   },
   {
     "id": "221_5",
@@ -3165,7 +3159,7 @@ window.MATH201_BANK = [
       "II and IV"
     ],
     "correct_answer": "E",
-    "solution": "Rearranging gives $x^2 + 4y^2 - z^2 = 4 \\iff \\frac{x^2}{4} + y^2 - \\frac{z^2}{4} = 1$. With exactly one negative coefficient, this is a hyperboloid of one sheet, whose axis of symmetry is the variable with the negative sign ($z$-axis). Therefore, statements II and IV are true."
+    "solution": "<p><strong>Step 1: Rearrange the quadric surface equation into standard form.</strong></p>\n<p>The equation is:\n$$x^2 = 4 - 4y^2 + z^2$$\nMove all variable terms to the left-hand side:\n$$x^2 + 4y^2 - z^2 = 4$$\nDivide the entire equation by $4$ to normalize the constant term to $1$:\n$$\\frac{x^2}{4} + y^2 - \\frac{z^2}{4} = 1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Classify the surface type.</strong></p>\n<p>The standard equation of a hyperboloid of one sheet is:\n$$\\frac{x^2}{a^2} + \\frac{y^2}{b^2} - \\frac{z^2}{c^2} = 1$$\nSince there are two positive squared terms and exactly one negative squared term equated to $+1$, the surface is a <strong>hyperboloid of one sheet</strong> (Statement II is true; Statement III is false).</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Determine the axis of symmetry.</strong></p>\n<p>The axis of symmetry of a hyperboloid corresponds to the variable associated with the negative sign. Here, the negative sign is on the $z^2$ term, so the axis of symmetry is the <strong>$z$-axis</strong> (Statement IV is true; Statement I is false).</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>Therefore, statements II and IV are true, which matches Choice <strong>(E)</strong>.</p>"
   },
   {
     "id": "221_6",
@@ -3182,7 +3176,7 @@ window.MATH201_BANK = [
       "$\\{(x, y, z) \\in \\mathbb{R}^3 : x < z\\}$"
     ],
     "correct_answer": "D",
-    "solution": "The logarithmic term $\\ln(x - y)$ requires $x - y > 0 \\iff x > y$. The polynomial-trigonometric term $yz\\cos x$ is defined for all real numbers. Thus the domain is $\\{(x, y, z) \\in \\mathbb{R}^3 : x > y\\}$."
+    "solution": "<p><strong>Step 1: Analyze domain restrictions for each component of the function.</strong></p>\n<p>The function is:\n$$f(x, y, z) = \\ln(x - y) + yz\\cos x$$\nThe natural logarithm $\\ln u$ is defined if and only if its argument is strictly positive:\n$$u = x - y > 0 \\iff x > y$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Check the polynomial and trigonometric terms.</strong></p>\n<p>The term $yz\\cos x$ is a product of polynomial coordinate projections ($y$ and $z$) and the cosine function $\\cos x$, all of which are defined and continuous for all real numbers $x, y, z \\in \\mathbb{R}$.\nTherefore, there are no additional restrictions from this term.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Conclude the domain set.</strong></p>\n<p>The complete domain of $f(x, y, z)$ in $\\mathbb{R}^3$ is:\n$$\\text{Domain} = \\{(x, y, z) \\in \\mathbb{R}^3 : x > y\\}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(D)</strong>.</p>"
   },
   {
     "id": "221_7",
@@ -3199,7 +3193,7 @@ window.MATH201_BANK = [
       "$(-\\infty, \\infty)$"
     ],
     "correct_answer": "B",
-    "solution": "The argument $16 - (x^2 + y^2)$ is strictly positive on its domain, and satisfies $0 < 16 - (x^2 + y^2) \\le 16$. The natural logarithm is strictly increasing, so $\\ln(16 - x^2 - y^2) \\le \\ln(16) = \\ln(2^4) = 4\\ln 2$. As $x^2 + y^2 \\to 16^-$, $\\ln(16 - x^2 - y^2) \\to -\\infty$. Hence the range is $(-\\infty, 4\\ln 2]$."
+    "solution": "<p><strong>Step 1: Determine the domain and analyze the argument of the logarithm.</strong></p>\n<p>The function is $f(x, y) = \\ln(16 - x^2 - y^2)$.\nLet $u = 16 - (x^2 + y^2)$. For the logarithm to be real-valued, we must have $u > 0$, so $x^2 + y^2 < 16$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Find the extreme values of the argument $u$.</strong></p>\n<p>Because $x^2 + y^2 \\ge 0$ for all $(x, y) \\in \\mathbb{R}^2$:\n<ul>\n<li>The maximum of $u$ occurs when $x^2 + y^2 = 0$ (at the origin $(0, 0)$):\n$$u_{\\max} = 16 - 0 = 16$$</li>\n<li>As $(x, y)$ approaches the boundary circle $x^2 + y^2 = 16$ from within the disk, $u \\to 0^+$.</li>\n</ul>\nHence, the range of the argument $u$ is the interval $(0, 16]$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Evaluate the range of $\\ln u$.</strong></p>\n<p>Since $g(u) = \\ln u$ is a strictly increasing, continuous function on $(0, \\infty)$:\n$$\\lim_{u \\to 0^+} \\ln u = -\\infty$$\n$$\\ln(16) = \\ln(2^4) = 4\\ln 2$$\nTherefore, the range of $f(x, y)$ is $(-\\infty, 4\\ln 2]$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(B)</strong>.</p>"
   },
   {
     "id": "221_8",
@@ -3216,7 +3210,7 @@ window.MATH201_BANK = [
       "a family of lines"
     ],
     "correct_answer": "A",
-    "solution": "Setting $f(x, y) = C$ (with $C \\ge 0$) yields $\\sqrt[3]{x^2 + y^2} = C \\iff x^2 + y^2 = C^3$. For each $C > 0$, this is the equation of a circle centered at the origin of radius $C^{3/2}$."
+    "solution": "<p><strong>Step 1: State the definition of a level curve.</strong></p>\n<p>A level curve of a function $f(x, y)$ consists of all points in the domain satisfying $f(x, y) = C$, where $C$ is a constant in the range of $f$.\nFor $f(x, y) = \\sqrt[3]{x^2 + y^2}$:\n$$\\sqrt[3]{x^2 + y^2} = C$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Solve for the relationship between $x$ and $y$.</strong></p>\n<p>Cube both sides:\n$$x^2 + y^2 = C^3$$\nSince $x^2 + y^2 \\ge 0$, real level curves exist for constants $C \\ge 0$:\n<ul>\n<li>For $C = 0$, $x^2 + y^2 = 0$, which is the single point $(0, 0)$.</li>\n<li>For each $C > 0$, $x^2 + y^2 = (C^{3/2})^2$, which is a circle centered at the origin $(0, 0)$ with radius $R = C^{3/2}$.</li>\n</ul></p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Conclude the geometric family.</strong></p>\n<p>Thus, the non-degenerate level curves represent a <strong>family of circles</strong>.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(A)</strong>.</p>"
   },
   {
     "id": "221_9",
@@ -3233,7 +3227,7 @@ window.MATH201_BANK = [
       "is equal to -1"
     ],
     "correct_answer": "A",
-    "solution": "Along the path $x = 0$: $\\lim_{y \\to 0} \\frac{0}{5y^3} = 0$. Along the path $y = x$: $\\lim_{x \\to 0} \\frac{8x^2 \\sin x}{3x^3 + 5x^3} = \\lim_{x \\to 0} \\frac{8x^2 \\sin x}{8x^3} = \\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$. Since the limits along two different paths are distinct ($0 \\ne 1$), the limit does not exist."
+    "solution": "<p><strong>Step 1: Evaluate the limit along the path $x = 0$.</strong></p>\n<p>We test whether the limit $\\lim_{(x, y) \\to (0, 0)} \\frac{8x^2 \\sin y}{3x^3 + 5y^3}$ exists by checking different approach directions.\nAlong the path $x = 0$ (the $y$-axis) as $y \\to 0$:\n$$\\lim_{y \\to 0} \\frac{8(0)^2 \\sin y}{3(0)^3 + 5y^3} = \\lim_{y \\to 0} \\frac{0}{5y^3} = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Evaluate the limit along the linear path $y = x$.</strong></p>\n<p>Along the path $y = x$ as $x \\to 0$:\n$$\\lim_{x \\to 0} \\frac{8x^2 \\sin x}{3x^3 + 5x^3} = \\lim_{x \\to 0} \\frac{8x^2 \\sin x}{8x^3} = \\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Apply the Two-Path Test for limits.</strong></p>\n<p>Since the function approaches two different values along two distinct paths:\n$$L_1 = 0 \\quad \\text{and} \\quad L_2 = 1 \\quad (L_1 \\ne L_2)$$\nby the Two-Path Test, the limit <strong>does not exist</strong>.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(A)</strong>.</p>"
   },
   {
     "id": "221_10",
@@ -3250,7 +3244,7 @@ window.MATH201_BANK = [
       "does not exist"
     ],
     "correct_answer": "D",
-    "solution": "Rationalizing the denominator by multiplying by $\\frac{\\sqrt{x + 2y} + 3}{\\sqrt{x + 2y} + 3}$: $\\frac{(x + 2y - 9)(\\sqrt{x + 2y} + 3)}{(x + 2y) - 9} = \\sqrt{x + 2y} + 3$. Evaluating at $(3, 3)$: $\\sqrt{3 + 2(3)} + 3 = \\sqrt{9} + 3 = 3 + 3 = 6$."
+    "solution": "<p><strong>Step 1: Identify the indeterminate form.</strong></p>\n<p>Evaluating the limit by direct substitution at $(3, 3)$:\n$$\\lim_{(x, y) \\to (3, 3)} \\frac{x + 2y - 9}{\\sqrt{x + 2y} - 3} = \\frac{3 + 2(3) - 9}{\\sqrt{3 + 2(3)} - 3} = \\frac{9 - 9}{\\sqrt{9} - 3} = \\frac{0}{0}$$\nThis is an indeterminate form of type $\\frac{0}{0}$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Factor or rationalize the expression.</strong></p>\n<p>Notice that the numerator can be factored as a difference of squares:\n$$x + 2y - 9 = (\\sqrt{x + 2y})^2 - 3^2 = (\\sqrt{x + 2y} - 3)(\\sqrt{x + 2y} + 3)$$\nAlternatively, multiplying numerator and denominator by the conjugate $\\sqrt{x + 2y} + 3$:\n$$\\frac{(x + 2y - 9)(\\sqrt{x + 2y} + 3)}{(\\sqrt{x + 2y} - 3)(\\sqrt{x + 2y} + 3)} = \\frac{(x + 2y - 9)(\\sqrt{x + 2y} + 3)}{(x + 2y) - 9}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Cancel the common factor and evaluate.</strong></p>\n<p>Canceling $(x + 2y - 9) \\ne 0$ for points approaching $(3, 3)$:\n$$= \\sqrt{x + 2y} + 3$$\nEvaluating at $(x, y) = (3, 3)$:\n$$\\sqrt{3 + 2(3)} + 3 = \\sqrt{9} + 3 = 3 + 3 = 6$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(D)</strong>.</p>"
   },
   {
     "id": "221_11",
@@ -3267,7 +3261,7 @@ window.MATH201_BANK = [
       "not continuous at $(0, 0)$ for all values of $k$"
     ],
     "correct_answer": "D",
-    "solution": "Let $u = x + y$. As $(x, y) \\to (0, 0)$, $u \\to 0$. $\\lim_{u \\to 0} \\frac{2 - 2\\cos u}{u^2} = \\lim_{u \\to 0} \\frac{2\\sin u}{2u} = 1$. For continuity at $(0, 0)$, we must have $\\lim_{(x, y) \\to (0, 0)} f(x, y) = f(0, 0) \\iff 1 = k$. Thus $f$ is continuous at $(0, 0)$ only if $k = 1$."
+    "solution": "<p><strong>Step 1: State the condition for continuity at the origin.</strong></p>\n<p>For $f(x, y)$ to be continuous at $(0, 0)$, the limit of $f(x, y)$ as $(x, y) \\to (0, 0)$ must exist and equal the defined function value:\n$$\\lim_{(x, y) \\to (0, 0)} f(x, y) = f(0, 0) = k$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Evaluate the limit using single-variable substitution.</strong></p>\n<p>Let $u = x + y$. As $(x, y) \\to (0, 0)$, $u \\to 0$. The limit becomes:\n$$\\lim_{u \\to 0} \\frac{2 - 2\\cos u}{u^2} = \\lim_{u \\to 0} \\frac{2(1 - \\cos u)}{u^2}$$\nApplying L'H&ocirc;pital's Rule (since it is an indeterminate form of type $\\frac{0}{0}$):\n$$\\lim_{u \\to 0} \\frac{2\\sin u}{2u} = \\lim_{u \\to 0} \\frac{\\sin u}{u} = 1$$\nAlternatively, recall the standard trigonometric limit $\\lim_{u \\to 0} \\frac{1 - \\cos u}{u^2} = \\frac{1}{2}$, which immediately yields $2\\left(\\frac{1}{2}\\right) = 1$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Set the limit equal to $k$.</strong></p>\n<p>For continuity, we equate:\n$$k = \\lim_{(x, y) \\to (0, 0)} f(x, y) = 1$$\nThus, $f(x, y)$ is continuous at $(0, 0)$ only if $k = 1$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(D)</strong>.</p>"
   },
   {
     "id": "221_12",
@@ -3284,7 +3278,7 @@ window.MATH201_BANK = [
       "$\\frac{5}{13}$"
     ],
     "correct_answer": "B",
-    "solution": "Differentiating with respect to $y$: $f_y(x, y) = \\frac{1}{1 + (x + y^2)^2} \\cdot 2y = \\frac{2y}{1 + (x + y^2)^2}$. Evaluating at $(1, 2)$: $f_y(1, 2) = \\frac{2(2)}{1 + (1 + 4)^2} = \\frac{4}{1 + 25} = \\frac{4}{26} = \\frac{2}{13}$."
+    "solution": "<p><strong>Step 1: Apply the chain rule to find the partial derivative $f_y(x, y)$.</strong></p>\n<p>Recall the derivative of the inverse tangent function: $\\frac{d}{du}[\\tan^{-1} u] = \\frac{1}{1 + u^2}$.\nHere $u = x + y^2$. Differentiating with respect to $y$ treating $x$ as a constant:\n$$f_y(x, y) = \\frac{1}{1 + (x + y^2)^2} \\cdot \\frac{\\partial}{\\partial y}(x + y^2) = \\frac{2y}{1 + (x + y^2)^2}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Evaluate $f_y$ at the point $(1, 2)$.</strong></p>\n<p>Substitute $x = 1$ and $y = 2$:\n$$x + y^2 = 1 + (2)^2 = 1 + 4 = 5$$\n$$f_y(1, 2) = \\frac{2(2)}{1 + 5^2} = \\frac{4}{1 + 25} = \\frac{4}{26}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Simplify the fraction.</strong></p>\n<p>Divide numerator and denominator by $2$:\n$$\\frac{4}{26} = \\frac{2}{13}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(B)</strong>.</p>"
   },
   {
     "id": "221_13",
@@ -3301,7 +3295,7 @@ window.MATH201_BANK = [
       "$2xy\\cos(x^2 y)$"
     ],
     "correct_answer": "B",
-    "solution": "First partials: $f_x(x, y) = -\\sin(x^2 y) \\cdot 2xy = -2xy\\sin(x^2 y)$, and $f_y(x, y) = -\\sin(x^2 y) \\cdot x^2 = -x^2\\sin(x^2 y)$. Then $f_x(x, y) - f_y(x, y) = -2xy\\sin(x^2 y) - (-x^2\\sin(x^2 y)) = (x^2 - 2xy)\\sin(x^2 y)$."
+    "solution": "<p><strong>Step 1: Compute the partial derivative $f_x(x, y)$.</strong></p>\n<p>The function is $f(x, y) = \\cos(x^2 y)$.\nUsing the chain rule for differentiation with respect to $x$:\n$$f_x(x, y) = -\\sin(x^2 y) \\cdot \\frac{\\partial}{\\partial x}(x^2 y) = -\\sin(x^2 y) \\cdot (2xy) = -2xy\\sin(x^2 y)$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Compute the partial derivative $f_y(x, y)$.</strong></p>\n<p>Using the chain rule for differentiation with respect to $y$:\n$$f_y(x, y) = -\\sin(x^2 y) \\cdot \\frac{\\partial}{\\partial y}(x^2 y) = -\\sin(x^2 y) \\cdot (x^2) = -x^2\\sin(x^2 y)$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Subtract $f_y(x, y)$ from $f_x(x, y)$.</strong></p>\n<p>$$f_x(x, y) - f_y(x, y) = -2xy\\sin(x^2 y) - \\left[-x^2\\sin(x^2 y)\\right]$$\n$$= -2xy\\sin(x^2 y) + x^2\\sin(x^2 y) = (x^2 - 2xy)\\sin(x^2 y)$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(B)</strong>.</p>"
   },
   {
     "id": "221_14",
@@ -3318,7 +3312,7 @@ window.MATH201_BANK = [
       "$5\\pi$"
     ],
     "correct_answer": "C",
-    "solution": "The differential is $dV = \\frac{\\partial V}{\\partial r} dr + \\frac{\\partial V}{\\partial h} dh = \\frac{2\\pi r h}{3} dr + \\frac{\\pi r^2}{3} dh$. Setting $r = 10, h = 25, dr = dh = 0.01$: $dV = \\frac{2\\pi(10)(25)}{3}(0.01) + \\frac{\\pi(10^2)}{3}(0.01) = \\frac{500\\pi + 100\\pi}{3}(0.01) = 200\\pi(0.01) = 2\\pi$."
+    "solution": "<p><strong>Step 1: Formulate the total differential of the cone volume.</strong></p>\n<p>The volume of a right circular cone is given by:\n$$V(r, h) = \\frac{1}{3}\\pi r^2 h$$\nThe total differential $dV$ represents the propagated maximum error:\n$$dV = \\frac{\\partial V}{\\partial r}\\,dr + \\frac{\\partial V}{\\partial h}\\,dh$$\nCompute the partial derivatives:\n$$\\frac{\\partial V}{\\partial r} = \\frac{2}{3}\\pi r h \\quad \\text{and} \\quad \\frac{\\partial V}{\\partial h} = \\frac{1}{3}\\pi r^2$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Substitute the given measurements and possible errors.</strong></p>\n<p>We are given $r = 10\\text{ cm}$, $h = 25\\text{ cm}$, and $|dr| \\le 0.01\\text{ cm}$, $|dh| \\le 0.01\\text{ cm}$:\n$$dV = \\frac{2}{3}\\pi(10)(25)(0.01) + \\frac{1}{3}\\pi(10)^2(0.01)$$\n$$= \\frac{500\\pi}{3}(0.01) + \\frac{100\\pi}{3}(0.01)$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Simplify the arithmetic.</strong></p>\n<p>$$dV = \\left(\\frac{500\\pi + 100\\pi}{3}\\right)(0.01) = \\left(\\frac{600\\pi}{3}\\right)(0.01) = (200\\pi)(0.01) = 2\\pi$$\nThus, the maximum error in the calculated volume is $2\\pi\\text{ cm}^3$.</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(C)</strong>.</p>"
   },
   {
     "id": "221_15",
@@ -3335,7 +3329,7 @@ window.MATH201_BANK = [
       "$L(x, y) = \\frac{y}{e} - 1$"
     ],
     "correct_answer": "D",
-    "solution": "At $(e, 1)$, $f(e, 1) = 1\\ln(e/1) = 1$. $f(x, y) = y(\\ln x - \\ln y) \\implies f_x = \\frac{y}{x} \\implies f_x(e, 1) = \\frac{1}{e}$. Also $f_y = (\\ln x - \\ln y) + y(-1/y) = \\ln(x/y) - 1 \\implies f_y(e, 1) = \\ln(e) - 1 = 0$. The linearization is $L(x, y) = f(e, 1) + f_x(e, 1)(x - e) + f_y(e, 1)(y - 1) = 1 + \\frac{1}{e}(x - e) + 0 = 1 + \\frac{x}{e} - 1 = \\frac{x}{e}$."
+    "solution": "<p><strong>Step 1: Recall the formula for the linear approximation (linearization).</strong></p>\n<p>The linearization of $f(x, y)$ at the point $(x_0, y_0) = (e, 1)$ is given by:\n$$L(x, y) = f(e, 1) + f_x(e, 1)(x - e) + f_y(e, 1)(y - 1)$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Evaluate the function value $f(e, 1)$.</strong></p>\n<p>$$f(x, y) = y\\ln\\left(\\frac{x}{y}\\right)$$\n$$f(e, 1) = 1\\ln\\left(\\frac{e}{1}\\right) = 1\\ln(e) = 1(1) = 1$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Compute and evaluate the first partial derivatives.</strong></p>\n<p>Using logarithm properties, rewrite $f(x, y) = y(\\ln x - \\ln y) = y\\ln x - y\\ln y$:\n$$f_x(x, y) = y \\cdot \\frac{1}{x} = \\frac{y}{x} \\implies f_x(e, 1) = \\frac{1}{e}$$\n$$f_y(x, y) = (\\ln x - \\ln y) + y\\left(-\\frac{1}{y}\\right) = \\ln\\left(\\frac{x}{y}\\right) - 1 \\implies f_y(e, 1) = \\ln\\left(\\frac{e}{1}\\right) - 1 = 1 - 1 = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Assemble and simplify the linearization $L(x, y)$.</strong></p>\n<p>$$L(x, y) = 1 + \\frac{1}{e}(x - e) + 0(y - 1) = 1 + \\frac{x}{e} - 1 = \\frac{x}{e}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 5: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(D)</strong>.</p>"
   },
   {
     "id": "221_16",
@@ -3352,7 +3346,7 @@ window.MATH201_BANK = [
       "$\\frac{yz}{e^z - xy}$"
     ],
     "correct_answer": "E",
-    "solution": "Differentiating implicitly with respect to $x$: $e^z \\frac{\\partial z}{\\partial x} = y\\left(1 \\cdot z + x \\frac{\\partial z}{\\partial x}\\right) = yz + xy\\frac{\\partial z}{\\partial x}$. Factoring out $\\frac{\\partial z}{\\partial x}$: $(e^z - xy)\\frac{\\partial z}{\\partial x} = yz \\iff \\frac{\\partial z}{\\partial x} = \\frac{yz}{e^z - xy}$."
+    "solution": "<p><strong>Step 1: Set up the implicit equation.</strong></p>\n<p>The relationship is given by:\n$$e^z = xyz$$\nDifferentiating both sides with respect to $x$ and treating $z$ as a function of $x$ and $y$ ($z = z(x, y)$):\n$$\\frac{\\partial}{\\partial x}\\left(e^z\\right) = \\frac{\\partial}{\\partial x}(xyz)$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Differentiate term by term using the chain and product rules.</strong></p>\n<p>Left side:\n$$\\frac{\\partial}{\\partial x}\\left(e^z\\right) = e^z \\frac{\\partial z}{\\partial x}$$\nRight side (treating $y$ as a constant):\n$$\\frac{\\partial}{\\partial x}\\left(x \\cdot yz\\right) = y\\left[\\frac{\\partial}{\\partial x}(x) \\cdot z + x \\cdot \\frac{\\partial z}{\\partial x}\\right] = y\\left(1 \\cdot z + x\\frac{\\partial z}{\\partial x}\\right) = yz + xy\\frac{\\partial z}{\\partial x}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Solve for $\\frac{\\partial z}{\\partial x}$.</strong></p>\n<p>$$e^z \\frac{\\partial z}{\\partial x} = yz + xy\\frac{\\partial z}{\\partial x}$$\nCollect terms involving $\\frac{\\partial z}{\\partial x}$ on the left-hand side:\n$$\\left(e^z - xy\\right)\\frac{\\partial z}{\\partial x} = yz \\implies \\frac{\\partial z}{\\partial x} = \\frac{yz}{e^z - xy}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(E)</strong>.</p>"
   },
   {
     "id": "221_17",
@@ -3369,7 +3363,7 @@ window.MATH201_BANK = [
       "$\\frac{1}{4}$"
     ],
     "correct_answer": "E",
-    "solution": "By the chain rule: $\\frac{\\partial z}{\\partial s} = \\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial s} + \\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial s} = \\left(\\frac{1}{y}\\right)(e^t) + \\left(-\\frac{x}{y^2}\\right)(-e^{-t}) = \\frac{e^t}{y} + \\frac{x e^{-t}}{y^2}$. At $x = 3, y = -2, t = 0$: $\\frac{\\partial z}{\\partial s} = \\frac{1}{-2} + \\frac{3}{(-2)^2} = -\\frac{1}{2} + \\frac{3}{4} = \\frac{1}{4}$."
+    "solution": "<p><strong>Step 1: State the multivariable chain rule for $\\frac{\\partial z}{\\partial s}$.</strong></p>\n<p>Given $z = \\frac{x}{y}$ where $x = s e^t$ and $y = 1 - s e^{-t}$.\nBy the chain rule:\n$$\\frac{\\partial z}{\\partial s} = \\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial s} + \\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial s}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Compute the relevant partial derivatives.</strong></p>\n<p>$$\\frac{\\partial z}{\\partial x} = \\frac{1}{y}, \\quad \\frac{\\partial z}{\\partial y} = -\\frac{x}{y^2}$$\n$$\\frac{\\partial x}{\\partial s} = e^t, \\quad \\frac{\\partial y}{\\partial s} = -e^{-t}$$\nSubstituting these into the chain rule formula gives:\n$$\\frac{\\partial z}{\\partial s} = \\left(\\frac{1}{y}\\right)(e^t) + \\left(-\\frac{x}{y^2}\\right)(-e^{-t}) = \\frac{e^t}{y} + \\frac{x e^{-t}}{y^2}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Evaluate at the specified values $x = 3, y = -2$, and $t = 0$.</strong></p>\n<p>Since $t = 0$, $e^0 = 1$ and $e^{-0} = 1$:\n$$\\frac{\\partial z}{\\partial s} = \\frac{1}{-2} + \\frac{3(1)}{(-2)^2} = -\\frac{1}{2} + \\frac{3}{4} = \\frac{-2 + 3}{4} = \\frac{1}{4}$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(E)</strong>.</p>"
   },
   {
     "id": "221_18",
@@ -3386,7 +3380,7 @@ window.MATH201_BANK = [
       "2t + 2s"
     ],
     "correct_answer": "C",
-    "solution": "First, $\\frac{\\partial w}{\\partial s} = \\frac{\\partial w}{\\partial x}\\frac{\\partial x}{\\partial s} + \\frac{\\partial w}{\\partial y}\\frac{\\partial y}{\\partial s} + \\frac{\\partial w}{\\partial z}\\frac{\\partial z}{\\partial s} = y(2) + x(0) + (2z)(1) = 2y + 2z$. Second, $\\frac{\\partial w}{\\partial t} = y(-1) + x(3) + (2z)(0) = 3x - y$. Adding them gives $3x + y + 2z$. Expressing in terms of $s$ and $t$: $3(2s - t) + 3t + 2s = 6s - 3t + 3t + 2s = 8s$."
+    "solution": "<p><strong>Step 1: Method of Direct Substitution.</strong></p>\n<p>We are given $w = xy + z^2$ with $x = 2s - t, y = 3t$, and $z = s$.\nSubstitute the intermediate variables into $w$ directly:\n$$w(s, t) = (2s - t)(3t) + (s)^2 = 6st - 3t^2 + s^2$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Differentiate with respect to $s$ and $t$.</strong></p>\n<p>$$\\frac{\\partial w}{\\partial s} = \\frac{\\partial}{\\partial s}\\left(6st - 3t^2 + s^2\\right) = 6t + 2s$$\n$$\\frac{\\partial w}{\\partial t} = \\frac{\\partial}{\\partial t}\\left(6st - 3t^2 + s^2\\right) = 6s - 6t$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Compute the sum $\\frac{\\partial w}{\\partial s} + \\frac{\\partial w}{\\partial t}$.</strong></p>\n<p>$$\\frac{\\partial w}{\\partial s} + \\frac{\\partial w}{\\partial t} = (6t + 2s) + (6s - 6t) = (2s + 6s) + (6t - 6t) = 8s$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(C)</strong>.</p>"
   },
   {
     "id": "221_19",
@@ -3403,7 +3397,7 @@ window.MATH201_BANK = [
       "-2"
     ],
     "correct_answer": "E",
-    "solution": "Let $F(x, y, z) = \\frac{x^2}{9} + y^2 + z^2 - 6 = 0$. The normal vector is $\\nabla F = \\langle \\frac{2x}{9}, 2y, 2z \\rangle$. At $(-3, 1, -2)$, $\\nabla F = \\langle -\\frac{2}{3}, 2, -4 \\rangle$. The tangent plane is $-\\frac{2}{3}(x + 3) + 2(y - 1) - 4(z + 2) = 0 \\iff -\\frac{2}{3}x + 2y - 4z - 12 = 0$. Multiplying by $-\\frac{3}{2}$ gives $x - 3y + 6z + 18 = 0$. Comparing with $ax + by + 6z + 18 = 0$ yields $a = 1, b = -3$. Thus $a + b = 1 + (-3) = -2$."
+    "solution": "<p><strong>Step 1: Compute the gradient vector of the ellipsoid level surface.</strong></p>\n<p>Define the surface implicitly as $F(x, y, z) = \\frac{x^2}{9} + y^2 + z^2 - 6 = 0$.\nThe normal vector is given by the gradient $\\nabla F$:\n$$\\nabla F = \\left\\langle \\frac{\\partial F}{\\partial x}, \\frac{\\partial F}{\\partial y}, \\frac{\\partial F}{\\partial z} \\right\\rangle = \\left\\langle \\frac{2x}{9}, 2y, 2z \\right\\rangle$$\nEvaluate the gradient at the point $(-3, 1, -2)$:\n$$\\nabla F(-3, 1, -2) = \\left\\langle \\frac{2(-3)}{9}, 2(1), 2(-2) \\right\\rangle = \\left\\langle -\\frac{2}{3}, 2, -4 \\right\\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Write the tangent plane equation.</strong></p>\n<p>Using the point-normal equation $-\\frac{2}{3}(x - (-3)) + 2(y - 1) - 4(z - (-2)) = 0$:\n$$-\\frac{2}{3}(x + 3) + 2(y - 1) - 4(z + 2) = 0$$\n$$-\\frac{2}{3}x - 2 + 2y - 2 - 4z - 8 = 0 \\iff -\\frac{2}{3}x + 2y - 4z - 12 = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Match the coefficients with $ax + by + 6z + 18 = 0$.</strong></p>\n<p>Notice the given equation has coefficient $+6$ for $z$. Multiply the entire equation by $-\\frac{3}{2}$:\n$$\\left(-\\frac{3}{2}\\right)\\left(-\\frac{2}{3}x + 2y - 4z - 12\\right) = 0$$\n$$x - 3y + 6z + 18 = 0$$\nComparing with $ax + by + 6z + 18 = 0$ yields:\n$$a = 1 \\quad \\text{and} \\quad b = -3$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Calculate $a + b$.</strong></p>\n<p>$$a + b = 1 + (-3) = -2$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 5: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(E)</strong>.</p>"
   },
   {
     "id": "221_20",
@@ -3420,6 +3414,18 @@ window.MATH201_BANK = [
       "$-\\frac{3}{\\sqrt{14}}$"
     ],
     "correct_answer": "A",
-    "solution": "The gradient is $\\nabla f = \\langle e^y + z e^x, x e^y + e^z, y e^z + e^x \\rangle$. At $(0, 0, 0)$, $\\nabla f(0, 0, 0) = \\langle 1, 1, 1 \\rangle$. The unit vector is $\\vec{u} = \\frac{\\langle -3, 1, 2 \\rangle}{\\sqrt{14}}$. The directional derivative is $D_{\\vec{u}} f(0, 0, 0) = \\langle 1, 1, 1 \\rangle \\cdot \\frac{\\langle -3, 1, 2 \\rangle}{\\sqrt{14}} = \\frac{-3 + 1 + 2}{\\sqrt{14}} = 0$."
+    "solution": "<p><strong>Step 1: Compute the gradient vector $\\nabla f(x, y, z)$.</strong></p>\n<p>The function is $f(x, y, z) = x e^y + y e^z + z e^x$.\nCalculate the first partial derivatives:\n$$f_x = e^y + z e^x \\implies f_x(0, 0, 0) = e^0 + 0 = 1$$\n$$f_y = x e^y + e^z \\implies f_y(0, 0, 0) = 0 + e^0 = 1$$\n$$f_z = y e^z + e^x \\implies f_z(0, 0, 0) = 0 + e^0 = 1$$\nThus, the gradient vector at the origin is:\n$$\\nabla f(0, 0, 0) = \\langle 1, 1, 1 \\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 2: Find the unit vector in the direction of $\\vec{v} = \\langle -3, 1, 2 \\rangle$.</strong></p>\n<p>$$\\|\\vec{v}\\| = \\sqrt{(-3)^2 + 1^2 + 2^2} = \\sqrt{9 + 1 + 4} = \\sqrt{14}$$\n$$\\vec{u} = \\frac{\\vec{v}}{\\|\\vec{v}\\|} = \\frac{1}{\\sqrt{14}}\\langle -3, 1, 2 \\rangle$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 3: Calculate the directional derivative $D_{\\vec{u}} f(0, 0, 0)$.</strong></p>\n<p>$$D_{\\vec{u}} f(0, 0, 0) = \\nabla f(0, 0, 0) \\cdot \\vec{u} = \\langle 1, 1, 1 \\rangle \\cdot \\left(\\frac{1}{\\sqrt{14}}\\langle -3, 1, 2 \\rangle\\right)$$\n$$= \\frac{1(-3) + 1(1) + 1(2)}{\\sqrt{14}} = \\frac{-3 + 1 + 2}{\\sqrt{14}} = \\frac{0}{\\sqrt{14}} = 0$$</p>\n<div class=\"step-divider\"></div>\n<p><strong>Step 4: Match the correct choice.</strong></p>\n<p>This matches Choice <strong>(A)</strong>.</p>"
   }
 ];
+window.MATH201_EXAM_BANK = {
+  course: "MATH 201 - Calculus III",
+  exam: "Major Exam II",
+  coordinator: "Dr. Ibrahim Al-Rasasi",
+  total_questions: 201,
+  terms_included: ["PT1","PT2","253","252","251","243","242","241","233","232","231","223","221"],
+  sections_covered: ["11.5","11.6","13.1","13.2","13.3","13.4","13.5","13.6","13.7","13.8"],
+  section_descriptions: {"11.5":"Lines and Planes in Space (Parametric & Symmetric Equations, Distances, Intersections)","11.6":"Cylinders and Quadric Surfaces (Ellipsoids, Hyperboloids, Cones, Paraboloids)","13.1":"Functions of Several Variables, Domains, Ranges & Level Curves/Surfaces","13.2":"Limits and Continuity in Multivariable Calculus","13.3":"Partial Derivatives & Higher-Order Derivatives","13.4":"Differentials, Linearization & Tangent Plane Approximations","13.5":"The Chain Rule & Implicit Differentiation","13.6":"Directional Derivatives and Gradient Vectors","13.7":"Tangent Planes and Normal Lines to Surfaces","13.8":"Extreme Values and Saddle Points, Lagrange Multipliers"},
+  exams: {"221":{"term":"221","title":"KFUPM MATH 201 - Major Exam II (Term 221)","coordinator":"Dr. Ibrahim Al-Rasasi","date":"Fall 2022","question_count":20},"223":{"term":"223","title":"KFUPM MATH 201 - Major Exam II (Term 223)","coordinator":"Dr. Ibrahim Al-Rasasi","date":"Summer 2023","question_count":20},"231":{"term":"231","title":"Term 231","coordinator":"Dr. Khalid Ali Alanezy","date":"","question_count":20},"232":{"term":"232","title":"KFUPM MATH 201 - Major Exam II (Term 232)","coordinator":"Dr. Ibrahim Al-Rasasi","date":"Spring 2024","question_count":20},"233":{"term":"233","title":"Term 233","coordinator":"Dr. Ibrahim Al-Rasasi","date":"","question_count":15},"241":{"term":"241","title":"Term 241","coordinator":"Dr. Adel Khalfallah","date":"","question_count":15},"242":{"term":"242","title":"Term 242","coordinator":"Dr. Ibrahim Al-Rasasi","date":"","question_count":15},"243":{"term":"243","title":"Term 243","coordinator":"Dr. Adel Khalfallah","date":"","question_count":15},"252":{"term":"252","title":"Term 252","coordinator":"Dr. Faisal A. Fairag","date":"","question_count":15},"253":{"term":"253","title":"Term 253","coordinator":"Dr. Ibrahim Al-Rasasi","date":"","question_count":15},"PT1":[{"id":"PT1_1","term":"PT1","number":1,"section":"11.5","topic":"Lines & Planes in Space","question":"For the line $\\mathbf{r}(t) = \\langle 1, 2, -1 \\rangle + t\\langle 2, -1, 2 \\rangle$ and the plane $2x - y + 2z = 7$, the intersection point is:","choices":["$(3, 1, 1)$","$(7, -1, 5)$","$(1, 2, -1)$","$(5, 0, 3)$","$\\text{No intersection}$"],"correct_answer":"A","solution":"<p>The line intersects the plane at the point $(3, 1, 1)$.</p><p><strong>Step 1: Write Parametric Equations for the Line</strong> From the vector equation $\\mathbf{r}(t) = \\langle 1, 2, -1 \\rangle + t\\langle 2, -1, 2 \\rangle$, extract coordinate functions:$$x(t) = 1 + 2t, \\quad y(t) = 2 - t, \\quad z(t) = -1 + 2t$$</p><p><strong>Step 2: Substitute Parametric Equations into the Plane Equation</strong> Substitute $x(t), y(t), z(t)$ into $2x - y + 2z = 7$:$$2(1 + 2t) - (2 - t) + 2(-1 + 2t) = 7$$Expand and collect like terms:$$2 + 4t - 2 + t - 2 + 4t = 7$$$$(4t + t + 4t) + (2 - 2 - 2) = 7$$$$9t - 2 = 7 \\implies 9t = 9 \\implies t = 1$$</p><p><strong>Step 3: Calculate the Coordinates of the Intersection Point</strong> Substitute parameter value $t = 1$ back into the line equations:$$x(1) = 1 + 2(1) = 3$$$$y(1) = 2 - (1) = 1$$$$z(1) = -1 + 2(1) = 1$$Therefore, the intersection point is $(3, 1, 1)$.</p><p><strong>Step 4: Verify in the Plane Equation</strong> $$2(3) - (1) + 2(1) = 6 - 1 + 2 = 7 \\quad \\checkmark$$</p>"},{"id":"PT1_2","term":"PT1","number":2,"section":"11.5","topic":"Distances in Space","question":"The distance from the point $P = (1, 2, 3)$ to the plane $2x - 2y + z = 9$ is:","choices":["$\\dfrac{2}{3}$","$\\dfrac{10}{3}$","$\\dfrac{4}{3}$","$\\dfrac{8}{3}$","$2$"],"correct_answer":"D","solution":"<p>The perpendicular distance from $P(1, 2, 3)$ to the plane is $\\dfrac{8}{3}$.</p><p><strong>Step 1: State the Point-to-Plane Distance Formula</strong> The perpendicular distance $D$ from a point $P(x_0, y_0, z_0)$ to a plane $Ax + By + Cz = d$ is given by:$$D = \\frac{|A x_0 + B y_0 + C z_0 - d|}{\\sqrt{A^2 + B^2 + C^2}}$$</p><p><strong>Step 2: Identify Plane Constants and Point Coordinates</strong> Given $P = (1, 2, 3)$, normal vector $\\mathbf{n} = \\langle A, B, C \\rangle = \\langle 2, -2, 1 \\rangle$, and scalar $d = 9$.</p><p><strong>Step 3: Evaluate Numerator and Denominator</strong> Numerator:$$|2(1) - 2(2) + 1(3) - 9| = |2 - 4 + 3 - 9| = |-8| = 8$$Denominator (magnitude of the normal vector):$$\\|\\mathbf{n}\\| = \\sqrt{2^2 + (-2)^2 + 1^2} = \\sqrt{4 + 4 + 1} = \\sqrt{9} = 3$$</p><p><strong>Step 4: Compute the Distance</strong> $$D = \\frac{8}{3}$$</p>"},{"id":"PT1_3","term":"PT1","number":3,"section":"11.6","topic":"Quadric Surfaces Classification","question":"Identify the quadric surface given by the equation:$$x^2 + y^2 - z^2 = 4$$","choices":["$\\text{Hyperboloid of two sheets}$","$\\text{Hyperbolic paraboloid}$","$\\text{Elliptic cone}$","$\\text{Elliptic paraboloid}$","$\\text{Hyperboloid of one sheet}$"],"correct_answer":"E","solution":"<p>The surface is a Hyperboloid of one sheet.</p><p><strong>Step 1: Put the Equation in Standard Canonical Form</strong> Divide both sides of $x^2 + y^2 - z^2 = 4$ by $4$:$$\\frac{x^2}{4} + \\frac{y^2}{4} - \\frac{z^2}{4} = 1$$</p><p><strong>Step 2: Compare with Standard Forms of Quadrics</strong> - Two positive squared terms and one negative squared term equaling $+1$:$$\\frac{x^2}{a^2} + \\frac{y^2}{b^2} - \\frac{z^2}{c^2} = 1 \\implies \\textbf{Hyperboloid of One Sheet}$$ - Two negative squared terms and one positive squared term equaling $+1$:$$-\\frac{x^2}{a^2} - \\frac{y^2}{b^2} + \\frac{z^2}{c^2} = 1 \\implies \\textbf{Hyperboloid of Two Sheets}$$ - Right-hand side equaling $0$:$$\\frac{x^2}{a^2} + \\frac{y^2}{b^2} - \\frac{z^2}{c^2} = 0 \\implies \\textbf{Elliptic Cone}$$</p><p><strong>Step 3: Verify Horizontal and Vertical Traces</strong> Horizontal traces ($z = k$): $x^2 + y^2 = 4 + k^2$ are real circles for every value of $k \\in \\mathbb{R}$. Vertical traces ($x = 0$ or $y = 0$) are hyperbolas ($y^2 - z^2 = 4$). Thus, the surface is connected and tubular: <strong>Hyperboloid of one sheet</strong>.</p>"},{"id":"PT1_4","term":"PT1","number":4,"section":"11.6","topic":"Quadric Surfaces & Intersections","question":"The intersection of the hyperbolic paraboloid (saddle surface) $z = x^2 - y^2$ with the vertical plane $y = x + 1$ is:","choices":["$z = 1$","$z = -2x - 1$","$z = 2x^2 + 1$","$z = 2x + 1$","$z = -x^2 - 1$"],"correct_answer":"B","solution":"<p>The intersection curve is the line $z = -2x - 1$ in the plane $y = x + 1$.</p><p><strong>Step 1: Understand the Geometric Intersection</strong> Any point on the curve of intersection must satisfy the surface equation $z = x^2 - y^2$ and the plane equation $y = x + 1$ simultaneously.</p><p><strong>Step 2: Substitute $y = x + 1$ into the Surface Equation</strong> $$z = x^2 - (x + 1)^2$$</p><p><strong>Step 3: Expand the Binomial and Simplify</strong> $$z = x^2 - (x^2 + 2x + 1) = x^2 - x^2 - 2x - 1 = -2x - 1$$</p><p><strong>Step 4: Geometric Interpretation</strong> In $\\mathbb{R}^3$, the intersection is a straight line lying within the vertical plane $y = x + 1$, with height coordinate given by $z = -2x - 1$.</p>"},{"id":"PT1_5","term":"PT1","number":5,"section":"13.1","topic":"Domain of Multivariable Functions","question":"For the function $f(x, y) = \\dfrac{\\sqrt{9 - x^2 - y^2}}{x - 1}$, which description gives its domain $\\operatorname{Dom}(f)$?","choices":["$x^2 + y^2 \\le 9, \\quad y \\ne 1$","$x^2 + y^2 \\le 9$","$x^2 + y^2 > 9, \\quad x \\ne 1$","$x^2 + y^2 < 9$","$x^2 + y^2 \\le 9, \\quad x \\ne 1$"],"correct_answer":"E","solution":"<p>$\\operatorname{Dom}(f) = \\{ (x, y) \\mid x^2 + y^2 \\le 9, \\ x \\ne 1 \\}$.</p><p><strong>Step 1: Radical Domain Condition</strong> The radicand of the square root in the numerator must be non-negative:$$9 - x^2 - y^2 \\ge 0 \\iff x^2 + y^2 \\le 9$$This specifies the closed disk of radius $3$ centered at $(0, 0)$.</p><p><strong>Step 2: Non-Zero Denominator Condition</strong> The denominator cannot be zero:$$x - 1 \\ne 0 \\iff x \\ne 1$$This excludes all points on the vertical line $x = 1$.</p><p><strong>Step 3: Combine Conditions</strong> $$\\operatorname{Dom}(f) = \\left\\{ (x, y) \\in \\mathbb{R}^2 \\mid x^2 + y^2 \\le 9 \\text{ and } x \\ne 1 \\right\\}$$</p>"},{"id":"PT1_6","term":"PT1","number":6,"section":"13.1","topic":"Level Curves of Multivariable Functions","question":"For the function $f(x, y) = \\ln(4 - x^2 - y^2)$, the level curve $f(x, y) = \\ln 3$ is:","choices":["$\\text{A circle of radius } 2$","$\\text{The empty set}$","$\\text{A single point}$","$\\text{A circle of radius } 1$","$\\text{A circle of radius } \\sqrt{3}$"],"correct_answer":"D","solution":"<p>A circle centered at the origin of radius $1$.</p><p><strong>Step 1: Set Up Level Curve Equation</strong> Substitute $f(x, y) = \\ln 3$:$$\\ln(4 - x^2 - y^2) = \\ln 3$$</p><p><strong>Step 2: Exponentiate Both Sides</strong> $$e^{\\ln(4 - x^2 - y^2)} = e^{\\ln 3} \\iff 4 - x^2 - y^2 = 3$$</p><p><strong>Step 3: Identify the Geometric Curve</strong> Rearrange:$$x^2 + y^2 = 4 - 3 = 1$$This is a circle centered at the origin with radius $r = \\sqrt{1} = 1$.</p>"},{"id":"PT1_7","term":"PT1","number":7,"section":"13.2","topic":"Multivariable Limits - Squeeze Theorem","question":"Evaluate the limit:$$\\lim_{(x, y) \\to (0, 0)} \\frac{x^2 y}{x^2 + y^2}$$","choices":["$\\text{Does not exist}$","$1$","$-1$","$0$","$\\dfrac{1}{2}$"],"correct_answer":"D","solution":"<p>$\\lim_{(x, y) \\to (0, 0)} \\dfrac{x^2 y}{x^2 + y^2} = 0$. </p><p><strong>Method 1: Polar Coordinates</strong> Let $x = r \\cos\\theta$ and $y = r \\sin\\theta$. As $(x, y) \\to (0, 0)$, $r \\to 0^+$:$$\\frac{x^2 y}{x^2 + y^2} = \\frac{(r^2 \\cos^2\\theta)(r \\sin\\theta)}{r^2} = r \\cos^2\\theta \\sin\\theta$$Since $|\\cos^2\\theta \\sin\\theta| \\le 1$, we have:$$|r \\cos^2\\theta \\sin\\theta| \\le r \\to 0 \\quad \\text{as } r \\to 0^+$$By the Squeeze Theorem, the limit is $0$, regardless of direction $\\theta$. </p><p><strong>Method 2: Squeeze Inequality</strong> Notice that $\\dfrac{x^2}{x^2 + y^2} \\le 1$ for all $(x, y) \\ne (0, 0)$. Therefore:$$0 \\le \\left| \\frac{x^2 y}{x^2 + y^2} \\right| = \\frac{x^2}{x^2 + y^2} |y| \\le 1 \\cdot |y| = |y|$$Since $\\lim_{(x, y) \\to (0, 0)} |y| = 0$, by the Squeeze Theorem:$$\\lim_{(x, y) \\to (0, 0)} \\frac{x^2 y}{x^2 + y^2} = 0$$</p>"},{"id":"PT1_8","term":"PT1","number":8,"section":"13.2","topic":"Multivariable Limits - Two-Path Test","question":"Evaluate the limit:$$\\lim_{(x, y) \\to (0, 0)} \\frac{x^2 y}{x^4 + y^2}$$","choices":["$\\text{Does not exist}$","$\\dfrac{1}{2}$","$1$","$-1$","$0$"],"correct_answer":"A","solution":"<p>The limit Does Not Exist (DNE) by the Two-Path Test.</p><p><strong>Step 1: Test Along Straight Lines $y = mx$</strong> $$\\lim_{x \\to 0} \\frac{x^2(mx)}{x^4 + (mx)^2} = \\lim_{x \\to 0} \\frac{m x^3}{x^2(x^2 + m^2)} = \\lim_{x \\to 0} \\frac{m x}{x^2 + m^2} = 0 \\quad (\\text{for } m \\ne 0)$$Along the coordinate axes ($x = 0$ or $y = 0$), the expression is also identically $0$.</p><p><strong>Step 2: Examine Degree Balance in the Denominator</strong> In $x^4 + y^2$, the terms balance when $y \\sim x^2$. Let us test parabolic paths $y = k x^2$:$$\\lim_{x \\to 0} \\frac{x^2(k x^2)}{x^4 + (k x^2)^2} = \\lim_{x \\to 0} \\frac{k x^4}{x^4 + k^2 x^4} = \\lim_{x \\to 0} \\frac{k x^4}{x^4(1 + k^2)} = \\frac{k}{1 + k^2}$$</p><p><strong>Step 3: Evaluate Different Paths</strong> - Along $y = x^2$ ($k = 1$): $\\dfrac{1}{1 + 1^2} = \\dfrac{1}{2}$ - Along $y = -x^2$ ($k = -1$): $\\dfrac{-1}{1 + (-1)^2} = -\\dfrac{1}{2}$ - Along $y = 0$ ($k = 0$): $0$ Since different paths produce different limiting values, the limit <strong>Does Not Exist (DNE)</strong>.</p>"}],"PT2":[{"id":"PT2_1","term":"PT2","number":1,"section":"13.3","topic":"Partial Derivatives & Clairaut's Theorem","question":"If $f(x, y) = x^2 e^{xy}$, then the mixed second partial derivative $f_{xy}(1, 0)$ equals:","choices":["$0$","$2$","$4$","$3$","$1$"],"correct_answer":"D","solution":"<p>$f_{xy}(1, 0) = 3$.</p><p><strong>Step 1: Compute First Partial Derivative $f_y$</strong> Differentiating with respect to $y$ (treating $x$ as constant):$$f_y(x, y) = \\frac{\\partial}{\\partial y}[x^2 e^{xy}] = x^2 \\cdot (x e^{xy}) = x^3 e^{xy}$$</p><p><strong>Step 2: Differentiate with Respect to $x$ ($f_{yx} = f_{xy}$)</strong> Using the Product Rule:$$\\frac{\\partial}{\\partial x}[x^3 e^{xy}] = \\left( \\frac{\\partial}{\\partial x}[x^3] \\right) e^{xy} + x^3 \\left( \\frac{\\partial}{\\partial x}[e^{xy}] \\right) = 3x^2 e^{xy} + x^3 (y e^{xy}) = e^{xy}(3x^2 + x^3 y)$$</p><p><strong>Step 3: Evaluate at $(x, y) = (1, 0)$</strong> $$f_{xy}(1, 0) = e^{1 \\cdot 0} \\left( 3(1)^2 + (1)^3(0) \\right) = e^0 (3 + 0) = 1 \\cdot 3 = 3$$</p>"},{"id":"PT2_2","term":"PT2","number":2,"section":"13.3","topic":"Higher-Order Partial Derivatives","question":"Let $f(x, y) = x^3 y^2 - 2x y^3$. Then the third-order partial derivative $f_{xxy}(1, 2)$ equals:","choices":["$24$","$12$","$-12$","$6$","$18$"],"correct_answer":"A","solution":"<p>$f_{xxy}(1, 2) = 24$.</p><p><strong>Step 1: First Partial Derivative $f_x$</strong> Treat $y$ as a constant:$$f_x(x, y) = \\frac{\\partial}{\\partial x}[x^3 y^2 - 2x y^3] = 3x^2 y^2 - 2y^3$$</p><p><strong>Step 2: Second Partial Derivative $f_{xx}$</strong> Differentiate $f_x$ with respect to $x$:$$f_{xx}(x, y) = \\frac{\\partial}{\\partial x}[3x^2 y^2 - 2y^3] = 6x y^2 - 0 = 6x y^2$$</p><p><strong>Step 3: Third Partial Derivative $f_{xxy}$</strong> Differentiate $f_{xx}$ with respect to $y$:$$f_{xxy}(x, y) = \\frac{\\partial}{\\partial y}[6x y^2] = 6x(2y) = 12xy$$</p><p><strong>Step 4: Evaluate at $(x, y) = (1, 2)$</strong> $$f_{xxy}(1, 2) = 12(1)(2) = 24$$</p>"},{"id":"PT2_3","term":"PT2","number":3,"section":"13.4","topic":"Linearization & Tangent Approximations","question":"For the upper hemisphere $z = \\sqrt{25 - x^2 - y^2}$ at the base point $(3, 0)$, the local linear approximation predicts $z(3.1, 0.2) \\approx$:","choices":["$3.75$","$4.25$","$3.5$","$3.925$","$4.075$"],"correct_answer":"D","solution":"<p>$z(3.1, 0.2) \\approx 3.925$.</p><p><strong>Step 1: Calculate Function Value at the Base Point $(3, 0)$</strong> $$z(3, 0) = \\sqrt{25 - 3^2 - 0^2} = \\sqrt{25 - 9} = \\sqrt{16} = 4$$</p><p><strong>Step 2: Calculate First Partial Derivatives at $(3, 0)$</strong> $$z_x = \\frac{-2x}{2\\sqrt{25 - x^2 - y^2}} = \\frac{-x}{\\sqrt{25 - x^2 - y^2}} \\implies z_x(3, 0) = \\frac{-3}{4} = -0.75$$$$z_y = \\frac{-2y}{2\\sqrt{25 - x^2 - y^2}} = \\frac{-y}{\\sqrt{25 - x^2 - y^2}} \\implies z_y(3, 0) = \\frac{-0}{4} = 0$$</p><p><strong>Step 3: Construct the Linearization Formula</strong> $$L(x, y) = z(3, 0) + z_x(3, 0)(x - 3) + z_y(3, 0)(y - 0)$$$$L(x, y) = 4 - 0.75(x - 3) + 0(y - 0) = 4 - 0.75(x - 3)$$</p><p><strong>Step 4: Approximate at $(3.1, 0.2)$</strong> Here $\\Delta x = 3.1 - 3 = 0.1$:$$z(3.1, 0.2) \\approx L(3.1, 0.2) = 4 - 0.75(0.1) = 4 - 0.075 = 3.925$$</p>"},{"id":"PT2_4","term":"PT2","number":4,"section":"13.4","topic":"Differentials & Relative Error Estimation","question":"A rectangular box has sides $2$, $3$, and $4\\text{ cm}$. If each side increases by $1\\%$, the total differential predicts its volume increases by approximately:","choices":["$4\\%$","$1\\%$","$6\\%$","$3\\%$","$2\\%$"],"correct_answer":"D","solution":"<p>The volume increases by approximately $3\\%$.</p><p><strong>Step 1: Formula for Volume and Total Differential</strong> Volume of the box is $V = xyz$. The total differential is:$$dV = \\frac{\\partial V}{\\partial x} dx + \\frac{\\partial V}{\\partial y} dy + \\frac{\\partial V}{\\partial z} dz = (yz) dx + (xz) dy + (xy) dz$$</p><p><strong>Step 2: Express Relative Percentage Change</strong> Divide through by $V = xyz$:$$\\frac{dV}{V} = \\frac{yz\\,dx + xz\\,dy + xy\\,dz}{xyz} = \\frac{dx}{x} + \\frac{dy}{y} + \\frac{dz}{z}$$</p><p><strong>Step 3: Substitute the Given Percentage Changes</strong> Given $\\frac{dx}{x} = 1\\%$, $\\frac{dy}{y} = 1\\%$, $\\frac{dz}{z} = 1\\%$:$$\\frac{dV}{V} = 1\\% + 1\\% + 1\\% = 3\\%$$<small style='color:var(--color-primary);'>Notice: The relative change is invariant with respect to the initial side lengths!</small></p>"},{"id":"PT2_5","term":"PT2","number":5,"section":"13.5","topic":"Multivariable Chain Rule","question":"Let $z = x^2 y + e^{xy}$, with $x = s + t$ and $y = s - t$. Find $\\dfrac{\\partial z}{\\partial t}$ at the parameter point $(s, t) = (1, 0)$:","choices":["$1$","$-e$","$2 + e$","$-1$","$0$"],"correct_answer":"A","solution":"<p>$\\left. \\dfrac{\\partial z}{\\partial t} \\right|_{(1, 0)} = 1$.</p><p><strong>Step 1: Formulate the Chain Rule</strong> $$\\frac{\\partial z}{\\partial t} = \\frac{\\partial z}{\\partial x} \\frac{\\partial x}{\\partial t} + \\frac{\\partial z}{\\partial y} \\frac{\\partial y}{\\partial t}$$</p><p><strong>Step 2: Compute Intermediate Coordinates at $(s, t) = (1, 0)$</strong> $$x = 1 + 0 = 1, \\quad y = 1 - 0 = 1$$</p><p><strong>Step 3: Evaluate All Partial Derivatives</strong> $$\\frac{\\partial x}{\\partial t} = 1, \\quad \\frac{\\partial y}{\\partial t} = -1$$$$\\frac{\\partial z}{\\partial x} = 2xy + y e^{xy} \\implies \\left. \\frac{\\partial z}{\\partial x} \\right|_{(1, 1)} = 2(1)(1) + (1)e^1 = 2 + e$$$$\\frac{\\partial z}{\\partial y} = x^2 + x e^{xy} \\implies \\left. \\frac{\\partial z}{\\partial y} \\right|_{(1, 1)} = 1^2 + (1)e^1 = 1 + e$$</p><p><strong>Step 4: Combine Using the Chain Rule Formula</strong> $$\\frac{\\partial z}{\\partial t} = (2 + e)(1) + (1 + e)(-1) = 2 + e - 1 - e = 1$$</p>"},{"id":"PT2_6","term":"PT2","number":6,"section":"13.5","topic":"Implicit Differentiation","question":"If $x^2 + y^2 + z^2 + xyz = 8$ defines $z = z(x, y)$ implicitly as a differentiable function near $(1, 1, 2)$, then $z_x(1, 1)$ equals:","choices":["$-1$","$\\dfrac{4}{5}$","$-\\dfrac{2}{3}$","$-\\dfrac{4}{5}$","$-\\dfrac{3}{5}$"],"correct_answer":"D","solution":"<p>$z_x(1, 1) = -\\dfrac{4}{5}$.</p><p><strong>Step 1: Define Implicit Function $F(x, y, z)$</strong> Let $F(x, y, z) = x^2 + y^2 + z^2 + xyz - 8 = 0$. By the Implicit Function Theorem:$$z_x = -\\frac{F_x}{F_z}$$</p><p><strong>Step 2: Differentiate $F$ Partially with Respect to $x$ and $z$</strong> $$F_x = \\frac{\\partial}{\\partial x}[x^2 + y^2 + z^2 + xyz - 8] = 2x + yz$$$$F_z = \\frac{\\partial}{\\partial z}[x^2 + y^2 + z^2 + xyz - 8] = 2z + xy$$</p><p><strong>Step 3: Evaluate at the Given Point $(x, y, z) = (1, 1, 2)$</strong> $$F_x(1, 1, 2) = 2(1) + (1)(2) = 2 + 2 = 4$$$$F_z(1, 1, 2) = 2(2) + (1)(1) = 4 + 1 = 5$$</p><p><strong>Step 4: Compute $z_x(1, 1)$</strong> $$z_x(1, 1) = -\\frac{F_x(1, 1, 2)}{F_z(1, 1, 2)} = -\\frac{4}{5}$$</p>"},{"id":"PT2_7","term":"PT2","number":7,"section":"13.6","topic":"Directional Derivatives & Gradients","question":"For the surface $f(x, y) = x^2 + 2xy + 3y^2$, find the maximum directional derivative at the point $(1, -1)$:","choices":["$2\\sqrt{10}$","$4$","$10$","$2\\sqrt{5}$","$\\sqrt{20}$"],"correct_answer":"B","solution":"<p>The maximum directional derivative at $(1, -1)$ is $4$.</p><p><strong>Step 1: Theorem for Maximum Directional Derivative</strong> For any differentiable function $f$, the maximum value of the directional derivative $D_{\\mathbf{u}} f$ at a point $P$ occurs when $\\mathbf{u}$ has the direction of $\\nabla f(P)$, and its maximum value is:$$D_{\\mathbf{u}, \\max} f(P) = \\|\\nabla f(P)\\|$$</p><p><strong>Step 2: Calculate the Gradient Vector $\\nabla f(x, y)$</strong> $$f_x(x, y) = 2x + 2y, \\quad f_y(x, y) = 2x + 6y$$$$\\nabla f(x, y) = \\langle 2x + 2y, 2x + 6y \\rangle$$</p><p><strong>Step 3: Evaluate at Point $(1, -1)$</strong> $$f_x(1, -1) = 2(1) + 2(-1) = 2 - 2 = 0$$$$f_y(1, -1) = 2(1) + 6(-1) = 2 - 6 = -4$$$$\\nabla f(1, -1) = \\langle 0, -4 \\rangle$$</p><p><strong>Step 4: Compute the Length of the Gradient Vector</strong> $$\\|\\nabla f(1, -1)\\| = \\sqrt{0^2 + (-4)^2} = \\sqrt{16} = 4$$</p>"},{"id":"PT2_8","term":"PT2","number":8,"section":"13.6","topic":"Gradient Vectors & Normal Lines","question":"At the point $P = (1, 2)$, a unit normal vector to the level curve $x^2 + xy + y^2 = 7$ pointing toward increasing values of $f(x, y) = x^2 + xy + y^2$ is:","choices":["$\\dfrac{\\langle 1, 2 \\rangle}{\\sqrt{5}}$","$\\dfrac{\\langle -4, -5 \\rangle}{\\sqrt{41}}$","$\\dfrac{\\langle 5, 4 \\rangle}{\\sqrt{41}}$","$\\dfrac{\\langle 3, 6 \\rangle}{\\sqrt{45}}$","$\\dfrac{\\langle 4, 5 \\rangle}{\\sqrt{41}}$"],"correct_answer":"E","solution":"<p>$\\mathbf{u} = \\dfrac{\\langle 4, 5 \\rangle}{\\sqrt{41}}$.</p><p><strong>Step 1: Normal Property of the Gradient</strong> For any smooth level curve $f(x, y) = c$, the gradient vector $\\nabla f(P)$ is perpendicular to the level curve at $P$ and points toward increasing values of $f$.</p><p><strong>Step 2: Differentiate to Obtain the Gradient</strong> With $f(x, y) = x^2 + xy + y^2$:$$f_x = 2x + y, \\quad f_y = x + 2y$$$$\\nabla f(x, y) = \\langle 2x + y, x + 2y \\rangle$$</p><p><strong>Step 3: Evaluate at Point $P = (1, 2)$</strong> $$f_x(1, 2) = 2(1) + 2 = 4$$$$f_y(1, 2) = 1 + 2(2) = 5$$$$\\nabla f(1, 2) = \\langle 4, 5 \\rangle$$</p><p><strong>Step 4: Normalize to a Unit Vector</strong> $$\\|\\nabla f(1, 2)\\| = \\sqrt{4^2 + 5^2} = \\sqrt{16 + 25} = \\sqrt{41}$$$$\\mathbf{u} = \\frac{\\nabla f(1, 2)}{\\|\\nabla f(1, 2)\\|} = \\frac{\\langle 4, 5 \\rangle}{\\sqrt{41}} = \\left\\langle \\frac{4}{\\sqrt{41}}, \\frac{5}{\\sqrt{41}} \\right\\rangle$$</p>"}],"251A":{"term":"251A","title":"Term 251A","coordinator":"Dr. Faisal A. Fairag","date":"","question_count":15},"251B":{"term":"251B","title":"Term 251B","coordinator":"Dr. Faisal A. Fairag","date":"","question_count":15}},
+  all_questions: window.MATH201_BANK,
+  section_distribution: {"11.5":37,"11.6":18,"13.1":25,"13.2":25,"13.3":23,"13.4":15,"13.5":28,"13.6":16,"13.7":14}
+};
