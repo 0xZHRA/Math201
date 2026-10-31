@@ -37,7 +37,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="initKaTeXWhenReady()"></script>
-<script src="math201_exam2_bank.js?v=20261031_v7"></script>
+<script src="math201_exam2_bank.js?v=20261031_v9"></script>
 <style>
 /* ========================================================
    CONTAINER & BORDER CONTAINMENT RULES
@@ -8323,11 +8323,13 @@ for (let i = 1; i <= 12; i++) {
 let saveTimer = null;
 function scheduleSaveState() {
     clearTimeout(saveTimer);
-    saveTimer = setTimeout(() => {
-        try {
-            localStorage.setItem("math201_portal_state_v5", JSON.stringify(portalState));
-        } catch(e) {}
-    }, 250);
+    saveTimer = setTimeout(savePortalStateImmediate, 250);
+}
+function savePortalStateImmediate() {
+    clearTimeout(saveTimer);
+    try {
+        localStorage.setItem("math201_portal_state_v5", JSON.stringify(portalState));
+    } catch(e) {}
 }
 
 let cachedScrollHeight = 0;
@@ -8440,7 +8442,7 @@ function switchTopic(topicId) {
         applyScroll(portalState.practiceScroll[topicId] || 0);
     }
 
-    scheduleSaveState();
+    savePortalStateImmediate();
     closeQuickAnchors();
 }
 
@@ -8528,7 +8530,7 @@ function switchTab(tab) {
     }
 
     populateQuickAnchors();
-    scheduleSaveState();
+    savePortalStateImmediate();
 }
 
 
@@ -9301,19 +9303,13 @@ function initExamBank() {
 }
 
         window.addEventListener('DOMContentLoaded', () => {
-
-    // Check initial tab from URL parameter (?tab=exambank, ?tab=practice, ?tab=videos)
-    const urlParams = new URLSearchParams(window.location.search);
-    const tabParam = urlParams.get('tab');
-    if (tabParam && ['notes', 'practice', 'videos', 'exambank', 'exams'].includes(tabParam.toLowerCase())) {
-        switchTab(tabParam.toLowerCase() === 'exams' ? 'exambank' : tabParam.toLowerCase());
-    }
+            const urlParams = new URLSearchParams(window.location.search);
+            const tabParam = urlParams.get('tab');
+            if (tabParam && ['notes', 'practice', 'videos', 'exambank', 'exams'].includes(tabParam.toLowerCase())) {
+                switchTab(tabParam.toLowerCase() === 'exams' ? 'exambank' : tabParam.toLowerCase());
+            }
             initPaperTheme();
-            initData();
-            initScratchpad();
-            initNotes();
-            setupKeyboard();
-            renderPracticeView();
+            initExamBank();
         });
 
         function initData() {
@@ -9328,7 +9324,7 @@ function initExamBank() {
             }
 
             // Auto-detect and asynchronously hot-swap if stale cached data is detected from browser disk cache
-            const hasStaleBoilerplate = APP.questions.some(q => q.solution && q.solution.includes('For radical expressions'));
+            const hasStaleBoilerplate = window.MATH201_BANK_VERSION !== '20261031_v9' || APP.questions.some(q => q.solution && q.solution.includes('For radical expressions'));
             if (hasStaleBoilerplate) {
                 fetch('math201_exam2_bank.json?t=' + Date.now())
                     .then(res => res.json())
@@ -9352,6 +9348,9 @@ function initExamBank() {
             const { progress, bookmarks } = loadLocalProfileData(prof);
             APP.progress = progress;
             APP.bookmarks = bookmarks;
+
+            // Restore saved filter state from localStorage BEFORE applying filters
+            initFilterState();
 
             // Apply initial filtering
             applyFilters();
@@ -9422,11 +9421,14 @@ function initExamBank() {
 
         function saveFilterState() {
             try {
+                const pageSelectEl = document.getElementById('pageSizeSelect');
+                const pageSizeSetting = pageSelectEl ? pageSelectEl.value : (APP.pageSizeSetting || (APP.pageSize >= 200 ? 'ALL' : APP.pageSize) || '25');
                 const state = {
                     selectedTerms: Array.from(APP.selectedTerms || []),
                     selectedSections: Array.from(APP.selectedSections || []),
                     status: APP.status || 'ALL',
                     search: APP.search || '',
+                    pageSizeSetting: pageSizeSetting,
                     pageSize: APP.pageSize || 25,
                     page: APP.page || 1
                 };
@@ -9445,16 +9447,19 @@ function initExamBank() {
                     if (Array.isArray(parsed.selectedSections) && parsed.selectedSections.length > 0) {
                         APP.selectedSections = new Set(parsed.selectedSections.filter(s => ALL_EXAM_SECTIONS.some(x => x.sec === s)));
                     }
-                    if (parsed.status) {
+                    if (parsed.status && ['ALL', 'UNATTEMPTED', 'BOOKMARKED', 'CORRECT', 'INCORRECT'].includes(parsed.status)) {
                         APP.status = parsed.status;
                     }
                     if (typeof parsed.search === 'string') {
                         APP.search = parsed.search;
                     }
-                    if (parsed.pageSize) {
+                    if (parsed.pageSizeSetting) {
+                        APP.pageSizeSetting = parsed.pageSizeSetting;
+                        APP.pageSize = parsed.pageSizeSetting === 'ALL' ? (APP.questions.length || 201) : parseInt(parsed.pageSizeSetting, 10);
+                    } else if (parsed.pageSize) {
                         APP.pageSize = parsed.pageSize;
                     }
-                    if (parsed.page) {
+                    if (parsed.page && Number.isInteger(parsed.page) && parsed.page > 0) {
                         APP.page = parsed.page;
                     }
                 }
@@ -9469,7 +9474,9 @@ function initExamBank() {
             if (searchInput) searchInput.value = APP.search;
 
             const pageSelect = document.getElementById('pageSizeSelect');
-            if (pageSelect) pageSelect.value = APP.pageSize || 25;
+            if (pageSelect) {
+                pageSelect.value = APP.pageSizeSetting || (APP.pageSize >= 200 ? 'ALL' : (APP.pageSize || 25));
+            }
 
             document.querySelectorAll('.status-pill-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.status === APP.status);
@@ -9687,6 +9694,21 @@ function initExamBank() {
             if (count === ALL_EXAM_TERMS.length) {
                 const p = document.getElementById('presetTermAll');
                 if (p) p.classList.add('active');
+            } else if (count === 2 && APP.selectedTerms.has('PT1') && APP.selectedTerms.has('PT2')) {
+                const p = document.getElementById('presetPT');
+                if (p) p.classList.add('active');
+            } else if (count === 3 && APP.selectedTerms.has('253') && APP.selectedTerms.has('252') && APP.selectedTerms.has('251')) {
+                const p = document.getElementById('preset25x');
+                if (p) p.classList.add('active');
+            } else if (count === 3 && APP.selectedTerms.has('243') && APP.selectedTerms.has('242') && APP.selectedTerms.has('241')) {
+                const p = document.getElementById('preset24x');
+                if (p) p.classList.add('active');
+            } else if (count === 3 && APP.selectedTerms.has('233') && APP.selectedTerms.has('232') && APP.selectedTerms.has('231')) {
+                const p = document.getElementById('preset23x');
+                if (p) p.classList.add('active');
+            } else if (count === 2 && APP.selectedTerms.has('223') && APP.selectedTerms.has('221')) {
+                const p = document.getElementById('preset22x');
+                if (p) p.classList.add('active');
             } else if (count === 3 && APP.selectedTerms.has('221') && APP.selectedTerms.has('223') && APP.selectedTerms.has('242')) {
                 const p = document.getElementById('presetUserRange');
                 if (p) p.classList.add('active');
@@ -9762,7 +9784,8 @@ function initExamBank() {
 
         function changePageSize() {
             const val = document.getElementById('pageSizeSelect').value;
-            APP.pageSize = val === 'ALL' ? APP.filtered.length || 201 : parseInt(val, 10);
+            APP.pageSizeSetting = val;
+            APP.pageSize = val === 'ALL' ? (APP.filtered ? APP.filtered.length : APP.questions.length) || 201 : parseInt(val, 10);
             APP.page = 1;
             saveFilterState();
             renderPracticeView();
@@ -10072,6 +10095,9 @@ function initExamBank() {
             q.choices = indices.map(idx => q.choices[idx]);
             const newCorrectIdx = q.choices.indexOf(correctText);
             q.correct_answer = CHOICE_LETTERS[newCorrectIdx];
+            if (q.solution) {
+                q.solution = q.solution.replace(/Choice\s*<strong>\([A-E]\)<\/strong>/gi, `Choice <strong>(${q.correct_answer})</strong>`);
+            }
 
             // 4. Update the card in DOM without jumping scroll
             const card = document.getElementById(`card-${qid}`);
@@ -10089,10 +10115,16 @@ function initExamBank() {
                     ansBadge.style.display = 'none';
                 }
 
-                // Update sol-answer-key with new scrambled correct answer
-                const solKey = card.querySelector('.sol-answer-key');
-                if (solKey) {
-                    solKey.textContent = `Correct Answer: [${q.correct_answer}]`;
+                // Update solution-inner with new scrambled correct answer
+                const solInner = card.querySelector('.solution-inner');
+                if (solInner) {
+                    solInner.innerHTML = `
+                        <div class="sol-answer-key" style="font-weight: 700; color: var(--paper-blue, #2563eb); margin-block-end: 12px; font-size: 14px;">
+                            Correct Answer: [${q.correct_answer}]
+                        </div>
+                        ${q.solution}
+                    `;
+                    renderMathOnElement(solInner);
                 }
 
                 // Re-render choices HTML
@@ -10248,6 +10280,7 @@ function initExamBank() {
 
         function changePage(p) {
             APP.page = p;
+            saveFilterState();
             renderPracticeView();
             window.scrollTo({ top: 180, behavior: 'smooth' });
         }
