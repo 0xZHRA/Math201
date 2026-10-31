@@ -37,7 +37,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="initKaTeXWhenReady()"></script>
-<script src="math201_exam2_bank.js?v=20261031_v3"></script>
+<script src="math201_exam2_bank.js?v=20261031_v4"></script>
 <style>
 /* ========================================================
    CONTAINER & BORDER CONTAINMENT RULES
@@ -9899,12 +9899,15 @@ function initExamBank() {
                                     </span>
                                     <span>Step-by-Step Calculus Solution</span>
                                 </div>
-                                <span class="accordion-answer">
-                                    Answer: [${q.correct_answer}]
+                                <span class="accordion-answer" id="ans-badge-${q.id}" style="${userProg ? '' : 'display: none;'}">
+                                    ${userProg ? `Answer: [${q.correct_answer}]` : ''}
                                 </span>
                             </div>
                             <div class="accordion-content">
                                 <div class="solution-inner">
+                                    <div class="sol-answer-key" style="font-weight: 700; color: var(--paper-blue, #2563eb); margin-block-end: 12px; font-size: 14px;">
+                                        Correct Answer: [${q.correct_answer}]
+                                    </div>
                                     ${q.solution}
                                 </div>
                             </div>
@@ -9959,6 +9962,13 @@ function initExamBank() {
                         btn.className += ' reveal-correct';
                     }
                 });
+
+                // Reveal answer badge on accordion header
+                const ansBadge = document.getElementById(`ans-badge-${qid}`);
+                if (ansBadge) {
+                    ansBadge.textContent = `Answer: [${q.correct_answer}]`;
+                    ansBadge.style.display = 'inline-block';
+                }
             }
         }
 
@@ -10000,6 +10010,19 @@ function initExamBank() {
                 // Close solution accordion
                 const accordion = document.getElementById(`accordion-${qid}`);
                 if (accordion) accordion.classList.remove('open');
+
+                // Clear & hide answer badge until student attempts again
+                const ansBadge = document.getElementById(`ans-badge-${qid}`);
+                if (ansBadge) {
+                    ansBadge.textContent = '';
+                    ansBadge.style.display = 'none';
+                }
+
+                // Update sol-answer-key with new scrambled correct answer
+                const solKey = card.querySelector('.sol-answer-key');
+                if (solKey) {
+                    solKey.textContent = `Correct Answer: [${q.correct_answer}]`;
+                }
 
                 // Re-render choices HTML
                 const choicesGrid = card.querySelector('.choices-grid');
