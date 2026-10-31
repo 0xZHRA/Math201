@@ -8937,7 +8937,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (cached) {
             const parsed = JSON.parse(cached);
             if (parsed && typeof parsed === "object") {
-                portalState.activeTab = (parsed.activeTab === "practice" || parsed.activeTab === "videos") ? parsed.activeTab : "notes";
+                portalState.activeTab = (parsed.activeTab && ["practice", "videos", "exambank"].includes(parsed.activeTab)) ? parsed.activeTab : "notes";
                 portalState.activeTopic = (parsed.activeTopic && /^v([1-9]|1[0-2])$/.test(parsed.activeTopic)) ? parsed.activeTopic : "v1";
                 if (parsed.topicScroll) Object.assign(portalState.topicScroll, parsed.topicScroll);
                 if (parsed.practiceScroll) Object.assign(portalState.practiceScroll, parsed.practiceScroll);
@@ -9420,15 +9420,60 @@ function initExamBank() {
             { sec: '13.7', ch: '13', title: '13.7 Tangents' }
         ];
 
+        function saveFilterState() {
+            try {
+                const state = {
+                    selectedTerms: Array.from(APP.selectedTerms || []),
+                    selectedSections: Array.from(APP.selectedSections || []),
+                    status: APP.status || 'ALL',
+                    search: APP.search || '',
+                    pageSize: APP.pageSize || 25,
+                    page: APP.page || 1
+                };
+                localStorage.setItem('math201_exambank_filters', JSON.stringify(state));
+            } catch(e) {}
+        }
+
         function initFilterState() {
-            if (!APP.selectedTerms) {
-                APP.selectedTerms = new Set(ALL_EXAM_TERMS);
-            }
-            if (!APP.selectedSections) {
-                APP.selectedSections = new Set(ALL_EXAM_SECTIONS.map(s => s.sec));
-            }
+            try {
+                const raw = localStorage.getItem('math201_exambank_filters');
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (Array.isArray(parsed.selectedTerms) && parsed.selectedTerms.length > 0) {
+                        APP.selectedTerms = new Set(parsed.selectedTerms.filter(t => ALL_EXAM_TERMS.includes(t)));
+                    }
+                    if (Array.isArray(parsed.selectedSections) && parsed.selectedSections.length > 0) {
+                        APP.selectedSections = new Set(parsed.selectedSections.filter(s => ALL_EXAM_SECTIONS.some(x => x.sec === s)));
+                    }
+                    if (parsed.status) {
+                        APP.status = parsed.status;
+                    }
+                    if (typeof parsed.search === 'string') {
+                        APP.search = parsed.search;
+                    }
+                    if (parsed.pageSize) {
+                        APP.pageSize = parsed.pageSize;
+                    }
+                    if (parsed.page) {
+                        APP.page = parsed.page;
+                    }
+                }
+            } catch(e) {}
+
+            if (!APP.selectedTerms) APP.selectedTerms = new Set(ALL_EXAM_TERMS);
+            if (!APP.selectedSections) APP.selectedSections = new Set(ALL_EXAM_SECTIONS.map(s => s.sec));
             if (!APP.status) APP.status = 'ALL';
             if (!APP.search) APP.search = '';
+
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) searchInput.value = APP.search;
+
+            const pageSelect = document.getElementById('pageSizeSelect');
+            if (pageSelect) pageSelect.value = APP.pageSize || 25;
+
+            document.querySelectorAll('.status-pill-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.status === APP.status);
+            });
 
             renderSectionChips();
             renderTermChips();
@@ -9556,6 +9601,7 @@ function initExamBank() {
             APP.page = 1;
             renderSectionChips();
             applyFilters();
+            saveFilterState();
             renderPracticeView();
         }
 
@@ -9573,6 +9619,7 @@ function initExamBank() {
             APP.page = 1;
             renderSectionChips();
             applyFilters();
+            saveFilterState();
             renderPracticeView();
         }
 
@@ -9590,6 +9637,7 @@ function initExamBank() {
             APP.page = 1;
             renderSectionChips();
             applyFilters();
+            saveFilterState();
             renderPracticeView();
         }
 
@@ -9632,7 +9680,7 @@ function initExamBank() {
             } else if (count === 0) {
                 badge.textContent = 'None Selected (0)';
             } else {
-                badge.textContent = `${count} of 14 Selected`;
+                badge.textContent = `${count} of 13 Selected`;
             }
 
             document.querySelectorAll('#presetTermAll, #presetPT, #preset25x, #preset24x, #preset23x, #preset22x, #presetUserRange').forEach(p => p.classList.remove('active'));
@@ -9659,6 +9707,7 @@ function initExamBank() {
             APP.page = 1;
             renderTermChips();
             applyFilters();
+            saveFilterState();
             renderPracticeView();
         }
 
@@ -9684,6 +9733,7 @@ function initExamBank() {
             APP.page = 1;
             renderTermChips();
             applyFilters();
+            saveFilterState();
             renderPracticeView();
         }
 
@@ -9694,6 +9744,7 @@ function initExamBank() {
                 btn.classList.toggle('active', btn.dataset.status === status);
             });
             applyFilters();
+            saveFilterState();
             renderPracticeView();
         }
 
@@ -9704,6 +9755,7 @@ function initExamBank() {
                 APP.search = document.getElementById('searchInput').value.trim().toLowerCase();
                 APP.page = 1;
                 applyFilters();
+                saveFilterState();
                 renderPracticeView();
             }, 180);
         }
@@ -9712,6 +9764,7 @@ function initExamBank() {
             const val = document.getElementById('pageSizeSelect').value;
             APP.pageSize = val === 'ALL' ? APP.filtered.length || 201 : parseInt(val, 10);
             APP.page = 1;
+            saveFilterState();
             renderPracticeView();
         }
 
@@ -9732,6 +9785,7 @@ function initExamBank() {
             renderSectionChips();
             renderTermChips();
             applyFilters();
+            saveFilterState();
             renderPracticeView();
         }
 
