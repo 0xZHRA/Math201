@@ -1618,24 +1618,6 @@ html.auth-passed .auth-gate-screen {
 .exambank-stat-pills strong {
     color: var(--text-primary);
 }
-.btn-open-scratchpad {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--bg-subtle);
-    border: 1px solid var(--border-subtle);
-    border-radius: 8px;
-    padding: 6px 12px;
-    color: var(--text-primary);
-    font-size: 12.5px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.15s ease;
-}
-.btn-open-scratchpad:hover {
-    background: var(--border-subtle);
-    border-color: var(--border-strong);
-}
 
 .mode-tabs-container {
     display: flex;
@@ -2771,49 +2753,6 @@ div.choice-btn {
     line-height: 1.45;
 }
 
-/* Scratchpad Overlay Modal */
-.scratchpad-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(4px);
-    z-index: 10000;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-}
-.scratchpad-overlay.open {
-    display: flex;
-}
-.scratchpad-modal-window {
-    background: var(--bg-card);
-    border: 1px solid var(--border-strong);
-    border-radius: 14px;
-    width: 100%;
-    max-width: 900px;
-    height: 85vh;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-}
-.scratchpad-topbar {
-    background: var(--bg-surface);
-    border-bottom: 1px solid var(--border-dim);
-    padding: 10px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-.scratchpad-tools {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-}
 .tool-icon-btn {
     background: var(--bg-card);
     border: 1px solid var(--border-dim);
@@ -2835,35 +2774,6 @@ div.choice-btn {
     background: var(--accent-sky);
     color: var(--bg-base);
     border-color: var(--accent-sky);
-}
-.color-dot-btn {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    cursor: pointer;
-    transition: transform 0.15s ease;
-}
-.color-dot-btn:hover {
-    transform: scale(1.15);
-}
-.color-dot-btn.active {
-    border-color: var(--text-main);
-    box-shadow: none;
-}
-.scratchpad-body {
-    flex: 1;
-    position: relative;
-    background: var(--bg-base);
-    cursor: crosshair;
-    overflow: hidden;
-}
-#scratchpadCanvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    touch-action: none;
 }
 
 </style>
@@ -7805,17 +7715,6 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</em>
                 <span>&bull;</span>
                 <span>Coordinator: <strong>Major Exam 2</strong></span>
             </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <button class="btn-open-scratchpad" id="btnOpenScratchpad" onclick="toggleScratchpad()" title="Open scratchpad whiteboard">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-                        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-                        <path d="M2 2l7.586 7.586"></path>
-                        <circle cx="11" cy="11" r="2"></circle>
-                    </svg>
-                    <span>Scratchpad</span>
-                </button>
-            </div>
         </div>
 
         <!-- Mode Tabs Container -->
@@ -8054,7 +7953,6 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</em>
                                     <line x1="4" y1="22" x2="4" y2="15"></line>
                                 </svg>
                             </button>
-                            <button class="btn-scratchpad-toggle" onclick="toggleScratchpad()">Scratchpad</button>
                             <button class="btn-sim-submit" onclick="confirmSubmitSimulator()">Submit Exam</button>
                         </div>
                     </div>
@@ -8199,78 +8097,6 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</em>
                 </div>
             </div>
         </section>
-
-<div class="scratchpad-modal-overlay" id="scratchpadOverlay" onclick="closeScratchpad(event)">
-        <div class="scratchpad-modal-window" onclick="event.stopPropagation()">
-            <!-- Top Controls Bar -->
-            <div class="scratchpad-topbar">
-                <div class="scratchpad-tools">
-                    <!-- Pen Tool -->
-                    <button class="tool-icon-btn active" id="spPenBtn" onclick="setSpTool('pen')" title="Pen">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
-                        </svg>
-                    </button>
-
-                    <!-- Eraser Tool -->
-                    <button class="tool-icon-btn" id="spEraserBtn" onclick="setSpTool('eraser')" title="Eraser">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 20H7L3 16C2 15 2 13 3 12L13 2L22 11L20 20Z"></path>
-                            <line x1="18" y1="9" x2="9" y2="18"></line>
-                        </svg>
-                    </button>
-
-                    <!-- Color Presets -->
-                    <div style="display: flex; align-items: center; gap: 6px; margin-inline: 4px;">
-                        <button class="color-dot-btn active" style="background: #2563eb;" onclick="setSpColor('#2563eb', this)"></button>
-                        <button class="color-dot-btn" style="background: #facc15;" onclick="setSpColor('#facc15', this)"></button>
-                        <button class="color-dot-btn" style="background: #f43f5e;" onclick="setSpColor('#f43f5e', this)"></button>
-                        <button class="color-dot-btn" style="background: #ffffff;" onclick="setSpColor('#ffffff', this)"></button>
-                    </div>
-
-                    <!-- Stroke Size -->
-                    <div style="display: flex; align-items: center; gap: 4px; margin-inline: 4px;">
-                        <button class="tool-icon-btn" style="width: 28px; height: 28px;" onclick="setSpSize(2)" title="Thin">
-                            <div style="width: 4px; height: 4px; border-radius: 50%; background: currentColor;"></div>
-                        </button>
-                        <button class="tool-icon-btn active" style="width: 28px; height: 28px;" onclick="setSpSize(4)" title="Medium">
-                            <div style="width: 7px; height: 7px; border-radius: 50%; background: currentColor;"></div>
-                        </button>
-                        <button class="tool-icon-btn" style="width: 28px; height: 28px;" onclick="setSpSize(8)" title="Thick">
-                            <div style="width: 11px; height: 11px; border-radius: 50%; background: currentColor;"></div>
-                        </button>
-                    </div>
-
-                    <!-- Clear Canvas -->
-                    <button class="tool-icon-btn" onclick="clearScratchpadCanvas()" title="Clear drawing">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="3 6 5 6 21 6"></polyline>
-                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                        </svg>
-                    </button>
-                </div>
-
-                <div style="display: flex; align-items: center; gap: 8px;">
-                    <button class="tool-icon-btn" onclick="closeScratchpad()" title="Close scratchpad">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Canvas Area -->
-            <div class="scratchpad-body" id="scratchpadCanvasWrap">
-                <canvas id="scratchpadCanvas"></canvas>
-            </div>
-
-            <!-- Collapsible Calculation Scratch Notes -->
-            <div class="scratchpad-notes-drawer">
-                <textarea class="scratchpad-notes-area" id="scratchNotesArea" placeholder="Scratch text notes / intermediate formulas (saved automatically)..."></textarea>
-            </div>
-        </div>
-    </div>
 
     </div>
 
@@ -9215,9 +9041,6 @@ let examBankInitialized = false;
 function initExamBank() {
     if (!examBankInitialized) {
         initData();
-        initScratchpad();
-        initNotes();
-        setupKeyboard();
         renderPracticeView();
         examBankInitialized = true;
     }
@@ -9236,7 +9059,6 @@ function initExamBank() {
             pageSize: 25,
             progress: {}, // { [id]: { selected: 'A', correct: true/false } }
             bookmarks: new Set(),
-            scratchNotes: '',
             
             // Simulator State
             sim: {
@@ -10688,162 +10510,6 @@ function initExamBank() {
 
             // KaTeX render print area
             renderMathOnElement(document.getElementById('printSheetPaper'));
-        }
-
-        /* ========================================================
-           SCRATCHPAD CANVAS & NOTES DRAWER
-           Touch & mouse drawing, textless SVG icons
-           ======================================================== */
-        let spCanvas, spCtx;
-        let spDrawing = false;
-        let spTool = 'pen';
-        let spColor = '#2563eb';
-        let spSize = 4;
-
-        function initScratchpad() {
-            spCanvas = document.getElementById('scratchpadCanvas');
-            if (!spCanvas) return;
-            spCtx = spCanvas.getContext('2d');
-
-            resizeScratchpad();
-            window.addEventListener('resize', resizeScratchpad);
-
-            // Mouse Events
-            spCanvas.addEventListener('mousedown', startSpDraw);
-            spCanvas.addEventListener('mousemove', drawSpMove);
-            window.addEventListener('mouseup', endSpDraw);
-
-            // Touch Events (passive: false to prevent scrolling)
-            spCanvas.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                startSpDraw(e.touches[0]);
-            }, { passive: false });
-
-            spCanvas.addEventListener('touchmove', (e) => {
-                e.preventDefault();
-                drawSpMove(e.touches[0]);
-            }, { passive: false });
-
-            spCanvas.addEventListener('touchend', (e) => {
-                e.preventDefault();
-                endSpDraw();
-            }, { passive: false });
-        }
-
-        function resizeScratchpad() {
-            if (!spCanvas) return;
-            const wrap = document.getElementById('scratchpadCanvasWrap');
-            if (!wrap) return;
-
-            const rect = wrap.getBoundingClientRect();
-            // Store temp canvas content
-            const temp = spCanvas.toDataURL();
-
-            spCanvas.width = rect.width;
-            spCanvas.height = rect.height;
-
-            const img = new Image();
-            img.onload = () => {
-                spCtx.drawImage(img, 0, 0);
-            };
-            img.src = temp;
-        }
-
-        function toggleScratchpad() {
-            const overlay = document.getElementById('scratchpadOverlay');
-            if (overlay.classList.contains('open')) {
-                closeScratchpad();
-            } else {
-                overlay.classList.add('open');
-                setTimeout(resizeScratchpad, 60);
-            }
-        }
-
-        function closeScratchpad() {
-            document.getElementById('scratchpadOverlay').classList.remove('open');
-        }
-
-        function setSpTool(tool) {
-            spTool = tool;
-            document.getElementById('spPenBtn').classList.toggle('active', tool === 'pen');
-            document.getElementById('spEraserBtn').classList.toggle('active', tool === 'eraser');
-        }
-
-        function setSpColor(color, btn) {
-            spColor = color;
-            setSpTool('pen');
-            document.querySelectorAll('.color-dot-btn').forEach(b => b.classList.remove('active'));
-            if (btn) btn.classList.add('active');
-        }
-
-        function setSpSize(size) {
-            spSize = size;
-        }
-
-        function clearScratchpadCanvas() {
-            if (confirm('Clear the entire scratchpad drawing?')) {
-                spCtx.clearRect(0, 0, spCanvas.width, spCanvas.height);
-            }
-        }
-
-        function startSpDraw(e) {
-            spDrawing = true;
-            const rect = spCanvas.getBoundingClientRect();
-            spCtx.beginPath();
-            spCtx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
-        }
-
-        function drawSpMove(e) {
-            if (!spDrawing) return;
-            const rect = spCanvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            spCtx.lineWidth = spSize;
-            spCtx.lineCap = 'round';
-            spCtx.lineJoin = 'round';
-
-            if (spTool === 'eraser') {
-                spCtx.globalCompositeOperation = 'destination-out';
-                spCtx.lineWidth = spSize * 3;
-            } else {
-                spCtx.globalCompositeOperation = 'source-over';
-                spCtx.strokeStyle = spColor;
-            }
-
-            spCtx.lineTo(x, y);
-            spCtx.stroke();
-        }
-
-        function endSpDraw() {
-            if (spDrawing) {
-                spCtx.closePath();
-                spDrawing = false;
-            }
-        }
-
-        function initNotes() {
-            const notesEl = document.getElementById('scratchNotesArea');
-            if (!notesEl) return;
-            try {
-                const saved = localStorage.getItem('math201_exam2_scratchnotes');
-                if (saved) notesEl.value = saved;
-            } catch(e) {}
-
-            notesEl.addEventListener('input', () => {
-                try {
-                    localStorage.setItem('math201_exam2_scratchnotes', notesEl.value);
-                } catch(e) {}
-            });
-        }
-
-        /* Keyboard Shortcuts */
-        function setupKeyboard() {
-            window.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    closeScratchpad();
-                }
-            });
         }
 
         /* ========================================================
