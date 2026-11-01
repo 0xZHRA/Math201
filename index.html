@@ -1592,81 +1592,55 @@ html.auth-passed .auth-gate-screen {
 
 
 /* ========================================================
-   EMBEDDED MAJOR 2 EXAM BANK STYLES (UNIFIED EDITORIAL)
+   EXAM BANK — CLEAN LAYOUT (tabs, stats strip, filter card)
    ======================================================== */
-.exambank-header-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: 12px;
-    padding: 12px 18px;
-    margin-bottom: 20px;
-    box-shadow: var(--shadow-sm);
-}
-.exambank-stat-pills {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    font-size: 13px;
-    color: var(--text-secondary);
-}
-.exambank-stat-pills strong {
-    color: var(--text-primary);
-}
-
 .mode-tabs-container {
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
     background: var(--bg-subtle);
     border: 1px solid var(--border-subtle);
-    border-radius: 10px;
+    border-radius: 12px;
     padding: 4px;
-    margin-bottom: 22px;
-    flex-wrap: wrap;
+    margin-block-end: 16px;
 }
 .mode-tab-button {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
+    justify-content: center;
+    gap: 8px;
+    min-inline-size: 0;
     background: transparent;
     border: none;
     color: var(--text-secondary);
     font-size: 13px;
     font-weight: 600;
-    padding: 8px 14px;
-    border-radius: 7px;
+    padding: 9px 12px;
+    border-radius: 9px;
     cursor: pointer;
-    transition: all 0.15s ease;
+    white-space: nowrap;
     user-select: none;
+    transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
 }
 .mode-tab-button:hover {
     color: var(--text-primary);
 }
 .mode-tab-button.active {
-    background: var(--accent-primary);
-    color: var(--accent-fg);
-    box-shadow: var(--shadow-sm);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 0 0 1px var(--border-subtle);
 }
 .mode-tab-button .badge {
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 700;
-    padding: 2px 6px;
-    border-radius: 4px;
+    padding: 1px 7px;
+    border-radius: 999px;
     background: var(--border-subtle);
     color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
 }
 .mode-tab-button.active .badge {
-    background: rgba(255, 255, 255, 0.25);
-    color: var(--accent-fg);
-}
-[data-theme="dark"] .mode-tab-button.active .badge {
-    background: rgba(0, 0, 0, 0.25);
+    background: var(--accent-primary);
     color: var(--accent-fg);
 }
 
@@ -1677,239 +1651,394 @@ html.auth-passed .auth-gate-screen {
     display: block !important;
 }
 
-/* Enhanced Terms & Chapter Multi-Filtering Toolbar */
-.bank-view-panel {
-    display: none !important;
-}
-.bank-view-panel.active {
-    display: block !important;
-}
-.filter-console-card {
+/* Stats strip */
+.stats-strip {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr) auto;
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
     border-radius: 12px;
-    padding: 16px 18px;
-    margin-block-end: 18px;
+    margin-block-end: 16px;
+    overflow: hidden;
+}
+.stats-cell {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 2px;
+    min-inline-size: 0;
+    padding: 12px 16px;
+    border-inline-end: 1px solid var(--border-subtle);
 }
-.filter-console-row {
+.stats-head {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-.filter-row-header {
-    display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
-    flex-wrap: wrap;
     gap: 8px;
 }
-.filter-row-title-wrap {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.filter-row-title {
-    font-size: 11.5px;
-    font-weight: 700;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-.filter-badge-count {
+.stats-label {
     font-size: 11px;
     font-weight: 600;
-    padding: 2px 7px;
-    border-radius: 12px;
-    background: var(--bg-subtle);
-    color: var(--text-primary);
-    border: 1px solid var(--border-subtle);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
 }
-.filter-presets-wrap {
+.stats-value {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+}
+.stats-meta {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+.stats-bar {
+    block-size: 4px;
+    margin-block-start: 6px;
+    background: var(--bg-subtle);
+    border-radius: 999px;
+    overflow: hidden;
+}
+.stats-bar > span {
+    display: block;
+    block-size: 100%;
+    inline-size: 0;
+    background: var(--text-primary);
+    border-radius: inherit;
+    transition: inline-size 0.3s ease;
+}
+.stats-reset {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 48px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+.stats-reset:hover {
+    color: var(--status-err, #dc2626);
+    background: var(--bg-subtle);
+}
+
+/* Filter card */
+.fx-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    margin-block-end: 16px;
+}
+.fx-top {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 10px;
+    padding: 12px;
+    border-block-end: 1px solid var(--border-subtle);
 }
-.filter-preset-btn {
+.fx-card .fx-search {
+    flex: 1 1 220px;
+    min-inline-size: 0;
+}
+.fx-card .search-input {
+    block-size: 36px;
+    background: var(--bg-subtle);
+    border-color: transparent;
+    border-radius: 9px;
+    font-size: 13px;
+}
+.fx-card .search-input:focus {
+    background: var(--bg-card);
+    border-color: var(--border-strong);
+}
+.fx-card .status-pills {
+    display: flex;
+    flex: 0 1 auto;
+    gap: 2px;
+    padding: 3px;
+    border-color: transparent;
+    border-radius: 9px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.fx-card .status-pills::-webkit-scrollbar {
+    display: none;
+}
+.fx-card .status-pill-btn {
+    padding: 6px 11px;
+    border-radius: 7px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+.fx-card .status-pill-btn.active {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 0 0 1px var(--border-subtle);
+}
+
+.fx-block {
+    padding: 12px 16px 14px;
+    border-block-end: 1px solid var(--border-subtle);
+}
+.fx-block-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-block-end: 10px;
+}
+.fx-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+.fx-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+}
+.fx-links {
+    display: flex;
+    gap: 2px;
+    margin-inline-start: auto;
+}
+.fx-link {
+    background: transparent;
+    border: none;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+.fx-link:hover {
+    color: var(--text-primary);
+    background: var(--bg-subtle);
+}
+.fx-link.active {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.fx-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.fx-row {
+    display: grid;
+    grid-template-columns: 128px minmax(0, 1fr);
+    align-items: start;
+    gap: 10px;
+}
+.fx-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    block-size: 30px;
+    padding-inline: 6px;
+    margin-inline-start: -6px;
+    background: transparent;
+    border: none;
+    border-radius: 7px;
+    color: var(--text-secondary);
+    font-size: 12.5px;
+    font-weight: 600;
+    text-align: start;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+.fx-group:hover {
+    background: var(--bg-subtle);
+    color: var(--text-primary);
+}
+.fx-group.is-full,
+.fx-group.is-partial {
+    color: var(--text-primary);
+}
+.fx-group-n {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+.fx-check {
+    position: relative;
+    flex: none;
+    inline-size: 14px;
+    block-size: 14px;
+    border: 1.5px solid var(--border-strong);
+    border-radius: 4px;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.fx-group.is-full .fx-check {
+    background: var(--text-primary);
+    border-color: var(--text-primary);
+}
+.fx-group.is-full .fx-check::after {
+    content: '';
+    position: absolute;
+    inset-inline-start: 3.5px;
+    inset-block-start: 0.5px;
+    inline-size: 4px;
+    block-size: 8px;
+    border: solid var(--bg-card);
+    border-width: 0 1.75px 1.75px 0;
+    transform: rotate(45deg);
+}
+.fx-group.is-partial .fx-check {
+    border-color: var(--text-primary);
+}
+.fx-group.is-partial .fx-check::after {
+    content: '';
+    position: absolute;
+    inset-inline: 2px;
+    inset-block-start: 50%;
+    block-size: 1.75px;
+    margin-block-start: -0.875px;
+    background: var(--text-primary);
+    border-radius: 1px;
+}
+
+.fx-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.fx-card .filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    block-size: 30px;
+    padding-inline: 10px;
     background: transparent;
     border: 1px solid var(--border-subtle);
-    border-radius: 6px;
-    padding: 3px 8px;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--text-secondary);
-    cursor: pointer;
-    transition: all 0.15s ease;
-}
-.filter-preset-btn:hover {
-    background: var(--bg-subtle);
-    color: var(--text-primary);
-    border-color: var(--border-strong);
-}
-.filter-preset-btn.active {
-    background: var(--text-primary);
-    color: var(--bg-card);
-    border-color: var(--text-primary);
-}
-.filter-preset-btn.btn-clear {
-    color: var(--text-muted);
-}
-.filter-preset-btn.btn-clear:hover {
-    color: #ef4444;
-    border-color: #ef4444;
-}
-.filter-chips-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 6px;
-}
-.filter-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    background: var(--bg-subtle);
-    border: 1px solid var(--border-subtle);
-    border-radius: 6px;
-    padding: 5px 10px;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text-secondary);
-    cursor: pointer;
-    transition: all 0.15s ease;
-    user-select: none;
-}
-.filter-chip:hover {
-    border-color: var(--border-strong);
-    color: var(--text-primary);
-}
-.filter-chip.active {
-    background: var(--paper-ink, #18181b);
-    color: var(--bg-paper, #ffffff);
-    border-color: var(--paper-ink, #18181b);
-}
-[data-theme="dark"] .filter-chip.active {
-    background: #e4e4e7;
-    color: #18181b;
-    border-color: #e4e4e7;
-}
-.filter-chip .chip-sub {
-    font-size: 10.5px;
-    opacity: 0.75;
-}
-.chapter-toggle-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    border: 1px solid var(--border-subtle);
     border-radius: 8px;
-    padding: 5px 12px;
     font-size: 12.5px;
-    font-weight: 700;
-    cursor: pointer;
-    background: var(--bg-subtle);
+    font-weight: 500;
     color: var(--text-secondary);
-    transition: all 0.15s ease;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
-.chapter-toggle-pill.active {
-    background: var(--text-primary);
-    color: var(--bg-card);
-    border-color: var(--text-primary);
+.fx-card .filter-chip:hover {
+    border-color: var(--border-strong);
+    color: var(--text-primary);
 }
-.section-group-label {
+.fx-card .filter-chip .chip-code {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+}
+.fx-card .filter-chip .chip-sub {
     font-size: 11px;
-    font-weight: 700;
     color: var(--text-muted);
-    text-transform: uppercase;
-    margin-inline-end: 2px;
-    padding-inline: 4px;
+    font-variant-numeric: tabular-nums;
 }
-.section-group-divider {
-    inline-size: 1px;
-    block-size: 20px;
-    background: var(--border-subtle);
-    margin-inline: 6px;
+.fx-card .filter-chip.active {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: var(--accent-fg);
 }
-.filter-summary-row {
+.fx-card .filter-chip.active .chip-code,
+.fx-card .filter-chip.active .chip-name {
+    color: var(--accent-fg);
+}
+.fx-card .filter-chip.active .chip-sub {
+    color: var(--accent-fg);
+    opacity: 0.6;
+}
+
+.fx-foot {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 10px;
-    padding-block-start: 10px;
-    border-block-start: 1px solid var(--border-subtle);
+    padding: 10px 16px;
 }
-.filter-summary-left {
+.fx-foot-left {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
+    min-inline-size: 0;
 }
-.btn-reset-filters {
-    background: transparent;
-    border: 1px solid var(--border-subtle);
-    border-radius: 6px;
-    padding: 3px 9px;
-    font-size: 11.5px;
+.fx-results {
+    font-size: 13px;
     font-weight: 600;
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: all 0.15s ease;
-}
-.btn-reset-filters:hover {
     color: var(--text-primary);
-    background: var(--bg-subtle);
-    border-color: var(--border-strong);
+    font-variant-numeric: tabular-nums;
 }
-.filter-applied-tag {
+.fx-tags {
     font-size: 12px;
     color: var(--text-muted);
 }
-.bank-view-panel-orig {
-    display: none;
+.fx-pagesize {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
 }
-.bank-view-panel.active {
-    display: block;
+.fx-card .fx-pagesize .select-input {
+    padding-block: 4px;
+    padding-inline: 8px 6px;
+    font-size: 12.5px;
+    border-radius: 7px;
 }
 
-.progress-widget {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 12px;
-    margin-bottom: 20px;
+@media (max-width: 640px) {
+    .mode-tab-button {
+        gap: 6px;
+        padding: 8px 6px;
+        font-size: 12px;
+    }
+    .mode-tab-button .badge {
+        display: none;
+    }
+    .stats-cell {
+        padding: 10px 12px;
+    }
+    .stats-value {
+        font-size: 17px;
+    }
+    .stats-reset {
+        inline-size: 40px;
+    }
+    .fx-top {
+        padding: 10px;
+    }
+    .fx-card .status-pills {
+        flex: 1 1 100%;
+    }
+    .fx-card .status-pill-btn {
+        flex: 1 0 auto;
+    }
+    .fx-block {
+        padding: 12px;
+    }
+    .fx-row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 4px;
+    }
+    .fx-rows-inline .fx-row {
+        grid-template-columns: 112px minmax(0, 1fr);
+        gap: 8px;
+    }
 }
-.stat-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: 12px;
-    padding: 14px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-}
-.stat-label {
-    font-size: 11.5px;
-    font-weight: 700;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-.stat-value {
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--text-primary);
-    font-family: ui-monospace, SFMono-Regular, monospace;
-}
-.stat-subtext {
-    font-size: 11.5px;
-    color: var(--text-secondary);
-}
+
+/* Simulator secondary button (kept) */
 .btn-reset-progress {
     background: transparent;
     border: 1px solid var(--border-subtle);
@@ -7706,159 +7835,124 @@ abla f(P)$ provides an outward normal to the level curve $f(x, y) = k$.</em>
 
     <!-- Major 2 Exam Bank View (Embedded) -->
     <div id="exambankView" style="display: none;">
-        <!-- Exam Bank Top Header Bar -->
-        <div class="exambank-header-bar">
-            <div class="exambank-stat-pills">
-                <span>Questions: <strong>201</strong></span>
-                <span>&bull;</span>
-                <span>Terms: <strong>13</strong></span>
-                <span>&bull;</span>
-                <span>Coordinator: <strong>Major Exam 2</strong></span>
-            </div>
-        </div>
-
-        <!-- Mode Tabs Container -->
-        <nav class="mode-tabs-container">
+        <!-- Mode Tabs -->
+        <nav class="mode-tabs-container" aria-label="Exam bank modes">
             <button class="mode-tab-button active" id="tabPractice" onclick="switchBankTab('practice')">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
                     <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                 </svg>
-                <span>Practice &amp; Study</span>
-                <span class="badge">201 Qs</span>
+                <span>Practice</span>
+                <span class="badge">201</span>
             </button>
 
             <button class="mode-tab-button" id="tabSimulator" onclick="switchBankTab('simulator')">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <circle cx="12" cy="12" r="10"></circle>
                     <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
-                <span>Mock Simulator</span>
-                <span class="badge">15 Qs</span>
+                <span>Mock Exam</span>
+                <span class="badge">15</span>
             </button>
 
             <button class="mode-tab-button" id="tabPrint" onclick="switchBankTab('print')">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <polyline points="6 9 6 2 18 2 18 9"></polyline>
                     <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
                     <rect x="6" y="14" width="12" height="8"></rect>
                 </svg>
-                <span>Printable Exam</span>
+                <span>Print</span>
             </button>
         </nav>
 
-        
-
-<section class="bank-view-panel active" id="viewPractice">
-            <!-- Progress Summary Widget -->
-            <div class="progress-widget">
-                <div class="stat-card sky">
-                    <span class="stat-label">Progress</span>
-                    <span class="stat-value" id="statAttempted">0 / 201</span>
-                    <span class="stat-subtext" id="statAttemptedPercent">0% Attempted</span>
+        <section class="bank-view-panel active" id="viewPractice">
+            <!-- Stats Strip -->
+            <div class="stats-strip">
+                <div class="stats-cell">
+                    <div class="stats-head">
+                        <span class="stats-label">Progress</span>
+                        <span class="stats-meta" id="statAttemptedPercent">0%</span>
+                    </div>
+                    <span class="stats-value" id="statAttempted">0 / 201</span>
+                    <div class="stats-bar"><span id="statProgressBar"></span></div>
                 </div>
-                <div class="stat-card green">
-                    <span class="stat-label">Accuracy</span>
-                    <span class="stat-value" id="statAccuracy">0%</span>
-                    <span class="stat-subtext" id="statScoreRatio">0 Correct / 0 Attempted</span>
+                <div class="stats-cell">
+                    <span class="stats-label">Accuracy</span>
+                    <span class="stats-value" id="statAccuracy">0%</span>
+                    <span class="stats-meta" id="statScoreRatio">0/0 correct</span>
                 </div>
-                <div class="stat-card amber">
-                    <span class="stat-label">Bookmarks</span>
-                    <span class="stat-value" id="statBookmarks">0</span>
-                    <span class="stat-subtext">Saved for review</span>
+                <div class="stats-cell">
+                    <span class="stats-label">Saved</span>
+                    <span class="stats-value" id="statBookmarks">0</span>
+                    <span class="stats-meta">bookmarks</span>
                 </div>
-                <div class="stat-card">
-                    <span class="stat-label">Quick Actions</span>
-                    <button class="btn-reset-progress" onclick="resetAllProgress()">Reset Progress</button>
-                    <span class="stat-subtext" style="margin-top: 4px;">Data saved in browser</span>
-                </div>
+                <button type="button" class="stats-reset" onclick="resetAllProgress()" title="Reset progress" aria-label="Reset progress">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="1 4 1 10 7 10"></polyline>
+                        <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                    </svg>
+                </button>
             </div>
 
-            <!-- Filter & Search Toolbar -->
-            <div class="filter-console-card">
-                <!-- Row 1: Status Filter & Search -->
-                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
-                    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                        <span style="font-size: 12px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">Status:</span>
-                        <div class="status-pills">
-                            <button type="button" class="status-pill-btn active" data-status="ALL" onclick="setStatusFilter('ALL')">All</button>
-                            <button type="button" class="status-pill-btn" data-status="UNATTEMPTED" onclick="setStatusFilter('UNATTEMPTED')">Unattempted</button>
-                            <button type="button" class="status-pill-btn" data-status="BOOKMARKED" onclick="setStatusFilter('BOOKMARKED')">Bookmarked</button>
-                            <button type="button" class="status-pill-btn" data-status="CORRECT" onclick="setStatusFilter('CORRECT')">Correct</button>
-                            <button type="button" class="status-pill-btn" data-status="INCORRECT" onclick="setStatusFilter('INCORRECT')">Incorrect</button>
-                        </div>
-                    </div>
-
-                    <div class="search-input-wrapper" style="min-inline-size: 260px; max-inline-size: 380px; flex: 1;">
-                        <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Filter Card -->
+            <div class="fx-card">
+                <div class="fx-top">
+                    <div class="search-input-wrapper fx-search">
+                        <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <circle cx="11" cy="11" r="8"></circle>
                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                         </svg>
-                        <input type="text" class="search-input" id="searchInput" placeholder="Search formulas, topics, IDs..." oninput="handleSearchInput()" />
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search questions, topics, IDs" aria-label="Search questions" oninput="handleSearchInput()" />
+                    </div>
+                    <div class="status-pills" role="group" aria-label="Status filter">
+                        <button type="button" class="status-pill-btn active" data-status="ALL" onclick="setStatusFilter('ALL')">All</button>
+                        <button type="button" class="status-pill-btn" data-status="UNATTEMPTED" onclick="setStatusFilter('UNATTEMPTED')">Unattempted</button>
+                        <button type="button" class="status-pill-btn" data-status="BOOKMARKED" onclick="setStatusFilter('BOOKMARKED')">Saved</button>
+                        <button type="button" class="status-pill-btn" data-status="CORRECT" onclick="setStatusFilter('CORRECT')">Correct</button>
+                        <button type="button" class="status-pill-btn" data-status="INCORRECT" onclick="setStatusFilter('INCORRECT')">Incorrect</button>
                     </div>
                 </div>
 
-                <!-- Row 2: Chapters & Sections (Multi-Select) -->
-                <div class="filter-console-row">
-                    <div class="filter-row-header">
-                        <div class="filter-row-title-wrap">
-                            <span class="filter-row-title">Chapters &amp; Sections (Multi-Select):</span>
-                            <span class="filter-badge-count" id="sectionsSelectedBadge">9 of 9 Sections</span>
-                        </div>
-                        <div class="filter-presets-wrap">
-                            <button type="button" class="filter-preset-btn active" id="presetSecAll" onclick="setSectionPreset('ALL')">All Sections (9)</button>
-                            <button type="button" class="filter-preset-btn" id="presetCh11" onclick="setSectionPreset('CH11')">Ch 11 Only (2)</button>
-                            <button type="button" class="filter-preset-btn" id="presetCh13" onclick="setSectionPreset('CH13')">Ch 13 Only (7)</button>
-                            <button type="button" class="filter-preset-btn btn-clear" onclick="setSectionPreset('CLEAR')">Clear Sections</button>
+                <div class="fx-block">
+                    <div class="fx-block-head">
+                        <span class="fx-title">Sections</span>
+                        <span class="fx-badge" id="sectionsSelectedBadge">9/9</span>
+                        <div class="fx-links">
+                            <button type="button" class="fx-link active" id="presetSecAll" onclick="setSectionPreset('ALL')">All</button>
+                            <button type="button" class="fx-link" onclick="setSectionPreset('CLEAR')">Clear</button>
                         </div>
                     </div>
-                    <div class="filter-chips-wrap" id="sectionsChipsContainer">
-                        <!-- Populated dynamically by JS -->
-                    </div>
+                    <div class="fx-rows" id="sectionsChipsContainer"></div>
                 </div>
 
-                <!-- Row 3: Old Exams & Practice Tests (Multi-Select) -->
-                <div class="filter-console-row">
-                    <div class="filter-row-header">
-                        <div class="filter-row-title-wrap">
-                            <span class="filter-row-title">Old Exams &amp; Practice Tests (Multi-Select):</span>
-                            <span class="filter-badge-count" id="termsSelectedBadge">13 of 13 Exams</span>
-                        </div>
-                        <div class="filter-presets-wrap">
-                            <button type="button" class="filter-preset-btn active" id="presetTermAll" onclick="setTermPreset('ALL')">All Terms (13)</button>
-                            <button type="button" class="filter-preset-btn" id="presetPT" onclick="setTermPreset('PT')">Practice Tests (2)</button>
-                            <button type="button" class="filter-preset-btn" id="preset25x" onclick="setTermPreset('25x')">25x (3)</button>
-                            <button type="button" class="filter-preset-btn" id="preset24x" onclick="setTermPreset('24x')">24x (3)</button>
-                            <button type="button" class="filter-preset-btn" id="preset23x" onclick="setTermPreset('23x')">23x (3)</button>
-                            <button type="button" class="filter-preset-btn" id="preset22x" onclick="setTermPreset('22x')">22x (2)</button>
-                            <button type="button" class="filter-preset-btn" id="presetUserRange" onclick="setTermPreset('221_223_242')">221&ndash;223 &amp; 242</button>
-                            <button type="button" class="filter-preset-btn btn-clear" onclick="setTermPreset('CLEAR')">Clear Exams</button>
+                <div class="fx-block">
+                    <div class="fx-block-head">
+                        <span class="fx-title">Exams</span>
+                        <span class="fx-badge" id="termsSelectedBadge">13/13</span>
+                        <div class="fx-links">
+                            <button type="button" class="fx-link active" id="presetTermAll" onclick="setTermPreset('ALL')">All</button>
+                            <button type="button" class="fx-link" onclick="setTermPreset('CLEAR')">Clear</button>
                         </div>
                     </div>
-                    <div class="filter-chips-wrap" id="termsChipsGrid">
-                        <!-- Populated dynamically by JS -->
-                    </div>
+                    <div class="fx-rows fx-rows-inline" id="termsChipsGrid"></div>
                 </div>
 
-                <!-- Row 4: Summary Bar & Controls -->
-                <div class="filter-summary-row">
-                    <div class="filter-summary-left">
-                        <span id="filterStatsCount" style="font-weight: 700; color: var(--text-primary); font-size: 13px;">Showing 201 of 201 questions</span>
-                        <span class="filter-applied-tag" id="filterTagsSummary"></span>
-                        <button type="button" class="btn-reset-filters" id="btnClearAllFilters" onclick="resetAllFilters()" style="display: none;">
-                            Reset All Filters
-                        </button>
+                <div class="fx-foot">
+                    <div class="fx-foot-left">
+                        <span class="fx-results" id="filterStatsCount">201 of 201 questions</span>
+                        <span class="fx-tags" id="filterTagsSummary"></span>
+                        <button type="button" class="fx-link" id="btnClearAllFilters" onclick="resetAllFilters()" style="display: none;">Reset filters</button>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 12.5px; color: var(--text-secondary);">Per page:</span>
-                        <select class="select-input" id="pageSizeSelect" style="padding-block: 3px; padding-inline: 8px;" onchange="changePageSize()">
+                    <label class="fx-pagesize">
+                        <span>Per page</span>
+                        <select class="select-input" id="pageSizeSelect" onchange="changePageSize()">
                             <option value="15">15</option>
                             <option value="25" selected>25</option>
                             <option value="50">50</option>
                             <option value="100">100</option>
                             <option value="ALL">All</option>
                         </select>
-                    </div>
+                    </label>
                 </div>
             </div>
 
@@ -9308,120 +9402,92 @@ function initExamBank() {
             renderTermChips();
         }
 
+        const SECTION_GROUPS = [
+            { ch: '11', label: 'Chapter 11' },
+            { ch: '13', label: 'Chapter 13' }
+        ];
+        const TERM_GROUPS = [
+            { key: 'PT',  label: 'Practice', terms: ['PT1', 'PT2'] },
+            { key: '25x', label: 'Term 25x', terms: ['253', '252', '251'] },
+            { key: '24x', label: 'Term 24x', terms: ['243', '242', '241'] },
+            { key: '23x', label: 'Term 23x', terms: ['233', '232', '231'] },
+            { key: '22x', label: 'Term 22x', terms: ['223', '221'] }
+        ];
+
+        // Question counts per section/term, cached until the bank array changes
+        let bankCountsCache = null;
+        function getBankCounts() {
+            const qs = APP.questions || [];
+            if (bankCountsCache && bankCountsCache.ref === qs && bankCountsCache.len === qs.length) return bankCountsCache;
+            const sec = {};
+            const term = {};
+            for (const q of qs) {
+                sec[q.section] = (sec[q.section] || 0) + 1;
+                term[q.term] = (term[q.term] || 0) + 1;
+            }
+            bankCountsCache = { ref: qs, len: qs.length, sec, term };
+            return bankCountsCache;
+        }
+
+        function groupStateClass(activeCount, total) {
+            if (activeCount === total) return 'is-full';
+            return activeCount > 0 ? 'is-partial' : '';
+        }
+
+        function buildFilterRow(label, total, state, isFull, groupOnclick, chipsHtml) {
+            return `<div class="fx-row">` +
+                `<button type="button" class="fx-group ${state}" aria-pressed="${isFull}" onclick="${groupOnclick}" title="Toggle ${label}">` +
+                    `<span class="fx-check" aria-hidden="true"></span><span>${label}</span><span class="fx-group-n">${total}</span>` +
+                `</button>` +
+                `<div class="fx-chips">${chipsHtml}</div>` +
+            `</div>`;
+        }
+
         function renderSectionChips() {
             const container = document.getElementById('sectionsChipsContainer');
             if (!container) return;
-
-            const counts = {};
-            ALL_EXAM_SECTIONS.forEach(s => counts[s.sec] = 0);
-            (APP.questions || []).forEach(q => {
-                if (counts[q.section] !== undefined) counts[q.section]++;
-            });
-
-            let ch11Count = 0;
-            let ch13Count = 0;
-            let ch11Active = 0;
-            let ch13Active = 0;
-            ALL_EXAM_SECTIONS.forEach(s => {
-                const count = counts[s.sec] || 0;
-                const active = APP.selectedSections.has(s.sec);
-                if (s.ch === '11') {
-                    ch11Count += count;
-                    if (active) ch11Active++;
-                } else if (s.ch === '13') {
-                    ch13Count += count;
-                    if (active) ch13Active++;
-                }
-            });
+            const counts = getBankCounts().sec;
 
             let html = '';
-
-            // Chapter 11 Quick Pill
-            const isCh11Full = (ch11Active === 2);
-            html += `
-                <button type="button" class="chapter-toggle-pill ${isCh11Full ? 'active' : ''}" 
-                        onclick="toggleChapterMulti('11', event)" title="Toggle all Chapter 11 sections">
-                    <span>Chapter 11</span>
-                    <span class="chip-sub">(${ch11Count})</span>
-                </button>
-            `;
-
-            // Chapter 11 individual section chips
-            ALL_EXAM_SECTIONS.filter(s => s.ch === '11').forEach(s => {
-                const active = APP.selectedSections.has(s.sec);
-                const count = counts[s.sec] || 0;
-                html += `
-                    <button type="button" class="filter-chip ${active ? 'active' : ''}" 
-                            data-sec="${s.sec}" 
-                            onclick="toggleSectionChip('${s.sec}', event)"
-                            title="Section ${s.sec} (${count} Questions)">
-                        <span>${s.title}</span>
-                        <span class="chip-sub">(${count})</span>
-                    </button>
-                `;
-            });
-
-            html += '<div class="section-group-divider"></div>';
-
-            // Chapter 13 Quick Pill
-            const isCh13Full = (ch13Active === 7);
-            html += `
-                <button type="button" class="chapter-toggle-pill ${isCh13Full ? 'active' : ''}" 
-                        onclick="toggleChapterMulti('13', event)" title="Toggle all Chapter 13 sections">
-                    <span>Chapter 13</span>
-                    <span class="chip-sub">(${ch13Count})</span>
-                </button>
-            `;
-
-            // Chapter 13 individual section chips
-            ALL_EXAM_SECTIONS.filter(s => s.ch === '13').forEach(s => {
-                const active = APP.selectedSections.has(s.sec);
-                const count = counts[s.sec] || 0;
-                html += `
-                    <button type="button" class="filter-chip ${active ? 'active' : ''}" 
-                            data-sec="${s.sec}" 
-                            onclick="toggleSectionChip('${s.sec}', event)"
-                            title="Section ${s.sec} (${count} Questions)">
-                        <span>${s.title}</span>
-                        <span class="chip-sub">(${count})</span>
-                    </button>
-                `;
-            });
+            for (const g of SECTION_GROUPS) {
+                const secs = ALL_EXAM_SECTIONS.filter(s => s.ch === g.ch);
+                let total = 0;
+                let active = 0;
+                let chips = '';
+                for (const s of secs) {
+                    const n = counts[s.sec] || 0;
+                    const on = APP.selectedSections.has(s.sec);
+                    total += n;
+                    if (on) active++;
+                    const name = s.title.slice(s.title.indexOf(' ') + 1);
+                    chips += `<button type="button" class="filter-chip${on ? ' active' : ''}" data-sec="${s.sec}" aria-pressed="${on}" onclick="toggleSectionChip('${s.sec}', event)" title="Section ${s.sec} · ${n} questions">` +
+                        `<span class="chip-code">${s.sec}</span><span class="chip-name">${name}</span><span class="chip-sub">${n}</span></button>`;
+                }
+                html += buildFilterRow(g.label, total, groupStateClass(active, secs.length), active === secs.length, `toggleChapterMulti('${g.ch}', event)`, chips);
+            }
 
             container.innerHTML = html;
             updateSectionsBadge();
         }
 
         function updateSectionsBadge() {
-            const badge = document.getElementById('sectionsSelectedBadge');
-            if (!badge) return;
             const count = APP.selectedSections.size;
-            if (count === ALL_EXAM_SECTIONS.length) {
-                badge.textContent = 'All 9 Sections Selected';
-            } else if (count === 0) {
-                badge.textContent = 'None Selected (0)';
-            } else {
-                badge.textContent = `${count} of 9 Selected`;
-            }
-
-            document.querySelectorAll('#presetSecAll, #presetCh11, #presetCh13').forEach(p => p.classList.remove('active'));
-            if (count === ALL_EXAM_SECTIONS.length) {
-                const p = document.getElementById('presetSecAll');
-                if (p) p.classList.add('active');
-            } else if (count === 2 && APP.selectedSections.has('11.5') && APP.selectedSections.has('11.6')) {
-                const p = document.getElementById('presetCh11');
-                if (p) p.classList.add('active');
-            } else if (count === 7 && !APP.selectedSections.has('11.5') && !APP.selectedSections.has('11.6')) {
-                const p = document.getElementById('presetCh13');
-                if (p) p.classList.add('active');
-            }
+            const total = ALL_EXAM_SECTIONS.length;
+            const badge = document.getElementById('sectionsSelectedBadge');
+            if (badge) badge.textContent = `${count}/${total}`;
+            const allBtn = document.getElementById('presetSecAll');
+            if (allBtn) allBtn.classList.toggle('active', count === total);
         }
 
         function toggleChapterMulti(chap, e) {
             const chapSecs = ALL_EXAM_SECTIONS.filter(s => s.ch === chap).map(s => s.sec);
-            const allInChapActive = chapSecs.every(sec => APP.selectedSections.has(sec));
+            const allSelected = APP.selectedSections.size === ALL_EXAM_SECTIONS.length;
+            const multiKey = e && (e.shiftKey || e.ctrlKey || e.metaKey);
 
-            if (allInChapActive) {
+            if (allSelected && !multiKey) {
+                // Everything selected: isolate this chapter
+                APP.selectedSections = new Set(chapSecs);
+            } else if (chapSecs.every(sec => APP.selectedSections.has(sec))) {
                 chapSecs.forEach(sec => APP.selectedSections.delete(sec));
             } else {
                 chapSecs.forEach(sec => APP.selectedSections.add(sec));
@@ -9473,68 +9539,58 @@ function initExamBank() {
         function renderTermChips() {
             const grid = document.getElementById('termsChipsGrid');
             if (!grid) return;
-
-            const counts = {};
-            ALL_EXAM_TERMS.forEach(t => counts[t] = 0);
-            (APP.questions || []).forEach(q => {
-                if (counts[q.term] !== undefined) counts[q.term]++;
-            });
+            const counts = getBankCounts().term;
 
             let html = '';
-            ALL_EXAM_TERMS.forEach(term => {
-                const isActive = APP.selectedTerms.has(term);
-                const count = counts[term] || 0;
-                const label = term.startsWith('PT') ? (term === 'PT1' ? 'Practice Test 1' : 'Practice Test 2') : `Term ${term}`;
-                html += `
-                    <button type="button" class="filter-chip ${isActive ? 'active' : ''}" 
-                            id="chipTerm_${term}" 
-                            data-term="${term}" 
-                            onclick="toggleTermChip('${term}', event)"
-                            title="${label} (${count} Questions)">
-                        <span>${term}</span>
-                        <span class="chip-sub">(${count})</span>
-                    </button>
-                `;
-            });
+            for (const g of TERM_GROUPS) {
+                let total = 0;
+                let active = 0;
+                let chips = '';
+                for (const term of g.terms) {
+                    const n = counts[term] || 0;
+                    const on = APP.selectedTerms.has(term);
+                    total += n;
+                    if (on) active++;
+                    const label = term.startsWith('PT') ? `Practice Test ${term.slice(2)}` : `Term ${term}`;
+                    chips += `<button type="button" class="filter-chip${on ? ' active' : ''}" id="chipTerm_${term}" data-term="${term}" aria-pressed="${on}" onclick="toggleTermChip('${term}', event)" title="${label} · ${n} questions">` +
+                        `<span class="chip-code">${term}</span><span class="chip-sub">${n}</span></button>`;
+                }
+                html += buildFilterRow(g.label, total, groupStateClass(active, g.terms.length), active === g.terms.length, `toggleTermGroup('${g.key}', event)`, chips);
+            }
+
             grid.innerHTML = html;
             updateTermsBadge();
         }
 
         function updateTermsBadge() {
-            const badge = document.getElementById('termsSelectedBadge');
-            if (!badge) return;
             const count = APP.selectedTerms.size;
-            if (count === ALL_EXAM_TERMS.length) {
-                badge.textContent = 'All 13 Exams Selected';
-            } else if (count === 0) {
-                badge.textContent = 'None Selected (0)';
+            const total = ALL_EXAM_TERMS.length;
+            const badge = document.getElementById('termsSelectedBadge');
+            if (badge) badge.textContent = `${count}/${total}`;
+            const allBtn = document.getElementById('presetTermAll');
+            if (allBtn) allBtn.classList.toggle('active', count === total);
+        }
+
+        function toggleTermGroup(key, e) {
+            const group = TERM_GROUPS.find(g => g.key === key);
+            if (!group) return;
+            const allSelected = APP.selectedTerms.size === ALL_EXAM_TERMS.length;
+            const multiKey = e && (e.shiftKey || e.ctrlKey || e.metaKey);
+
+            if (allSelected && !multiKey) {
+                // Everything selected: isolate this group
+                APP.selectedTerms = new Set(group.terms);
+            } else if (group.terms.every(t => APP.selectedTerms.has(t))) {
+                group.terms.forEach(t => APP.selectedTerms.delete(t));
             } else {
-                badge.textContent = `${count} of 13 Selected`;
+                group.terms.forEach(t => APP.selectedTerms.add(t));
             }
 
-            document.querySelectorAll('#presetTermAll, #presetPT, #preset25x, #preset24x, #preset23x, #preset22x, #presetUserRange').forEach(p => p.classList.remove('active'));
-            if (count === ALL_EXAM_TERMS.length) {
-                const p = document.getElementById('presetTermAll');
-                if (p) p.classList.add('active');
-            } else if (count === 2 && APP.selectedTerms.has('PT1') && APP.selectedTerms.has('PT2')) {
-                const p = document.getElementById('presetPT');
-                if (p) p.classList.add('active');
-            } else if (count === 3 && APP.selectedTerms.has('253') && APP.selectedTerms.has('252') && APP.selectedTerms.has('251')) {
-                const p = document.getElementById('preset25x');
-                if (p) p.classList.add('active');
-            } else if (count === 3 && APP.selectedTerms.has('243') && APP.selectedTerms.has('242') && APP.selectedTerms.has('241')) {
-                const p = document.getElementById('preset24x');
-                if (p) p.classList.add('active');
-            } else if (count === 3 && APP.selectedTerms.has('233') && APP.selectedTerms.has('232') && APP.selectedTerms.has('231')) {
-                const p = document.getElementById('preset23x');
-                if (p) p.classList.add('active');
-            } else if (count === 2 && APP.selectedTerms.has('223') && APP.selectedTerms.has('221')) {
-                const p = document.getElementById('preset22x');
-                if (p) p.classList.add('active');
-            } else if (count === 3 && APP.selectedTerms.has('221') && APP.selectedTerms.has('223') && APP.selectedTerms.has('242')) {
-                const p = document.getElementById('presetUserRange');
-                if (p) p.classList.add('active');
-            }
+            APP.page = 1;
+            renderTermChips();
+            applyFilters();
+            saveFilterState();
+            renderPracticeView();
         }
 
         function toggleTermChip(term, e) {
@@ -9671,7 +9727,7 @@ function initExamBank() {
 
             const countEl = document.getElementById('filterStatsCount');
             if (countEl) {
-                countEl.textContent = `Showing ${APP.filtered.length} of ${APP.questions.length} questions`;
+                countEl.textContent = `${APP.filtered.length} of ${APP.questions.length} questions`;
             }
 
             const summaryEl = document.getElementById('filterTagsSummary');
@@ -9686,15 +9742,13 @@ function initExamBank() {
             if (summaryEl) {
                 if (isFiltered) {
                     const tags = [];
-                    if (APP.selectedSections.size !== ALL_EXAM_SECTIONS.length) {
-                        tags.push(`${APP.selectedSections.size} Secs`);
-                    }
-                    if (APP.selectedTerms.size !== ALL_EXAM_TERMS.length) {
-                        tags.push(`${APP.selectedTerms.size} Exams`);
-                    }
-                    if (APP.status !== 'ALL') tags.push(APP.status);
-                    if (APP.search) tags.push(`"${APP.search}"`);
-                    summaryEl.textContent = `[Filtered by: ${tags.join(' • ')}]`;
+                    const sc = APP.selectedSections.size;
+                    const tc = APP.selectedTerms.size;
+                    if (sc !== ALL_EXAM_SECTIONS.length) tags.push(`${sc} section${sc === 1 ? '' : 's'}`);
+                    if (tc !== ALL_EXAM_TERMS.length) tags.push(`${tc} exam${tc === 1 ? '' : 's'}`);
+                    if (APP.status !== 'ALL') tags.push(APP.status.charAt(0) + APP.status.slice(1).toLowerCase());
+                    if (APP.search) tags.push(`“${APP.search}”`);
+                    summaryEl.textContent = tags.join(' · ');
                 } else {
                     summaryEl.textContent = '';
                 }
@@ -10024,7 +10078,10 @@ function initExamBank() {
             const total = APP.questions.length;
             const attemptedKeys = Object.keys(APP.progress);
             const attemptedCount = attemptedKeys.length;
-            const correctCount = attemptedKeys.filter(k => APP.progress[k].correct).length;
+            let correctCount = 0;
+            for (const k of attemptedKeys) {
+                if (APP.progress[k].correct) correctCount++;
+            }
             const accuracy = attemptedCount > 0 ? Math.round((correctCount / attemptedCount) * 100) : 0;
             const attemptedPercent = total > 0 ? Math.round((attemptedCount / total) * 100) : 0;
 
@@ -10032,13 +10089,16 @@ function initExamBank() {
             if (attEl) attEl.textContent = `${attemptedCount} / ${total}`;
 
             const attPctEl = document.getElementById('statAttemptedPercent');
-            if (attPctEl) attPctEl.textContent = `${attemptedPercent}% Completed`;
+            if (attPctEl) attPctEl.textContent = `${attemptedPercent}%`;
+
+            const barEl = document.getElementById('statProgressBar');
+            if (barEl) barEl.style.inlineSize = `${attemptedPercent}%`;
 
             const accEl = document.getElementById('statAccuracy');
             if (accEl) accEl.textContent = `${accuracy}%`;
 
             const ratioEl = document.getElementById('statScoreRatio');
-            if (ratioEl) ratioEl.textContent = `${correctCount} Correct / ${attemptedCount} Attempted`;
+            if (ratioEl) ratioEl.textContent = `${correctCount}/${attemptedCount} correct`;
 
             const bkEl = document.getElementById('statBookmarks');
             if (bkEl) bkEl.textContent = `${APP.bookmarks.size}`;
