@@ -2402,6 +2402,76 @@ html.auth-passed .auth-gate-screen {
     color: var(--paper-amber);
 }
 
+.btn-share {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 30px;
+    block-size: 30px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--paper-ink-soft, var(--text-muted));
+    cursor: pointer;
+    transition: color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
+}
+.btn-share:hover {
+    color: var(--paper-blue, #2563eb);
+    background: var(--paper-hover, var(--bg-subtle));
+    transform: scale(1.08);
+}
+.btn-share:active {
+    transform: scale(0.92);
+}
+.btn-share.copied {
+    color: #10b981 !important;
+    background: rgba(16, 185, 129, 0.15) !important;
+}
+
+/* AI Chat Share Toast */
+.share-toast {
+    position: fixed;
+    inset-block-end: 28px;
+    inset-inline-start: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--bg-surface-elevated, #18181b);
+    color: var(--text-primary, #ffffff);
+    padding-block: 10px;
+    padding-inline: 18px;
+    border-radius: 9999px;
+    font-size: 13.5px;
+    font-weight: 550;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.35), 0 8px 10px -6px rgba(0, 0, 0, 0.25);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 99999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+[dir="rtl"] .share-toast {
+    transform: translateX(50%) translateY(20px);
+}
+[data-theme="light"] .share-toast {
+    background: #0f172a;
+    color: #f8fafc;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+.share-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+[dir="rtl"] .share-toast.show {
+    transform: translateX(50%) translateY(0);
+}
+.share-toast svg {
+    color: #10b981;
+    flex-shrink: 0;
+}
+
 /* Hanging-indent stem: bold number column + text, like the LaTeX PDF */
 .q-body-text {
     display: grid;
@@ -3026,8 +3096,8 @@ div.choice-btn {
         <button class="topic-sheet-item selected" data-vid="v1" onclick="switchTopic('v1'); closeTopicsModal();">
             <span class="topic-sheet-num">01</span>
             <div class="topic-sheet-meta">
-                <div class="topic-sheet-title">12.5 Lines in Space & Skew Lines</div>
-                <div class="topic-sheet-sub">Syllabus 11.5 — Vector, Parametric & Symmetric Equations of Lines, Line Segments, Intersecting vs. Parallel vs. Skew Lines</div>
+                <div class="topic-sheet-title">11.5 Lines and Planes in Space (Lines &amp; Skew Lines)</div>
+                <div class="topic-sheet-sub">Chapter 11: Vectors and the Geometry of Space — Vector, Parametric &amp; Symmetric Equations, Skew Lines</div>
             </div>
             <span class="topic-sheet-pcount">Practice Test Q</span>
         </button>
@@ -3036,8 +3106,8 @@ div.choice-btn {
         <button class="topic-sheet-item" data-vid="v2" onclick="switchTopic('v2'); closeTopicsModal();">
             <span class="topic-sheet-num">02</span>
             <div class="topic-sheet-meta">
-                <div class="topic-sheet-title">12.5 Equations of Planes & Intersections</div>
-                <div class="topic-sheet-sub">Syllabus 11.5 — Normal Vectors, Scalar & Linear Plane Equations, Angle Between Planes & Line of Intersection</div>
+                <div class="topic-sheet-title">11.5 Lines and Planes in Space (Planes &amp; Intersections)</div>
+                <div class="topic-sheet-sub">Chapter 11: Vectors and the Geometry of Space — Normal Vectors, Linear Plane Equations &amp; Intersections</div>
             </div>
             <span class="topic-sheet-pcount">Practice Test Q</span>
         </button>
@@ -3046,8 +3116,8 @@ div.choice-btn {
         <button class="topic-sheet-item" data-vid="v3" onclick="switchTopic('v3'); closeTopicsModal();">
             <span class="topic-sheet-num">03</span>
             <div class="topic-sheet-meta">
-                <div class="topic-sheet-title">12.5 Distances in Space</div>
-                <div class="topic-sheet-sub">Syllabus 11.5 — Distance from Point to Plane, Point to Line, Parallel Planes, Skew Lines & Spheres</div>
+                <div class="topic-sheet-title">11.5 Lines and Planes in Space (Distances in Space)</div>
+                <div class="topic-sheet-sub">Chapter 11: Vectors and the Geometry of Space — Point to Plane, Point to Line, Parallel Planes &amp; Skew Lines</div>
             </div>
             <span class="topic-sheet-pcount">Practice Test Q</span>
         </button>
@@ -3056,8 +3126,8 @@ div.choice-btn {
         <button class="topic-sheet-item" data-vid="v4" onclick="switchTopic('v4'); closeTopicsModal();">
             <span class="topic-sheet-num">04</span>
             <div class="topic-sheet-meta">
-                <div class="topic-sheet-title">12.6 Cylinders & Quadric Surfaces (Part 1)</div>
-                <div class="topic-sheet-sub">Syllabus 11.6 — Cylindrical Surfaces, Traces & The 6 Standard Quadric Surfaces</div>
+                <div class="topic-sheet-title">11.6 Surfaces in Space (Cylinders &amp; Quadric Surfaces Part 1)</div>
+                <div class="topic-sheet-sub">Chapter 11: Vectors and the Geometry of Space — Cylindrical Surfaces, Traces &amp; Standard Quadric Surfaces</div>
             </div>
             <span class="topic-sheet-pcount">Practice Test Q</span>
         </button>
@@ -3066,8 +3136,8 @@ div.choice-btn {
         <button class="topic-sheet-item" data-vid="v5" onclick="switchTopic('v5'); closeTopicsModal();">
             <span class="topic-sheet-num">05</span>
             <div class="topic-sheet-meta">
-                <div class="topic-sheet-title">12.6 Quadric Surfaces (Part 2 — Shifted & Inequalities)</div>
-                <div class="topic-sheet-sub">Syllabus 11.6 — Completing the Square, Shifted Centers (h,k,l), Inequalities & Exam Questions</div>
+                <div class="topic-sheet-title">11.6 Surfaces in Space (Shifted Quadrics &amp; Regions Part 2)</div>
+                <div class="topic-sheet-sub">Chapter 11: Vectors and the Geometry of Space — Completing the Square, Shifted Centers &amp; Inequalities</div>
             </div>
             <span class="topic-sheet-pcount">Practice Test Q</span>
         </button>
@@ -3076,8 +3146,8 @@ div.choice-btn {
         <button class="topic-sheet-item" data-vid="v6" onclick="switchTopic('v6'); closeTopicsModal();">
             <span class="topic-sheet-num">06</span>
             <div class="topic-sheet-meta">
-                <div class="topic-sheet-title">13.1 Functions of Several Variables & Level Curves</div>
-                <div class="topic-sheet-sub">Syllabus 13.1 — Domain, Range, 3D Graphing & Level Curves (Contour Maps)</div>
+                <div class="topic-sheet-title">13.1 Introduction to Functions of Several Variables</div>
+                <div class="topic-sheet-sub">Chapter 13: Functions of Several Variables — Domain, Range, 3D Graphing &amp; Level Curves</div>
             </div>
             <span class="topic-sheet-pcount">Practice Test Q</span>
         </button>
@@ -3086,8 +3156,8 @@ div.choice-btn {
         <button class="topic-sheet-item" data-vid="v7" onclick="switchTopic('v7'); closeTopicsModal();">
             <span class="topic-sheet-num">07</span>
             <div class="topic-sheet-meta">
-                <div class="topic-sheet-title">13.2 Limits & Continuity of Multivariable Functions</div>
-                <div class="topic-sheet-sub">Syllabus 13.2 — Evaluating Limits, Two-Path Test for Non-Existence & Continuity</div>
+                <div class="topic-sheet-title">13.2 Limits and Continuity</div>
+                <div class="topic-sheet-sub">Chapter 13: Functions of Several Variables — Limits, Two-Path Test &amp; Continuity</div>
             </div>
             <span class="topic-sheet-pcount">Practice Test Q</span>
         </button>
@@ -3096,8 +3166,8 @@ div.choice-btn {
         <button class="topic-sheet-item" data-vid="v8" onclick="switchTopic('v8'); closeTopicsModal();">
             <span class="topic-sheet-num">08</span>
             <div class="topic-sheet-meta">
-                <div class="topic-sheet-title">13.3 Partial Derivatives & Clairaut's Theorem</div>
-                <div class="topic-sheet-sub">Syllabus 13.3 — First-Order Partials, Geometric Slopes & Mixed Second-Order Derivatives</div>
+                <div class="topic-sheet-title">13.3 Partial Derivatives</div>
+                <div class="topic-sheet-sub">Chapter 13: Functions of Several Variables — First-Order Partials, Geometric Interpretation &amp; Clairaut's Theorem</div>
             </div>
             <span class="topic-sheet-pcount">Practice Test Q</span>
         </button>
@@ -3106,8 +3176,8 @@ div.choice-btn {
         <button class="topic-sheet-item" data-vid="v9" onclick="switchTopic('v9'); closeTopicsModal();">
             <span class="topic-sheet-num">09</span>
             <div class="topic-sheet-meta">
-                <div class="topic-sheet-title">13.4 Differentials & Linear Approximations</div>
-                <div class="topic-sheet-sub">Syllabus 13.4 — Total Differential, Tangent Plane Approximations & Error Estimation</div>
+                <div class="topic-sheet-title">13.4 Differentials</div>
+                <div class="topic-sheet-sub">Chapter 13: Functions of Several Variables — Total Differential, Tangent Plane Approximations &amp; Error Propagation</div>
             </div>
             <span class="topic-sheet-pcount">Practice Test Q</span>
         </button>
@@ -3116,8 +3186,8 @@ div.choice-btn {
         <button class="topic-sheet-item" data-vid="v10" onclick="switchTopic('v10'); closeTopicsModal();">
             <span class="topic-sheet-num">10</span>
             <div class="topic-sheet-meta">
-                <div class="topic-sheet-title">13.5 The Multivariable Chain Rule</div>
-                <div class="topic-sheet-sub">Syllabus 13.5 — Tree Diagrams, Intermediate Variables & Implicit Differentiation Formula</div>
+                <div class="topic-sheet-title">13.5 Chain Rules for Functions of Several Variables</div>
+                <div class="topic-sheet-sub">Chapter 13: Functions of Several Variables — Chain Rule Tree Diagrams &amp; Implicit Differentiation</div>
             </div>
             <span class="topic-sheet-pcount">Practice Test Q</span>
         </button>
@@ -3126,8 +3196,8 @@ div.choice-btn {
         <button class="topic-sheet-item" data-vid="v11" onclick="switchTopic('v11'); closeTopicsModal();">
             <span class="topic-sheet-num">11</span>
             <div class="topic-sheet-meta">
-                <div class="topic-sheet-title">13.6 Directional Derivatives & Gradients</div>
-                <div class="topic-sheet-sub">Syllabus 13.6 — The Gradient Vector, Directional Derivative in Any Direction & Maximum Rate of Change</div>
+                <div class="topic-sheet-title">13.6 Directional Derivatives and Gradients</div>
+                <div class="topic-sheet-sub">Chapter 13: Functions of Several Variables — Gradient Vector, Directional Derivatives &amp; Maximum Rate of Change</div>
             </div>
             <span class="topic-sheet-pcount">Practice Test Q</span>
         </button>
@@ -3136,8 +3206,8 @@ div.choice-btn {
         <button class="topic-sheet-item" data-vid="v12" onclick="switchTopic('v12'); closeTopicsModal();">
             <span class="topic-sheet-num">12</span>
             <div class="topic-sheet-meta">
-                <div class="topic-sheet-title">13.7 Tangent Planes & Normal Lines to Surfaces</div>
-                <div class="topic-sheet-sub">Syllabus 13.7 — Gradient as Normal Vector, Tangent Plane Equations & Normal Lines to Level Surfaces</div>
+                <div class="topic-sheet-title">13.7 Tangent Planes and Normal Lines</div>
+                <div class="topic-sheet-sub">Chapter 13: Functions of Several Variables — Tangent Planes, Normal Lines &amp; Level Surfaces</div>
             </div>
             <span class="topic-sheet-pcount">Practice Test Q</span>
         </button>
@@ -5624,8 +5694,8 @@ div.choice-btn {
 <section class="topic-page-unit" id="page-v5" style="display: none;">
             <header class="page-header">
                 <div class="page-meta-badge">LECTURE NOTES &bull; TOPIC 05 OF 12</div>
-                <h1 class="page-title">12.6 Quadric Surfaces (Part 2 — Shifted, Parameters & Intersections)</h1>
-                <p class="page-desc">Syllabus 11.6 — Completing the Square, Parameter $k$ Classification, Plane Intersections, Radical Half-Surfaces & Inequalities</p>
+                <h1 class="page-title">11.6 Surfaces in Space (Shifted Quadrics &amp; Regions Part 2)</h1>
+                <p class="page-desc">Chapter 11: Vectors and the Geometry of Space — Completing the Square, Shifted Centers, Parameter $k$ Classification &amp; Inequalities</p>
                 
             <div class="teleport-strip">
                 <span class="teleport-label">Jump to idea:</span>
@@ -5658,7 +5728,7 @@ div.choice-btn {
 <div class="section-card concept-card" id="v5-sec-1">
 <div class="card-header concept-header"><span class="tag-pill tag-concept">Explanation</span> <h2 class="card-title">1. Shifted Quadric Surfaces & Completing the Square</h2></div>
 <div class="body-text">
-<p>In Part 1 of Section 12.6 (Syllabus 11.6), we studied standard quadric surfaces centered at the origin $(0,0,0)$.</p>
+<p>In Part 1 of Section 11.6, we studied standard quadric surfaces centered at the origin $(0,0,0)$.</p>
 <p>In general, a second-degree polynomial equation in three variables $x, y, z$ has the algebraic form:</p>
 $$Ax^2 + By^2 + Cz^2 + Dx + Ey + Fz + G = 0$$
 <p>When linear terms ($Dx, Ey, Fz$) are present alongside quadratic terms ($Ax^2, By^2, Cz^2$), the quadric surface is <strong>shifted (translated)</strong> so that its center or vertex is located at a shifted point $C(h, k, l)$ instead of $(0,0,0)$.</p>
@@ -8719,6 +8789,17 @@ $$u_{tt} = -c^2[\sin(x - ct) + \cos(x + ct)] = c^2 \cdot \left(-[\sin(x - ct) + 
                                 <span class="badge-section" id="simBadgeSection">Sec 13.1</span>
                                 <span class="badge-topic" id="simBadgeTopic">Level Curves</span>
                             </div>
+                            <div class="q-header-actions">
+                                <button class="btn-share" id="btnSimShare" onclick="shareSimActiveQuestion(this)" title="Copy question for AI chat" aria-label="Copy question for AI chat">
+                                    <svg class="icon-share" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="18" cy="5" r="3"></circle>
+                                        <circle cx="6" cy="12" r="3"></circle>
+                                        <circle cx="18" cy="19" r="3"></circle>
+                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
 
                         <div class="q-body-text" id="simQuestionBody"></div>
@@ -8869,13 +8950,13 @@ const SHORT_TITLES = [
     "1. 11.5 Lines",
     "2. 11.5 Planes",
     "3. 11.5 Distances",
-    "4. 11.6 Quadrics 1",
-    "5. 11.6 Quadrics 2",
+    "4. 11.6 Surfaces 1",
+    "5. 11.6 Surfaces 2",
     "6. 13.1 Functions",
-    "7. 13.2 Limits",
+    "7. 13.2 Limits & Cont.",
     "8. 13.3 Partials",
     "9. 13.4 Differentials",
-    "10. 13.5 Chain Rule",
+    "10. 13.5 Chain Rules",
     "11. 13.6 Gradients",
     "12. 13.7 Tangent Planes"
 ];
@@ -9831,15 +9912,15 @@ function initExamBank() {
            ======================================================== */
         const ALL_EXAM_TERMS = ["PT1", "PT2", "253", "252", "251", "243", "242", "241", "233", "232", "231", "223", "221"];
         const ALL_EXAM_SECTIONS = [
-            { sec: '11.5', ch: '11', title: '11.5 Lines & Planes' },
-            { sec: '11.6', ch: '11', title: '11.6 Quadric Surfaces' },
-            { sec: '13.1', ch: '13', title: '13.1 Level Curves' },
-            { sec: '13.2', ch: '13', title: '13.2 Limits & Cont.' },
-            { sec: '13.3', ch: '13', title: '13.3 Partials' },
+            { sec: '11.5', ch: '11', title: '11.5 Lines & Planes in Space' },
+            { sec: '11.6', ch: '11', title: '11.6 Surfaces in Space' },
+            { sec: '13.1', ch: '13', title: '13.1 Functions of Several Variables' },
+            { sec: '13.2', ch: '13', title: '13.2 Limits & Continuity' },
+            { sec: '13.3', ch: '13', title: '13.3 Partial Derivatives' },
             { sec: '13.4', ch: '13', title: '13.4 Differentials' },
-            { sec: '13.5', ch: '13', title: '13.5 Chain Rule' },
-            { sec: '13.6', ch: '13', title: '13.6 Gradients' },
-            { sec: '13.7', ch: '13', title: '13.7 Tangents' }
+            { sec: '13.5', ch: '13', title: '13.5 Chain Rules' },
+            { sec: '13.6', ch: '13', title: '13.6 Directional Derivs & Gradients' },
+            { sec: '13.7', ch: '13', title: '13.7 Tangent Planes & Normal Lines' }
         ];
 
         function saveFilterState() {
@@ -9910,8 +9991,8 @@ function initExamBank() {
         }
 
         const SECTION_GROUPS = [
-            { ch: '11', label: 'Chapter 11' },
-            { ch: '13', label: 'Chapter 13' }
+            { ch: '11', label: 'Ch 11: Vectors & Space' },
+            { ch: '13', label: 'Ch 13: Several Variables' }
         ];
         const TERM_GROUPS = [
             { key: 'PT',  label: 'Practice', terms: ['PT1', 'PT2'] },
@@ -10344,6 +10425,15 @@ function initExamBank() {
                             </div>
 
                             <div class="q-header-actions">
+                                <button class="btn-share" onclick="shareQuestion('${q.id}', this)" title="Copy question for AI chat" aria-label="Copy question for AI chat">
+                                    <svg class="icon-share" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="18" cy="5" r="3"></circle>
+                                        <circle cx="6" cy="12" r="3"></circle>
+                                        <circle cx="18" cy="19" r="3"></circle>
+                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                    </svg>
+                                </button>
                                 <button class="btn-retry" onclick="resetAndScrambleQuestion('${q.id}')" title="Reset attempt & scramble choices" aria-label="Reset attempt & scramble choices">
                                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <polyline points="23 4 23 10 17 10"></polyline>
@@ -10542,6 +10632,122 @@ function initExamBank() {
             if (acc) {
                 acc.classList.toggle('open');
             }
+        }
+
+        /* ========================================================
+           AI CHAT QUESTION SHARING & CLIPBOARD COPY
+           ======================================================== */
+        function copyTextToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                return navigator.clipboard.writeText(text).catch(function() {
+                    return fallbackCopyText(text);
+                });
+            }
+            return fallbackCopyText(text);
+        }
+
+        function fallbackCopyText(text) {
+            return new Promise(function(resolve, reject) {
+                try {
+                    const textArea = document.createElement('textarea');
+                    textArea.value = text;
+                    textArea.setAttribute('readonly', '');
+                    textArea.style.position = 'fixed';
+                    textArea.style.insetBlockStart = '0';
+                    textArea.style.insetInlineStart = '0';
+                    textArea.style.inlineSize = '2em';
+                    textArea.style.blockSize = '2em';
+                    textArea.style.padding = '0';
+                    textArea.style.border = 'none';
+                    textArea.style.outline = 'none';
+                    textArea.style.boxShadow = 'none';
+                    textArea.style.background = 'transparent';
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    if (textArea.setSelectionRange) {
+                        textArea.setSelectionRange(0, 99999);
+                    }
+                    const successful = document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    if (successful) {
+                        resolve();
+                    } else {
+                        reject(new Error('execCommand copy failed'));
+                    }
+                } catch (err) {
+                    reject(err);
+                }
+            });
+        }
+
+        const SHARE_ICON_SVG = '<svg class="icon-share" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>';
+        const CHECK_ICON_SVG = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+
+        function showShareToast(message) {
+            let toast = document.getElementById('shareToast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'shareToast';
+                toast.className = 'share-toast';
+                document.body.appendChild(toast);
+            }
+            toast.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>${message || 'Question copied for AI chat!'}</span>`;
+            toast.offsetHeight;
+            toast.classList.add('show');
+            clearTimeout(toast._timer);
+            toast._timer = setTimeout(function() {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        function shareQuestion(qid, btnEl) {
+            let q = (APP.questions || []).find(item => item.id === qid);
+            if (!q && APP.sim && APP.sim.questions) {
+                q = APP.sim.questions.find(item => item.id === qid);
+            }
+            if (!q) return;
+
+            const letters = ['a', 'b', 'c', 'd', 'e'];
+            const choicesFormatted = (q.choices || []).map((c, i) => {
+                const ltr = letters[i] || String.fromCharCode(97 + i);
+                const cleanC = (c || '').replace(/<br\s*[\/]?>/gi, ' ').replace(/<[^>]+>/g, '').trim();
+                return `(${ltr}) ${cleanC}`;
+            }).join('\n');
+
+            let cleanQ = (q.question || '').replace(/<br\s*[\/]?>/gi, '\n').replace(/<\/p>/gi, '\n\n').replace(/<[^>]+>/g, '').trim();
+
+            const formattedText = `[KFUPM MATH 201 — Term ${q.term || ''} • Q${q.number || ''} • Sec ${q.section || ''}: ${q.topic || ''}]\n\nQuestion:\n${cleanQ}\n\nChoices:\n${choicesFormatted}`;
+
+            copyTextToClipboard(formattedText).then(function() {
+                if (btnEl) {
+                    btnEl.classList.add('copied');
+                    btnEl.innerHTML = CHECK_ICON_SVG;
+                    clearTimeout(btnEl._shareTimer);
+                    btnEl._shareTimer = setTimeout(function() {
+                        btnEl.classList.remove('copied');
+                        btnEl.innerHTML = SHARE_ICON_SVG;
+                    }, 2000);
+                }
+                showShareToast("Question copied for AI chat!");
+            }).catch(function(err) {
+                console.error('Copy failed:', err);
+                if (btnEl) {
+                    btnEl.classList.add('copied');
+                    btnEl.innerHTML = CHECK_ICON_SVG;
+                    clearTimeout(btnEl._shareTimer);
+                    btnEl._shareTimer = setTimeout(function() {
+                        btnEl.classList.remove('copied');
+                        btnEl.innerHTML = SHARE_ICON_SVG;
+                    }, 2000);
+                }
+                showShareToast("Question copied for AI chat!");
+            });
+        }
+
+        function shareSimActiveQuestion(btnEl) {
+            const q = APP.sim && APP.sim.questions ? APP.sim.questions[APP.sim.currentIndex] : null;
+            if (q) shareQuestion(q.id, btnEl);
         }
 
         /* Bookmark Toggle */
@@ -10780,6 +10986,12 @@ function initExamBank() {
             document.getElementById('simBadgeSection').textContent = `Sec ${q.section}`;
             document.getElementById('simBadgeTopic').textContent = q.topic || '';
 
+            // Share button setup
+            const simShareBtn = document.getElementById('btnSimShare');
+            if (simShareBtn) {
+                simShareBtn.onclick = function() { shareQuestion(q.id, this); };
+            }
+
             // Flag state
             const isFlagged = APP.sim.flags.has(APP.sim.currentIndex);
             const flagBtn = document.getElementById('btnSimFlag');
@@ -10979,9 +11191,20 @@ function initExamBank() {
                                 <span class="badge-section">Sec ${q.section}</span>
                                 <span class="badge-topic">${q.topic || ''}</span>
                             </div>
-                            <span class="q-review-status ${isCorrect ? 'ok' : 'bad'}">
-                                ${isCorrect ? '✓ Correct' : (userAns ? `✗ Incorrect (You chose ${userAns})` : '○ Unanswered')}
-                            </span>
+                            <div class="q-header-actions">
+                                <button class="btn-share" onclick="shareQuestion('${q.id}', this)" title="Copy question for AI chat" aria-label="Copy question for AI chat">
+                                    <svg class="icon-share" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="18" cy="5" r="3"></circle>
+                                        <circle cx="6" cy="12" r="3"></circle>
+                                        <circle cx="18" cy="19" r="3"></circle>
+                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                    </svg>
+                                </button>
+                                <span class="q-review-status ${isCorrect ? 'ok' : 'bad'}">
+                                    ${isCorrect ? '✓ Correct' : (userAns ? `✗ Incorrect (You chose ${userAns})` : '○ Unanswered')}
+                                </span>
+                            </div>
                         </div>
 
                         <div class="q-body-text"><span class="q-num">${idx + 1}.</span><span class="q-stem">${paperMath(formatQuestionStem(q.question))}</span></div>
